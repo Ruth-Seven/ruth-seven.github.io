@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python基础-函数速记和基础内容 - Hexo</title><meta description="python特点 动态类型 简洁的语法（伪代码） 强大的扩展库和开源社区 解释性语言 快速开发 执行速度不如C，C++语言  值得看的部分：变量中对不可变和可变对象的讲述以及函数传递参数中对不同类型对象传递参数的处理差别。 什么是动态语言？要了解什么是动态语言，要首先了解“类型检查”。 类型检查是验证类型约束的过程，编译器或解释器通常在编译阶段或运行阶段做类型检查。 类型检查就是查看“变量"><meta property="og:type" content="blog"><meta property="og:title" content="Python基础-函数速记和基础内容"><meta property="og:url" content="http://yoursite.com/2020/08/07/Language/Python/Python%E5%9F%BA%E7%A1%80/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="python特点 动态类型 简洁的语法（伪代码） 强大的扩展库和开源社区 解释性语言 快速开发 执行速度不如C，C++语言  值得看的部分：变量中对不可变和可变对象的讲述以及函数传递参数中对不同类型对象传递参数的处理差别。 什么是动态语言？要了解什么是动态语言，要首先了解“类型检查”。 类型检查是验证类型约束的过程，编译器或解释器通常在编译阶段或运行阶段做类型检查。 类型检查就是查看“变量"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-07T05:11:04.000Z"><meta property="article:modified_time" content="2020-08-07T06:54:49.840Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/08/07/Language/Python/Python%E5%9F%BA%E7%A1%80/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-07T05:11:04.000Z","dateModified":"2020-08-07T06:54:49.840Z","author":{"@type":"Person","name":"John Doe"},"description":"python特点 动态类型 简洁的语法（伪代码） 强大的扩展库和开源社区 解释性语言 快速开发 执行速度不如C，C++语言  值得看的部分：变量中对不可变和可变对象的讲述以及函数传递参数中对不同类型对象传递参数的处理差别。 什么是动态语言？要了解什么是动态语言，要首先了解“类型检查”。 类型检查是验证类型约束的过程，编译器或解释器通常在编译阶段或运行阶段做类型检查。 类型检查就是查看“变量"}</script><link rel="canonical" href="http://yoursite.com/2020/08/07/Language/Python/Python%E5%9F%BA%E7%A1%80/"><link rel="icon" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="Python基础-函数速记和基础内容"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:11:04.000Z" title="2020-08-07T05:11:04.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Python/">Python</a></span><span class="level-item">36 minutes read (About 5398 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Python基础-函数速记和基础内容</h1><div class="content"><!-- mroe -->
+
+
+
+<h2 id="python特点"><a href="#python特点" class="headerlink" title="python特点"></a>python特点</h2><ul>
+<li>动态类型</li>
+<li>简洁的语法（伪代码）</li>
+<li>强大的扩展库和开源社区</li>
+<li>解释性语言</li>
+<li>快速开发</li>
+<li>执行速度不如C，C++语言</li>
+</ul>
+<p>值得看的部分：变量中对不可变和可变对象的讲述以及函数传递参数中对不同类型对象传递参数的处理差别。</p>
+<h4 id="什么是动态语言？"><a href="#什么是动态语言？" class="headerlink" title="什么是动态语言？"></a><strong>什么是动态语言？</strong></h4><p>要了解什么是动态语言，要首先了解“类型检查”。</p>
+<p>类型检查是验证类型约束的过程，编译器或解释器通常在编译阶段或运行阶段做类型检查。</p>
+<p>类型检查就是查看“变量”和它们的”类型”，然后判断表达式是否合理。例如，不能拿一个 string 类型变量除以浮点数变量。</p>
+<p>如果类型检查发生在程序运行阶段（run time），那么它便是“动态类型语言”（dynamically typed languages）。常见的动态语言包括：</p>
+<ul>
+<li>Python</li>
+<li>JavaScrpit</li>
+<li>PHP</li>
+</ul>
+<p>类型检查发生在“编译阶段”（compile time）的是“静态类型语言”（statically typed languages）。常见的静态类型语言包括：</p>
+<ul>
+<li>C</li>
+<li>C++</li>
+<li>Java</li>
+<li>C#</li>
+<li>Scala</li>
+</ul>
+<h4 id="什么是强类型语言？"><a href="#什么是强类型语言？" class="headerlink" title="什么是强类型语言？"></a><strong>什么是强类型语言？</strong></h4><p>强类型语言是指：不管是在编译阶段还是运行阶段，一旦某种类型绑定到变量后，此变量便会持有此类型，并且不能同其他类型在计算表达式时，混合使用。</p>
+<p>例如，在交互式工具 IPython 中输入如下两行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [1]: a &#x3D; 5</span><br><span class="line">In [2]: a &#x3D; a + &#39;s&#39;</span><br></pre></td></tr></table></figure>
+
+<p>程序会抛出 TypeError 异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</span><br></pre></td></tr></table></figure>
+
+<p>意思是不支持 int 变量和 str 变量相加。</p>
+<p>常见的强类型语言有：</p>
+<ul>
+<li>Python</li>
+<li>Java</li>
+<li>C#</li>
+<li>Scala</li>
+</ul>
+<p>与之对应的是弱类型语言，弱类型语言容易与其他类型混合计算。弱类型语言代表 JavaScript。</p>
+<p>支持如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data &#x3D; 5</span><br><span class="line">data &#x3D; data + &#39;xiaoming&#39; &#x2F;&#x2F;string 和 int 结合自动转化为 string</span><br></pre></td></tr></table></figure>
+
+<p>常见的弱类型语言有：</p>
+<ul>
+<li>C</li>
+<li>C++</li>
+<li>PHP</li>
+<li>Javascript</li>
+</ul>
+<p>如下，按照是否为静态/动态语言，弱类型/强类型两个维度，总结常用的语言分类。</p>
+<p><a href="http://static.come2rss.xyz/2020-02-05-080211.png"><img src="http://static.come2rss.xyz/2020-02-05-080211.png" alt="image-20200205155429583"></a></p>
+<p><a href="http://static.come2rss.xyz/2020-02-05-080211.png">image-20200205155429583</a></p>
+<h2 id="函数手册"><a href="#函数手册" class="headerlink" title="函数手册"></a>函数手册</h2><p><code>range(start, stop, step)</code>从start到stop-1每step个元素的元素迭代器。</p>
+<p><code>read(),readlines(),readline()</code>文件对象提供了三个“读”方法：</p>
+<p><code>.read()</code>每次读取整个文件，它通常用于将文件内容放到一个字符串变量中，但是需要考虑文件的大小。<code>.readline()</code>和 <code>.readlines()</code>非常相似。它们都在类似于以下的结构中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fh &#x3D; open( &#39;c:\\autoexec.bat&#39;)</span><br><span class="line">for line in fh.readlines():</span><br><span class="line">    print   line.readline(</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>.readlines()</code>之间的差异是后者一次读取整个文件，像<code>.read()</code>一样。<code>.readlines()</code>自动将文件内容分析成一个行的列表，该列表可以由 Python 的 <code>for... in ...</code>结构进行处理。另一方面，<code>.readline()</code>每次只读取一行，通常比 <code>.readlines()</code>慢得多。仅当没有足够内存可以一次读取整个文件时，才应该使用<code>.readline()</code>。</p>
+<p><code>writeline()</code>是输出后换行，下次写会在下一行写。<code>.write()</code>是输出后光标在行末不会换行，下次写会接着这行写</p>
+<p><code>zip(L1, L2, L3,[...Ln])</code> 可以把N个输入的相同位置捆绑起来合成一个list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; [1, 2, 3]</span><br><span class="line">y &#x3D; [4, 5, 6]</span><br><span class="line">z &#x3D; [7, 8, 9]</span><br><span class="line">xyz &#x3D; zip(x, y, z) # [(1, 4, 7), (2, 5, 8), (3, 6, 9)]</span><br><span class="line">nstr &#x3D; str.join(*ostr)</span><br></pre></td></tr></table></figure>
+
+<p>所有的ostr和str合并成一个新的字符串</p>
+<p><code>repr（）</code>将任何对象转换为一对python友好的字符串</p>
+<p><code>str()</code>将任何对象转换为一对python友好的字符串</p>
+<p><code>is(A,B)</code>判断对象相等</p>
+<h2 id="进阶语法"><a href="#进阶语法" class="headerlink" title="进阶语法"></a>进阶语法</h2><h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>生成list的三种方法：</p>
+<p>1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#以下三种方式等效</span><br><span class="line">L &#x3D; list（range(1,11)） ## 生成list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span><br><span class="line">for x in range(1, 11):</span><br><span class="line">	L.append(x * x)</span><br><span class="line">L &#x3D; [x * x for x in range(1, 11)]</span><br></pre></td></tr></table></figure>
+
+<p>列表生成式扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#加上if判断</span><br><span class="line"> [x * x for x in range(1, 11) if x % 2 &#x3D;&#x3D; 0]</span><br><span class="line"> [m + n for m in &#39;ABC&#39; for n in &#39;XYZ&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [d for d in os.listdir(&#39;.&#39;)] # os.listdir可以列出文件和目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a><strong>深浅拷贝</strong></h2><p>lst2 位于全局帧栈中，其中三个元素内存中的可视化图如下所示：</p>
+<p><a href="http://static.come2rss.xyz/2020-02-06-013522.png"><img src="http://static.come2rss.xyz/2020-02-06-013522.png" alt="1574820784839"></a></p>
+<p><a href="http://static.come2rss.xyz/2020-02-06-013522.png">1574820784839</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sku_deep &#x3D; lst2[2].copy()</span><br></pre></td></tr></table></figure>
+
+<p>注意，<strong>copy 函数，仅仅实现对内嵌对象的一层拷贝，属于 shallow copy。</strong></p>
+<p>此时可视化图为如下，因为拷贝 lst2[2]，所以 sku_deep 位于栈帧中指向一块新的内存空间：</p>
+<p><a href="http://static.come2rss.xyz/2020-02-06-13523.png"><img src="http://static.come2rss.xyz/2020-02-06-13523.png" alt="1574820818329"></a></p>
+<p><a href="http://static.come2rss.xyz/2020-02-06-13523.png">1574820818329</a></p>
+<p><strong>深拷贝，英文叫 deepcopy，</strong>又有什么不同？</p>
+<p>请看下面例子，a 是内嵌一层 list 的列表，对其浅拷贝生成列表 ac，修改 ac 的第三个元素，也就是列表 [3,4,5] 中的第二个元素为 40：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; [1,2,[3,4,5]]</span><br><span class="line">ac &#x3D; a.copy()</span><br><span class="line">ac[0] &#x3D; 10</span><br><span class="line">ac[2][1] &#x3D; 40</span><br></pre></td></tr></table></figure>
+
+<p>修改后，分别测试两个值的<strong>相等性</strong>。</p>
+<blockquote>
+<p>两个对象内存地址相同即相同</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a[0] &#x3D;&#x3D; ac[0])</span><br></pre></td></tr></table></figure>
+
+<p>返回 False，证明实现拷贝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a[2][1] &#x3D;&#x3D; ac[2][1])</span><br></pre></td></tr></table></figure>
+
+<p>返回 True，进一步证明是浅拷贝，不是深拷贝。</p>
+<p>如下图所示：copy 只完成了一层 copy，即 [1,2, id([3,4,5])] 复制一份，而复制后，仍然指向 [3,4,5] 所在的内存空间：</p>
+<p><a href="http://static.come2rss.xyz/87ba9090-6145-11ea-be13-9d4b32a4c9f6"><img src="http://static.come2rss.xyz/87ba9090-6145-11ea-be13-9d4b32a4c9f6" alt="img"></a></p>
+<p><a href="http://static.come2rss.xyz/87ba9090-6145-11ea-be13-9d4b32a4c9f6">img</a></p>
+<p>要想实现深度拷贝，需要使用 <strong>copy 模块的 deepcopy 函数：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from copy import deepcopy</span><br><span class="line"></span><br><span class="line">a &#x3D; [1,2,[3,4,5]]</span><br><span class="line">ac &#x3D; deepcopy(a)</span><br><span class="line">ac[0] &#x3D; 10</span><br><span class="line">ac[2][1] &#x3D; 40</span><br><span class="line">print(a[0] &#x3D;&#x3D; ac[0])</span><br><span class="line">print(a[2][1] &#x3D;&#x3D; ac[2][1])</span><br></pre></td></tr></table></figure>
+
+<p>打印结果，都为 False，结合下图，也能看出内嵌的 list 全部完成复制，都指向了不同的内存区域。</p>
+<p><a href="http://static.come2rss.xyz/9e25b350-6145-11ea-b4a5-257b69c74d67"><img src="http://static.come2rss.xyz/9e25b350-6145-11ea-b4a5-257b69c74d67" alt="img"></a></p>
+<p><a href="http://static.come2rss.xyz/9e25b350-6145-11ea-b4a5-257b69c74d67">img</a></p>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="标志符"><a href="#标志符" class="headerlink" title="标志符"></a>标志符</h2><p>在 Python 中，所有标识符可以包括英文、数字以及下划线(_)，但不能以数字开头。</p>
+<p>Python 中的标识符是区分大小写的。</p>
+<p>以<strong>下划线开头</strong>的标识符是有特殊意义的。以单下划线开头 <code>_foo</code> 的代表<strong>不能直接访问的类属性</strong>，需通过类提供的接口进行访问，不能用 <code>from xxx import *</code> 而导入。</p>
+<p>以双下划线开头的 <code>__foo</code> 代表类的<strong>私有成员</strong>，以双下划线开头和结尾的 <code>__foo__</code> 代表 Python 里<strong>特殊方法</strong>专用的标识，如 <code>__init__()</code> 代表类的构造函数。</p>
+<p>Python 可以同一行显示多条语句，方法是用分号 ; 分开。</p>
+<h2 id="行和缩进"><a href="#行和缩进" class="headerlink" title="行和缩进"></a>行和缩进</h2><p>学习 Python 与其他语言最大的区别就是，Python 的代码块不使用大括号 {} 来控制类，函数以及其他逻辑判断。python 最具特色的就是用缩进来写模块。</p>
+<p>缩进的空白数量是可变的，但是<strong>所有代码块语句必须包含相同的缩进空白数量</strong>，这个必须严格执行。</p>
+<p>建议你在每个缩进层次使用 <strong>单个制表符</strong> 或 <strong>两个空格</strong> 或 <strong>四个空格</strong> , 切记不能混用</p>
+<h2 id="多行语句"><a href="#多行语句" class="headerlink" title="多行语句"></a>多行语句</h2><p>Python语句中一般以新行作为语句的结束符。</p>
+<p>但是我们可以使用斜杠（ \）将一行的语句分为多行显示，如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total &#x3D; item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
+
+<p>语句中包含 [], {} 或 () 括号就不需要使用多行连接符。如下实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">days &#x3D; [&#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;,</span><br><span class="line">        &#39;Thursday&#39;, &#39;Friday&#39;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><p>Python 可以使用引号( <strong>‘</strong> )、双引号( <strong>“</strong> )、三引号( <strong>‘’’</strong> 或 <strong>“””</strong> ) 来表示字符串，引号的开始与结束必须的相同类型的。</p>
+<p>其中三引号可以由多行组成，编写多行文本的快捷语法，常用于文档字符串，在文件的特定地点，被当做注释。</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>python中单行注释采用 # 开头。</p>
+<p>python 中多行注释使用三个单引号(‘’’)或三个双引号(“””)。</p>
+<h2 id="if-else简洁表达"><a href="#if-else简洁表达" class="headerlink" title="if-else简洁表达"></a>if-else简洁表达</h2><p>求列表的最后一个元素，同样列表为空时，返回 None。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [20]: def tail(lst):</span><br><span class="line">    ...:     return lst[-1] if len(lst) &gt; 0 else None</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python空行"><a href="#Python空行" class="headerlink" title="Python空行"></a>Python空行</h2><p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。</p>
+<p>空行与代码缩进不同，空行并不是Python语法的一部分。书写时不插入空行，Python解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。</p>
+<p><strong>记住：空行也是程序代码的一部分。</strong></p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="不需要的输出值"><a href="#不需要的输出值" class="headerlink" title="不需要的输出值"></a>不需要的输出值</h2><p>在此记录一下：<code>parameters_values, _ = dictionary_to_vector(parameters)</code> 中的<code>_</code>表示函数中的多个输出的该个位置的数据不需要了。</p>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p>以下假设变量： <strong>a=10，b=20</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加 - 两个对象相加</td>
+<td>a + b 输出结果 30</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减 - 得到负数或是一个数减去另一个数</td>
+<td>a - b 输出结果 -10</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘 - 两个数相乘或是返回一个被重复若干次的字符串</td>
+<td>a * b 输出结果 200</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除 - x除以y</td>
+<td>b / a 输出结果 2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取模 - 返回除法的余数</td>
+<td>b % a 输出结果 0</td>
+</tr>
+<tr>
+<td>**</td>
+<td>幂 - 返回x的y次幂</td>
+<td>a**b 为10的20次方， 输出结果 100000000000000000000</td>
+</tr>
+<tr>
+<td>//</td>
+<td><strong>取整除</strong> - 返回商的整数部分（<strong>向下取整</strong>）</td>
+<td><code>&gt;&gt;&gt; 9//2 4 &gt;&gt;&gt; -9//2 -5</code></td>
+</tr>
+</tbody></table>
+<h2 id="Python比较运算符"><a href="#Python比较运算符" class="headerlink" title="Python比较运算符"></a>Python比较运算符</h2><p>以下假设变量a为10，变量b为20：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>==</td>
+<td>等于 - 比较对象是否相等</td>
+<td>(a == b) 返回 False。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于 - 比较两个对象是否不相等</td>
+<td>(a != b) 返回 true.</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于 - 比较两个对象是否不相等。python3 <strong>已废弃。</strong></td>
+<td>(a &lt;&gt; b) 返回 true。这个运算符类似 != 。</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于 - 返回x是否大于y</td>
+<td>(a &gt; b) 返回 False。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于 - 返回x是否小于y。所有比较运算符返回1表示真，返回0表示假。这分别与特殊的变量True和False等价。</td>
+<td>(a &lt; b) 返回 true。</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于 - 返回x是否大于等于y。</td>
+<td>(a &gt;= b) 返回 False。</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于 - 返回x是否小于等于y。</td>
+<td>(a &lt;= b) 返回 true。</td>
+</tr>
+</tbody></table>
+<h2 id="Python赋值运算符"><a href="#Python赋值运算符" class="headerlink" title="Python赋值运算符"></a>Python赋值运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>简单的赋值运算符</td>
+<td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>加法赋值运算符</td>
+<td>c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减法赋值运算符</td>
+<td>c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘法赋值运算符</td>
+<td>c *= a 等效于 c = c * a</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除法赋值运算符</td>
+<td>c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>取模赋值运算符</td>
+<td>c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td>**=</td>
+<td>幂赋值运算符</td>
+<td>c <strong>= a 等效于 c = c</strong> a</td>
+</tr>
+<tr>
+<td>//=</td>
+<td>取整除赋值运算符</td>
+<td>c //= a 等效于 c = c // a</td>
+</tr>
+</tbody></table>
+<h2 id="Python位运算符"><a href="#Python位运算符" class="headerlink" title="Python位运算符"></a>Python位运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
+<td>(a &amp; b) 输出结果 12 ，二进制解释： 0000 1100</td>
+</tr>
+<tr>
+<td>|</td>
+<td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1。</td>
+<td>(a | b) 输出结果 61 ，二进制解释： 0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
+<td>(a ^ b) 输出结果 49 ，二进制解释： 0011 0001</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1 。~x 类似于 -x-1</td>
+<td>(~a ) 输出结果 -61 ，二进制解释： 1100 0011，在一个有符号二进制数的补码形式。</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移动运算符：运算数的各二进位全部左移若干位，由 &lt;&lt; 右边的数字指定了移动的位数，高位丢弃，低位补0。</td>
+<td>a &lt;&lt; 2 输出结果 240 ，二进制解释： 1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移动运算符：把”&gt;&gt;”左边的运算数的各二进位全部右移若干位，&gt;&gt; 右边的数字指定了移动的位数</td>
+<td>a &gt;&gt; 2 输出结果 15 ，二进制解释： 0000 1111</td>
+</tr>
+</tbody></table>
+<h2 id="Python逻辑运算符"><a href="#Python逻辑运算符" class="headerlink" title="Python逻辑运算符"></a>Python逻辑运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>逻辑表达式</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and</td>
+<td>x and y</td>
+<td>布尔”与” - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值。</td>
+<td>(a and b) 返回 20。</td>
+</tr>
+<tr>
+<td>or</td>
+<td>x or y</td>
+<td>布尔”或” - 如果 x 是非 0，它返回 x 的值，否则它返回 y 的计算值。</td>
+<td>(a or b) 返回 10。</td>
+</tr>
+<tr>
+<td>not</td>
+<td>not x</td>
+<td>布尔”非” - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+<td>not(a and b) 返回 False</td>
+</tr>
+</tbody></table>
+<h2 id="Python成员运算符"><a href="#Python成员运算符" class="headerlink" title="Python成员运算符"></a>Python成员运算符</h2><p>Python还支持成员运算符，</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>in</td>
+<td>如果在指定的序列中找到值返回 True，否则返回 False。</td>
+<td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True。</td>
+</tr>
+<tr>
+<td>not in</td>
+<td>如果在指定的序列中没有找到值返回 True，否则返回 False。</td>
+<td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True。</td>
+</tr>
+</tbody></table>
+<h2 id="Python身份运算符（很有意思）"><a href="#Python身份运算符（很有意思）" class="headerlink" title="Python身份运算符（很有意思）"></a>Python身份运算符（很有意思）</h2><p>身份运算符用于比较两个对象的<strong>存储单元</strong></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>is</td>
+<td>is 是判断两个标识符是不是<strong>引用自一个对象</strong></td>
+<td><strong>x is y</strong>, 类似 <strong>id(x) == id(y)</strong> , 如果引用的是同一个对象则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td>is not</td>
+<td>is not 是判断两个标识符是不是引用自不同对象</td>
+<td><strong>x is not y</strong> ， 类似 **id(a) != id(b)**。如果引用的不是同一个对象则返回结果 True，否则返回 False。</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong> <strong><a href="https://www.runoob.com/python/python-func-id.html">id()</a> 函数</strong>用于获取<strong>对象内存地址</strong>。</p>
+<blockquote>
+<p>is 与 == 区别：</p>
+<p>is 用于判断两个变量引用对象是否为**同一个(同一块内存空间)**， == 用于判断引用变量的值是否相等。</p>
+<p>值得注意的是<code>b = a[:] #截取一个新的list</code>属于创建了一个新的内存空间的情况.</p>
+</blockquote>
+<h2 id="Python运算符优先级"><a href="#Python运算符优先级" class="headerlink" title="Python运算符优先级"></a>Python运算符优先级</h2><p>以下表格列出了从最高到最低优先级的所有运算符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>**</td>
+<td>指数 (最高优先级)</td>
+</tr>
+<tr>
+<td>~ + -</td>
+<td>按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)</td>
+</tr>
+<tr>
+<td>* / % //</td>
+<td>乘，除，取模和取整除</td>
+</tr>
+<tr>
+<td>+ -</td>
+<td>加法减法</td>
+</tr>
+<tr>
+<td>&gt;&gt; &lt;&lt;</td>
+<td>右移，左移运算符</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>位 ‘AND’</td>
+</tr>
+<tr>
+<td>^ |</td>
+<td>位运算符</td>
+</tr>
+<tr>
+<td>&lt;= &lt; &gt; &gt;=</td>
+<td>比较运算符</td>
+</tr>
+<tr>
+<td>&lt;&gt; == !=</td>
+<td>等于运算符</td>
+</tr>
+<tr>
+<td>= %= /= //= -= += *= **=</td>
+<td>赋值运算符</td>
+</tr>
+<tr>
+<td>is is not</td>
+<td>身份运算符</td>
+</tr>
+<tr>
+<td>in not in</td>
+<td>成员运算符</td>
+</tr>
+<tr>
+<td>not and or</td>
+<td>逻辑运算符</td>
+</tr>
+</tbody></table>
+<h2 id="Python-pass-语句"><a href="#Python-pass-语句" class="headerlink" title="Python pass 语句"></a>Python pass 语句</h2><p>Python pass 是空语句，是为了保持程序结构的完整性。</p>
+<p><strong>pass</strong> 不做任何事情，一般用做占位语句。因为如果定义<strong>一个空函数程序</strong>会报错，当你没有想好函数的内容是可以用 pass 填充，使程序可以正常运行。</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h2><p>你可以定义一个由自己想要功能的函数，以下是简单的规则：</p>
+<ul>
+<li>函数代码块以 <strong>def</strong> 关键词开头，后接函数标识符名称和圆括号**()**。</li>
+<li>任何传入参数和自变量必须放在圆括号中间。圆括号之间可以用于定义参数。</li>
+<li>函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。</li>
+<li>函数内容以冒号起始，并且缩进。</li>
+<li><strong>return [表达式]</strong> 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。</li>
+</ul>
+<p><strong>参数传递(写的太好了)</strong></p>
+<p>在 python 中，<strong>类型属于对象，变量是没有类型的：</strong></p>
+<p>a=[1,2,3] a=”Runoob”</p>
+<p>以上代码中，**[1,2,3]** 是 List 类型，<strong>“Runoob”</strong> 是 String 类型，而变量 a 是没有类型，她仅仅是一个对象<strong>的引用</strong>（一个指针），可以是 List 类型对象，也可以指向 String 类型对象。</p>
+<h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def is_rotation(s1: str, s2: str) -&gt; bool:#将参数和返回值的类型注明，增强了可读性和可维护性</span><br><span class="line">    if s1 is None or s2 is None:</span><br><span class="line">        return False</span><br><span class="line">    if len(s1) !&#x3D; len(s2):</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    def is_substring(s1: str, s2: str) -&gt; bool:</span><br><span class="line">        return s1 in s2</span><br><span class="line">    return is_substring(s1, s2 + s2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="可更改-mutable-与不可更改-immutable-对象"><a href="#可更改-mutable-与不可更改-immutable-对象" class="headerlink" title="可更改(mutable)与不可更改(immutable)对象"></a>可更改(mutable)与不可更改(immutable)对象</h2><p>在 python 中，<code>strings</code>,<code>tuples</code>,和 <code>numbers</code> 是不可更改的对象，而 <code>list</code>,<code>dic</code>等则是可以修改的对象。</p>
+<ul>
+<li><strong>不可变类型：</strong>变量赋值 <strong>a=5</strong> 后再赋值 <strong>a=10</strong>，这里实际是<strong>新生成一个 int 值对</strong>象 10，再让 a 指向它，而 5 被丢弃，不是改变a的值，相当于新生成了a。</li>
+<li><strong>可变类型：</strong>变量赋值 <strong>la=[1,2,3,4]</strong> 后再赋值 <strong>la[2]=5</strong> 则是将 list la 的第三个元素值更改，本身la没有动，只是其内部的一部分值被修改了。</li>
+</ul>
+<p><strong>python 函数的参数传递：</strong></p>
+<ul>
+<li><strong>不可变类型：</strong> <strong>类似 c++ 的值传递</strong>，如 整数、字符串、元组。如fun（a），传递的只是a的值，没有影响a对象本身。比如在 fun（a）内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身。</li>
+<li><strong>可变类型：</strong> <strong>类似 c++ 的引用传递</strong>，如 列表，字典。如 fun（la），则是将 <strong>la 真正的传过去，修改后fun外部的la也会受影响</strong></li>
+</ul>
+<p>python 中<strong>一切都是对象</strong>，严格意义我们不能说值传递还是引用传递，我们应该说传不可变对象和传可变对象。</p>
+<p><strong>Python传不可变对象的实例</strong></p>
+<p>1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def ChangeInt( a ):</span><br><span class="line">	 a &#x3D; 10</span><br><span class="line">b &#x3D; 2</span><br><span class="line">ChangeInt(b)</span><br><span class="line">print b # 结果是 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Python传可变对象的实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def changeme( mylist ):</span><br><span class="line">	mylist.append([1,2,3,4])</span><br><span class="line">    print &quot;函数内取值: &quot;, mylist</span><br><span class="line">mylist &#x3D; [10,20,30]</span><br><span class="line">changeme( mylist )</span><br><span class="line">print &quot;函数外取值: &quot;, mylist</span><br></pre></td></tr></table></figure>
+
+<p>实例中传入函数的和在末尾添加新内容的对象用的是同一个引用，故输出结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数内取值:  [10, 20, 30, [1, 2, 3, 4]]</span><br><span class="line">函数外取值:  [10, 20, 30, [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>以下是调用函数时可使用的正式参数类型：</p>
+<ul>
+<li>必备参数</li>
+<li>关键字参数</li>
+<li>默认参数</li>
+<li>不定长参数</li>
+</ul>
+<h3 id="必备参数"><a href="#必备参数" class="headerlink" title="必备参数"></a>必备参数</h3><p>必备参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def printme( str ):</span><br></pre></td></tr></table></figure>
+
+<h3 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h3><p>关键字参数和函数调用关系紧密，函数调用使用关键字参数来确定传入的参数值。</p>
+<p>使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def printinfo( name, age ):</span><br><span class="line">	pass</span><br><span class="line">printinfo( age&#x3D;50, name&#x3D;&quot;miki&quot; )</span><br></pre></td></tr></table></figure>
+
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>调用函数时，默认参数的值如果没有传入，则被认为是默认值。下例会打印默认的age，如果age没有被传入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def printinfo( name, age &#x3D; 35 ):</span><br></pre></td></tr></table></figure>
+
+<h3 id="不定长参数"><a href="#不定长参数" class="headerlink" title="不定长参数"></a>不定长参数</h3><p>你可能需要一个函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，和上述2种参数不同，声明时不会命名。基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def functionname([formal_args,] *var_args_tuple ):</span><br><span class="line">	for var in vartuple:</span><br><span class="line">	      print var</span><br></pre></td></tr></table></figure>
+
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>python 使用 lambda 来创建匿名函数。</p>
+<ul>
+<li>lambda只是一个表达式，函数体比def简单很多。</li>
+<li>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。</li>
+<li>lambda函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数。</li>
+<li>虽然lambda函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。</li>
+</ul>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>lambda函数的语法只包含一个语句，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lambda [arg1 [,arg2,.....argn]]:expression</span><br><span class="line">#比如</span><br><span class="line">sum &#x3D; lambda arg1, arg2: arg1 + arg2</span><br><span class="line">print &quot;相加后的值为 : &quot;, sum( 10, 20 )</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>一个程序的所有的变量并不是在哪个位置都可以访问的。访问权限决定于这个变量是在哪里赋值的。</p>
+<p>变量的作用域决定了在哪一部分程序你可以访问哪个特定的变量名称。两种最基本的变量作用域如下：</p>
+<ul>
+<li>全局变量</li>
+<li>局部变量</li>
+</ul>
+<h2 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h2><p>定义在函数内部的变量拥有一个局部作用域，定义在函数外的拥有全局作用域。</p>
+<p>局部变量只能在其被声明的函数内部访问，而全局变量可以在整个程序范围内访问。调用函数时，<strong>所有在函数内声明的变量名称都将被加入到作用域</strong>中。</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/07/Language/Python/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-import%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">python基础学习笔记-import和命名空间</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/08/07/Language/Python/PIL%E7%AC%94%E8%AE%B0/"><span class="level-item">PIL笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: 'ffe11c6e5ef059d08d6d029fb856d314',
+            repo: 'Some-of-Your-GitHub-Repo',
+            owner: '2019-nNewG+C',
+            clientID: '68309e2465123e9ed5fb',
+            clientSecret: '1a622945bd15a7219dd02e477cb2b6b8f2a40697',
+            admin: ["2019-nNewG+C"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: 'last',
+            
+            
+            enableHotKey: true
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Ove"></figure><p class="title is-size-4 is-block line-height-inherit">Ove</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>宁波</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">90</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">28</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="is-flex" href="#python特点"><span class="mr-2">1.1</span><span>python特点</span></a><ul class="menu-list"><li><a class="is-flex" href="#什么是强类型语言？"><span class="mr-2">1.1.1</span><span>什么是强类型语言？</span></a></li></ul></li><li><a class="is-flex" href="#函数手册"><span class="mr-2">1.2</span><span>函数手册</span></a></li><li><a class="is-flex" href="#进阶语法"><span class="mr-2">1.3</span><span>进阶语法</span></a></li><li><a class="is-flex" href="#列表生成式"><span class="mr-2">1.4</span><span>列表生成式</span></a></li><li><a class="is-flex" href="#深浅拷贝"><span class="mr-2">1.5</span><span>深浅拷贝</span></a></li></ul><li><a class="is-flex" href="#基础语法"><span class="mr-2">2</span><span>基础语法</span></a><ul class="menu-list"><li><a class="is-flex" href="#标志符"><span class="mr-2">2.1</span><span>标志符</span></a></li><li><a class="is-flex" href="#行和缩进"><span class="mr-2">2.2</span><span>行和缩进</span></a></li><li><a class="is-flex" href="#多行语句"><span class="mr-2">2.3</span><span>多行语句</span></a></li><li><a class="is-flex" href="#引号"><span class="mr-2">2.4</span><span>引号</span></a></li><li><a class="is-flex" href="#注释"><span class="mr-2">2.5</span><span>注释</span></a></li><li><a class="is-flex" href="#if-else简洁表达"><span class="mr-2">2.6</span><span>if-else简洁表达</span></a></li><li><a class="is-flex" href="#Python空行"><span class="mr-2">2.7</span><span>Python空行</span></a></li></ul></li><li><a class="is-flex" href="#运算符"><span class="mr-2">3</span><span>运算符</span></a><ul class="menu-list"><li><a class="is-flex" href="#不需要的输出值"><span class="mr-2">3.1</span><span>不需要的输出值</span></a></li><li><a class="is-flex" href="#算术运算符"><span class="mr-2">3.2</span><span>算术运算符</span></a></li><li><a class="is-flex" href="#Python比较运算符"><span class="mr-2">3.3</span><span>Python比较运算符</span></a></li><li><a class="is-flex" href="#Python赋值运算符"><span class="mr-2">3.4</span><span>Python赋值运算符</span></a></li><li><a class="is-flex" href="#Python位运算符"><span class="mr-2">3.5</span><span>Python位运算符</span></a></li><li><a class="is-flex" href="#Python逻辑运算符"><span class="mr-2">3.6</span><span>Python逻辑运算符</span></a></li><li><a class="is-flex" href="#Python成员运算符"><span class="mr-2">3.7</span><span>Python成员运算符</span></a></li><li><a class="is-flex" href="#Python身份运算符（很有意思）"><span class="mr-2">3.8</span><span>Python身份运算符（很有意思）</span></a></li><li><a class="is-flex" href="#Python运算符优先级"><span class="mr-2">3.9</span><span>Python运算符优先级</span></a></li><li><a class="is-flex" href="#Python-pass-语句"><span class="mr-2">3.10</span><span>Python pass 语句</span></a></li></ul></li><li><a class="is-flex" href="#函数"><span class="mr-2">4</span><span>函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#定义一个函数"><span class="mr-2">4.1</span><span>定义一个函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#函数注释"><span class="mr-2">4.1.1</span><span>函数注释</span></a></li></ul></li><li><a class="is-flex" href="#可更改-mutable-与不可更改-immutable-对象"><span class="mr-2">4.2</span><span>可更改(mutable)与不可更改(immutable)对象</span></a></li><li><a class="is-flex" href="#参数"><span class="mr-2">4.3</span><span>参数</span></a><ul class="menu-list"><li><a class="is-flex" href="#必备参数"><span class="mr-2">4.3.1</span><span>必备参数</span></a></li><li><a class="is-flex" href="#关键字参数"><span class="mr-2">4.3.2</span><span>关键字参数</span></a></li><li><a class="is-flex" href="#默认参数"><span class="mr-2">4.3.3</span><span>默认参数</span></a></li><li><a class="is-flex" href="#不定长参数"><span class="mr-2">4.3.4</span><span>不定长参数</span></a></li></ul></li><li><a class="is-flex" href="#匿名函数"><span class="mr-2">4.4</span><span>匿名函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#语法"><span class="mr-2">4.4.1</span><span>语法</span></a></li></ul></li><li><a class="is-flex" href="#变量作用域"><span class="mr-2">4.5</span><span>变量作用域</span></a></li><li><a class="is-flex" href="#全局变量和局部变量"><span class="mr-2">4.6</span><span>全局变量和局部变量</span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/15-3sum/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="15 3sum"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:15:37.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/15-3sum/">15 3sum</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1190-Reverse-Substrings-Between-Each-Pair-of-Parentheses/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="1190. Reverse Substrings Between Each Pair of Parentheses"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:14:44.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1190-Reverse-Substrings-Between-Each-Pair-of-Parentheses/">1190. Reverse Substrings Between Each Pair of Parentheses</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/%E9%9D%A2%E8%AF%95%E9%A2%98-DP-%E8%B4%AA%E5%BF%83/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="面试题 DP 贪心"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:14:08.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/%E9%9D%A2%E8%AF%95%E9%A2%98-DP-%E8%B4%AA%E5%BF%83/">面试题 DP 贪心</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/">剑指offer</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/786-%E7%AC%AC-K-%E4%B8%AA%E6%9C%80%E5%B0%8F%E7%9A%84%E7%B4%A0%E6%95%B0%E5%88%86%E6%95%B0/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="786. 第 K 个最小的素数分数"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:13:32.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/786-%E7%AC%AC-K-%E4%B8%AA%E6%9C%80%E5%B0%8F%E7%9A%84%E7%B4%A0%E6%95%B0%E5%88%86%E6%95%B0/">786. 第 K 个最小的素数分数</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1025-%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="1025 除数博弈"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:13:01.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1025-%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/">1025 除数博弈</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">90</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="is-flex" href="#python特点"><span class="mr-2">1.1</span><span>python特点</span></a><ul class="menu-list"><li><a class="is-flex" href="#什么是强类型语言？"><span class="mr-2">1.1.1</span><span>什么是强类型语言？</span></a></li></ul></li><li><a class="is-flex" href="#函数手册"><span class="mr-2">1.2</span><span>函数手册</span></a></li><li><a class="is-flex" href="#进阶语法"><span class="mr-2">1.3</span><span>进阶语法</span></a></li><li><a class="is-flex" href="#列表生成式"><span class="mr-2">1.4</span><span>列表生成式</span></a></li><li><a class="is-flex" href="#深浅拷贝"><span class="mr-2">1.5</span><span>深浅拷贝</span></a></li></ul><li><a class="is-flex" href="#基础语法"><span class="mr-2">2</span><span>基础语法</span></a><ul class="menu-list"><li><a class="is-flex" href="#标志符"><span class="mr-2">2.1</span><span>标志符</span></a></li><li><a class="is-flex" href="#行和缩进"><span class="mr-2">2.2</span><span>行和缩进</span></a></li><li><a class="is-flex" href="#多行语句"><span class="mr-2">2.3</span><span>多行语句</span></a></li><li><a class="is-flex" href="#引号"><span class="mr-2">2.4</span><span>引号</span></a></li><li><a class="is-flex" href="#注释"><span class="mr-2">2.5</span><span>注释</span></a></li><li><a class="is-flex" href="#if-else简洁表达"><span class="mr-2">2.6</span><span>if-else简洁表达</span></a></li><li><a class="is-flex" href="#Python空行"><span class="mr-2">2.7</span><span>Python空行</span></a></li></ul></li><li><a class="is-flex" href="#运算符"><span class="mr-2">3</span><span>运算符</span></a><ul class="menu-list"><li><a class="is-flex" href="#不需要的输出值"><span class="mr-2">3.1</span><span>不需要的输出值</span></a></li><li><a class="is-flex" href="#算术运算符"><span class="mr-2">3.2</span><span>算术运算符</span></a></li><li><a class="is-flex" href="#Python比较运算符"><span class="mr-2">3.3</span><span>Python比较运算符</span></a></li><li><a class="is-flex" href="#Python赋值运算符"><span class="mr-2">3.4</span><span>Python赋值运算符</span></a></li><li><a class="is-flex" href="#Python位运算符"><span class="mr-2">3.5</span><span>Python位运算符</span></a></li><li><a class="is-flex" href="#Python逻辑运算符"><span class="mr-2">3.6</span><span>Python逻辑运算符</span></a></li><li><a class="is-flex" href="#Python成员运算符"><span class="mr-2">3.7</span><span>Python成员运算符</span></a></li><li><a class="is-flex" href="#Python身份运算符（很有意思）"><span class="mr-2">3.8</span><span>Python身份运算符（很有意思）</span></a></li><li><a class="is-flex" href="#Python运算符优先级"><span class="mr-2">3.9</span><span>Python运算符优先级</span></a></li><li><a class="is-flex" href="#Python-pass-语句"><span class="mr-2">3.10</span><span>Python pass 语句</span></a></li></ul></li><li><a class="is-flex" href="#函数"><span class="mr-2">4</span><span>函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#定义一个函数"><span class="mr-2">4.1</span><span>定义一个函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#函数注释"><span class="mr-2">4.1.1</span><span>函数注释</span></a></li></ul></li><li><a class="is-flex" href="#可更改-mutable-与不可更改-immutable-对象"><span class="mr-2">4.2</span><span>可更改(mutable)与不可更改(immutable)对象</span></a></li><li><a class="is-flex" href="#参数"><span class="mr-2">4.3</span><span>参数</span></a><ul class="menu-list"><li><a class="is-flex" href="#必备参数"><span class="mr-2">4.3.1</span><span>必备参数</span></a></li><li><a class="is-flex" href="#关键字参数"><span class="mr-2">4.3.2</span><span>关键字参数</span></a></li><li><a class="is-flex" href="#默认参数"><span class="mr-2">4.3.3</span><span>默认参数</span></a></li><li><a class="is-flex" href="#不定长参数"><span class="mr-2">4.3.4</span><span>不定长参数</span></a></li></ul></li><li><a class="is-flex" href="#匿名函数"><span class="mr-2">4.4</span><span>匿名函数</span></a><ul class="menu-list"><li><a class="is-flex" href="#语法"><span class="mr-2">4.4.1</span><span>语法</span></a></li></ul></li><li><a class="is-flex" href="#变量作用域"><span class="mr-2">4.5</span><span>变量作用域</span></a></li><li><a class="is-flex" href="#全局变量和局部变量"><span class="mr-2">4.6</span><span>全局变量和局部变量</span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Jupyter/"><span class="level-start"><span class="level-item">Jupyter</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Matlab/"><span class="level-start"><span class="level-item">Matlab</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Pycharm/"><span class="level-start"><span class="level-item">Pycharm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/"><span class="level-start"><span class="level-item">LeetCode</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/PAT/"><span class="level-start"><span class="level-item">PAT</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"><span class="level-start"><span class="level-item">剑指offer</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li></ul></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="size-small"><span>&copy; 2020 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

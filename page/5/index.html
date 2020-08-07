@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo</title><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://yoursite.com/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com"},"headline":"Hexo","image":["http://yoursite.com/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"description":""}</script><link rel="icon" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/Python/Numpy%E7%AC%94%E8%AE%B0/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="Numpy笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:08:45.000Z" title="2020-08-07T05:08:45.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Python/">Python</a></span><span class="level-item">11 minutes read (About 1583 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/Python/Numpy%E7%AC%94%E8%AE%B0/">Numpy笔记</a></h1><div class="content"><!-- mroe -->
+
+
+
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h2 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h2><p>常常用于指定函数的计算方式，如sum(x,axis=0)会得到一个row array,而不是按行计算的column array。</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125336529.png"><img src="http://static.come2rss.xyz/image-20200503125336529.png" alt="image-20200503125336529"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125336529.png">image-20200503125336529</a></p>
+<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>首先</p>
+<table>
+<thead>
+<tr>
+<th align="left">矩阵乘法</th>
+<th align="left">符号</th>
+<th align="left">说明</th>
+<th align="left">Np</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>matmul</code></td>
+<td align="left">.</td>
+<td align="left">矩阵乘法</td>
+<td align="left">np.dot(M1,M2)</td>
+</tr>
+<tr>
+<td align="left"><code>Hadamard product</code></td>
+<td align="left">⊙⊙</td>
+<td align="left">element-wise乘法，逐元素对应相乘</td>
+<td align="left">np.multiply(M1,M2)或者M1*M2</td>
+</tr>
+<tr>
+<td align="left"><code>Kronecker product</code></td>
+<td align="left">⊗⊗</td>
+<td align="left">任意形状矩阵相乘</td>
+<td align="left">?</td>
+</tr>
+</tbody></table>
+<p>不太明朗的第三个乘法举例：</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125443492.png"><img src="http://static.come2rss.xyz/image-20200503125443492.png" alt="image-20200503125443492"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125443492.png">image-20200503125443492</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">向量乘法</th>
+<th align="left">符号</th>
+<th align="left">说明</th>
+<th align="left">Np</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>Inner Product</code>,<code>dot product</code></td>
+<td align="left">..</td>
+<td align="left">运算结果为标量(A scalar)</td>
+<td align="left">np.dot(L1,L2)</td>
+</tr>
+<tr>
+<td align="left"><code>outer product</code></td>
+<td align="left">⊗⊗</td>
+<td align="left">结果是矩阵</td>
+<td align="left">np.outer(a1,a2)或者</td>
+</tr>
+<tr>
+<td align="left"><code>cross product</code></td>
+<td align="left">××</td>
+<td align="left">结果是向量</td>
+<td align="left">?</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>上两表中‘Li’表示<strong>列表</strong>，‘Mi’表示矩阵，‘Ai’表示向量Array</p>
+<p>上表中 <code>np.multiple</code>以及<code>np.outer</code>都可以接受矩阵（nArray）、向量（nArray)以及列表（LIST），唯有<code>np.dot</code>在接受nArray是表现为矩阵乘法，在接受LIST表现为向量内积。</p>
+</blockquote>
+<p><code>dot product</code>，即点积或者内积。</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125432138.png"><img src="http://static.come2rss.xyz/image-20200503125432138.png" alt="image-20200503125432138"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125432138.png">image-20200503125432138</a></p>
+<p>点乘的几何意义：点乘可以用来计算两个向量的夹角</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125425021.png"><img src="http://static.come2rss.xyz/image-20200503125425021.png" alt="image-20200503125425021"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125425021.png">image-20200503125425021</a></p>
+<p><code>Outer production</code>或``，即外积，在线性代数中一般指两个向量的张量积，结果为一个矩阵。可调用<code>np.outer(x1,x2)</code>。例子如下：</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125416187.png"><img src="http://static.come2rss.xyz/image-20200503125416187.png" alt="image-20200503125416187"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125416187.png">image-20200503125416187</a></p>
+<p>向量叉积(<code>Cross product</code>)：叉乘的结果是一个<strong>向量</strong>，使用符号 [<img src="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg" alt="[公式]](http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg)"></p>
+<p>[<a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg">公式]</a></p>
+<p>，举例</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125406301.png"><img src="http://static.come2rss.xyz/image-20200503125406301.png" alt="image-20200503125406301"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125406301.png">image-20200503125406301</a></p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>对于一个多维Array,使用单一的数组索引会产生一定意义上的语义模糊。如果索引单个元素，就要写上所有维度的索引。比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c &#x3D; np.zeors((1,3))</span><br><span class="line">print(c[0,1]) #两个维度</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.exp()</span><br></pre></td></tr></table></figure>
+
+<p><code>np.square()</code> return the element-wise square of the input.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.sum(a, axis&#x3D;None, dtype&#x3D;None, out&#x3D;None, keepdims&#x3D;&lt;no value&gt;, initial&#x3D;&lt;no value&gt;, where&#x3D;&lt;no value&gt;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>axis</strong> : None or int or tuple of ints, optional</p>
+<p><strong>Axis or axes along which a sum is performed</strong>. The default, <strong>axis=None</strong>, will sum all of the elements of the input array. If axis is negative it counts from the last to the first axis.</p>
+<p>If axis is a tuple of ints, a sum is performed on all of the axes specified in the tuple instead of a single axis or all the axes as before.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(a,n）&#96;(‘np.’以下全省略）</span><br><span class="line">&#96;.array(LIST)&#96; 新建一个numpy array。</span><br><span class="line">&#96;.exp()</span><br><span class="line">.reshape()&#96; 类似&#96;array.reshape</span><br></pre></td></tr></table></figure>
+
+<p><code>.dot(X1,X2)</code> 矩阵乘法</p>
+<p><code>.zeros(shape, dtype=float, order=&#39;C&#39;)</code> Return a new array of given shape and type, filled with zeros.</p>
+<blockquote>
+<p>shape: int or tuple of ints</p>
+<p> Shape of the new array, e.g., <code>(2, 3)</code> or <code>2</code></p>
+</blockquote>
+<p><code>.squeeze()</code> Remove single-dimensional（单维度条目，即shape=1的条目） entries from the shape of an array.</p>
+<p><a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png"><img src="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png" alt="image-20200212162003524"></a></p>
+<p><a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png">image-20200212162003524</a></p>
+<p><code>.divide(x1,x2）</code> returna true division of the input, elelment-wise.</p>
+<p><code>.copy(a, order=&#39;K&#39;)</code> Return an array copy of the given object.(真复制)</p>
+<p><code>.linspace(start,stop,num=50)</code> Return evenly spaced numbers over a specified interval. <code>num</code> 表示产生的列表的数字个数。</p>
+<p><code>np.random.shuffle(x)</code>, 把x本身shuffle一下，注意不返回值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.savetxt(&#39;new.csv&#39;, my_matrix, delimiter &#x3D; &#39;,&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>将数组或者矩阵存储为csv文件</p>
+<h1 id="Array用法"><a href="#Array用法" class="headerlink" title="Array用法"></a>Array用法</h1><p><code>Array.reshap()</code>（以下省略<code>array</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.reshape()</span><br></pre></td></tr></table></figure>
+
+<p><code>.shape[i]</code> 访问shape元祖中的第i个数。</p>
+<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><p><strong>np.array(list/tuple)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.ndarray()</span><br></pre></td></tr></table></figure>
+
+<p><code>shape</code>：数组的形状。</p>
+<p><code>dtype</code>：数据类型。</p>
+<p><code>buffer</code>：对象暴露缓冲区接口。</p>
+<p><code>offset</code>：数组数据的偏移量。</p>
+<p><code>strides</code>：数据步长。</p>
+<p><code>order</code>：<code>{&#39;C&#39;，&#39;F&#39;}</code>，以行或列为主排列顺序。</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>可以使用array对list，或者DF进行初始化。</p>
+<blockquote>
+<p>稍稍注意一下， python中的<code>(3)</code>是一个INT对象，而<code>（3，）</code>是一个tuple对象</p>
+</blockquote>
+<p>In [12]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(a.shape)</span><br><span class="line">(1, 3)</span><br></pre></td></tr></table></figure>
+
+<p>In [13]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([1, 2, 3])</span><br><span class="line">print(a.shape)</span><br><span class="line">(3,)</span><br></pre></td></tr></table></figure>
+
+<p>In [17]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([[1], [2], [3]])</span><br><span class="line">print(a.shape)</span><br><span class="line"></span><br><span class="line">(3, 1)</span><br></pre></td></tr></table></figure>
+
+<p>In [19]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([1,2,3], ndmin &#x3D;  2)</span><br><span class="line">print(a.shape)</span><br><span class="line">(1, 3)</span><br></pre></td></tr></table></figure>
+
+<p>In [22]:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([1, 2, 3], ndmin &#x3D; 1)</span><br><span class="line">print(a.shape)</span><br><span class="line">(3,)</span><br></pre></td></tr></table></figure>
+
+<h1 id="库"><a href="#库" class="headerlink" title="库"></a>库</h1><h2 id="np-linalg"><a href="#np-linalg" class="headerlink" title="np.linalg"></a>np.linalg</h2><p>linalg = linear + algebra</p>
+<p><code>np.linalg.inv()</code> 矩阵求逆<br><code>np.linalg.det()</code>矩阵求行列式（标量</p>
+<p><code>np.linalg.norm</code> 求范数；</p>
+<blockquote>
+<p>norm(x, ord=None, axis=None, keepdims=False)</p>
+<p>ord表示范数种类</p>
+<p>axis: If <em>axis</em> is an integer, it specifies <strong>the axis of *x*</strong> along which to compute the vector norms.</p>
+<p>keepdims: If this is set to True, the axes which are normed over are left in the result as dimensions with size one.(好像是保留大小为1的维度)</p>
+</blockquote>
+<p>Note: 标准化可使用norm，xnormalized=x∥xnorm∥xnormalized=x‖xnorm‖</p>
+<h2 id="np-random"><a href="#np-random" class="headerlink" title="np.random"></a>np.random</h2><p><code>numpy.random.normal(loc=0.0, scale=1.0, size=None)</code> Draw random samples from a normal (Gaussian) distribution. <code>loc</code> : the meanof the distribution. <code>scale</code> Standard deviation (<code>width</code>) of the distribution. <code>size</code> a int or tuple of ints, optional. If size is none, single value is returned if <code>loc</code> and <code>scale</code> are both scalars. (也就说 loc 和 scale 支持 array-like 参数)</p>
+<h3 id="numpy的优点"><a href="#numpy的优点" class="headerlink" title="numpy的优点"></a>numpy的优点</h3><p>在numpy中矩阵、向量和数值都是numpy array, 不管他是啥。</p>
+<p>numpy可以轻松的进行numpy array和数值之间的+-*/甚至np.exp()的高级运算，而list不行。</p>
+<p><strong>其他：</strong></p>
+<p>np.dot(X1, X2)为矩阵乘法</p>
+<p>np.sum（x1, axis）为求和, axis = 0 为竖直方向求和，axis=1为水平方向，默认竖直方向</p>
+<p>X1.T表示X1的转置</p>
+<p>c = np.dot(a,b) #dot是矩阵乘法 *是element-wise product</p>
+<h1 id="有用的操作"><a href="#有用的操作" class="headerlink" title="有用的操作"></a>有用的操作</h1><p>nArray中的True/Flase转化为1/0.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C &#x3D; [0.5, 0.6, 0.1]</span><br><span class="line">c &#x3D; np.array(C) &gt; 0.5</span><br><span class="line">print(c)</span><br><span class="line">print(c + 0)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><p><code>Df.fillna(value, inplace)</code> 把NaN数据替换成value。</p>
+<p><code>Na[~np.isnan(Na)]</code> 可以通过判判断条件选择数据</p>
+<p><code>[x+1 for x in list if x &lt; 5]</code> list可以以列表表达式来生成新列。</p>
+<h2 id="增加数据维度"><a href="#增加数据维度" class="headerlink" title="增加数据维度"></a><strong>增加数据维度</strong></h2><p>numpy中包含的newaxis可以给原数组增加一个维度</p>
+<p>np.newaxis放的位置不同，产生的新数组也不同</p>
+<p>一维数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; np.random.randint(1, 8, size&#x3D;5)</span><br><span class="line"></span><br><span class="line">x</span><br><span class="line">Out[48]: array([4, 6, 6, 6, 5])</span><br><span class="line"></span><br><span class="line">x1 &#x3D; x[np.newaxis, :]</span><br><span class="line"></span><br><span class="line">x1</span><br><span class="line">Out[50]: array([[4, 6, 6, 6, 5]])</span><br><span class="line"></span><br><span class="line">x2 &#x3D; x[:, np.newaxis]</span><br><span class="line"></span><br><span class="line">x2</span><br><span class="line">Out[52]: </span><br><span class="line">array([[4],</span><br><span class="line">       [6],</span><br><span class="line">       [6],</span><br><span class="line">       [6],</span><br><span class="line">       [5]])</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/Python/matplotlib%E7%AC%94%E8%AE%B0/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="matplotlib笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:07:42.000Z" title="2020-08-07T05:07:42.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Python/">Python</a></span><span class="level-item">2 minutes read (About 338 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/Python/matplotlib%E7%AC%94%E8%AE%B0/">matplotlib笔记</a></h1><div class="content"><h2 id="基本库"><a href="#基本库" class="headerlink" title="基本库"></a>基本库</h2><h2 id="pyplot"><a href="#pyplot" class="headerlink" title="pyplot"></a>pyplot</h2><!-- mroe -->
+
+<p><a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot"><code>matplotlib.pyplot</code></a> is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting.</p>
+<p>pyplot is mainly intended for interactive plots and simple cases of programmatic plot generation:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x &#x3D; np.arange(0, 5, 0.1)</span><br><span class="line">y &#x3D; np.sin(x)</span><br><span class="line">plt.plot(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p>引入<code>import matplotlib as plt</code></p>
+<p><code>plt.scatter(x, y, [s=None, c=None,...] )</code> A scatter plot of <em>y</em> vs <em>x</em> with varying marker size and/or color.</p>
+<p><code>plt.semilogy(x, y,)</code> 画出y轴取log的图像。</p>
+<h1 id="画图设置"><a href="#画图设置" class="headerlink" title="画图设置"></a>画图设置</h1><h2 id="嵌入项目"><a href="#嵌入项目" class="headerlink" title="嵌入项目"></a>嵌入项目</h2><p>%matplotlib inline</p>
+<h2 id="设置图画大小"><a href="#设置图画大小" class="headerlink" title="设置图画大小"></a>设置图画大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_figsize(figsize&#x3D;(3.5, 2.5)):</span><br><span class="line">    plt.rcParams[&#39;figure.figsize&#39;] &#x3D; figsize</span><br><span class="line"></span><br><span class="line">set_figsize()</span><br></pre></td></tr></table></figure>
+
+<h2 id="矢量图表示"><a href="#矢量图表示" class="headerlink" title="矢量图表示"></a>矢量图表示</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def use_svg_display():</span><br><span class="line">    # 用矢量图显示</span><br><span class="line">    %config InlineBackend.figure_format &#x3D; &#39;svg&#39;</span><br><span class="line">#输入为ts</span><br><span class="line">def xyplot(x_vals, y_vals, name):</span><br><span class="line">    set_figsize(figsize&#x3D;(5, 2.5))</span><br><span class="line">    plt.plot(x_vals.numpy(), y_vals.numpy())</span><br><span class="line">    plt.xlabel(&#39;x&#39;)</span><br><span class="line">    plt.ylabel(name + &#39;(x)&#39;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="一行画多张图"><a href="#一行画多张图" class="headerlink" title="一行画多张图"></a>一行画多张图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#images is a list of matrixes of pictures, and label is the text about the pictures.</span><br><span class="line">def show_fashion_mnist(images, labels):</span><br><span class="line">    _, figs &#x3D; plt.subplots(1, len(images), figsize&#x3D;(12, 12))</span><br><span class="line">    for f, img, lbl in zip(figs, images, labels):</span><br><span class="line">        f.imshow(img.reshape((28, 28)))</span><br><span class="line">        f.set_title(lbl)</span><br><span class="line">        f.axes.get_xaxis().set_visible(False)</span><br><span class="line">        f.axes.get_yaxis().set_visible(False)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="多子图"><a href="#多子图" class="headerlink" title="多子图"></a>多子图</h2><p><code>121</code>表示1 * 2 的图像中占据第1个图像位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iters &#x3D; range(len(hist.history[&#39;loss&#39;]))    </span><br><span class="line"> </span><br><span class="line"># train</span><br><span class="line">plt.subplot(121)</span><br><span class="line">plt.plot(iters, hist.history[&#39;mae&#39;], &#39;r&#39;, label&#x3D;&#39;train mae&#39;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.plot(iters, hist.history[&#39;val_mae&#39;], &#39;b&#39;, label&#x3D;&#39;val mae&#39;)</span><br><span class="line">plt.legend()</span><br><span class="line"># val</span><br><span class="line">plt.subplot(122)</span><br><span class="line">plt.plot(iters, hist.history[&#39;loss&#39;], &#39;g&#39;, label&#x3D;&#39;train loss&#39;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.plot(iters, hist.history[&#39;val_loss&#39;], &#39;k&#39;, label&#x3D;&#39;val loss&#39;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/Java/%E5%AE%89%E8%A3%85java/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="安装java"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:06:33.000Z" title="2020-08-07T05:06:33.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Java/">Java</a></span><span class="level-item">2 minutes read (About 257 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/Java/%E5%AE%89%E8%A3%85java/">安装java</a></h1><div class="content"><h2 id="Install-Oracle-Java-in-WSL"><a href="#Install-Oracle-Java-in-WSL" class="headerlink" title="Install Oracle Java in WSL"></a>Install Oracle Java in WSL</h2><!-- mroe -->
+
+<p>Oracle Java至此已经发布到了14.01版本，已知的安装方法有两种。一种直接下载JKD，另一种采用包管理工具来管理JAVA的安装和升级。但是由于版权问题，后者对JAVA的版本支持只能到10。</p>
+<h2 id="直接下载JKD"><a href="#直接下载JKD" class="headerlink" title="直接下载JKD"></a>直接下载JKD</h2><p>可以直接去<a href="https://www.oracle.com/java/technologies/javase-downloads.html">官网</a>，下载对应版本的JDK。需要注册Oracle账号，值得注意的是，我在初次注册的时候发现原有密码必须改变一次才能登陆。</p>
+<blockquote>
+<p>黑人问号？.jpg</p>
+</blockquote>
+<p>下载对应版本后解压到<code>/opt</code>文件夹下，并把JKD文件下的bin文件路径加入PATH。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf JKDFILE.tar.gz -C &#x2F;opt</span><br><span class="line">export PATH&#x3D;&#x2F;opt&#x2F;JKDFILE&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>测试运行，结果正确即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java --version</span><br><span class="line">javac --verison</span><br></pre></td></tr></table></figure>
+
+<h2 id="包管理方法"><a href="#包管理方法" class="headerlink" title="包管理方法"></a>包管理方法</h2><p>具体操作参考<a href="https://thishosting.rocks/install-java-ubuntu/">博文</a>。</p>
+<h2 id="OpenJava"><a href="#OpenJava" class="headerlink" title="OpenJava"></a>OpenJava</h2><p>其实也可以直接下载开源的JAVA版本。</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/C++/C-%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++指针问题"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:05:44.000Z" title="2020-08-07T05:05:44.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">5 minutes read (About 822 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/C++/C-%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98/">C++指针问题</a></h1><div class="content"><h2 id="a、-amp-a与-amp-a-1"><a href="#a、-amp-a与-amp-a-1" class="headerlink" title="a、&amp;a与 &amp;a+1"></a>a、&amp;a与 &amp;a+1</h2><p><strong>1.正确解C语言指针中的 &amp;a+1，假设a为一个数组</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[5]&#x3D;&#123;1,2,3,4,5&#125;;</span><br><span class="line">int p&#x3D;(int)(&amp;a+1); </span><br><span class="line">printf(&quot;%d&quot;,*(p-1));</span><br></pre></td></tr></table></figure>
+
+<!-- mroe -->
+
+<p>答案为什么是5？这个问题的关键是理解 &amp;a。a是一个数组名，也就是数组的首地址。对a进行取地址运算符，得到的是一个指向数组的指针！！！！这句话尤为重要！也就相当于<code>int (*p) [5] = &amp;a;</code></p>
+<p>p 是一个指向数组的指针，它指向的是一个包含 5 个 int 元素的数组！！</p>
+<p>那么执行 &amp;a+1 后，p 移动了一个数组的距离，p 的偏移量相当于 <code>p + sizeof(int) * 5</code>，指向 a 数组最后一个元素的后一位 ！！</p>
+<p>而程序中强制将指针<code>p</code>转换成一个<code>int*</code>，那么 <code>p -1</code> 其实就是 <code>p - sizeof(int)</code>所以，<code>p -1</code> 指向了数组中的最后一个元素，也就是 5</p>
+<ol>
+<li><strong>以下输出分别是多少？</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[5] &#x3D; &#123;1,2,3,4,5&#125;;</span><br><span class="line">	int *ptr &#x3D; (int *)( &amp;a + 1);</span><br><span class="line">	printf(&quot;%d, %d, \n&quot;, *(a+1), *(ptr-1) );</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案：2, 5<br>解释： a 为大小为5的数组，a表示数组的首地址，<code>&amp;a</code>表示数组<code>a</code>的地址，<code>&amp;a+1</code>表示移动了一个a数组的大小的距离，<code>ptr + sizeof(int) * 5</code>, 因此 ptr是一个指向a的最后一个元素的后一位的指针（ptr跨过了a的所有元素）。<br>因此，</p>
+<blockquote>
+<p>（1）(a+1) 表示 a 的首地址之后的一个元素，即 a[1]=2; C 语言和 Python都是 0-index;<br>（2）(ptr-1) 表示指针 ptr 移动了一位，<code>ptr - sizeof(int)</code>, 因此指向a的最后一个元素<code>a[4]=5</code>;<br>（3）因此输出为2和5。</p>
+</blockquote>
+<p>这里的关键在于区分 a + 1 和 &amp;a + 1中移动的“1”是不同的，前者只移动 <code>sizeof(int)</code>，后者移动<code>sizeof(int) * sizeof(a)</code>。</p>
+<p>数组名 a 的特殊之处：<br><code>&amp;a</code> ： 代指 数组的整体 的地址，这里的 <code>a</code>是数组整体<br><code>a</code>： 代指 数组的第一个成员，这里的 <code>a</code>是数组首地址</p>
+<p>3.<strong>已知语句 <code>int a=6</code>, 则执行了语句 <code>a+=a-=a\*a</code> 后，变量<code>a</code> 的值为多少？</strong><br>解：只有C语言才会有可读性这么神奇的表述。<br>程序是从右到左执行的，a的初始值为6：<br>（1）第一步：<code>a=a-a*a=6-6*6=-30</code>，此时 a=-30；<br>（2）第二步：<code>a=a+（a-a*a)=(-30)+(-30)=-60</code>，此时 a=-60。</p>
+<p>注意：在开发过程中，写这种语句的程序员是要被枪击的（手动滑稽）~</p>
+<h2 id="a-Pointer-to-Pointer"><a href="#a-Pointer-to-Pointer" class="headerlink" title="**, a Pointer to Pointer"></a><code>**</code>, a Pointer to Pointer</h2><p>The double asterisk <strong><em>\</em></strong> define what is known as a <strong>Pointer to Pointer.</strong></p>
+<p>This is a simple concept, a pointer is an independent entity. It can point to anything i.e it can point to a variable or it can point to a pointer which in-turn points to something else.</p>
+<p>This concept is not limited to only a “POINTER TO POINTER”.<br>You can have a chain of pointers.<br>In the following case ” <strong>x ”</strong> is a variable having value 23, <strong>“ y ”</strong> contains the address of ” <strong>x ”</strong> , and <strong>“ z ”</strong> contains the address of <strong>“ y “.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int x &#x3D; 23;</span><br><span class="line">int *y;</span><br><span class="line">int **z;</span><br><span class="line">y &#x3D; &amp;x;</span><br><span class="line">z &#x3D; &amp;y;</span><br><span class="line"></span><br><span class="line">std::cout&lt;&lt;x&lt;&lt;endl; 		&#x2F;&#x2F;23</span><br><span class="line">std::cout&lt;&lt;*y&lt;&lt;endl; 		&#x2F;&#x2F;23</span><br><span class="line">std::cout&lt;&lt;**z&lt;&lt;endl; 	&#x2F;&#x2F;23</span><br></pre></td></tr></table></figure>
+
+<p>The *****(asterisk) is called a de-referencing operator to access the value the pointer points to.</p>
+<p>You can check out more at<br><a href="http://www.tutorialspoint.com/cplusplus/cpp_pointer_to_pointer.htm">C++ Pointer to Pointer (Multiple Indirection)</a></p>
+<p>Thanks :-)</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/C++/C-C-%E7%AC%94%E8%AE%B0/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C/C++笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:04:58.000Z" title="2020-08-07T05:04:58.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">15 minutes read (About 2255 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/C++/C-C-%E7%AC%94%E8%AE%B0/">C/C++笔记</a></h1><div class="content"><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p><strong>变量范围</strong></p>
+<!-- mroe -->
+
+<p><a href="http://static.come2rss.xyz/image-20200507125512740.png"><img src="http://static.come2rss.xyz/image-20200507125512740.png" alt="image-20200507125512740"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200507125512740.png">image-20200507125512740</a></p>
+<p><strong>宏定义</strong>替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义常量</span><br><span class="line">#define 标识量 常量</span><br><span class="line">&#x2F;&#x2F;定义语句</span><br><span class="line">#define ADD(a,b) ((a) + (b))</span><br><span class="line"></span><br><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">#define Equ(a,b) ((fabs((a) - (b))) &lt; (eps)) &#x2F;&#x2F;fabs 对double取绝对值 , included math.h</span><br></pre></td></tr></table></figure>
+
+<p><strong>类型别名</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如</span><br><span class="line">typedef long long LL</span><br></pre></td></tr></table></figure>
+
+<p><strong>常量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const 数据类型 变量名 &#x3D; 常量</span><br></pre></td></tr></table></figure>
+
+<p><strong>位运算</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt; &#x2F;&#x2F;左移</span><br><span class="line">&gt;&gt; &#x2F;&#x2F;右移</span><br><span class="line">&amp;  &#x2F;&#x2F;位与</span><br><span class="line">|  &#x2F;&#x2F;位或</span><br><span class="line">^  &#x2F;&#x2F;位异或</span><br><span class="line">~  &#x2F;&#x2F;位取反 如~a</span><br></pre></td></tr></table></figure>
+
+<p><strong>动态申请</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;C malloc</span><br><span class="line">&#x2F;&#x2F;一个int</span><br><span class="line">int *p &#x3D; (int*)malloc(sizeof(int));</span><br><span class="line">&#x2F;&#x2F;一维int</span><br><span class="line">int *p &#x3D; (int*)malloc(1000 * sizeof(int));</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;C free 释放内存变量</span><br><span class="line">free(p);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;c++ new</span><br><span class="line">&#x2F;&#x2F;一个</span><br><span class="line">int *p &#x3D; new int;</span><br><span class="line">&#x2F;&#x2F;一维</span><br><span class="line">int *p &#x3D; new int[10000];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;C++ delete </span><br><span class="line">delete(p);</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出-C"><a href="#输入输出-C" class="headerlink" title="输入输出(C)"></a>输入输出(C)</h2><p>对double的输入格式为<code>%lf</code>,输出格式为<code>%f</code>。</p>
+<p><code>%d</code>、<code>%s</code>等输入格式都会自动把空格、换行当成结束判断标志的，同时不把空格当做输入量，而<code>%c</code>会“吸收”掉空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d%c%s&quot;, &amp;b, &amp;c, a);</span><br><span class="line">printf(&quot;b&#x3D;%d,c&#x3D;%c,s&#x3D;%s, \n&quot;, b, c, a);</span><br><span class="line">&#x2F;&#x2F;I：123 A hello</span><br><span class="line">&#x2F;&#x2F;O:b&#x3D;123,c&#x3D; ,s&#x3D;A,</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出格式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">%md</th>
+<th align="left">空格补齐不足m位数字的高位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%0md</td>
+<td align="left">0补齐不足m位数字的高位</td>
+</tr>
+<tr>
+<td align="left">%.mf</td>
+<td align="left">保留m位数字的浮点数</td>
+</tr>
+</tbody></table>
+<p><strong>字符串</strong></p>
+<p>只有<code>gets</code>和<code>%s</code>会自动添加<code>\0</code>（空字符NULL，ASCII码为0），同样的<code>puts</code>和<code>%s</code>通过识别<code>\0</code>来输出字符串。所以需要在非上述两个字符串输入函数得到的字符串后面加上<code>\0</code>。</p>
+<p><strong>其他常用函数</strong></p>
+<p><code>getchar</code>、<code>putchar</code>输入输出单个字符。</p>
+<p><code>gets</code>（好像不太安全，不推荐使用），<code>puts</code>输出字符串 + 换行符。</p>
+<p><code>sscanf(str, &quot;%d&quot;, &amp;n)</code>将数据从字符串str中输入 。<code>sprintf(str, &quot;%d&quot;, n)</code>将数据从字符串str中输出 。</p>
+<p><strong>多组输入</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while( scanf(&quot;%d&quot;, &amp;n) !&#x3D; EOF)&#123;</span><br><span class="line">    if( condition &#x3D;&#x3D; True) break;</span><br><span class="line">&#125;</span><br><span class="line">while( T--)</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出（C-）"><a href="#输入输出（C-）" class="headerlink" title="输入输出（C++）"></a>输入输出（C++）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cin&gt;&gt;b&gt;&gt;d</span><br><span class="line">&#96;cout&lt;&lt;b&lt;&lt;d</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>控制double精度可用<code>#include&lt;iomanip&gt;</code>，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(2) &lt;&lt; 123.45456 &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><code>cin.getline(str, 100)</code> 读入整行字符串到<code>str[100]</code>中。</p>
+<p><strong>总结一下</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">输入一行</th>
+<th align="left">Char a[]</th>
+<th align="left">String a</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"></td>
+<td align="left"><code>cin.getline(a,10000）</code> 10000表输入限制1000个字符以内</td>
+<td align="left"><code>getline(cin,a)</code></td>
+</tr>
+<tr>
+<td align="left">输入一个字符</td>
+<td align="left">Char a</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><code>cin.get(a,10000)</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><code>getchar()</code></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 静态定义</span><br><span class="line">&#x2F;&#x2F;  	一维</span><br><span class="line">int a[10] &#x3D; &#123;1, 2, 3 ,4 &#125;&#x2F;&#x2F; 数字不足用零补充</span><br><span class="line">char str[20] &#x3D; &#123; &#39;a&#39;, &#39;b&#39;, &#39;c&#39;&#125;;</span><br><span class="line">char str[20] &#x3D; &#39;abc&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;		二维</span><br><span class="line">int a[5][6] &#x3D; &#123;&#123;1, 3, 4, 5, 6&#125;, &#123;5, 6&#125;, &#123;&#125;, &#123;2, 3, 5 &#125;&#125;;</span><br><span class="line">&#x2F;*</span><br><span class="line">C++函数（包括主函数）定义的变量都是定义在系统栈中，容易溢出。定义为全局变量可以放到静态存储区中。</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><strong>初始化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 按字节赋值， value最好只使用0，或者-1（0xFFFFFFFF）</span><br><span class="line">memset( Array, value, sizeof(Array));</span><br><span class="line">&#x2F;&#x2F;fill</span><br><span class="line">vector&lt;int&gt; arr;</span><br><span class="line">fill(arr.begin(), arr.end(), value) &#x2F;&#x2F; C++风格的fill</span><br></pre></td></tr></table></figure>
+
+<p><strong>传参</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;传址引用</span><br><span class="line">&#x2F;&#x2F; 一维</span><br><span class="line">int f(int a[]) &#123;&#125; &#x2F;&#x2F;一维无需数组大小</span><br><span class="line">&#x2F;&#x2F; 二维</span><br><span class="line">int f(int a[][5]) &#123;&#125; &#x2F;&#x2F;二维需要第二纬度大小</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符数组（C风格）"><a href="#字符数组（C风格）" class="headerlink" title="字符数组（C风格）"></a>字符数组（C风格）</h2><p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlen(s)</span><br></pre></td></tr></table></figure>
+
+<p><code>strcmp(s1,s2)</code> 按字典序比较，两个字符串相等返回0，前者大于后者返回正整数，否则返回负整数。</p>
+<p><code>strcpy(s1, s2)</code> 把s2复制给s1</p>
+<p><code>strcat(s1, s2)</code>把s2拼接到s1后面</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>基础</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义和初始化</span><br><span class="line">int *p1, *p2; &#x2F;&#x2F; 注意变量名是p1, p2,而非*p1,*p2; int作为int*的基类型，p1无法指向int以外的类型元素</span><br><span class="line">int a, *p3 &#x3D; &amp;a;</span><br><span class="line">&#x2F;&#x2F;引用</span><br><span class="line">int c &#x3D; *p1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 运算</span><br><span class="line">p1++ &#x2F;&#x2F; p1自增，自动指向下一个int元素</span><br><span class="line">p1 + i &#x2F;&#x2F; p1指向下面i个元素</span><br><span class="line"></span><br><span class="line">p3 - p1 &#x2F;&#x2F; 得到的是p3和p1之间的int为单位的距离，但是p3和p1的本身的值是以Byte为计量的</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F;数组</span><br><span class="line">int a[5] &#x3D; &#123;&#125;;</span><br><span class="line">a + i &#x2F;&#x2F;a表示指向a数组首地址</span><br><span class="line">&amp;a[2] &#x2F;&#x2F; 表示指向数组a的第3个元素的地址</span><br></pre></td></tr></table></figure>
+
+<p>C指针的一个优美的写法，常常在函数中面对不从零开始的数组需要加上一个增量数字，但是可以通过<code>&amp;A[add + i]</code>来获取<code>A[add+i]</code>的地址并传参，就好像传进去了一个从新开始的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">merge(&amp;A[l], i, i + step - 1, i + step, min(i + 2 * step - 1, n - 1));</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用（C-）"><a href="#引用（C-）" class="headerlink" title="引用（C++）"></a>引用（C++）</h2><p>引用变量相当于给变量增加了一个别名，对引用变量的操作就是对原变量的操作。</p>
+<blockquote>
+<p><strong>注意常量无法使用引用</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int f(int &amp;c)&#x2F;&#x2F;引用</span><br><span class="line">int f(int* &amp;c)&#x2F;&#x2F;指针引用</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义</span><br><span class="line">struct Name&#123;</span><br><span class="line">	int a, b, c;</span><br><span class="line">	Name()&#123;&#125; &#x2F;&#x2F;构造函数1</span><br><span class="line">	Name(int _a, int _b, int _c):a(_a), b(_b), c(_c) &#123;&#125; &#x2F;&#x2F;构造函数1</span><br><span class="line">&#125;instance1, instanceN[N], *p; &#x2F;&#x2F;声明变量instance和instance数组以及 Name类型的指针。</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;访问</span><br><span class="line">instance.a &#x2F;&#x2F; 实例</span><br><span class="line">(*p).a &#x2F;&#x2F;指针</span><br><span class="line">p-&gt;a &#x2F;&#x2F; 指针</span><br></pre></td></tr></table></figure>
+
+<h2 id="sort排序"><a href="#sort排序" class="headerlink" title="sort排序"></a>sort排序</h2><p><code>sort</code>包括在<code>algorithm.h</code>包中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;法1</span><br><span class="line">struct Stu&#123;</span><br><span class="line">	int score, no;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;先按score升序排序，再按no升序排序。</span><br><span class="line">bool cmp(Stu a, Stu b)&#123;</span><br><span class="line">	if(a.score &#x3D;&#x3D; b.score) return a.no &lt; b.no;</span><br><span class="line">	return a.screo &lt; b.score;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>描述</th>
+<th>结合性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>::</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/identifiers#.E6.9C.89.E9.99.90.E5.AE.9A.E7.9A.84.E6.A0.87.E8.AF.86.E7.AC.A6">作用域解析</a></td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>a++</code> <code>a--</code></td>
+<td>后缀<a href="https://zh.cppreference.com/w/cpp/language/operator_incdec">自增与自减</a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>*type*()</code> <code>*type*{}</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/explicit_cast">函数风格转型</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a()</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_other#.E5.86.85.E5.BB.BA.E7.9A.84.E5.87.BD.E6.95.B0.E8.B0.83.E7.94.A8.E8.BF.90.E7.AE.97.E7.AC.A6">函数调用</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a[]</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_member_access#.E5.86.85.E5.BB.BA.E7.9A.84.E4.B8.8B.E6.A0.87.E8.BF.90.E7.AE.97.E7.AC.A6">下标</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>.</code> <code>-&gt;</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_member_access#.E5.86.85.E5.BB.BA.E7.9A.84.E6.88.90.E5.91.98.E8.AE.BF.E9.97.AE.E8.BF.90.E7.AE.97.E7.AC.A6">成员访问</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>++a</code> <code>--a</code></td>
+<td>前缀<a href="https://zh.cppreference.com/w/cpp/language/operator_incdec">自增与自减</a></td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td><code>+a</code> <code>-a</code></td>
+<td>一元<a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E4.B8.80.E5.85.83.E7.AE.97.E6.9C.AF.E8.BF.90.E7.AE.97.E7.AC.A6">加与减</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>!</code> <code>~</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_logical">逻辑非</a>和<a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E6.8C.89.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">逐位非</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>(*type*)</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/explicit_cast">C 风格转型</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>*a</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_member_access#.E5.86.85.E5.BB.BA.E7.9A.84.E9.97.B4.E6.8E.A5.E8.BF.90.E7.AE.97.E7.AC.A6">间接</a>（解引用）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&amp;a</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_member_access#.E5.86.85.E5.BB.BA.E7.9A.84.E5.8F.96.E5.9C.B0.E5.9D.80.E8.BF.90.E7.AE.97.E7.AC.A6">取址</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sizeof</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/sizeof">取大小</a>[<a href="https://zh.cppreference.com/w/cpp/language/operator_precedence#cite_note-1">注 1]</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>co_await</code></td>
+<td>await 表达式 (C++20)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>new</code> <code>new[]</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/new">动态内存分配</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>delete</code> <code>delete[]</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/delete">动态内存分配</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>.*</code> <code>-&gt;*</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_member_access#.E5.86.85.E5.BB.BA.E7.9A.84.E6.88.90.E5.91.98.E6.8C.87.E9.92.88.E8.AE.BF.E9.97.AE.E8.BF.90.E7.AE.97.E7.AC.A6">成员指针</a></td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>a*b</code> <code>a/b</code> <code>a%b</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E4.B9.98.E6.B3.95.E6.80.A7.E8.BF.90.E7.AE.97.E7.AC.A6">乘法、除法与余数</a></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>a+b</code> <code>a-b</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E5.8A.A0.E6.B3.95.E6.80.A7.E8.BF.90.E7.AE.97.E7.AC.A6">加法与减法</a></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+<td>逐位<a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E7.A7.BB.E4.BD.8D.E8.BF.90.E7.AE.97.E7.AC.A6">左移与右移</a></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>&lt;=&gt;</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_comparison#.E4.B8.89.E8.B7.AF.E6.AF.94.E8.BE.83">三路比较运算符</a>(C++20 起)</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>&lt;</code> <code>&lt;=</code></td>
+<td>分别为 &lt; 与 ≤ 的<a href="https://zh.cppreference.com/w/cpp/language/operator_comparison">关系运算符</a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&gt;</code> <code>&gt;=</code></td>
+<td>分别为 &gt; 与 ≥ 的<a href="https://zh.cppreference.com/w/cpp/language/operator_comparison">关系运算符</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>==</code> <code>!=</code></td>
+<td>分别为 = 与 ≠ 的<a href="https://zh.cppreference.com/w/cpp/language/operator_comparison">关系运算符</a></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>a&amp;b</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E6.8C.89.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">逐位与</a></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>^</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E6.8C.89.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">逐位异或</a>（互斥或）</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>`</td>
+<td>`</td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_arithmetic#.E6.8C.89.E4.BD.8D.E9.80.BB.E8.BE.91.E8.BF.90.E7.AE.97.E7.AC.A6">逐位或</a>（可兼或）</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>&amp;&amp;</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_logical">逻辑与</a></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>`</td>
+<td></td>
+<td>`</td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>a?b:c</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_other#.E6.9D.A1.E4.BB.B6.E8.BF.90.E7.AE.97.E7.AC.A6">三元条件</a>[<a href="https://zh.cppreference.com/w/cpp/language/operator_precedence#cite_note-2">注 2]</a></td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td><code>throw</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/throw">throw 运算符</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>co_yield</code></td>
+<td>yield 表达式 (C++20)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_assignment#.E5.86.85.E5.BB.BA.E7.9A.84.E7.9B.B4.E6.8E.A5.E8.B5.8B.E5.80.BC">直接赋值</a>（C++ 类默认提供）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>+=</code> <code>-=</code></td>
+<td>以和及差<a href="https://zh.cppreference.com/w/cpp/language/operator_assignment#.E5.86.85.E5.BB.BA.E7.9A.84.E5.A4.8D.E5.90.88.E8.B5.8B.E5.80.BC">复合赋值</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>*=</code> <code>/=</code> <code>%=</code></td>
+<td>以积、商及余数<a href="https://zh.cppreference.com/w/cpp/language/operator_assignment#.E5.86.85.E5.BB.BA.E7.9A.84.E5.A4.8D.E5.90.88.E8.B5.8B.E5.80.BC">复合赋值</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+<td>以逐位左移及右移<a href="https://zh.cppreference.com/w/cpp/language/operator_assignment#.E5.86.85.E5.BB.BA.E7.9A.84.E5.A4.8D.E5.90.88.E8.B5.8B.E5.80.BC">复合赋值</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&amp;=</code> <code>^=</code> `</td>
+<td>=`</td>
+<td>以逐位与、异或及或<a href="https://zh.cppreference.com/w/cpp/language/operator_assignment#.E5.86.85.E5.BB.BA.E7.9A.84.E5.A4.8D.E5.90.88.E8.B5.8B.E5.80.BC">复合赋值</a></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>,</code></td>
+<td><a href="https://zh.cppreference.com/w/cpp/language/operator_other#.E5.86.85.E5.BB.BA.E7.9A.84.E9.80.97.E5.8F.B7.E8.BF.90.E7.AE.97.E7.AC.A6">逗号</a></td>
+<td>从左到右</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意<code>&amp;</code>的优先级比<code>==</code>小。</p>
+</blockquote>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Language/C++/C--STL%E7%AC%94%E8%AE%B0/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++STL笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:03:15.000Z" title="2020-08-07T05:03:15.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">10 minutes read (About 1542 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Language/C++/C--STL%E7%AC%94%E8%AE%B0/">C++STL笔记</a></h1><div class="content"><blockquote>
+<p>本篇文章中所指的区间，若无特殊说明，就是指半闭半开区间。</p>
+</blockquote>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><!-- mroe -->
+
+<p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br><span class="line">&#x2F;&#x2F; 一维</span><br><span class="line">vector&lt; typename &gt; v1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 二维</span><br><span class="line">vector&lt; vector&lt; typename&gt; &gt; v2;</span><br><span class="line">vector&lt; typename&gt; v3[arraySize];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; vector&lt;int&gt;(n, 2)动态生成了一个长度为n，每个元素为2的vector对象</span><br><span class="line">vector&lt;vector&lt;int&gt; &gt; dp(n, vector&lt;int&gt;(n, 2));</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下标</span><br><span class="line">v1.[i];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;迭代器</span><br><span class="line">vector&lt; typename &gt;::iterator it &#x3D; v1.begin();</span><br><span class="line">for(it; it &lt; v1.end(); it++) &#x2F;&#x2F; 迭代器实现了加法 和 自加</span><br><span class="line">	printf(&quot;%d&quot;, *(it));</span><br><span class="line">for(int i &#x3D; 0; i &lt; v1.size(); i++)</span><br><span class="line">	printf(&quot;%d&quot;, *(it + i));</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;添加元素</span><br><span class="line">v1.push_back(2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除末尾元素</span><br><span class="line">v1.pop_back();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 个数</span><br><span class="line">v1.size(); &#x2F;&#x2F; return a unsigned value.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;清空</span><br><span class="line">v1.clear();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;插入元素</span><br><span class="line">v1.insert(it, x); &#x2F;&#x2F;在it处插入一个元素x, O(n)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 删除</span><br><span class="line">v1.earse(it); &#x2F;&#x2F; 删除一个在it的元素</span><br><span class="line">v1.earse(v1.begin(), v1.end() ); &#x2F;&#x2F; 删除一个[beign(), end())范围内的区间所有元素</span><br></pre></td></tr></table></figure>
+
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>集合，一个内部自动按升序排序且不含重复元素的容器。</p>
+<p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;set&gt;</span><br><span class="line">set&lt;typename&gt; s1;</span><br><span class="line">set&lt;typename&gt; s2[arraySize];</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c++ &#x2F;&#x2F;set只能使用迭代器访问 set&lt; typename&gt;::iterator it &#x3D; s1.begin(); for....</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;插入元素x，并自动排序，去重 O(logN)</span><br><span class="line">s1.insert(x);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找value对应的迭代器 O(logN)</span><br><span class="line">s1.find(value);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 个数</span><br><span class="line">s1.size();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;清空</span><br><span class="line">s1.clear();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除</span><br><span class="line">s1.earse(it); &#x2F;&#x2F;删除一个it对应的元素</span><br><span class="line">s1.earse(value); &#x2F;&#x2F;删除一个元素value</span><br><span class="line">s1.earse(s1.begin(), s1.end()); &#x2F;&#x2F; 删除一个[beign(), end())范围内的区间所有元素</span><br><span class="line"></span><br><span class="line">​&#96;&#96;&#96;c++</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## string</span><br><span class="line"></span><br><span class="line">**定义**</span><br><span class="line"></span><br><span class="line">​&#96;&#96;&#96;c++</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">string str;</span><br><span class="line">string str &#x3D; &quot;hello world&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下标</span><br><span class="line">str[i];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 迭代器</span><br><span class="line">string::iterator it &#x3D; str.begin();</span><br><span class="line">*(it);</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出输入</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;标准</span><br><span class="line">cin &gt;&gt; str;</span><br><span class="line">cout &lt;&lt; str;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;转为为cstr</span><br><span class="line"></span><br><span class="line">printf(&quot;%s&quot;, str.c_str());</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; +&#x3D; 自加</span><br><span class="line">str +&#x3D; str;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; + 加法</span><br><span class="line">str2 &#x3D; str + str;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; compare operator 按字典序比较，比如 &#x3D;&#x3D;, !&#x3D;, &lt;, &gt;,&lt;&#x3D;等</span><br><span class="line">str &#x3D;&#x3D; str2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 个数</span><br><span class="line">str.size();</span><br><span class="line">str.length();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;插入 O(N)</span><br><span class="line">str.insert(pos,  string);</span><br><span class="line">str.insert(itPos, itInsertBegin, itInsertEnd); &#x2F;&#x2F;在itPos中插入一个区间上的字符串</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 删除</span><br><span class="line">str.erase(it); &#x2F;&#x2F;删除单个元素</span><br><span class="line">str.erase(itFirst, itEnd); &#x2F;&#x2F;删除区间元素</span><br><span class="line">str.erase(pos, length); &#x2F;&#x2F;删除长度为length从pos开始的字符子串</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 清除</span><br><span class="line">str.clear();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;子串</span><br><span class="line">str.substr(pos, len);  &#x2F;&#x2F;返回长度为length从pos开始的字符子串</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;常数</span><br><span class="line">string::npos &#x3D;&#x3D; -1  ;&#x2F;&#x2F; 为unsigned_int类型，可大概4e9大小或者说-1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找 find 返回子串的第一处出现的位置，或者返回npos（没有这个子串）</span><br><span class="line">str.find(str1);</span><br><span class="line">str.find(str1, pos);&#x2F;&#x2F; 从pos处开始查找资源</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;替换</span><br><span class="line">str.replace(pos, len, str2); &#x2F;&#x2F;把从pos开始的长为len的str子串替换为str2</span><br><span class="line">str.replace(it1, it2, str2); &#x2F;&#x2F;把[it1, it2)区间上的子串替换为str2</span><br></pre></td></tr></table></figure>
+
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;map&gt;</span><br><span class="line">map&lt;typename, typename&gt; mp; &#x2F;&#x2F;map不可使用char数组作为键或者值；</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下标访问</span><br><span class="line">mp[&#39;c&#39;] &#x3D; 2 &#x2F;&#x2F; 访问并赋值</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;迭代器</span><br><span class="line">map&lt;char, int&gt;::iterator it &#x3D; mp.begin();</span><br><span class="line">for(it; it &lt; mp.end(); it++)</span><br><span class="line">	printf(&quot;%c %d\n&quot;, it-&gt;first, it-&gt;second); &#x2F;&#x2F; 使用迭代器访问键和值</span><br><span class="line"></span><br><span class="line">​&#96;&#96;&#96;c++</span><br><span class="line"></span><br><span class="line">**查找**</span><br><span class="line"></span><br><span class="line">​&#96;&#96;&#96;c++</span><br><span class="line">map&lt;char, int&gt;::iterator it &#x3D; mp.find(key); &#x2F;&#x2F;返回 键为key 的元素的迭代器</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mp.erase(it); &#x2F;&#x2F;删除迭代器指向里的映射  O(1)</span><br><span class="line">mp.erase(key); &#x2F;&#x2F;删除键对应的映射</span><br><span class="line">mp.erase(mp.begin(), mp.end()) &#x2F;&#x2F;删除迭代器指向的区间上元素</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1&#x2F;&#x2F; 个数</span><br><span class="line">mp.size();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 清除</span><br><span class="line">mp.clear();</span><br></pre></td></tr></table></figure>
+
+<p>更多的类型有<code>unoderde_map</code>和<code>multimap</code>。</p>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;queue&gt;</span><br><span class="line">queue&lt;typename&gt; que;</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;只能访问队尾和队首</span><br><span class="line">que.back();</span><br><span class="line">que.front();</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;向队尾插入元素</span><br><span class="line">que.push();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除队首元素，无返回队首元素</span><br><span class="line">que.pop();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;判空</span><br><span class="line">que.empty(); &#x2F;&#x2F; 判断que是否为空</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 个数</span><br><span class="line">que.size();</span><br></pre></td></tr></table></figure>
+
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>底层由堆实现。</p>
+<p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;queue&gt;</span><br><span class="line">priority_queue&lt;typename&gt; pq;</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;插入元素</span><br><span class="line">pq.push(value); &#x2F;&#x2F; O(logN)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;获取队首元素</span><br><span class="line">pq.top(); &#x2F;&#x2F;若队空，则会导致报错</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;队首出队</span><br><span class="line">pq.pop();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;判空</span><br><span class="line">pq.empty();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;个数</span><br><span class="line">pq.size();</span><br></pre></td></tr></table></figure>
+
+<p><strong>优先级设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;一般数据结构</span><br><span class="line">priority_queue&lt;int&gt; pq; &#x2F;&#x2F;默认优先级大的在顶部（数字大）</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; pq; &#x2F;&#x2F; 数字逐步减少，优先级大的在顶部</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; pq; &#x2F;&#x2F; 数字逐步增加，优先级小的在顶部</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;结构体 设置1</span><br><span class="line">struct str&#123;</span><br><span class="line">    string name;</span><br><span class="line">    int price;</span><br><span class="line">    &#x2F;&#x2F;友元函数重载&quot;&lt;&quot;符号，函数判断了两个str的优先级，name字典序大的的优先级高</span><br><span class="line">    &#x2F;&#x2F;  即name字典序高的排前面</span><br><span class="line">   &#x2F;&#x2F; 同理可以设置          return s1.name &gt; s2.name; 达到字典序小的优先级高的效果</span><br><span class="line">    frind bool operator &lt; (str s1, str s2)&#123;</span><br><span class="line">        return s1.name &lt; s2.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;结构体 设置2</span><br><span class="line">struct str&#123;</span><br><span class="line">    string name;</span><br><span class="line">    int price;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 效果类似，不过还是移出来</span><br><span class="line">struct cmp&#123;</span><br><span class="line">    bool operator () (str s1, str s2)&#123;</span><br><span class="line">        return s1.name &lt; s2.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了提高效率和速度，可以在函数传参的时，添加<code>const</code>和<code>&amp;</code>符号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">friend bool operator &lt; (const fruit &amp;f1, const fruit &amp;f2)&#123;</span><br><span class="line">	return f1.price &lt; f2.price;</span><br><span class="line">&#125;</span><br><span class="line">friend bool operator () (const fruit &amp;f1, const fruit &amp;f2)&#123;</span><br><span class="line">	return f1.price &lt; f2.price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stack&gt;</span><br><span class="line">stack&lt; typename &gt; name;</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">st.top(); &#x2F;&#x2F;只能访问顶部数据</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;入栈</span><br><span class="line">st.push();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;弹出</span><br><span class="line">st.pop();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;空</span><br><span class="line">st.empty();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;个数</span><br><span class="line">st.size();</span><br></pre></td></tr></table></figure>
+
+<h2 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h2><p><strong>定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;utility&gt;</span><br><span class="line">pari&lt;typename1, typename2&gt; name;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化</span><br><span class="line">pair&lt;string, int&gt; p(&quot;nihe&quot;, 5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;临时使用</span><br><span class="line">p &#x3D; pair&lt;string,int&gt;(&quot;haha&quot;, 5);</span><br><span class="line">p &#x3D; make_pair(&quot;haha&quot;, 5);</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;结构体方式</span><br><span class="line">p.first; &#x2F;&#x2F;访问第一个元素</span><br><span class="line">p.second;&#x2F;&#x2F;访问第二个元素</span><br></pre></td></tr></table></figure>
+
+<p><strong>比较</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;先判断pair的first元素，在判断second元素。</span><br><span class="line">p1 &lt; p1 &#x2F;&#x2F;等等</span><br></pre></td></tr></table></figure>
+
+<p><strong>常见用法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;构造二元结构体, 减少时间</span><br><span class="line">p &#x3D; make_pair(&quot;niha&quot;, 34);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;作为map的键值插入</span><br><span class="line">mp.insert(p);</span><br></pre></td></tr></table></figure>
+
+<h2 id="algorithms"><a href="#algorithms" class="headerlink" title="algorithms"></a>algorithms</h2><p><code>reverse(itBegin, itEnd)</code> 翻转容器中从[itBegin,itEnd)[itBegin,itEnd)的元素。</p>
+<p><code>swap(x,y)</code>交换元素</p>
+<p><code>next_permutation(BidirectionalIterator itBegin, BidirectionalIterator itEnd)</code> 把[itBegin,itEnd)[itBegin,itEnd)的元素排列为下一个排列。(指向数组的指针应该也行，了解不深)</p>
+<p><code>fill(ForwardIterator itBegin, ForwardIterator itEnd, const T&amp; val)</code> 逐个遍历 并赋值[itBegin,itEnd)[itBegin,itEnd)的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort(itBegin, itEnd[, cmp])</span><br><span class="line">&#x2F;&#x2F;cmp例程， 数据从小到大排序；结构体同理</span><br><span class="line">bool cmp(int a, int b)&#123;</span><br><span class="line">    return a &lt; b;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>lower_bound(itFirst, itEnd, val)</code> 返回在有序容器中的第一个大于等于val的元素的位置（迭代器或者指针）。</p>
+<p><code>upper_bound(itFisrt, itEnd, val)</code>返回有序容器中第一个大于val的元素的位置（迭代器或者指针）。</p>
+<blockquote>
+<p>获取下标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;至少对于数组指针来说</span><br><span class="line">pos &#x3D; upper_bound(it1, it2, 3);</span><br><span class="line">index &#x3D; pos - a&#39; &#x2F;&#x2F;减去数组首地址可得下标</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>#<a href="http://blog.come2rss.xyz/tags/STL/">STL</a></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Code%20tools/Docker/DockerCompose/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="DockerCompose笔记"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T05:01:29.000Z" title="2020-08-07T05:01:29.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Code-tools/">Code tools</a><span> / </span><a class="link-muted" href="/categories/Code-tools/Docker/">Docker</a></span><span class="level-item">a few seconds read (About 61 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Code%20tools/Docker/DockerCompose/">DockerCompose笔记</a></h1><div class="content"><p>Docker Compose工具是为了加快多个Docker容器部署工具，可以一键部署、启动、暂停多个容器。</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p><code>docker-compose up -d</code> 后台启动当前目录下的docker-compose.yml文件的容器</p>
+<!-- mroe --></div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Code%20tools/Linux/linux%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="linux有趣的工具"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T04:59:58.000Z" title="2020-08-07T04:59:58.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Code-tools/">Code tools</a><span> / </span><a class="link-muted" href="/categories/Code-tools/Linux/">Linux</a></span><span class="level-item">11 minutes read (About 1724 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Code%20tools/Linux/linux%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/">linux有趣的工具</a></h1><div class="content"><p> 这是慕课上的作业笔记，网站以后再补。</p>
+<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><!-- mroe -->
+
+<p><a href="https://missing.csail.mit.edu/2020/editors/">VIM</a></p>
+<h2 id="命令和CLI工具"><a href="#命令和CLI工具" class="headerlink" title="命令和CLI工具"></a>命令和CLI工具</h2><p>见shell命令学习和Linux常用工具的笔记。</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p><code>|</code> 管道，典型的案例就是查看远程服务器历史记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh myserver &#39;journalctl | grep sshd | grep &quot;Disconnected from&quot;&#39; &gt; ssh.log</span><br><span class="line">$ less ssh.log</span><br></pre></td></tr></table></figure>
+
+<p><code>sed</code>数据流编辑器在<code>ed</code>编辑器上发展而来，可以使用命令来修改文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh myserver journalctl</span><br><span class="line"> | grep sshd</span><br><span class="line"> | grep &quot;Disconnected from&quot;</span><br><span class="line"> | sed &#39;s&#x2F;.*Disconnected from &#x2F;&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>s</code> command is written on the form: <code>s/REGEX/SUBSTITUTION/</code>, where <code>REGEX</code> is the regular expression you want to search for, and <code>SUBSTITUTION</code> is the text you want to substitute matching text with.</p>
+<blockquote>
+<p>更多关于正则表达式的内容可参见<a href="https://missing.csail.mit.edu/2020/data-wrangling/">Regular Expressions</a></p>
+</blockquote>
+<p><code>akw</code>一个可以处理数据的编程语言</p>
+<p><code>R</code>和<code>bc</code>可以计算数据</p>
+<p><code>gnuplot</code>可以方便的画图</p>
+<p><code>xrags</code>可安装或者卸载包</p>
+<p><code>ffmpeg</code>可获取并处理图像数据</p>
+<h2 id="进程处理"><a href="#进程处理" class="headerlink" title="进程处理"></a>进程处理</h2><h4 id="killing-a-processes"><a href="#killing-a-processes" class="headerlink" title="killing a processes"></a>killing a processes</h4><p><code>Ctrl-C</code>可以停止执行当前执行的进程。它会发送一个<code>SIGINT</code>信号给正在执行的进程。</p>
+<p><code>Ctrl-\</code> 让进程退出执行，它会发送一个<code>SIGQUIT</code>信号给正在执行的进程。</p>
+<blockquote>
+<p>Note that <code>^</code> is how <code>Ctrl</code> is displayed when typed in the terminal.</p>
+</blockquote>
+<p><code>kill -TERM &lt;PID&gt;</code>会杀死一个进程，它会发送一个<code>SIGTERM</code>signal给进程。</p>
+<h4 id="Pausing-and-backgrounding-processes"><a href="#Pausing-and-backgrounding-processes" class="headerlink" title="Pausing and backgrounding processes"></a>Pausing and backgrounding processes</h4><p><code>Ctrl-Z</code>可暂停一个进程，会发送一个<code>SIGTSTP</code>信号给进程。</p>
+<p><a href="http://man7.org/linux/man-pages/man1/fg.1p.html"><code>fg</code></a> and <a href="http://man7.org/linux/man-pages/man1/bg.1p.html"><code>bg</code></a>分别可以在前台运行和在后台运行程序（唤醒程序或者启动程序）。</p>
+<blockquote>
+<p>可配合<code>Ctrl-Z</code>将已经运行的程序暂停，再放到后台运行。</p>
+</blockquote>
+<p><a href="http://man7.org/linux/man-pages/man1/jobs.1p.html"><code>jobs</code></a> command lists the unfinished jobs associated with the current terminal session.You can refer to those jobs using their pid (you can use <a href="http://man7.org/linux/man-pages/man1/pgrep.1.html"><code>pgrep</code></a> to find that out)</p>
+<blockquote>
+<p>To refer to the last backgrounded job you can use the <code>$!</code> special parameter.</p>
+</blockquote>
+<p><code>&amp;</code>作为运行命令后缀，可使命令在后台运行，但是其提示信息仍会使用terminal的STDOUT，也就是说这些信息还是会显示在屏幕上。</p>
+<p>注意上面的操作中，运行的程序还是terminal的子程序，也就是说terminal关闭时，也会发送一个<code>SIGHUP</code>给子程序，从而结束程序的运行。可以使用<a href="http://man7.org/linux/man-pages/man1/nohup.1.html"><code>nohup</code></a>忽略该信号，或者针对已经运行的进程使用<code>disown</code>。</p>
+<p><code>SIGKILL</code>总是可以杀死进程，但是无法杀死其进程的子进程。所以可能产生orphaned children processes。</p>
+<blockquote>
+<p>You can learn more about these and other signals <a href="https://en.wikipedia.org/wiki/Signal_(IPC)">here</a> or typing <a href="http://man7.org/linux/man-pages/man7/signal.7.html"><code>man signal</code></a> or <code>kill -t</code>.</p>
+</blockquote>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ sleep 1000</span><br><span class="line">^Z</span><br><span class="line">[1]  + 18653 suspended  sleep 1000</span><br><span class="line"></span><br><span class="line">$ nohup sleep 2000 &amp;</span><br><span class="line">[2] 18745</span><br><span class="line">appending output to nohup.out</span><br><span class="line"></span><br><span class="line">$ jobs</span><br><span class="line">[1]  + suspended  sleep 1000</span><br><span class="line">[2]  - running    nohup sleep 2000</span><br><span class="line"># &quot;%&quot; 表示的后面的数字是jobs显示进程的对应数字</span><br><span class="line">$ bg %1</span><br><span class="line">[1]  - 18653 continued  sleep 1000</span><br><span class="line"></span><br><span class="line">$ jobs</span><br><span class="line">[1]  - running    sleep 1000</span><br><span class="line">[2]  + running    nohup sleep 2000</span><br><span class="line"></span><br><span class="line">$ kill -STOP %1</span><br><span class="line">[1]  + 18653 suspended (signal)  sleep 1000</span><br><span class="line"></span><br><span class="line">$ jobs</span><br><span class="line">[1]  + suspended (signal)  sleep 1000</span><br><span class="line">[2]  - running    nohup sleep 2000</span><br><span class="line"></span><br><span class="line"># 给第一个进程发了一个SIGHUP信号，自然死掉了</span><br><span class="line">$ kill -SIGHUP %1</span><br><span class="line">[1]  + 18653 hangup     sleep 1000</span><br><span class="line"></span><br><span class="line">$ jobs</span><br><span class="line">[2]  + running    nohup sleep 2000</span><br><span class="line"></span><br><span class="line">$ kill -SIGHUP %2</span><br><span class="line"># 给第二个进程发了一个SIGHUP信号，但是由于忽略掉了该信号，所以没有死掉</span><br><span class="line">$ jobs</span><br><span class="line">[2]  + running    nohup sleep 2000</span><br><span class="line"></span><br><span class="line">$ kill %2</span><br><span class="line">[2]  + 18745 terminated  nohup sleep 2000</span><br><span class="line"></span><br><span class="line">$ jobs</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令行环境"><a href="#命令行环境" class="headerlink" title="命令行环境"></a>命令行环境</h2><h3 id="Terminal-Multiplexers"><a href="#Terminal-Multiplexers" class="headerlink" title="Terminal Multiplexers"></a>Terminal Multiplexers</h3><p><a href="http://man7.org/linux/man-pages/man1/tmux.1.html"><code>tmux</code></a>可以方便的在一个terminal上操作多个对话窗口，便捷的令人惊叹。每个<code>tmux</code>的<code>sesstion</code>都可有<code>window</code>,每个<code>window</code>可以有多个<code>plane</code>。<code>tmux</code>创建出来的进程和原本的shell进程分离，所以不受原来进程关闭的影响，不同<code>session</code>之间也是独立的。他的强大之处在于方便快捷的切换到不同的<code>window</code>，并提供类似于vim的同一个<code>window</code>不同<code>plane</code>的排列方式。</p>
+<p>（非常非常的令人惊喜，噢立给！）</p>
+<p><code>tmux</code> expects you to know its keybindings, and they all have the form <code>&lt;C-b&gt; x</code> where that means (1) press <code>Ctrl+b</code>, (2) release <code>Ctrl+b</code>, and then (3) press <code>x</code>. <code>tmux</code> has the following hierarchy of objects:</p>
+<ul>
+<li><p><strong>Sessions</strong></p>
+<p>- a session is an independent workspace with one or more windows</p>
+<ul>
+<li><code>tmux</code> starts a new session.</li>
+<li><code>tmux new -s NAME</code> starts it with that name.</li>
+<li><code>tmux ls</code> lists the current sessions</li>
+<li>Within <code>tmux</code> typing <code>&lt;C-b&gt; d</code> detaches the current session</li>
+<li><code>tmux a</code> attaches the last session. You can use <code>-t</code> flag to specify which</li>
+</ul>
+</li>
+<li><p>Windows</p>
+<p>- Equivalent to tabs in editors or browsers, they are visually separate parts of the same session</p>
+<ul>
+<li><code>&lt;C-b&gt; c</code> Creates a new window. To close it you can just terminate the shells doing <code>&lt;C-d&gt;</code></li>
+<li><code>&lt;C-b&gt; N</code> Go to the <em>N</em> th window. Note they are numbered</li>
+<li><code>&lt;C-b&gt; p</code> Goes to the previous window</li>
+<li><code>&lt;C-b&gt; n</code> Goes to the next window</li>
+<li><code>&lt;C-b&gt; ,</code> Rename the current window</li>
+<li><code>&lt;C-b&gt; w</code> List current windows</li>
+</ul>
+</li>
+<li><p>Panes</p>
+<p>- Like vim splits, panes let you have multiple shells in the same visual display.</p>
+<ul>
+<li><code>&lt;C-b&gt; &quot;</code> Split the current pane horizontally</li>
+<li><code>&lt;C-b&gt; %</code> Split the current pane vertically</li>
+<li><code>&lt;C-b&gt; &lt;direction&gt;</code> Move to the pane in the specified <em>direction</em>. Direction here means arrow keys.</li>
+<li><code>&lt;C-b&gt; z</code> Toggle zoom for the current pane</li>
+<li><code>&lt;C-b&gt; [</code> Start scrollback. You can then press <code>&lt;space&gt;</code> to start a selection and <code>&lt;enter&gt;</code> to copy that selection.</li>
+<li><code>&lt;C-b&gt; &lt;space&gt;</code> Cycle through pane arrangements.</li>
+</ul>
+</li>
+</ul>
+<p>For further reading, <a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">here</a> is a quick tutorial on <code>tmux</code> and <a href="http://linuxcommand.org/lc3_adv_termmux.php">this</a> has a more detailed explanation that covers the original <code>screen</code> command. You might also want to familiarize yourself with <a href="http://man7.org/linux/man-pages/man1/screen.1.html"><code>screen</code></a>, since it comes installed in most UNIX systems.</p>
+<h3 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h3><p><code>alias</code> 提供了将命令行替换为一个别名的功能。</p>
+<blockquote>
+<p>赋值”=”旁中不可有空格</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># Make shorthands for common flags</span><br><span class="line">alias ll&#x3D;&quot;ls -lh&quot;</span><br><span class="line"></span><br><span class="line"># Save a lot of typing for common commands</span><br><span class="line">alias gs&#x3D;&quot;git status&quot;</span><br><span class="line">alias gc&#x3D;&quot;git commit&quot;</span><br><span class="line">alias v&#x3D;&quot;vim&quot;</span><br><span class="line"></span><br><span class="line"># Save you from mistyping</span><br><span class="line">alias sl&#x3D;ls</span><br><span class="line"></span><br><span class="line"># Overwrite existing commands for better defaults</span><br><span class="line">alias mv&#x3D;&quot;mv -i&quot;           # -i prompts before overwrite</span><br><span class="line">alias mkdir&#x3D;&quot;mkdir -p&quot;     # -p make parent dirs as needed</span><br><span class="line">alias df&#x3D;&quot;df -h&quot;           # -h prints human readable format</span><br><span class="line"></span><br><span class="line"># Alias can be composed</span><br><span class="line">alias la&#x3D;&quot;ls -A&quot;</span><br><span class="line">alias lla&#x3D;&quot;la -l&quot;</span><br><span class="line"></span><br><span class="line"># To ignore an alias run it prepended with \</span><br><span class="line">\ls</span><br><span class="line"># Or disable an alias altogether with unalias</span><br><span class="line">unalias la</span><br><span class="line"></span><br><span class="line"># To get an alias definition just call it with alias</span><br><span class="line">alias ll</span><br><span class="line"># Will print ll&#x3D;&#39;ls -lh&#39;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Note that aliases do not persist shell sessions by default. To make an alias persistent you need to include it in shell startup files, like <code>.bashrc</code> or <code>.zshrc</code>, which we are going to introduce in the next section.</p>
+</blockquote>
+<h3 id="Dotfiles"><a href="#Dotfiles" class="headerlink" title="Dotfiles"></a>Dotfiles</h3><p>Dotfiles就是文件名前面带点的文件，即隐藏文件。</p>
+<p>For <code>bash</code>, editing your <code>.bashrc</code> or <code>.bash_profile</code> will work in most systems. Here you can include commands that you want to run on startup, like the alias we just described or modifications to your <code>PATH</code> environment variable. In fact, many programs will ask you to include a line like <code>export PATH=&quot;$PATH:/path/to/program/bin&quot;</code> in your shell configuration file so their binaries can be found.</p>
+<p>Some other examples of tools that can be configured through dotfiles are:</p>
+<ul>
+<li><code>bash</code> - <code>~/.bashrc</code>, <code>~/.bash_profile</code></li>
+<li><code>git</code> - <code>~/.gitconfig</code></li>
+<li><code>vim</code> - <code>~/.vimrc</code> and the <code>~/.vim</code> folder</li>
+<li><code>ssh</code> - <code>~/.ssh/config</code></li>
+<li><code>tmux</code> - <code>~/.tmux.conf</code></li>
+</ul>
+<p>Dotfiles文件管理是使用版本管理工具方便快捷地管理多个Dotfils。只需几个命令，就能在一台新机子上安装和以前一模一样的文件和软件，真是诱惑。<a href="https://dotfiles.github.io/bootstrap/">资源</a>、</p>
+<blockquote>
+<p>现在暂时不尝试</p>
+</blockquote>
+<p><a href="http://static.come2rss.xyz/image-20200526182325028.png"><img src="http://static.come2rss.xyz/image-20200526182325028.png" alt="image-20200526182325028"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200526182325028.png">image-20200526182325028</a></p>
+<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p><a href="https://missing.csail.mit.edu/2020/command-line/">这内容是真的丰富</a></p>
+<h2 id="Dubugging-and-Profiling"><a href="#Dubugging-and-Profiling" class="headerlink" title="Dubugging and Profiling"></a>Dubugging and Profiling</h2><p><a href="https://missing.csail.mit.edu/2020/debugging-profiling/">明天继续吧</a></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Code%20tools/Windows/window%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="window工作环境"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T04:58:08.000Z" title="2020-08-07T04:58:08.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Code-tools/">Code tools</a><span> / </span><a class="link-muted" href="/categories/Code-tools/Windows/">Windows</a></span><span class="level-item">2 minutes read (About 296 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Code%20tools/Windows/window%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/">window工作环境</a></h1><div class="content"><p>都知道Window的PATH和工具包管理的缺乏是公认的难用，不巧的是Linux的系统不是那么让我喜爱，尤其很多软件在Linux兼容性不好。如今WLS的推出了让我们可以在Window下直接体验近乎原生linux的畅爽体验，(虽然说虚拟机+linux+局域网连接好像也行，就是太费资源了)。</p>
+<!-- mroe -->
+
+<p>盘一盘我的Window下安装工具和配置方式：</p>
+<ul>
+<li>Fluent-Terminal 工具美化原生的WSL终端和PS界面<ul>
+<li><a href="https://iterm2colorschemes.com/">配色方案</a>超级多</li>
+<li>方便调节字体、透明度、支持快捷键、标签式管理页面啧啧啧~</li>
+</ul>
+</li>
+<li>VSCode：刚刚入坑，听说了宇宙第一编辑器的大名久已<ul>
+<li><a href="https://code.visualstudio.com/docs/?dv=win">官方入门</a></li>
+<li>可配合WSL本地远程编程， 可参考<a href="https://code.visualstudio.com/docs/?dv=win">Dev in WSL</a></li>
+<li><a href="https://code.visualstudio.com/docs/cpp/config-wsl#_step-through-the-code">VS在WSL进行开发调试</a></li>
+</ul>
+</li>
+<li>WSL：不论是WSL1，还是WSL2功能都非常的强大，诶忍不住的香<ul>
+<li>可参考<a href="https://code.visualstudio.com/docs/?dv=win">Dev in WSL</a></li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2020/08/07/Code%20tools/Windows/win10%E5%9F%BA%E6%9C%AC%E6%8A%80%E5%B7%A7/"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="win10基本技巧"></a></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-08-07T04:57:20.000Z" title="2020-08-07T04:57:20.000Z">2020-08-07</time><span class="level-item"><a class="link-muted" href="/categories/Code-tools/">Code tools</a><span> / </span><a class="link-muted" href="/categories/Code-tools/Windows/">Windows</a></span><span class="level-item">2 minutes read (About 328 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/Code%20tools/Windows/win10%E5%9F%BA%E6%9C%AC%E6%8A%80%E5%B7%A7/">win10基本技巧</a></h1><div class="content"><!-- mroe -->
+
+<h1 id="WIN10基本技巧"><a href="#WIN10基本技巧" class="headerlink" title="WIN10基本技巧"></a>WIN10基本技巧</h1><h2 id="运行指令"><a href="#运行指令" class="headerlink" title="运行指令"></a>运行指令</h2><p><code>cmd</code> 运行cmd Terminal</p>
+<p><code>services.msc</code> 打开服务窗口（也可以通过任务管理器的服务页打开，或者计算机管理的 “服务和应用程序/服务”打开）。</p>
+<p><code>shell:startup</code>打开开机自启动软件的文件夹。</p>
+<p><code>msinfo32</code>显示系统详细信息</p>
+<h2 id="CMD指令"><a href="#CMD指令" class="headerlink" title="CMD指令"></a>CMD指令</h2><h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><p>TREE [drive:][path] [/F] [/A]</p>
+<p>/F 显示每个文件夹中文件的名称。（带扩展名）</p>
+<p>/A 使用 ASCII 字符，而不使用扩展字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">tree -f &gt; list.txt  -- 将带扩展名的文件目录输出到list.txt文件中</span><br><span class="line">卷 资料 的文件夹 PATH 列表</span><br><span class="line">卷序列号为 70BA-EEC3</span><br><span class="line">H:.</span><br><span class="line">│  README.md</span><br><span class="line">│  README.txt</span><br><span class="line">│  </span><br><span class="line">├─grangerData</span><br><span class="line">│  ├─Airdata1</span><br><span class="line">│  │      1226A_filled.csv</span><br><span class="line">│  │      1239A_filled.csv</span><br><span class="line">│  │      1241A_filled.csv</span><br><span class="line">│  │      1243A_filled.csv</span><br><span class="line">│  │      1247A_filled.csv</span><br><span class="line">│  │      1260A_filled.csv</span><br><span class="line">│  │      </span><br><span class="line">│  ├─matched</span><br><span class="line">│  │      1226A_58457_filled.csv</span><br><span class="line">│  │      1239A_58569_filled.csv</span><br><span class="line">│  │      1241A_58239_filled.csv</span><br><span class="line">│  │      1243A_58752_filled.csv</span><br><span class="line">│</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ver"><a href="#Ver" class="headerlink" title="Ver"></a>Ver</h3><p>显示系统版本信息。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="进入安全模式"><a href="#进入安全模式" class="headerlink" title="进入安全模式"></a>进入安全模式</h3><p>在锁屏界面点击电源，按下shift键，再点击重启。在弹出的蓝色界面中依次选择“疑难解惑”-“高级方案”-“重启”-“安全模式”（有点记不清了）</p>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/4/">Previous</a></div><div class="pagination-next"><a href="/page/6/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><a class="pagination-link is-current" href="/page/5/">5</a></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/9/">9</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Ove"></figure><p class="title is-size-4 is-block line-height-inherit">Ove</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>宁波</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">90</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">28</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><h3 class="menu-label">Recent</h3><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/15-3sum/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="15 3sum"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:15:37.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/15-3sum/">15 3sum</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1190-Reverse-Substrings-Between-Each-Pair-of-Parentheses/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="1190. Reverse Substrings Between Each Pair of Parentheses"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:14:44.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1190-Reverse-Substrings-Between-Each-Pair-of-Parentheses/">1190. Reverse Substrings Between Each Pair of Parentheses</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/%E9%9D%A2%E8%AF%95%E9%A2%98-DP-%E8%B4%AA%E5%BF%83/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="面试题 DP 贪心"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:14:08.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/%E9%9D%A2%E8%AF%95%E9%A2%98-DP-%E8%B4%AA%E5%BF%83/">面试题 DP 贪心</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/">剑指offer</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/786-%E7%AC%AC-K-%E4%B8%AA%E6%9C%80%E5%B0%8F%E7%9A%84%E7%B4%A0%E6%95%B0%E5%88%86%E6%95%B0/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="786. 第 K 个最小的素数分数"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:13:32.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/786-%E7%AC%AC-K-%E4%B8%AA%E6%9C%80%E5%B0%8F%E7%9A%84%E7%B4%A0%E6%95%B0%E5%88%86%E6%95%B0/">786. 第 K 个最小的素数分数</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article><article class="media"><a class="media-left" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1025-%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/"><p class="image is-64x64"><img class="thumbnail" src="http://static.come2rss.xyz/尼尔机械.jpg" alt="1025 除数博弈"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-07T06:13:01.000Z">2020-08-07</time></p><p class="title is-6"><a class="link-muted" href="/2020/08/07/%E5%88%B7%E9%A2%98/LeetCode/1025-%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/">1025 除数博弈</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/">LeetCode</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">90</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Jupyter/"><span class="level-start"><span class="level-item">Jupyter</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Matlab/"><span class="level-start"><span class="level-item">Matlab</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Pycharm/"><span class="level-start"><span class="level-item">Pycharm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/LeetCode/"><span class="level-start"><span class="level-item">LeetCode</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/PAT/"><span class="level-start"><span class="level-item">PAT</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"><span class="level-start"><span class="level-item">剑指offer</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li></ul></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="size-small"><span>&copy; 2020 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'http://yoursite.com',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to Top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
