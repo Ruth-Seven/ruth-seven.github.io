@@ -147,6 +147,8 @@ hexo new page tags
 hexo new page categories
 ```
 
+
+**强烈推荐** 安装`hexo-auto-category`插件，使用目录自动化生成category，一劳永逸！下载
 ### 添加目录
 
 确保`themes/icarus/_config.yml`中有
@@ -348,3 +350,69 @@ hexo s == hexo server
 hexo d == hexo deploy
 ```
 
+
+
+## 快速在新环境下搭建网站
+
+
+讲本地的源码上传到github的一个新分支hexocode中，与此同时，master保存着网页源代码，实现了快速下载hexo搭建配置的要求。
+上传内容不多阐述，注意库中库问题就行。
+
+更多[参考知乎内容](https://www.zhihu.com/question/21193762/answer/489124966)
+
+### 下载分支搭建环境
+更换电脑操作一样的，跟之前的环境搭建一样，安装gitsudo apt-get install git
+设置git全局邮箱和用户名
+```
+git config --global user.name "yourgithubname"
+git config --global user.email "yourgithubemail"
+```
+设置s
+```
+sh keyssh-keygen -t rsa -C "youremail"
+```
+生成后填到github和coding上（有coding平台的话）
+验证是否成功
+
+```shell
+ssh -T git@github.com
+ssh -T git@git.coding.net #(有coding平台的话)
+```
+安装nodejssudo 
+```
+apt-get install nodejs
+sudo apt-get install npm
+```
+安装hexo  
+```
+sudo npm install hexo-cli -g
+```
+但是已经不需要初始化了，直接在任意文件夹下，
+```
+git clone git@………………
+```
+然后进入克隆到的文件夹：
+```
+cd xxx.github.io
+npm install
+npm install hexo-deployer-git --save
+```
+生成，部署：
+```
+hexo g
+hexo d
+```
+然后就可以开始写你的新博客了hexo new newpage
+Tips:不要忘了，每次写完最好都把源文件上传一下git add .
+```
+git commit –m "xxxx"
+git push 
+```
+如果是在已经编辑过的电脑上，已经有clone文件夹了，那么，每次只要和远端同步一下就行了
+```
+git pull
+```
+
+
+### 改进
+可能可以使用githook，比如pre-commit完成hexo部署时自动化提交本地配置变化。现在不做过多研究。

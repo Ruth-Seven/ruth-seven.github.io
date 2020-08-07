@@ -205,6 +205,27 @@ git  pull origin master --allow-unrelated-histories
 `
 ```
 
+
+## 远程分支
+
+### 推送本地分支到远程
+倘若远程仓库不存在被推得分支，远程仓库就会创建一个，且保持和推送内容一致。
+```shell
+git add *
+git commit -m "@@"
+git push -u <remote repo> <local branch>:<origin branch>
+```
+### 远程分支和本队分支不同步
+远程分支如果内容被其他人更新或者本地分支重新创建的，需要先把远程分支pull到本地，进行合并,最后进行合并。
+> 最好不要用`-f`。
+```shell
+# git remote add <shortname> https://github.com/paulboone/ticgit 如果没有添加远程仓库
+git pull  <remote repo> <local branch>:<origin branch>
+git push 
+```
+也存在本地分支内容无法和远程分支并存的情况，直接按上一节开一个新分支上传即可。
+
+
 # 多人协作
 
 由于涉及到一些多人操作，所以暂时不学了 等待下一个机会
