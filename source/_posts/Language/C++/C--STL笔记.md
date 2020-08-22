@@ -55,6 +55,10 @@ for(int i = 0; i < v1.size(); i++)
 //添加元素
 v1.push_back(2);
 
+//添加元素，而且在vector size不够的时候自动扩充，而push_back不会
+v1.emplace_back(100);
+
+
 //删除末尾元素
 v1.pop_back();
 
