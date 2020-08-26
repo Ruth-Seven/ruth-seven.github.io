@@ -211,6 +211,146 @@ up arrow（方向向上键）可以查找历史命令
 
 More complex tools exist to quickly get an overview of a directory structure [`tree`](https://linux.die.net/man/1/tree), [`broot`](https://github.com/Canop/broot) or even full fledged file managers like [`nnn`](https://github.com/jarun/nnn) or [`ranger`](https://github.com/ranger/ranger)
 
+
+
+## 进程控制
+
+### 守护进程(Daemon)和后台进程
+
+**守护进程**(Daemon)是在后台运行的一种特殊进程，它脱离于终端，从而这可避免进程被任何终端所产生的信号打断，它在执行进程中的产生信息也不在任何终端上显示。守护进程周期性地执行某种任务或等待处理某些发生的事件，Linux的大多数服务器就是用守护进程实现的。**后台进程**不过是在终端打开在后台运行罢了。
+
+守护进程在关闭终端控制台时不会受影响，而后台程序会随用户退出而停止，需要在以nohup command &格式运行才能避免影响;
+
+守护进程的会话组和当前目录，文件描述符都是独立的。后台运行只是终端进行了一次fork，让程序在后台执行，这些都没改变;
+
+### 进程查看和管理
+
+#### `ps ` 
+
+显示命令。
+
+```shell
+ps  -A #显示所有进程 -e同-A
+ps -u root #显示指定用户进程
+ps -ef #显示所有进程信息，连同命令行
+#
+​```
+各相关信息的意义：
+F 代表这个程序的旗标 (flag)， 4 代表使用者为 super user
+S 代表这个程序的状态 (STAT)，关于各 STAT 的意义将在内文介绍
+UID 程序被该 UID 所拥有
+PID 就是这个程序的 ID ！
+PPID 则是其上级父程序的ID
+C CPU 使用的资源百分比
+PRI 这个是 Priority (优先执行序) 的缩写
+NI 这个是 Nice 值，
+ADDR 这个是 kernel function，指出该程序在内存的那个部分。如果是个 running的程序，一般就是 "-"
+SZ 使用掉的内存大小
+WCHAN 目前这个程序是否正在运作当中，若为 - 表示正在运作
+TTY 登入者的终端机位置
+TIME 使用掉的 CPU 时间。
+CMD 所下达的指令为何
+​```
+ps -l #将目前属于您自己这次登入的 PID 与相关信息列示出来
+
+ps aux #是BSD语法的ps -ef
+ps -axjf #程序树
+
+#练习
+ps aux | egrep '(cron|syslog)' #找出与 cron 与 syslog 这两个服务有关的 PID 号码
+ps -ef|grep ssh #查找包含ssh信息的进程
+ps -aux |more #分页
+ ps -o pid,ppid,pgrp,session,tpgid,comm  #输出指定的字段
+```
+
+> BSD是什么？The **Berkeley Software Distribution** (**BSD**) was an [operating system](https://en.wikipedia.org/wiki/Operating_system) based on [Research Unix](https://en.wikipedia.org/wiki/Research_Unix), developed and distributed by the [Computer Systems Research Group](https://en.wikipedia.org/wiki/Computer_Systems_Research_Group) (CSRG) at the [University of California, Berkeley](https://en.wikipedia.org/wiki/University_of_California,_Berkeley). Today, "BSD" often refers to its descendants, such as [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD), [OpenBSD](https://en.wikipedia.org/wiki/OpenBSD), [NetBSD](https://en.wikipedia.org/wiki/NetBSD), or [DragonFly BSD](https://en.wikipedia.org/wiki/DragonFly_BSD), and systems based on those descendants.
+>
+> 为啥BSD风格和Linux风格的命令相同？ The POXIS （Portable Operating System Interface** ，IEEE Computer Society定制 ）统一了BSD，Linux distribution, MAC系统的应用编程接口（API）。所以大量的命令和系统调用包装函数如此相同！
+
+
+
+#### `nohup commad &`  
+
+让进程进入后台，同时不接受hup信号，可实现terminal退出后也能继续运行进程。
+
+#### `bg`和`fg`
+
+在进程中运行进程后，`ctrl+z`让进程suspended，`bg`可让暂停的进程进入后台并运行。之后`fg`可以让后台进程变成前台进程。
+
+```shell
+fg %1 #%x, x是jobID。
+```
+
+#### `jobs` 
+
+查看当前有多少在后台运行的命令。 `jobs -l `查看详细信息（包含PID）。
+
+ #### 2>&1解析
+
+```
+command >out.file 2>&1 &
+```
+
+1. command>out.file是将command的输出重定向到out.file文件，即输出内容不打印到屏幕上，而是输出到out.file文件中。
+2. 2>&1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&， 是让该命令在后台执行。
+3. 试想2>1代表什么，2与>结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2>&1，&与1结合就代表标准输出了，就变成错误重定向到标准输出。
+
+#### `setsid`
+
+也行，不会。
+
+### 杀死进程
+
+
+
+#### `kill`
+
+All the below kill conventions will send the TERM signal to the specified process/
+
+```shell
+$ kill -TERM pid
+
+$ kill -SIGTERM pid
+
+$ kill -15 pid
+```
+
+当然也可以用其他SIGNAL比如`-9`。
+
+#### `killall`
+
+杀死所有同名进程
+
+```shell
+killall -9 firefox
+```
+
+#### `pkill process_name`和`pgrep`
+
+ pgrep  looks through the currently running processes and lists the process IDs which match the selection criteria to stdout. 
+
+ pkill will send the specified signal (**by default SIGTERM**) to each process instead  of  listing  them  on stdout.
+
+```shell
+$ pgrep -l sample
+12406 sample-server.p
+12425 sample-server.p
+12430 sample-garbagec
+
+$ pkill -USR1 sample #发送了USR1信号量
+
+$ cat signal-log
+Name: ./sample-server.pl Pid: 12406 Signal Received: USR1
+Name: ./sample-server.pl Pid: 12425 Signal Received: USR1
+Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
+```
+
+
+
+#### `xkill`
+
+提供图像化杀死进程，不过需要XServer支持。
+
 ## shell学习笔记
 
 基础和变量

@@ -166,3 +166,10 @@ pip --version
 pip install -U pip
 
 ```
+
+
+
+## [在Ubuntu 18.04上安装Python 3并建立本地编程环境](https://www.digitalocean.com/community/tutorials/ubuntu-18-04-python-3-zh)
+
+
+
