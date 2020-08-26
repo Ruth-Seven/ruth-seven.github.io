@@ -10,7 +10,7 @@ date: 2020-08-07 13:19:34
 tags:
 ---
 
-<!-- more -->
+
 
 
 
@@ -21,6 +21,8 @@ tags:
 ## 简单规则
 
 **赋值：**`foo=bar` 赋值语句中不可添加空格
+
+<!-- more -->
 
 **`"`和`'`的区别：**Strings in bash can be defined with `'` and `"` delimiters but they are **not equivalent.** Strings delimited with `'` are literal strings and will not substitute variable values whereas `"` delimited strings will.
 

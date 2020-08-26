@@ -18,13 +18,15 @@ tags:
 
 ## 编辑器
 
-<!-- more -->
+
 
 [VIM](https://missing.csail.mit.edu/2020/editors/)
 
 ## 命令和CLI工具
 
 见shell命令学习和Linux常用工具的笔记。
+
+<!-- more -->
 
 ## 数据处理
 
