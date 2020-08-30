@@ -3,10 +3,11 @@ title: CSAPP笔记-虚拟内存
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
+categories:
+  - CS
+  - CSAPP
 date: 2020-08-30 17:46:07
 tags:
-categories:
-
 ---
 
 CSAPP的虚拟内存章节的前半部分主要讲述虚拟内存的实现细节和运转原理，其后半部分主要学习Linux的虚拟内存管理。
