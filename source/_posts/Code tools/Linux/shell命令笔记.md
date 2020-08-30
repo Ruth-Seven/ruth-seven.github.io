@@ -305,14 +305,13 @@ command >out.file 2>&1 &
 
 #### `kill`
 
-All the below kill conventions will send the TERM signal to the specified process/
+可以发送任意信号给进程。
 
 ```shell
-$ kill -TERM pid
-
-$ kill -SIGTERM pid
-
-$ kill -15 pid
+kill -TERM pid #发送TERM终止信号给pid进程
+kill -SIGTERM pid 
+kill -15 pid
+kill -9 -pid #发送kill信号给值为pid的进程组中的所有进程
 ```
 
 当然也可以用其他SIGNAL比如`-9`。
@@ -337,7 +336,7 @@ $ pgrep -l sample
 12425 sample-server.p
 12430 sample-garbagec
 
-$ pkill -USR1 sample #发送了USR1信号量
+$ pkill -USR1 sample #发送了USR1信号量（用户自定义信号量1）
 
 $ cat signal-log
 Name: ./sample-server.pl Pid: 12406 Signal Received: USR1
@@ -350,6 +349,28 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 #### `xkill`
 
 提供图像化杀死进程，不过需要XServer支持。
+
+
+
+## 网络管理
+
+### 域名
+
+#### `nslookup hostname` 
+
+查找域名对应的IP地址
+
+#### `hostname`
+
+输出主机的IP地址对应的域名。
+
+## 系统管理
+
+`top`
+
+查看系统资源详情。
+
+
 
 ## shell学习笔记
 

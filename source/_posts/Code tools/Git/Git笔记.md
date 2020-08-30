@@ -10,7 +10,7 @@ date: 2020-08-07 12:47:30
 tags:
 ---
 
-<!-- more -->
+
 
 基础概念
 
@@ -18,7 +18,7 @@ tags:
 
 [![img](http://blog.come2rss.xyz/2020/04/25/tools/linux/Git-note/Git-note//%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.jpg)](http://blog.come2rss.xyz/2020/04/25/tools/linux/Git-note/Git-note//常用命令.jpg)
 
-
+<!-- more -->
 
 ## 提交\查看\删除命令
 
@@ -70,7 +70,7 @@ Note：diff好像是按行比较的， `@@ -1,2 +1,7 @@`表示变化的开始和
 
 
 
-`git checkout --filename`可以丢弃**工作区**的**修改或者`rm`的删除** （这里很有意思！），这个文件回到最近一次`git commit`或`git add`时的状态。
+`git checkout -- filename`可以丢弃**工作区**的**修改或者`rm`的删除** （这里很有意思！），这个文件回到最近一次`git commit`或`git add`时的状态。
 
 > Note:`git checkout -- file`没有`--`，就变成了“切换到另一个分支”的命令；
 
