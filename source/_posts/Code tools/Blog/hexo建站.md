@@ -1,6 +1,7 @@
 ---
 title: Hexo建站
 tags:
+- 折腾
 categories: [Code tools, Blog]
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true

@@ -3,11 +3,12 @@ title: 记一次自建DNS
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-08-31 20:21:44
-tags:、
-- 折腾
+tags:
+  - 折腾
 categories:
-
+  - Code tools
+  - Linux
+date: 2020-08-31 20:21:44
 ---
 
 最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！

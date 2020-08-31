@@ -8,6 +8,7 @@ categories:
   - Windows
 date: 2020-08-07 12:56:47
 tags:
+  - 折腾
 ---
 
 [推荐阅读官方博客](https://docs.microsoft.com/en-us/windows/wsl/about) 其中对[WSL2介绍](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index)。
