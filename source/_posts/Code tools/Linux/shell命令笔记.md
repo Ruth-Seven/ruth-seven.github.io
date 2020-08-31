@@ -360,6 +360,10 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 输出主机的IP地址对应的域名。
 
+#### `netstat`
+
+显示主机的网络连接状态。包括TCP和UDP。
+
 ### 系统管理
 
 ##### `top`
@@ -380,9 +384,17 @@ echo `加密内容` | base -d > 解密文件
 
 ## shell学习笔记
 
+#### `sh`
+
+`sh`是一个命令行解析器。它可以从字符串，文件或者标准输入中获取命令。
+
+```shell
+sh -c "command lines to execute" #执行命令
+```
+
+
+
 基础和变量
-
-
 
 ```
 #!/bin/bash

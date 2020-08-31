@@ -13,8 +13,6 @@ tags:
 
 <!-- more -->
 
-# WIN10基本技巧
-
 ## 运行指令
 
 `cmd` 运行cmd Terminal
@@ -23,13 +21,13 @@ tags:
 
 `shell:startup`打开开机自启动软件的文件夹。
 
-
-
 `msinfo32`显示系统详细信息
+
+
 
 ## CMD指令
 
-### Tree
+### `Tree·`
 
 TREE [drive:][path] [/F] [/A]
 
@@ -62,9 +60,29 @@ H:.
 │
 ```
 
-### Ver
+### `Ver`
 
 显示系统版本信息。
+
+### `nslookup`
+
+查看DNS网络信息。
+
+> **nslookup** is a [network administration](https://en.wikipedia.org/wiki/Network_administration) [command-line](https://en.wikipedia.org/wiki/Command-line) tool available in many computer [operating systems](https://en.wikipedia.org/wiki/Operating_system) for querying the [Domain Name System](https://en.wikipedia.org/wiki/Domain_Name_System) (DNS) to obtain [domain name](https://en.wikipedia.org/wiki/Domain_name) or [IP address](https://en.wikipedia.org/wiki/IP_address) mapping, or other [DNS records](https://en.wikipedia.org/wiki/DNS_record). The name "nslookup" means "name server lookup". ——from WIKIPEDIA
+
+```shell
+nslookup http://idcbest.com 8.8.8.8 #用谷歌DNS服务器解析该域名，若DNSIP项为空，则用本机DNS服务器
+
+nslookup -q=TXT  _acme-challenge.dns.come2rss.xyz #查询DNS条目TXT
+
+
+```
+
+### `netstat`
+
+显示主机的网络连接状态。包括TCP和UDP。
+
+
 
 ## 其他
 
