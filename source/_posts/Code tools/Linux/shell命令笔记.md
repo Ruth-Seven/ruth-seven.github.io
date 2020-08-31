@@ -370,6 +370,98 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 查看系统资源详情。
 
+##### `file`
+
+查看文件的类型和其他信息。这在文件类型和文件名没有关系的linux下，很有用！
+
+```shell
+file file.txt
+file.txt: ASCII text
+
+#忽略信息头
+file -b file.txt
+ASCII text
+
+#多文件匹配
+file unix-*.md 
+unix-cat.md:         ASCII text, with very long lines
+unix-comm.md:        ASCII text, with very long lines
+unix-cut.md:         UTF-8 Unicode text
+unix-exit-status.md: ASCII text
+unix-file.md:        ASCII text, with very long lines
+
+# 查看文件的MIME类型
+file -i file.txt
+file.txt: text/plain; charset=us-ascii
+
+#查看压缩文件的内部文件类型（不用解压）
+file -z bar.txt.gz
+bar.txt.gz: ASCII text (gzip compressed data, was "bar.txt", last modified: Wed Sep  7 19:31:23 2016, from Unix)
+```
+
+##### `arch`
+
+显示系统架构
+
+```shell
+$ arch
+x86_64
+```
+
+##### `uname`
+
+显示系统信息。
+
+```shell
+$ uname -a
+Linux DESKTOP-F690RUJ 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+```
+
+`getconf` 
+
+查询系统变量。
+
+```shell
+$ getconf -a
+LINK_MAX                           65000
+_POSIX_LINK_MAX                    65000
+MAX_CANON                          255
+_POSIX_MAX_CANON                   255
+MAX_INPUT                          255
+_POSIX_MAX_INPUT                   255
+NAME_MAX                           255
+_POSIX_NAME_MAX                    255
+PATH_MAX                           4096
+_POSIX_PATH_MAX                    4096
+PIPE_BUF                           4096
+_POSIX_PIPE_BUF                    4096
+SOCK_MAXBUF
+#i.e.
+
+```
+
+##### `dpkg` 
+
+ dpkg - package manager for Debian
+
+```shell
+#安装
+dpkg -i flashpluginnonfree_2.8.2+squeeze1_i386.deb
+#展示所有安装包
+dpkg -l
+#卸载包
+dpkg -r flashpluginnonfree
+#卸载包的同时抹除配置信息
+dpkg -p flashpluginnonfree
+#查看包内容
+dpkg -c flashplugin-nonfree_3.2_i386.deb
+```
+
+
+
+
+
 ### 小工具
 
 ##### `base64 [opinon] [inputfile] [outfile] ` 
