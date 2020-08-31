@@ -223,9 +223,9 @@ More complex tools exist to quickly get an overview of a directory structure [`t
 
 守护进程的会话组和当前目录，文件描述符都是独立的。后台运行只是终端进行了一次fork，让程序在后台执行，这些都没改变;
 
-### 进程查看和管理
+#### 进程查看和管理
 
-#### `ps ` 
+##### `ps ` 
 
 显示命令。
 
@@ -269,11 +269,11 @@ ps -aux |more #分页
 
 
 
-#### `nohup commad &`  
+##### `nohup commad &`  
 
 让进程进入后台，同时不接受hup信号，可实现terminal退出后也能继续运行进程。
 
-#### `bg`和`fg`
+##### `bg`和`fg`
 
 在进程中运行进程后，`ctrl+z`让进程suspended，`bg`可让暂停的进程进入后台并运行。之后`fg`可以让后台进程变成前台进程。
 
@@ -281,11 +281,11 @@ ps -aux |more #分页
 fg %1 #%x, x是jobID。
 ```
 
-#### `jobs` 
+##### `jobs` 
 
 查看当前有多少在后台运行的命令。 `jobs -l `查看详细信息（包含PID）。
 
- #### 2>&1解析
+ ##### 2>&1解析
 
 ```
 command >out.file 2>&1 &
@@ -295,15 +295,13 @@ command >out.file 2>&1 &
 2. 2>&1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&， 是让该命令在后台执行。
 3. 试想2>1代表什么，2与>结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2>&1，&与1结合就代表标准输出了，就变成错误重定向到标准输出。
 
-#### `setsid`
+##### `setsid`
 
 也行，不会。
 
-### 杀死进程
+#### 杀死进程
 
-
-
-#### `kill`
+##### `kill`
 
 可以发送任意信号给进程。
 
@@ -316,7 +314,7 @@ kill -9 -pid #发送kill信号给值为pid的进程组中的所有进程
 
 当然也可以用其他SIGNAL比如`-9`。
 
-#### `killall`
+##### `killall`
 
 杀死所有同名进程
 
@@ -324,7 +322,7 @@ kill -9 -pid #发送kill信号给值为pid的进程组中的所有进程
 killall -9 firefox
 ```
 
-#### `pkill process_name`和`pgrep`
+##### `pkill process_name`和`pgrep`
 
  pgrep  looks through the currently running processes and lists the process IDs which match the selection criteria to stdout. 
 
@@ -346,15 +344,13 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 
 
-#### `xkill`
+##### `xkill`
 
 提供图像化杀死进程，不过需要XServer支持。
 
+### 网络管理
 
-
-## 网络管理
-
-### 域名
+#### 域名
 
 #### `nslookup hostname` 
 
@@ -364,11 +360,21 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 输出主机的IP地址对应的域名。
 
-## 系统管理
+### 系统管理
 
-`top`
+##### `top`
 
 查看系统资源详情。
+
+### 小工具
+
+##### `base64 [opinon] [inputfile] [outfile] ` 
+
+默认加密，`-d`解密。 
+
+```shell
+echo `加密内容` | base -d > 解密文件
+```
 
 
 
