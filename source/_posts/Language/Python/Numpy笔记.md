@@ -10,7 +10,7 @@ date: 2020-08-07 13:08:45
 tags:
 ---
 
-<!-- more -->
+
 
 
 
@@ -19,6 +19,8 @@ tags:
 ## axis
 
 常常用于指定函数的计算方式，如sum(x,axis=0)会得到一个row array,而不是按行计算的column array。
+
+<!-- more -->
 
 [![image-20200503125336529](http://static.come2rss.xyz/image-20200503125336529.png)](http://static.come2rss.xyz/image-20200503125336529.png)
 

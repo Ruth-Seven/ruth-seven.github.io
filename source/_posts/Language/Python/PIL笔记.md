@@ -16,11 +16,13 @@ Python Image Library别名Pillow
 
 教程参见：[翻译版](https://pillow-cn.readthedocs.io/zh_CN/latest/handbook/tutorial.html)
 
-<!-- more -->
+
 
 # 基础概念
 
 ## Image 类
+
+<!-- more -->
 
 PIL最重要的类是 [`Image`](https://pillow-cn.readthedocs.io/zh_CN/latest/reference/Image.html#PIL.Image.Image) class, 你可以通过多种方法创建这个类的实例；你可以从文件加载图像，或者处理其他图像, 或者从 scratch 创建。
 

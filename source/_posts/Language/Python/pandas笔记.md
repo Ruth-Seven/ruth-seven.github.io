@@ -10,7 +10,7 @@ date: 2020-08-07 13:09:27
 tags:
 ---
 
-<!-- more -->
+
 
 
 
@@ -21,6 +21,8 @@ pandas.read_excel(io, sheet_name, dtype)
 ```
 
 神奇的函数：`io`可使用多种URL，如http、ftp、file、path。
+
+<!-- more -->
 
 sheet_name 指定读取的工作簿
 

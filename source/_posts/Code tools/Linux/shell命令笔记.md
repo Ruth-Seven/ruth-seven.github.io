@@ -364,6 +364,16 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 显示主机的网络连接状态。包括TCP和UDP。
 
+````shell
+# 所有接口 显示PID IP以数字现实
+netstat -apn | grep ssh
+
+# -c 以秒为单位重新内容
+netstat -apnc
+````
+
+
+
 ### 系统管理
 
 ##### `top`

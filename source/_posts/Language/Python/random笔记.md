@@ -10,11 +10,11 @@ date: 2020-08-07 13:14:37
 tags:
 ---
 
-<!-- more -->
+
 
 wrandom常用函数
 
-
+<!-- more -->
 
 `sample(list, simpleSize)`从list中抽simpleSize个元素
 

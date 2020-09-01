@@ -16,9 +16,11 @@ tags:
 
 ## pyplot
 
-<!-- more -->
+
 
 [`matplotlib.pyplot`](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot) is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting.
+
+<!-- more -->
 
 pyplot is mainly intended for interactive plots and simple cases of programmatic plot generation:
 
