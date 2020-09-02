@@ -352,9 +352,11 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 #### 域名
 
-#### `nslookup hostname` 
+#### `nslookup hostname [DNS Server IP]`  
 
-查找域名对应的IP地址
+利用DNS机制查找域名对应的IP地址，可设置上游DNS服务器。
+
+
 
 #### `hostname`
 
@@ -372,7 +374,13 @@ netstat -apn | grep ssh
 netstat -apnc
 ````
 
+##### `cat /etc/resolv.conf ` 
 
+查看DNS配置。同样的可以修改该文件来修改DNS配置。
+
+##### `dig [domain] [DNS Server IP] `
+
+DNS查询组件
 
 ### 系统管理
 

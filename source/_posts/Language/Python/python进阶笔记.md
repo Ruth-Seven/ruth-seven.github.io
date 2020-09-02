@@ -1,5 +1,5 @@
 ---
-title: python基础学习笔记-进阶
+title: python进阶
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
@@ -100,7 +100,7 @@ list_str = ''.join(list_str)
 
 enumerate(thing)`, where thing is either an iterator or a sequence, returns a iterator that will return`(0, thing[0])`,`(1, thing[1])`,`(2, thing[2])`, and so forth.
 
-# for
+## for
 
 `enumerate` 可在迭代中得到遍历值和下标`for inx, val in enumerate(['uyy', 'dfdf']):`。
 
@@ -1677,4 +1677,214 @@ Python内置的`sorted()`函数就可以对list进行排序：
 
 ## 正则表达式
 
-这个坑以后再填 https://www.runoob.com/regexp/regexp-rule.html
+字符串是编程时涉及到的最多的一种数据结构，对字符串进行操作的需求几乎无处不在。比如判断一个字符串是否是合法的Email地址，虽然可以编程提取`@`前后的子串，再分别判断是否是单词和域名，但这样做不但麻烦，而且代码难以复用。
+
+正则表达式是一种用来匹配字符串的强有力的武器。它的设计思想是用一种描述性的语言来给字符串定义一个规则，凡是符合规则的字符串，我们就认为它“匹配”了，否则，该字符串就是不合法的。
+
+所以我们判断一个字符串是否是合法的Email的方法是：
+
+1. 创建一个匹配Email的正则表达式；
+2. 用该正则表达式去匹配用户的输入来判断是否合法。
+
+正则表达式用字符串表示的。在正则表达式中，如果直接给出字符，就是精确匹配。
+
+| 正则表达式   | 含义                                                         |      |
+| ------------ | ------------------------------------------------------------ | ---- |
+| `\d`         | 匹配一个数字                                                 |      |
+| `\w`         | 匹配一个字母                                                 |      |
+| `.`          | 匹配一个任意字符                                             |      |
+| `*`          | 前面的字符可匹配任意次（包括零）                             |      |
+| `+`          | 前面的字符可至少匹配一次                                     |      |
+| `?`          | 前面的字符可匹配零或者一次                                   |      |
+| `{n}`        | 前面的字符可匹配`n`次                                        |      |
+| `{n,m}`      | 前面的字符可匹配`[n, m]`次                                   |      |
+| **转义符号** |                                                              |      |
+| \s           | 匹配有空白符（空格、TAB等）                                  |      |
+| \\-          | 匹配一个`-`                                                  |      |
+| **高级**     |                                                              |      |
+| []           | 范围匹配                                                     |      |
+| `A|B`        | 可以匹配A或B。相邻的选择项之间用 `()`，或者全部分割。        |      |
+| `()`         | 标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。 |      |
+| **定位符**   |                                                              |      |
+| `^`          | 表示行的开头，`^\d`表示必须以数字开头。                      |      |
+| `$`          | 表示行的结束，`\d$`表示必须以数字结束。                      |      |
+|              |                                                              |      |
+
+>  `[a-zA-Z\_][0-9a-zA-Z\_]*`可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量； 
+>
+> `(P|p)ython`可以匹配`'Python'`或者`'python'`。
+>
+> `py`也可以匹配`'python'`，但是加上`^py$`就变成了整行匹配，就只能匹配`'py'`了。
+>
+> 另外，`*`和 `+` 限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个 `?` 就可以实现非贪婪或最小匹配。如`[0-9]*?` 。
+
+### re模块
+
+Python提供`re`模块，包含所有正则表达式的功能。由于Python的字符串本身也用`\`转义，所以要特别注意：
+
+```
+s = 'ABC\\-001' # Python的字符串
+# 对应的正则表达式字符串变成：
+# 'ABC\-001'
+```
+
+因此我们强烈建议使用Python的`r`前缀，就不用考虑转义的问题了：
+
+```
+s = r'ABC\-001' # Python的字符串
+# 对应的正则表达式字符串不变：
+# 'ABC\-001'
+```
+
+先看看如何判断正则表达式是否匹配：
+
+```
+>>> import re
+>>> re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
+<_sre.SRE_Match object; span=(0, 9), match='010-12345'>
+>>> re.match(r'^\d{3}\-\d{3,8}$', '010 12345')
+>>>
+```
+
+`match()`方法判断是否匹配，如果匹配成功，返回一个`Match`对象，否则返回`None`。常见的判断方法就是：
+
+```
+test = '用户输入的字符串'
+if re.match(r'正则表达式', test):
+    print('ok')
+else:
+    print('failed')
+```
+
+### 切分字符串
+
+用正则表达式切分字符串比用固定的字符更灵活，请看正常的切分代码：
+
+```
+>>> 'a b   c'.split(' ') #无法识别连续的空格
+['a', 'b', '', '', 'c']
+
+
+>>> re.split(r'[\s\,]+', 'a,b, c  d')
+['a', 'b', 'c', 'd']
+```
+
+### 分组
+
+除了简单地判断是否匹配之外，正则表达式还有提取子串的强大功能。用`()`表示的就是要提取的分组（Group）。比如：
+
+`^(\d{3})-(\d{3,8})$`分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：
+
+```
+>>> m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+>>> m
+<_sre.SRE_Match object; span=(0, 9), match='010-12345'>
+>>> m.group(0)
+'010-12345'
+>>> m.group(1)
+'010'
+>>> m.group(2)
+'12345'
+```
+
+如果正则表达式中定义了组，就可以在`Match`对象上用`group()`方法提取出子串来。
+
+注意到`group(0)`永远是原始字符串，`group(1)`、`group(2)`……表示第1、2、……个子串。类似的还有`groups()`，返回所有组的tuple。
+
+提取子串非常有用。来看一个更凶残的例子：
+
+```
+>>> t = '19:05:30'
+>>> m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
+>>> m.groups()
+('19', '05', '30')
+```
+
+### 编译
+
+当我们在Python中使用正则表达式时，re模块内部会干两件事情：
+
+1. 编译正则表达式，如果正则表达式的字符串本身不合法，会报错；
+2. 用编译后的正则表达式去匹配字符串。
+
+如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以预编译该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：
+
+```
+>>> import re
+# 编译:
+>>> re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
+# 使用：
+>>> re_telephone.match('010-12345').groups()
+('010', '12345')
+>>> re_telephone.match('010-8086').groups()
+('010', '8086')
+```
+
+编译后生成Regular Expression对象，由于该对象自己包含了正则表达式，所以调用对应的方法时不用给出正则字符串。
+
+
+
+
+
+### 应用
+
+正则匹配域名并修改。
+
+```python
+
+import os
+import re
+
+filepath = "./DualServer.ini"
+filepath_w = filepath + "_w"
+# try:
+#     f = open(filepath, 'r+')
+#     printf(f.read())
+# finally:
+#     if f:
+#         f.close()
+
+#'rb'模式打开文件即可：
+# # print(f.read()) #一次性读取
+#  print(f.read(size)) #一次性读取size个大小
+# file-like Object
+
+# 像open()函数返回的这种有个read()方法的对象，在Python中统称为file-like Object。除了file外，还可以是内存的字节流，网络流，自定义流等等。file-like Object不要求从特定类继承，只要写个read()方法就行。
+
+# StringIO就是在内存中创建的file-like Object，常用作临时缓冲。
+
+     # print(f.read()) #一次性读取
+    #  >>> f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
+    # >>> f = open('/Users/michael/gbk.tt', 'r', encoding='gbk', errors='ignore')
+
+def replace(line):
+    # huilanyujia.com/114.114.114.114
+    # server=/huilianyi.com/114.114.114.114
+    restring1 = r"^([a-zA-Z0-9\.\-]*?)/([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})$"
+    restring2 = r"^server=/([a-zA-Z0-9\.\-]*?)/([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})$"
+    reobj1 = re.match(restring1, line)
+    reobj2 = re.match(restring2, line)
+    if reobj1:
+        return reobj1.group(1)+ '=' + reobj1.group(2) + '\n'
+    elif reobj2:
+        return reobj2.group(1) + '=' + reobj2.group(2)+ '\n'
+    else:
+        # print("Sorry! There isn't string for match\n", line)
+        return line
+
+
+with open(filepath, 'r+') as f:
+    with open(filepath_w, 'w') as f_w:
+        for line in f.readlines(): 
+            # print(line.strip()) 
+            newLine = replace(line)
+            # if len(newLine) > 40:
+            #     print(newLine)
+            # print(newLine)
+            f_w.write(newLine)
+        
+
+print(replace("sdkjf/114.223.432.11"))
+
+```
+
