@@ -3,17 +3,21 @@ title: DNS防污染配置
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
+categories:
+  - Code tools
+  - Linux
 date: 2020-09-02 08:28:59
 tags:
-categories:
 ---
 
 
-<!-- more -->
+
 
 
 
 由于我国正处于发展不充分，不完全的阶段，DNS总是会出现一些莫名其妙的错误。twitter上不去，github下不了，非常尴尬。为了增进电脑使用体验，决定自己建一个DNS服务器避免DNS劫持和DNS毒化。
+
+<!-- more -->
 
 ## 为啥要设置DNS
 
@@ -134,3 +138,14 @@ print(replace("sdkjf/114.223.432.11"))
 ### DNSMASQ
 
 [freeDNS](https://github.com/tuna/freedns-go)
+
+
+
+### FreeDNS
+
+该软件可以直接在Linux上[配置](https://github.com/tuna/freedns-go)。集成了DNS分流和DNS请求的功能，算是一个比较好的实现。
+
+### ChinaDNS
+
+貌似问题比较多的，[具体看](https://github.com/shadowsocks/ChinaDNS)
+

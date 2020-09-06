@@ -352,17 +352,17 @@ Name: ./sample-garbagecollector.pl Pid: 12430 Signal Received: USR1
 
 #### 域名
 
-#### `nslookup hostname [DNS Server IP]`  
+##### `nslookup hostname [DNS Server IP]`  
 
 利用DNS机制查找域名对应的IP地址，可设置上游DNS服务器。
 
 
 
-#### `hostname`
+##### `hostname`
 
 输出主机的IP地址对应的域名。
 
-#### `netstat`
+##### `netstat`
 
 显示主机的网络连接状态。包括TCP和UDP。
 

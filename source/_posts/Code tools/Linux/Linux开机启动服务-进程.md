@@ -3,9 +3,11 @@ title: Linux开机启动服务/进程
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
+categories:
+  - Code tools
+  - Linux
 date: 2020-09-02 08:15:54
 tags:
-categories:
 ---
 
 简记一下。
