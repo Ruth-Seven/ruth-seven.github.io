@@ -3,10 +3,12 @@ title: 搭建RSS服务
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-09-09 17:01:58
 tags:
-- 折腾
+  - 折腾
 categories:
+  - Code tools
+  - Linux
+date: 2020-09-09 17:01:58
 ---
 
 好怀念神奇又快捷的RSS功能啊。经过不懈的尝试和努力，终于在VPS-Ubuntuuh建了一个。
