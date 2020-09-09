@@ -234,8 +234,6 @@ widgets:
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: toc
     # Recommendation links widget configurations
     # -
         # Where should the widget be placed, left sidebar or right sidebar

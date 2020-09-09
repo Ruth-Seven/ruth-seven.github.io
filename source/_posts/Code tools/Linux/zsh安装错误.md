@@ -8,6 +8,7 @@ categories:
   - Linux
 date: 2020-08-31 21:41:48
 tags:
+- errornote
 ---
 
 

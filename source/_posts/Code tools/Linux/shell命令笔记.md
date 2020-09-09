@@ -235,6 +235,17 @@ ps -u root #显示指定用户进程
 ps -ef #显示所有进程信息，连同命令行
 #
 ​```
+
+$ ps -efl
+F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root         1     0  0  80   0 -   415 -      19:40 ?        00:00:00 /init
+5 S root        22     1  0  80   0 -   415 -      19:41 ?        00:00:00 /init
+1 R root        23    22  0  80   0 -   415 -      19:41 ?        00:00:00 /init
+4 S luck        24    23  0  80   0 -  2509 do_wai 19:41 pts/0    00:00:00 -bash
+0 S luck        37    24  0  80   0 -  3172 sigsus 19:41 pts/0    00:00:00 zsh
+0 R luck        94    37  0  80   0 -  2653 -      19:42 pts/0    00:00:00 ps -efl
+
+
 各相关信息的意义：
 F 代表这个程序的旗标 (flag)， 4 代表使用者为 super user
 S 代表这个程序的状态 (STAT)，关于各 STAT 的意义将在内文介绍
@@ -250,7 +261,43 @@ WCHAN 目前这个程序是否正在运作当中，若为 - 表示正在运作
 TTY 登入者的终端机位置
 TIME 使用掉的 CPU 时间。
 CMD 所下达的指令为何
-​```
+
+
+# ps aux | more
+USER       PID  %CPU   %MEM   VSZ    RSS    TTY                   STAT       START     TIME     COMMAND
+aimin    13362 99.1 13.6 12942520 12641232 ?   R    13:12 445:48 /usr/local/lib64/R/bin/exec/R
+aimin    23413  0.0  0.0 100344  1784 ?        R    20:02   0:00 sshd: aimin@pts/3
+aimin    24489  1.0  0.0 110244  1152 pts/3    R+   20:42   0:00 ps aux
+aimin    24490  0.0  0.0 103252   924 pts/3    S+   20:42   0:00 grep -w R
+
+
+USER 进程的用户；
+PID   进程的ID；
+%CPU   进程占用的CPU百分比；
+%MEM  占用内存的百分比；
+VSZ     该进程使用的虚拟内存量（KB）；
+RSS     该进程占用的固定内存量（KB）；
+TTY     该进程在哪个终端上运行（登陆者的终端位置），若与终端无关，则显示（？）。若为pts/0等，则表示由网络连接主机进程；
+START   该进程被触发启动时间；
+TIME      该进程实际使用CPU运行的时间；
+COMMAND   命令的名称和参数；
+
+STAT状态位常见的状态字符
+D 无法中断的休眠状态（通常 IO 的进程）；
+R 正在运行可中在队列中可过行的；
+S 处于休眠状态；
+T 停止或被追踪；
+W 进入内存交换 （从内核2.6开始无效）；
+X 死掉的进程  （基本很少见）；
+Z 僵尸进程；
+< 优先级高的进程；
+N 优先级较低的进程；
+L 有些页被锁进内存；
+s 进程的领导者（在它之下有子进程）；
+l 多进程的（使用 CLONE_THREAD, 类似 NPTL pthreads）；
++ 位于后台的进程组；
+​````
+
 ps -l #将目前属于您自己这次登入的 PID 与相关信息列示出来
 
 ps aux #是BSD语法的ps -ef
@@ -478,7 +525,117 @@ dpkg -c flashplugin-nonfree_3.2_i386.deb
 
 
 
+### 文件管理
 
+##### `ls` 
+
+查看文件夹下文件目录。
+
+##### `find`
+
+寻找文件。
+
+```ssh 
+# 在/ 查找文件为filename的文件
+find  /  -name filename
+
+
+```
+
+
+
+### 数据管理
+
+##### `grep`
+
+查看符合匹配项的行内容。
+
+```shell
+grep pattern file
+
+#查找log中的所有IP地址
+#-E: extended-regexp: pattern为扩展的正则表达式
+grep -E '[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}' /var/log/shadowsocks.log  
+
+#file 也可以使用正则表达式
+grep -E '[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}' /var/log/*.log  
+
+#-n: num查询结果前加行号
+
+#-o：only输出匹配内容
+
+#-h: hide file name 对多个文件搜索时，隐藏文件名输出；-H相反，输出文件名。
+
+```
+
+##### `sort`
+
+排序
+
+````shell
+#以逆序（默认升序排序），数值比较方式排序
+sort -rn
+````
+
+##### `head`和`tail`
+
+查看文件中前部分内容；查看文件中前部分内容；
+
+```shell
+# 输出后20行
+tail -n 20
+
+#输出后20个字符
+tail -c 20
+
+#输出到最后倒数20行
+head -n -20
+
+#输出前20个字符
+head -c 20
+```
+
+> 注意`head`的数字可以用符号，表示从后往前数。而`tail`不行
+
+
+
+##### `uniq`
+
+将相邻的重复行去重
+
+```shell
+#去重的同时加上出现的次数 -c: count (occurences)
+uniq -c 
+
+```
+
+##### `cut`
+
+按列为单位对文本进行操作。
+
+```shell
+#-b、-c、-f分别表示字节、字符、字段（即byte、character、field）；
+cut -b list [-n] [file …]
+cut -c list [file …]
+cut -f list [-d delim][-s][file …]
+```
+
+list表示-b、-c、-f操作范围，-n常常表示具体数字；
+file表示的自然是要操作的文本文件的名称；
+delim（英文全写：delimiter）表示分隔符，默认情况下为TAB；
+-s表示不包括那些不含分隔符的行（这样有利于去掉注释和标题）
+三种方式中，表示从指定的范围中提取字节（-b）、或字符（-c）、或字段（-f）。
+
+范围的表示方法：
+n 只有第n项
+n- 从第n项一直到行尾
+n-m 从第n项到第m项(包括m)
+-m 从一行的开始到第m项(包括m)
+\- 从一行的开始到结束的所有项
+
+##### `awk`
+
+神奇的强大数据处理工具。
 
 ### 小工具
 

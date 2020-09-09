@@ -1,5 +1,5 @@
 ---
-title: 记一次DNS分流
+title: 记一次自建DNS
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
@@ -37,3 +37,7 @@ Certbot是一款自动化，自动修改服务器配置，可获取`Let's Encryp
 ## 使用
 
 按照管理页面的`设置指导`提示，可以在各个终端上使用该服务器作为DNS服务器。
+
+
+
+> 不过最后迁移到ubuntu之后，因为53端口被占用了，只好作罢。
