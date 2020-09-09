@@ -3,10 +3,13 @@ title: 记一次配置ShadowSocks
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-09-06 19:18:39
 tags:
--errornote
+  - errornote
+  - 折腾
 categories:
+  - Code tools
+  - Linux
+date: 2020-09-06 19:18:39
 ---
 
 用香港服务器做一个代理。网上的教程很多，只需要5分钟就可以配置好。
