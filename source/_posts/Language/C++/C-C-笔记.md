@@ -163,6 +163,17 @@ int a[5][6] = {{1, 3, 4, 5, 6}, {5, 6}, {}, {2, 3, 5 }};
 /*
 C++函数（包括主函数）定义的变量都是定义在系统栈中，容易溢出。定义为全局变量可以放到静态存储区中。
 */
+
+//new 二维
+int** a = new int*[rowCount];
+for(int i = 0; i < rowCount; ++i)
+    a[i] = new int[colCount];
+    
+//delete 二维
+for(int i = 0; i < rowCount; ++i) {
+    delete [] ary[i];
+}
+delete [] ary;
 ```
 
 **初始化**
@@ -317,3 +328,84 @@ bool cmp(Stu a, Stu b){
 | 17                    | `,`                                                          | [逗号](https://zh.cppreference.com/w/cpp/language/operator_other#.E5.86.85.E5.BB.BA.E7.9A.84.E9.80.97.E5.8F.B7.E8.BF.90.E7.AE.97.E7.AC.A6) | 从左到右                                                     |
 
 > 注意`&`的优先级比`==`小。
+
+
+
+## builtin Funciotn
+
+
+
+### Function __builtin_clz
+
+This builtin method is provided by GCC to count the number of **leading** zero’s in variable.
+
+The Syntax:
+
+```
+int __builtin_clz (unsigned int x)
+```
+
+It takes the input parameter as a number for which the the count of leading zero’s is to be determined. It returns the count of leading zero’s as expected.
+
+Taking for example, lets take a number 16. An **int** takes 4 bytes in gcc. Its binary representation is
+
+Code:
+
+```
+00000000 00000000 00000000 00010000
+```
+
+Counting the number of leading zero’s is 27 which should be our result for this case..
+
+
+
+### Function __builtin_ctz
+
+
+
+
+This builtin method by GCC determines the count of trailing zero in the binary representation of a number.
+
+The Syntax:
+
+```
+int __builtin_ctz (unsigned int x)
+```
+
+The input parameter is the number for which the the count of trailing zero’s is to be determined. It returns the count of trailing zero’s as expected.
+
+Taking for example, lets take the same number 16. Again, an int takes 4 bytes in gcc. Its binary representation is
+
+Code:
+
+```
+00000000 00000000 00000000 00010000
+```
+
+Counting the number of trailing zero’s is 4 which should be our result for this case..
+
+
+
+### Function __builtin_popcount
+
+This builtin method by GCC determines the number of **one’s** in the binary representation of a number.
+
+The Syntax:
+
+Code:
+
+```
+int __builtin_popcount (unsigned int x)
+```
+
+The input parameter is the number for which the the number of 1’s is to be determined. It returns the count of set bits as expected..
+
+Taking for example, lets take the same number 16. Again, an int takes 4 bytes in gcc. Its binary representation is
+
+Code:
+
+```
+00000000 00000000 00000000 00010000
+```
+
+Counting the number of one’s is just 1, which should be our result for this case..

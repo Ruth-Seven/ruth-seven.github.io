@@ -14,6 +14,67 @@ tags:
 
 > 本篇文章中所指的区间，若无特殊说明，就是指半闭半开区间。
 
+## 其他操作
+
+### 删除按值查找的元素
+
+```c++
+vector<char> rowP;
+rowP.erase(remove(rowP.begin(), rowP.end(), board[i][j]), rowP.end());
+```
+
+### 插入元素`push_back`和`emplace_back`的区别
+
+不同于`push_back`直接插入一个元素，`emplace_back`会把元素组合起来再压入STL容器中。
+
+```c++
+#include <vector>
+#include <string>
+#include <iostream>
+ 
+struct President
+{
+    std::string name;
+    std::string country;
+    int year;
+ 
+    President(std::string p_name, std::string p_country, int p_year)
+        : name(std::move(p_name)), country(std::move(p_country)), year(p_year)
+    {
+        std::cout << "I am being constructed.\n";
+    }
+    President(President&& other)
+        : name(std::move(other.name)), country(std::move(other.country)), year(other.year)
+    {
+        std::cout << "I am being moved.\n";
+    }
+    President& operator=(const President& other) = default;
+};
+ 
+int main()
+{
+    std::vector<President> elections;
+    std::cout << "emplace_back:\n";
+    elections.emplace_back("Nelson Mandela", "South Africa", 1994);
+ 
+    std::vector<President> reElections;
+    std::cout << "\npush_back:\n";
+    reElections.push_back(President("Franklin Delano Roosevelt", "the USA", 1936));
+ 
+    std::cout << "\nContents:\n";
+    for (President const& president: elections) {
+        std::cout << president.name << " was elected president of "
+                  << president.country << " in " << president.year << ".\n";
+    }
+    for (President const& president: reElections) {
+        std::cout << president.name << " was re-elected president of "
+                  << president.country << " in " << president.year << ".\n";
+    }
+
+```
+
+
+
 ## vector
 
 <!-- more -->
@@ -31,6 +92,15 @@ vector< typename> v3[arraySize];
 
 // vector<int>(n, 2)动态生成了一个长度为n，每个元素为2的vector对象
 vector<vector<int> > dp(n, vector<int>(n, 2));
+
+
+//数组直接初始化
+vector<vector<char>> board = {{'X','.','.','X'},{'.','.','.','X'},{'.','.','.','X'}};
+
+// 数组初始化vector对象
+int arr[] = {11, 32, 41, 25, 67, 100, 88, 233}; 
+vector<int> iv(begin(arr), end(arr));
+ 
 ```
 
 

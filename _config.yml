@@ -99,7 +99,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: icarus
-themes: Anisina
+# themes: Anisina
+themes: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

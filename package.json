@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bulma-stylus": "^0.8.0",
+    "gulp": "^4.0.2",
     "hexo": "^4.2.1",
     "hexo-auto-category": "^0.2.0",
     "hexo-component-inferno": "^0.4.0",
@@ -27,6 +28,7 @@
     "hexo-renderer-marked": "^3.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "hexo-theme-fluid": "^1.8.3",
     "hexo-util": "^1.9.1",
     "inferno": "^7.4.2",
     "inferno-create-element": "^7.4.2"
