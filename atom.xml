@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://blog.come2rss.xyz/atom.xml" rel="self"/>
+  
+  <link href="http://blog.come2rss.xyz/"/>
+  <updated>2020-09-16T11:52:59.580Z</updated>
+  <id>http://blog.come2rss.xyz/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>37.解数独</title>
+    <link href="http://blog.come2rss.xyz/2020/09/17/shua-ti/leetcode/37.jie-shu-du/"/>
+    <id>http://blog.come2rss.xyz/2020/09/17/shua-ti/leetcode/37.jie-shu-du/</id>
+    <published>2020-09-17T04:57:20.000Z</published>
+    <updated>2020-09-16T11:52:59.580Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;37-解数独&quot;&gt;&lt;a href=&quot;#37-解数独&quot; class=&quot;headerlink&quot; title=&quot;37 解数独&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/sudoku-solver/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;37 解数独&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;编写一个程序，通过已填充的空格来解决数独问题。&lt;/p&gt;
+&lt;p&gt;一个数独的解法需遵循如下规则：&lt;/p&gt;
+&lt;p&gt;数字 1-9 在每一行只能出现一次。&lt;br&gt;数字 1-9 在每一列只能出现一次。&lt;br&gt;数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。&lt;br&gt;空白格用 ‘.’ 表示。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
+    
+    
+    <category term="回溯" scheme="http://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
+    
+    <category term="位运算" scheme="http://blog.come2rss.xyz/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建RSS服务</title>
+    <link href="http://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/"/>
+    <id>http://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/</id>
+    <published>2020-09-09T09:01:58.000Z</published>
+    <updated>2020-09-09T09:48:54.460Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;好怀念神奇又快捷的RSS功能啊。经过不懈的尝试和努力，终于在VPS-Ubuntuuh建了一个。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="http://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次配置ShadowSocks</title>
+    <link href="http://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/"/>
+    <id>http://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/</id>
+    <published>2020-09-06T11:18:39.000Z</published>
+    <updated>2020-09-09T09:49:09.040Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;用香港服务器做一个代理。网上的教程很多，只需要5分钟就可以配置好。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="http://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+    <category term="errornote" scheme="http://blog.come2rss.xyz/tags/errornote/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNS防污染配置</title>
+    <link href="http://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/"/>
+    <id>http://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/</id>
+    <published>2020-09-02T00:28:59.000Z</published>
+    <updated>2020-09-09T09:48:39.220Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;由于我国正处于发展不充分，不完全的阶段，DNS总是会出现一些莫名其妙的错误。twitter上不去，github下不了，非常尴尬。为了增进电脑使用体验，决定自己建一个DNS服务器避免DNS劫持和DNS毒化。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="http://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux开机启动服务/进程</title>
+    <link href="http://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/"/>
+    <id>http://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/</id>
+    <published>2020-09-02T00:15:54.000Z</published>
+    <updated>2020-09-06T05:21:54.480Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;简记一下。&lt;/p&gt;
+&lt;h2 id=&quot;开机以root用户启动脚本&quot;&gt;&lt;a href=&quot;#开机以root用户启动脚本&quot; class=&quot;headerlink&quot; title=&quot;开机以root用户启动脚本&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://askubuntu.com/questions/290099/how-to-run-a-script-during-boot-as-root&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;开机以root用户启动脚本&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Place the script you want to run in the /etc/init.d directory and make the script executable.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>zsh安装错误</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/</id>
+    <published>2020-08-31T13:41:48.000Z</published>
+    <updated>2020-09-06T11:51:24.060Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;简单的按&lt;code&gt;oh-my-zsh&lt;/code&gt;官网的提示执行命令，却发现错误&lt;code&gt;zsh not installed. Pleaese fisrt install zsh&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="errornote" scheme="http://blog.come2rss.xyz/tags/errornote/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNS污染</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/cs/cn/dns-wu-ran/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/cs/cn/dns-wu-ran/</id>
+    <published>2020-08-31T13:29:09.000Z</published>
+    <updated>2020-08-31T13:58:01.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;p&gt;&amp;lt;转载自&lt;a href=&quot;https://www.zhihu.com/org/nan-tong-xiao-yun-wang-luo-ke-ji-you-xian-gong-si&quot; target=&quot;_blank&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CN" scheme="http://blog.come2rss.xyz/categories/CS/CN/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>http劫持</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/</id>
+    <published>2020-08-31T13:26:39.000Z</published>
+    <updated>2020-08-31T13:58:01.950Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&amp;lt;转载自&lt;a href=&quot;https://juejin.im/post/6844903495485636615&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金&lt;/a&gt;&amp;gt;&lt;/p&gt;
+&lt;h1 id=&quot;深入理解Http请求、DNS劫持与解析。&quot;&gt;&lt;a href=&quot;#深入理解Http请求、DNS劫持与解析。&quot; class=&quot;headerlink&quot; title=&quot;深入理解Http请求、DNS劫持与解析。&quot;&gt;&lt;/a&gt;深入理解Http请求、DNS劫持与解析。&lt;/h1&gt;&lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;前段时间在处理iOS端的HTTPDNS相关SDK，在接入和测试环节发现大家对HTTP的整体请求流程包括HTTP劫持原理以及HTTPDNS的工作原理并不是太清楚，所以写下这边文章帮助大家深入web请求过程：如何发起请求，HTTP协议解析，DNS域名解析。&lt;/p&gt;
+&lt;h3 id=&quot;HTTP发起一个请求&quot;&gt;&lt;a href=&quot;#HTTP发起一个请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP发起一个请求&quot;&gt;&lt;/a&gt;HTTP发起一个请求&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CN" scheme="http://blog.come2rss.xyz/categories/CS/CN/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记一次自建DNS</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
+    <published>2020-08-31T12:21:44.000Z</published>
+    <updated>2020-09-09T09:30:48.930Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以通过win自带的&lt;code&gt;nslookup&lt;/code&gt;工具判断正在使用的DNS服务是否被污染。“正常”的DNS服务器可以解析出地址，如果无法解析肯定可以说明DNS被污染了。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="http://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次DNS分流</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/</id>
+    <published>2020-08-31T12:21:44.000Z</published>
+    <updated>2020-09-09T09:29:47.350Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以通过win自带的&lt;code&gt;nslookup&lt;/code&gt;工具判断正在使用的DNS服务是否被污染。“正常”的DNS服务器可以解析出地址，如果无法解析肯定可以说明DNS被污染了。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="http://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记12-并发编程</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/</id>
+    <published>2020-08-31T01:13:09.000Z</published>
+    <updated>2020-08-31T05:00:50.190Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;现代操作系统提供了三种方法进行并发编程——进程、I/O多路复用和线程。这章节提供了三种构造并发服务器的思路。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记10-系统级I/O</title>
+    <link href="http://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/"/>
+    <id>http://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/</id>
+    <published>2020-08-30T23:29:46.000Z</published>
+    <updated>2020-08-31T05:00:50.190Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;输入输出是在主存和外部设备（磁盘驱动器、终端和网络）之间复制数据的过程。所有的语言都提供执行I/O的高级别工具，比如ASNI的C提供了Scanf和Printf。在Linux系统中，内核提供的系统级Unix I/O实现了较高级别的I/O函数。学习Unix I/O有助于我们理解系统I/O的运作原理，理清其他系统概念，甚至在不得已的情况使用Unix I/O编程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记-虚拟内存</title>
+    <link href="http://blog.come2rss.xyz/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/"/>
+    <id>http://blog.come2rss.xyz/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/</id>
+    <published>2020-08-30T09:46:07.000Z</published>
+    <updated>2020-08-30T15:45:28.808Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CSAPP的虚拟内存章节的前半部分主要讲述虚拟内存的实现细节和运转原理，其后半部分主要学习Linux的虚拟内存管理。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记7：链接</title>
+    <link href="http://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"/>
+    <id>http://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/</id>
+    <published>2020-08-28T05:38:40.000Z</published>
+    <updated>2020-08-30T02:56:22.773Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记8-异常控制流</title>
+    <link href="http://blog.come2rss.xyz/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/"/>
+    <id>http://blog.come2rss.xyz/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/</id>
+    <published>2020-08-27T08:51:05.000Z</published>
+    <updated>2020-09-06T05:21:22.920Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这章的内容很精彩！解答了很多关于进程和信号量的知识。（但是内容太多了！简略的记一下）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>.brshrc的作用</title>
+    <link href="http://blog.come2rss.xyz/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/"/>
+    <id>http://blog.come2rss.xyz/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/</id>
+    <published>2020-08-26T04:43:15.000Z</published>
+    <updated>2020-08-26T04:53:34.670Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Linux的Ubunut的用户目录下，&lt;code&gt;.bashrc&lt;/code&gt;常被用于存储环境变量和别名语句，该文件会在Shell启动的时候自动被导入。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="http://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="http://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记5-程序优化</title>
+    <link href="http://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/"/>
+    <id>http://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/</id>
+    <published>2020-08-13T07:46:49.000Z</published>
+    <updated>2020-08-22T10:30:05.300Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;GCC为我们C++语言提供了优秀的自动优化方法，&lt;code&gt;-O1,-O2,-Og&lt;/code&gt;可以配置不同优化程度。但是GCC的优化也有局限性，它小心翼翼地保护不能确定结果的代码，比如：下述代码中，如果p2指向了v的最后一个元素，其计算结果和p2指向一个&lt;code&gt;int data = (*v)[(int)v.size() - 1]&lt;/code&gt;的结果完全不同。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP笔记3-程序的机器级表示</title>
+    <link href="http://blog.come2rss.xyz/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/"/>
+    <id>http://blog.come2rss.xyz/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/</id>
+    <published>2020-08-12T05:18:54.000Z</published>
+    <updated>2020-08-22T10:30:05.300Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;主要记录C代码对应机器指令是什么，具体实现过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CS" scheme="http://blog.come2rss.xyz/categories/CS/"/>
+    
+    <category term="CSAPP" scheme="http://blog.come2rss.xyz/categories/CS/CSAPP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试-其他题</title>
+    <link href="http://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/"/>
+    <id>http://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/</id>
+    <published>2020-08-11T08:19:39.000Z</published>
+    <updated>2020-08-22T10:30:05.300Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;收集一些奇怪的题目。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="剑指offer" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试题-建模</title>
+    <link href="http://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/"/>
+    <id>http://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/</id>
+    <published>2020-08-11T07:07:27.000Z</published>
+    <updated>2020-08-22T10:30:05.300Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;收集抽象建模题目。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="剑指offer" scheme="http://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+  </entry>
+  
+</feed>
