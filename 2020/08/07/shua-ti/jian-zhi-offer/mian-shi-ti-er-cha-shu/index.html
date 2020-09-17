@@ -1,0 +1,1152 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面试题 二叉树, Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>面试题 二叉树 | Hexo</title>
+    <link rel="icon" type="image/png" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面试题 二叉树</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/BinaryTree/">
+                                <span class="chip bg-color">BinaryTree</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                刷题
+                            </a>
+                        
+                            <a href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/" class="post-category">
+                                剑指offer
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-08-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2020-08-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    11 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <a id="more"></a>
+
+<p>收集二叉树相关题目，相关测试代码见<a href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/BinaryTreeTest.cpp" target="_blank" rel="noopener">此</a>。</p>
+<p>sCmd = ‘C:; cd C:\Users\xusx\Sumo\SUMO\bin; duarouter -n xsxlankershim.net.xml –route-files xsx.flow.xml -o rou.rou.xml’<br>os.system(sCmd)</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct BinaryTreeNode{</span><br><span class="line">    double dbValue;</span><br><span class="line">    BinaryTreeNode *pLeft;</span><br><span class="line">    BinaryTreeNode *pRight;   </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面7：中序遍历和前序遍历序列来重建二叉树"><a href="#面7：中序遍历和前序遍历序列来重建二叉树" class="headerlink" title="面7：中序遍历和前序遍历序列来重建二叉树"></a>面7：中序遍历和前序遍历序列来重建二叉树</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">BinaryTreeNode* ConstructNode(int *startPreorder,  int *endPreordrer, </span><br><span class="line">                              int *startInorder, int *endInorder){</span><br><span class="line">    //这个代码健壮性就很好！对空值和非法输出进行了区分。</span><br><span class="line">	if(startPreorder &gt; endPreorder  || startInorder &gt; endInorder ){	</span><br><span class="line">        if(startPreorder == endPreorder - 1  &amp;&amp; startInorder ==  endInorder - 1) </span><br><span class="line">        	return nullptr;</span><br><span class="line">        else </span><br><span class="line">            throw std::exception("Invalid Input.\n");</span><br><span class="line">    } </span><br><span class="line">    //寻找中序遍历中的根节点值坐标</span><br><span class="line">    int nodeValue = startPreordre[0];</span><br><span class="line">	int *rootInorder = startInorder;</span><br><span class="line">    for(; rootInorder &lt;= enInorder &amp;&amp; *rootInordre != nodevalue; rootInorder++);</span><br><span class="line">	//健壮一下</span><br><span class="line">    if(enInorder &lt; rootInorder){</span><br><span class="line">        throw std::exception("Invalid input!\n");</span><br><span class="line">    }</span><br><span class="line">    //构建左右子树</span><br><span class="line">    BinaryTreeNode* pNode = new BinaryTreeNode();</span><br><span class="line">    int lNodeNum = rootInorder - startInorder;</span><br><span class="line">    pNode-&gt;pLeft = </span><br><span class="line">        ConstructNode(startPreorder + 1, startPreorder + lNodeNum, startInorder, rootInorder - 1);</span><br><span class="line">    pNode-&gt;pRight = </span><br><span class="line">        ConstructNode(startPreorder + lNodeNum + 1, endPreorder, rootInorder + 1, endInorder);</span><br><span class="line">    pNode-&gt;value = nodeValue;</span><br><span class="line">    return pNode;</span><br><span class="line">	</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">BinaryTreeNode* ConstructTree(int *preorder, int *inorder, int length){</span><br><span class="line">    //length == 0的代码的健壮性显然不如 length &lt;= 0</span><br><span class="line">    if(preorder == null || inorder == null || length &lt;= 0) return nullptr;</span><br><span class="line">	return ConstructNode(preorder, preorder + length - 1 , inorder, inorde + length - 1);</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面8：二叉树的下一个节点"><a href="#面8：二叉树的下一个节点" class="headerlink" title="面8：二叉树的下一个节点"></a>面8：二叉树的下一个节点</h2><p>第一次考虑的时候居然还想错了，分析不够全面。从二叉树中序遍历来看，若一个节点有右子树，则下一个节点就是其右子树的最左节点。倘若没有，则必然是考虑父亲节点。如果该节点是父亲节点的左子节点，那么下一个节点就是父亲节点，不然可以溯源查找其父辈节点是左子树的祖父节点。这个过程可以使用父亲节点和迭代完成。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BinaryTreeNode *GetNext(BinaryTreeNode *pNode){</span><br><span class="line">    if(pNode == nullptr) return;</span><br><span class="line">    if(pNode-&gt;pRight){</span><br><span class="line">        BinaryTreeNode* pChild = pNode-&gt;pRight;</span><br><span class="line">        while(pChild-&gt;pLeft != nullptr) pChild = pChild-&gt;pRight;</span><br><span class="line">        return pChild;</span><br><span class="line">    }else{</span><br><span class="line">        BinaryTreeNode* pParent = pNode-&gt;pParent, *pCurrent = pNode;</span><br><span class="line">		//循环控制条件有点像哨兵，没有找到的话pParent自然就是unllptr,代码更加简洁了</span><br><span class="line">        while(pParent != nullptr &amp;&amp; pParent-&gt;pRight != pCurrent){</span><br><span class="line">            pCurrent = pParent;</span><br><span class="line">            pParent = pParent-&gt;pParent;</span><br><span class="line">        }</span><br><span class="line">        return pParent;       </span><br><span class="line">    }</span><br><span class="line">    return nullptr;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>相比之前的代码这个写法差一点点</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">while(pParent-&gt;pParent != nullptr &amp;&amp; pParent-&gt;pRight != pCurrent){</span><br><span class="line">            pCurrent = pParent;</span><br><span class="line">            pParent = pParent-&gt;pParent;</span><br><span class="line">        }</span><br><span class="line">        if(pParent-&gt;pRight == pCurrent){</span><br><span class="line">            return pParent;</span><br><span class="line">        }</span><br><span class="line">       </span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h2 id="面26：树的子结构"><a href="#面26：树的子结构" class="headerlink" title="面26：树的子结构"></a>面26：树的子结构</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>输入两棵树<code>A</code>和<code>B</code>，判断<code>B</code>是否是<code>A</code>的子结构。<code>B</code>是<code>A</code>的子结构子结构定义为<code>A</code>的一部分和<code>B</code>完全相同。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>递归的判断对<code>A</code>的每一个节点判断该节点下的是否有<code>B</code>的结构。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">bool judgeSameTree(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2){</span><br><span class="line">	if(pRoot2 == nullptr) return true;</span><br><span class="line">    else if(pRoot1 == nullptr) return false;</span><br><span class="line">    </span><br><span class="line">    if(equal(pRoot1-&gt;dbValue, pRoot2-&gt;dbValue)){</span><br><span class="line">        if(pRoot2-&gt;pRight == nullptr &amp;&amp; pRoot2-&gt;pLeft == nullptr) return true;</span><br><span class="line">	    return judgeSameTree(pRoot1-&gt;pLeft, pRoot2-&gt;pLeft)</span><br><span class="line">            &amp;&amp; judgeSameTree(pRoot2-&gt;pRight, pRoot2-&gt;pRight);</span><br><span class="line">    }</span><br><span class="line">    return false;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">bool HasSubtreeCore(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2){</span><br><span class="line">	if(pRoot1){</span><br><span class="line">        if(judgeSameTree(pRoot1, pRoot2)) return true;</span><br><span class="line">        else return HasSubtreeCore(pRoot1-&gt;pLeft, pRoot2) </span><br><span class="line">            	|| HasSubtreeCore(pRoot1-&gt;pRight, pRight);</span><br><span class="line">    }</span><br><span class="line">    return false;</span><br><span class="line">}</span><br><span class="line">bool HasSubtree(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2){</span><br><span class="line">    if(pRoot2 == nullptr) return true;</span><br><span class="line">    if(pRoot1 == nullptr) return false;</span><br><span class="line">    return HasSubtreeCore(pRoot1, pRoot2);   	    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><p><a href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/BinaryTreeTest.cpp" target="_blank" rel="noopener">参见</a></p>
+<h2 id="面27：翻转二叉树"><a href="#面27：翻转二叉树" class="headerlink" title="面27：翻转二叉树"></a>面27：翻转二叉树</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>给出一棵二叉树并返回其镜像二叉树。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>直接交换节点的左右指针节点即可。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BinaryTreeNode *MirrorRecursively(BinaryTreeNode* pNode){</span><br><span class="line">    if(pNode == nullptr) return nullptr;</span><br><span class="line">    BinaryTreeNode *pTemp = pNode-&gt;pRight;</span><br><span class="line">    pNode-&gt;pRight = pNode-&gt;pLeft;</span><br><span class="line">    pNode-&gt;pLeft = pTemp;</span><br><span class="line">	MirrorRecursively(pNode-&gt;pLeft);</span><br><span class="line">    MirrorRecursively(pNode-&gt;pRight);</span><br><span class="line">    return pNode;    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面28：对称二叉树"><a href="#面28：对称二叉树" class="headerlink" title="面28：对称二叉树"></a>面28：对称二叉树</h2><h3 id="题面：-2"><a href="#题面：-2" class="headerlink" title="题面："></a>题面：</h3><p>判断一棵树是否对称。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>从第一个节点左子树开始递归的判断，其右子树的节点是否完全相同。只需要一边对另一边镜像操作就ok。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bool isSymmetrical(BinaryTreeNode* pHead){</span><br><span class="line">	if(pHead == nullptr) return true;</span><br><span class="line">    return isSymmetricalCore(pHead-&gt;pLeft, pHead-&gt;pRight);</span><br><span class="line">}</span><br><span class="line">bool isSemmetricalCore(BinaryTreeNode *p1, BinaryTreeNode *p2){</span><br><span class="line">    if(p1 == nullptr &amp;&amp; p2 == nullptr) return true;</span><br><span class="line">    if(p1 == nullptr &amp;&amp; p2 != nullptr </span><br><span class="line">       || p2 == nullptr &amp;&amp; p1 != nullptr</span><br><span class="line">      || p1-&gt;value != p2-&gt;value) </span><br><span class="line">    	return false;</span><br><span class="line">    return isSemmetricalCore(p1-&gt;left, p2-&gt;right) </span><br><span class="line">    	&amp;&amp;  isSemmetricalCore(p1-&gt;right, p2-&gt;left);    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>有趣的是，我这种写法也可以看成前序遍历序列和对称前序遍历序列的比较。</p>
+</blockquote>
+<h2 id="面32：层序遍历二叉树"><a href="#面32：层序遍历二叉树" class="headerlink" title="面32：层序遍历二叉树"></a>面32：层序遍历二叉树</h2><h3 id="题面：-3"><a href="#题面：-3" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>层序遍历</p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void PrintByLayer(BinaryTreeNode* pHead){</span><br><span class="line">    if(pHead == nullptr) return;</span><br><span class="line">    queue&lt;BinaryTreeNode*&gt; que;</span><br><span class="line">    que.push(pHead);</span><br><span class="line">    while(que.size()){</span><br><span class="line">        BinaryTreeNode *pNode = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        printf("%.2f ", pNode-&gt;dbValue);</span><br><span class="line">        if(pNode-&gt;pLeft) que.push(pNode-&gt;pLeft);</span><br><span class="line">        if(pNode-&gt;pRight) que.push(pNode-&gt;pRight);        </span><br><span class="line">    }</span><br><span class="line">    printf("\n");</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面32相关题：分行打印层序遍历二叉树"><a href="#面32相关题：分行打印层序遍历二叉树" class="headerlink" title="面32相关题：分行打印层序遍历二叉树"></a>面32相关题：分行打印层序遍历二叉树</h2><h3 id="题面：-4"><a href="#题面：-4" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>在层序遍历的基础上，有两种解题思路：一是记录当前层未打印的节点数量和下一层的需要打印的节点数量，二是在队列中添加一个一层的节点末端的标志符、</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">void PrintByLayerSparate(BinaryTreeNode* pHead){</span><br><span class="line">    if(pHead == nullptr) return;</span><br><span class="line">    queue&lt;BinaryTreeNode*&gt; que;</span><br><span class="line">    que.push(pHead);</span><br><span class="line">	int printValue = 1, nextValue = 0;</span><br><span class="line">    while(que.size()){</span><br><span class="line">        BinaryTreeNode *pNode = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        printValue--;</span><br><span class="line">        printf("%.2f ", pNode-&gt;dbValue);</span><br><span class="line">        if(pNode-&gt;pLeft){</span><br><span class="line">          	que.push(pNode-&gt;pLeft);</span><br><span class="line">            nextValue++;</span><br><span class="line">        } </span><br><span class="line">        if(pNode-&gt;pRight){</span><br><span class="line">            que.push(pNode-&gt;pRight);          </span><br><span class="line">            nextValue++;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        if(printValue == 0){</span><br><span class="line">            printValue = nextValue;</span><br><span class="line">            nextValue = 0;</span><br><span class="line">            printf("\n");</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面32相关题：之字形打印二叉树"><a href="#面32相关题：之字形打印二叉树" class="headerlink" title="面32相关题：之字形打印二叉树"></a>面32相关题：之字形打印二叉树</h2><h3 id="题面：-5"><a href="#题面：-5" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-5"><a href="#思路：-5" class="headerlink" title="思路："></a>思路：</h3><p>一种方法就是分层层序遍历+栈逆序存储并输出。</p>
+<p>第二种方法就用栈把一层的节点逆序输出，并将下一层的节点记录在另一个栈中，如此循环，输出所有的层。</p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void PirntZhi(BinaryTreeNode *pHead){</span><br><span class="line">    if(pHead == nullptr) return;</span><br><span class="line">    stack&lt;BinaryTreeNode*&gt; s[2];</span><br><span class="line">    int cur = 0;</span><br><span class="line">    s[cur].push(pHead);</span><br><span class="line">    BinaryTreeNode *pNode = nullptr;</span><br><span class="line">    while(s[cur].size()){</span><br><span class="line">        while(s[cur].size()){</span><br><span class="line">		   pNode = s[cur].top();</span><br><span class="line">            s[cur].pop();</span><br><span class="line">            printf("%.2 ", pNode-&gt;dbValue);</span><br><span class="line">            if(cur == 0){</span><br><span class="line">                if(pNode-&gt;pLeft) s[1 - cur].push(pNode-&gt;pLeft);</span><br><span class="line">                if(pNode-&gt;pRight) s[1 - cur].push(pNode-&gt;pRight);                </span><br><span class="line">            }else{</span><br><span class="line">                if(pNode-&gt;pRight) s[1 - cur].push(pNode-&gt;pRight);                </span><br><span class="line">            	if(pNode-&gt;pLeft) s[1 - cur].push(pNode-&gt;pLeft);                </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">       	printf("\n");</span><br><span class="line">        cur = 1- cur;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面33-判断后序遍历序列有效性"><a href="#面33-判断后序遍历序列有效性" class="headerlink" title="面33:判断后序遍历序列有效性"></a>面33:判断后序遍历序列有效性</h2><h3 id="题面：-6"><a href="#题面：-6" class="headerlink" title="题面："></a>题面：</h3><p>给定一颗二叉搜索树的后续遍历序列，判断该后序遍历序列是否合法。</p>
+<h3 id="思路：-6"><a href="#思路：-6" class="headerlink" title="思路："></a>思路：</h3><p>依据后续遍历的定义，可以把序列依据最后一个元素<code>K</code>分成两半，且满足前一部分全部小于<code>K</code>的值，后一部分全部大于<code>K</code>的值，若不符合这个结论，则该后序遍历不可能存在一颗二叉树与之对应。递归的判断这两部分是否符合这些定义。</p>
+<h3 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">bool isPostSequenceCore(int sequence[], int start, int end){</span><br><span class="line">    if(start &gt;= end) return true;</span><br><span class="line">    int key = sequence[end - 1];</span><br><span class="line">    int split = start;</span><br><span class="line">    while(sequence[split] &lt; key) split++;</span><br><span class="line">    for(int i = split; i &lt; end; i++){</span><br><span class="line">        if(sequence[i] &lt; key) return false;</span><br><span class="line">    }</span><br><span class="line">    return isPostSequenceCore(sequence, start, split) </span><br><span class="line">        &amp;&amp; isPostSequenceCore(sequence, split, end - 1);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">bool isPostSequence(int sequence[], int len){</span><br><span class="line">    if(sequence == nullptr || len &lt;= 0) return false;</span><br><span class="line">    return isPostSequenceCore(sequence, 0, len);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>如果是c++的话，也可以直接用指针代替start。</p>
+</blockquote>
+<h2 id="面34：树的路径的元素之和"><a href="#面34：树的路径的元素之和" class="headerlink" title="面34：树的路径的元素之和"></a>面34：树的路径的元素之和</h2><h3 id="题面：-7"><a href="#题面：-7" class="headerlink" title="题面："></a>题面：</h3><p>打印出树的路径上的值之和与给定数字相同的所有路径。路径从根到叶子。</p>
+<h3 id="思路：-7"><a href="#思路：-7" class="headerlink" title="思路："></a>思路：</h3><p>dfs遍历 + 记录路径即可。</p>
+<h3 id="代码：-7"><a href="#代码：-7" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">void PrintPathCore(BinaryTreeNode* pNode, stack&lt;int&gt; &amp;s, int add, int expectedSum){</span><br><span class="line">    s.push((int)pNode-&gt;dbValue);</span><br><span class="line">    add += (int)(pNode-&gt;dbValue);</span><br><span class="line">    if(pNode-&gt;pLeft == nullptr &amp;&amp; pNode-&gt;pRight == nullptr){</span><br><span class="line">        if(add == expectedSum){</span><br><span class="line">            stack&lt;int&gt; sTemp;</span><br><span class="line">            while(s.size()){</span><br><span class="line">               </span><br><span class="line">                sTemp.push(s.top());</span><br><span class="line">                s.pop();                </span><br><span class="line">            }</span><br><span class="line">            while(sTemp.size()){</span><br><span class="line">                printf("%d-&gt;", sTemp.top());</span><br><span class="line">                s.push(sTemp.top());</span><br><span class="line">                sTemp.pop();</span><br><span class="line">            }</span><br><span class="line">            printf("\n");</span><br><span class="line">        }</span><br><span class="line">        // printf("%d, %d, %d\n", expectedSum, add, s.size());</span><br><span class="line">        s.pop();</span><br><span class="line">        return;</span><br><span class="line">    }</span><br><span class="line">    if(pNode-&gt;pLeft) PrintPathCore(pNode-&gt;pLeft, s, add, expectedSum);    </span><br><span class="line">    if(pNode-&gt;pRight) PrintPathCore(pNode-&gt;pRight, s, add, expectedSum);</span><br><span class="line">    s.pop();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PrintPath(BinaryTreeNode* pHead, int expectedSum){</span><br><span class="line">    if(pHead == nullptr) return;</span><br><span class="line">	stack&lt;int&gt; s;</span><br><span class="line">    PrintPathCore(pHead, s, 0, expectedSum);</span><br><span class="line">    printf("\n");</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>中午时间不要打代码，太困了</p>
+</blockquote>
+<h2 id="面36：把二叉搜索树转化为双向链表（同链表中的内容）"><a href="#面36：把二叉搜索树转化为双向链表（同链表中的内容）" class="headerlink" title="面36：把二叉搜索树转化为双向链表（同链表中的内容）"></a>面36：把二叉搜索树转化为双向链表（同链表中的内容）</h2><h3 id="题面：-8"><a href="#题面：-8" class="headerlink" title="题面："></a>题面：</h3><p>如题，要求不创建任何新节点，只能调整树中节点的指向。输出调整后的排序链表。</p>
+<h3 id="思路：-8"><a href="#思路：-8" class="headerlink" title="思路："></a>思路：</h3><p>可以从递归的角度入手。对于一个节点<code>A</code>，中序遍历到<code>A</code>，则<code>A</code>的左子树已经转化为了链表，连接好<code>A</code>和<code>A</code>的左子树的最大节点（前一个指针）的指针则连接完成。</p>
+<p>那对于<code>A</code>的右子树的最小节点<code>B</code>与<code>A</code>之间的连接，也可以看成<code>B</code>与前一个节点的指针相互链接。那么我们只需要在中序遍历的过程中改变前一个指针的内容即可。</p>
+<p>注意一下整棵树的最大的右指针和最小节点的左指针，发现都应该是空，无需额外修改。</p>
+<blockquote>
+<p>对于一个节点<code>A</code>的左右指针，分别指向按顺序排列的旁边两个节点。可以用中序遍历来获取该节点的前一个节点<code>B</code>的指针，并设置好<code>B</code>的右指针和<code>A</code>的左指针。如此就可以在中序遍历的后设置除了最后一个节点的右指针，但是右指针本来就应该是<code>NULL</code>，所以无需修改。</p>
+</blockquote>
+<h3 id="代码：-8"><a href="#代码：-8" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void AdjustLinkCore(BinaryTreeNode* pRoot, BinaryTreeNode *&amp;preNode, BinaryTreeNode *&amp;pHead){</span><br><span class="line">    if(pRoot == nullptr) return;</span><br><span class="line">  	AdjustLinkCore(pRoot-&gt;pLeft, preNode, pHead);</span><br><span class="line"></span><br><span class="line">    if(pHead == nullptr) pHead = pRoot;</span><br><span class="line">    pRoot-&gt;pLeft = preNode;</span><br><span class="line">    if(preNode) preNode-&gt;pRight = pRoot;</span><br><span class="line">    preNode = pRoot;</span><br><span class="line">    </span><br><span class="line">    AdjustLinkCore(pRoot-&gt;pRight, preNode, pHead);</span><br><span class="line">}</span><br><span class="line">BinaryTreeNode* AdjustLink(BinaryTreeNode* pRoot){</span><br><span class="line">    BinaryTreeNode *preNode = nullptr;</span><br><span class="line">    BinaryTreeNode *pHead = nullptr;</span><br><span class="line">    AdjustLinkCore(pRoot, preNode, pHead);</span><br><span class="line">    return pHead;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="面36：序列化和反序列化二叉树"><a href="#面36：序列化和反序列化二叉树" class="headerlink" title="面36：序列化和反序列化二叉树"></a>面36：序列化和反序列化二叉树</h2><h3 id="题面：-9"><a href="#题面：-9" class="headerlink" title="题面："></a>题面：</h3><p>序列化定义：</p>
+<blockquote>
+<p>序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。在序列化期间，对象将其当前状态写入到临时或持久性存储区。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。</p>
+</blockquote>
+<p>二叉树的序列化可以把非空节点的值序列化，把空节点序列化为<code>$</code>。</p>
+<h3 id="思路：-9"><a href="#思路：-9" class="headerlink" title="思路："></a>思路：</h3><p>由于序列化把空节点的信息也包含进来了，所以无需添加更多序列。</p>
+<blockquote>
+<p>这题更像流的应用题</p>
+</blockquote>
+<h3 id="代码：-9"><a href="#代码：-9" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void Serialize(BinaryTreeNode *pRoot, ostream&amp; stream){</span><br><span class="line">    if(pRoot == nullptr){</span><br><span class="line">        stream &lt;&lt; '$';</span><br><span class="line">        return;</span><br><span class="line">    } </span><br><span class="line">    stream &lt;&lt; pRoot-&gt;value &lt;&lt; ',';</span><br><span class="line">    Serialize(pRoot-&gt;pLeft);</span><br><span class="line">    Serialize(pRoot-&gt;pRight);    </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void Deserialize(BinaryTreeNode *&amp;pRoot, istream&amp; stream){</span><br><span class="line">	int number;</span><br><span class="line">    if(ReadSteam(stream, &amp;number)){</span><br><span class="line">        pRoot = new BinaryTreeNode();</span><br><span class="line">        pNew-&gt;pLeft = nullptr;</span><br><span class="line">        pNew-&gt;pRight = nullptr;</span><br><span class="line">        pNew-&gt;value = number;</span><br><span class="line">    }</span><br><span class="line">    Deserialize(pRoot-&gt;pLeft, stream);</span><br><span class="line">	Deserialize(pRoot-&gt;pRight, steam);    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.come2rss.xyz/2020/08/07/shua-ti/jian-zhi-offer/mian-shi-ti-er-cha-shu/">https://blog.come2rss.xyz/2020/08/07/shua-ti/jian-zhi-offer/mian-shi-ti-er-cha-shu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/BinaryTree/">
+                                    <span class="chip bg-color">BinaryTree</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '7619495a20b0da44c1f9',
+        clientSecret: '911c9973946c63baf4b71162038e2ee2e6d9061e',
+        repo: 'gitalk',
+        owner: 'ove',
+        admin: ["ove"],
+        id: '2020-08-07T13-25-51',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/08/07/shua-ti/jian-zhi-offer/mian-16-shu-zhi-de-n-ci-fang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="面16-数值的N次方">
+                        
+                        <span class="card-title">面16-数值的N次方</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            题面：给一个浮点数，求出其数值的整数次方。
+思路：主要考点还是在异常处理这方面。由于幂为整数，在效率上可以考虑快速幂。
+
+
+
+
+代码：12345678910111213141516int power(double base, int exp
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/" class="post-category">
+                                    剑指offer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/07/shua-ti/jian-zhi-offer/mian-shi-ti-shu-zu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="面试题 数组">
+                        
+                        <span class="card-title">面试题 数组</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            收集一些有关于数组的问题
+
+
+面试题3：数组中重复出现的数字题面：n个数据的数组有数据范围为0~n-1的数字，数组中的数字可能重复，请判断是否存在重复数字。
+思路分析：简单的算法可以直接排序，时间复杂度为O(NlogN)O(NlogN)，空
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/" class="post-category">
+                                    剑指offer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Ruth-Seven" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:eraofspeed@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
