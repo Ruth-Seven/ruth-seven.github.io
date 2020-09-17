@@ -308,7 +308,19 @@ top: 10
 #### 添加自定义域名
 在`public`文件下添加`CNAME`文件。内容仅为需要映射的自定义域名。
 
+### 添加评论系统
 
+Matery主题自带Gittalk模块，只需要配置Gittalk参数即可。Gittalk利用GitHup的repo中ISSUE功能，实现了全部用前端代码的强大评论功能。那么需要我们创建一个[OAuth应用](https://github.com/settings/installations)来存储评论信息，并且添加对应信息。
+
+> Homepage:博客地址
+>
+> Authorization callback URL:存储评论的库地址
+>
+> [详细可以查看](https://blog.csdn.net/qing_gee/article/details/100133060)
+
+接下来在`hexo-theme-matery`文件下的配置文件`_config.yml`中配置相关关键词`repo`、`clientID`、`clientSecret`等等。
+
+![image-20200917133230897](http://static.come2rss.xyz/image-20200917133230897.png)
 
 # 常用命令
 
@@ -334,6 +346,7 @@ hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭serve
 hexo deploy #将.deploy目录部署到GitHub
 hexo help  # 查看帮助
 hexo version  #查看Hexo的版本
+hexo clean; hexo g -d; #清理已生成的页面，重新生成并部署。
 ```
 
 启动本地服务器并监视文件变化，同时编译渲染。
