@@ -198,11 +198,11 @@
   </entry>
   
   <entry>
-    <title>记一次自建DNS</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
+    <title>记一次DNS分流</title>
+    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/"/>
+    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/</id>
     <published>2020-08-31T12:21:44.000Z</published>
-    <updated>2020-09-09T09:30:48.930Z</updated>
+    <updated>2020-09-09T09:29:47.350Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
@@ -222,11 +222,11 @@
   </entry>
   
   <entry>
-    <title>记一次DNS分流</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/</id>
+    <title>记一次自建DNS</title>
+    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
+    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
     <published>2020-08-31T12:21:44.000Z</published>
-    <updated>2020-09-09T09:29:47.350Z</updated>
+    <updated>2020-09-09T09:30:48.930Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
