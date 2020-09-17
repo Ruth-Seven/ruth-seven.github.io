@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="https://blog.come2rss.xyz/s/atom.xml" rel="self"/>
+  <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
-  <link href="https://blog.come2rss.xyz/s/"/>
+  <link href="https://blog.come2rss.xyz/"/>
   <updated>2020-09-17T00:31:51.096Z</updated>
-  <id>https://blog.come2rss.xyz/s/</id>
+  <id>https://blog.come2rss.xyz/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>37.解数独</title>
-    <link href="https://blog.come2rss.xyz/s/2020/09/17/shua-ti/leetcode/37.jie-shu-du/"/>
-    <id>https://blog.come2rss.xyz/s/2020/09/17/shua-ti/leetcode/37.jie-shu-du/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/17/shua-ti/leetcode/37.jie-shu-du/"/>
+    <id>https://blog.come2rss.xyz/2020/09/17/shua-ti/leetcode/37.jie-shu-du/</id>
     <published>2020-09-17T04:57:20.000Z</published>
     <updated>2020-09-17T00:31:51.096Z</updated>
     
@@ -30,21 +30,21 @@
     
     
     
-    <category term="刷题" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/"/>
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
-    <category term="回溯" scheme="https://blog.come2rss.xyz/s/tags/%E5%9B%9E%E6%BA%AF/"/>
+    <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
     
-    <category term="位运算" scheme="https://blog.come2rss.xyz/s/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    <category term="位运算" scheme="https://blog.come2rss.xyz/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
   <entry>
     <title>搭建RSS服务</title>
-    <link href="https://blog.come2rss.xyz/s/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/"/>
-    <id>https://blog.come2rss.xyz/s/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/"/>
+    <id>https://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/</id>
     <published>2020-09-09T09:01:58.000Z</published>
     <updated>2020-09-09T09:48:54.460Z</updated>
     
@@ -53,19 +53,19 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
-    <category term="折腾" scheme="https://blog.come2rss.xyz/s/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
   <entry>
     <title>记一次配置ShadowSocks</title>
-    <link href="https://blog.come2rss.xyz/s/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/"/>
-    <id>https://blog.come2rss.xyz/s/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/"/>
+    <id>https://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/</id>
     <published>2020-09-06T11:18:39.000Z</published>
     <updated>2020-09-09T09:49:09.040Z</updated>
     
@@ -74,21 +74,21 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
-    <category term="折腾" scheme="https://blog.come2rss.xyz/s/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
-    <category term="errornote" scheme="https://blog.come2rss.xyz/s/tags/errornote/"/>
+    <category term="errornote" scheme="https://blog.come2rss.xyz/tags/errornote/"/>
     
   </entry>
   
   <entry>
     <title>DNS防污染配置</title>
-    <link href="https://blog.come2rss.xyz/s/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/"/>
-    <id>https://blog.come2rss.xyz/s/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/"/>
+    <id>https://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/</id>
     <published>2020-09-02T00:28:59.000Z</published>
     <updated>2020-09-09T09:48:39.220Z</updated>
     
@@ -97,19 +97,19 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
-    <category term="折腾" scheme="https://blog.come2rss.xyz/s/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
   <entry>
     <title>Linux开机启动服务/进程</title>
-    <link href="https://blog.come2rss.xyz/s/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/"/>
-    <id>https://blog.come2rss.xyz/s/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/"/>
+    <id>https://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/</id>
     <published>2020-09-02T00:15:54.000Z</published>
     <updated>2020-09-06T05:21:54.480Z</updated>
     
@@ -119,17 +119,17 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>zsh安装错误</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/code-tools/linux/zsh-an-zhuang-cuo-wu/</id>
     <published>2020-08-31T13:41:48.000Z</published>
     <updated>2020-09-06T11:51:24.060Z</updated>
     
@@ -138,19 +138,19 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
-    <category term="errornote" scheme="https://blog.come2rss.xyz/s/tags/errornote/"/>
+    <category term="errornote" scheme="https://blog.come2rss.xyz/tags/errornote/"/>
     
   </entry>
   
   <entry>
     <title>DNS污染</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/cs/cn/dns-wu-ran/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/cs/cn/dns-wu-ran/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/cs/cn/dns-wu-ran/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/cs/cn/dns-wu-ran/</id>
     <published>2020-08-31T13:29:09.000Z</published>
     <updated>2020-08-31T13:58:01.950Z</updated>
     
@@ -169,17 +169,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CN" scheme="https://blog.come2rss.xyz/s/categories/CS/CN/"/>
+    <category term="CN" scheme="https://blog.come2rss.xyz/categories/CS/CN/"/>
     
     
   </entry>
   
   <entry>
     <title>http劫持</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/cs/cn/http-jie-chi/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/cs/cn/http-jie-chi/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/</id>
     <published>2020-08-31T13:26:39.000Z</published>
     <updated>2020-08-31T13:58:01.950Z</updated>
     
@@ -190,41 +190,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CN" scheme="https://blog.come2rss.xyz/s/categories/CS/CN/"/>
+    <category term="CN" scheme="https://blog.come2rss.xyz/categories/CS/CN/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>记一次DNS分流</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/</id>
-    <published>2020-08-31T12:21:44.000Z</published>
-    <updated>2020-09-09T09:29:47.350Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以通过win自带的&lt;code&gt;nslookup&lt;/code&gt;工具判断正在使用的DNS服务是否被污染。“正常”的DNS服务器可以解析出地址，如果无法解析肯定可以说明DNS被污染了。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
-    
-    
-    <category term="折腾" scheme="https://blog.come2rss.xyz/s/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
   <entry>
     <title>记一次自建DNS</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
     <published>2020-08-31T12:21:44.000Z</published>
     <updated>2020-09-09T09:30:48.930Z</updated>
     
@@ -236,19 +212,43 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
-    <category term="折腾" scheme="https://blog.come2rss.xyz/s/tags/%E6%8A%98%E8%85%BE/"/>
+    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次DNS分流</title>
+    <link href="https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/</id>
+    <published>2020-08-31T12:21:44.000Z</published>
+    <updated>2020-09-09T09:29:47.350Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以通过win自带的&lt;code&gt;nslookup&lt;/code&gt;工具判断正在使用的DNS服务是否被污染。“正常”的DNS服务器可以解析出地址，如果无法解析肯定可以说明DNS被污染了。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
+    
+    
+    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
   <entry>
     <title>CSAPP笔记12-并发编程</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/</id>
     <published>2020-08-31T01:13:09.000Z</published>
     <updated>2020-08-31T05:00:50.190Z</updated>
     
@@ -257,17 +257,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记10-系统级I/O</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/"/>
+    <id>https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/</id>
     <published>2020-08-30T23:29:46.000Z</published>
     <updated>2020-08-31T05:00:50.190Z</updated>
     
@@ -276,17 +276,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记-虚拟内存</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/"/>
+    <id>https://blog.come2rss.xyz/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/</id>
     <published>2020-08-30T09:46:07.000Z</published>
     <updated>2020-08-30T15:45:28.808Z</updated>
     
@@ -295,17 +295,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记7：链接</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"/>
+    <id>https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/</id>
     <published>2020-08-28T05:38:40.000Z</published>
     <updated>2020-08-30T02:56:22.773Z</updated>
     
@@ -317,17 +317,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记8-异常控制流</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/"/>
+    <id>https://blog.come2rss.xyz/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/</id>
     <published>2020-08-27T08:51:05.000Z</published>
     <updated>2020-09-06T05:21:22.920Z</updated>
     
@@ -336,17 +336,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>.brshrc的作用</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/"/>
+    <id>https://blog.come2rss.xyz/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/</id>
     <published>2020-08-26T04:43:15.000Z</published>
     <updated>2020-08-26T04:53:34.670Z</updated>
     
@@ -355,17 +355,17 @@
     
     
     
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/"/>
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
     
-    <category term="Linux" scheme="https://blog.come2rss.xyz/s/categories/Code-tools/Linux/"/>
+    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记5-程序优化</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/"/>
+    <id>https://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/</id>
     <published>2020-08-13T07:46:49.000Z</published>
     <updated>2020-08-22T10:30:05.300Z</updated>
     
@@ -374,17 +374,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>CSAPP笔记3-程序的机器级表示</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/"/>
+    <id>https://blog.come2rss.xyz/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/</id>
     <published>2020-08-12T05:18:54.000Z</published>
     <updated>2020-08-22T10:30:05.300Z</updated>
     
@@ -393,17 +393,17 @@
     
     
     
-    <category term="CS" scheme="https://blog.come2rss.xyz/s/categories/CS/"/>
+    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
     
-    <category term="CSAPP" scheme="https://blog.come2rss.xyz/s/categories/CS/CSAPP/"/>
+    <category term="CSAPP" scheme="https://blog.come2rss.xyz/categories/CS/CSAPP/"/>
     
     
   </entry>
   
   <entry>
     <title>面试-其他题</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/"/>
+    <id>https://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-qi-ta-ti/</id>
     <published>2020-08-11T08:19:39.000Z</published>
     <updated>2020-08-22T10:30:05.300Z</updated>
     
@@ -412,17 +412,17 @@
     
     
     
-    <category term="刷题" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/"/>
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
-    <category term="剑指offer" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
+    <category term="剑指offer" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
     
     
   </entry>
   
   <entry>
     <title>面试题-建模</title>
-    <link href="https://blog.come2rss.xyz/s/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/"/>
-    <id>https://blog.come2rss.xyz/s/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/</id>
+    <link href="https://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/"/>
+    <id>https://blog.come2rss.xyz/2020/08/11/shua-ti/jian-zhi-offer/mian-shi-ti-jian-mo/</id>
     <published>2020-08-11T07:07:27.000Z</published>
     <updated>2020-08-22T10:30:05.300Z</updated>
     
@@ -431,9 +431,9 @@
     
     
     
-    <category term="刷题" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/"/>
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
-    <category term="剑指offer" scheme="https://blog.come2rss.xyz/s/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
+    <category term="剑指offer" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
     
     
   </entry>
