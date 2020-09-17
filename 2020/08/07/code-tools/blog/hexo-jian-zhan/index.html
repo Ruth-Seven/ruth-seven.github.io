@@ -467,14 +467,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-08-31
+                    2020-09-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.5k
+                    2.6k
                 </div>
                 
 
@@ -588,10 +588,18 @@
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: {{ title }}</span><br><span class="line">date: {{ date }}</span><br><span class="line">tags:</span><br><span class="line">-</span><br><span class="line">categories: []</span><br><span class="line">thumbnail: http://static.come2rss.xyz/尼尔机械.jpg</span><br><span class="line">toc: true</span><br><span class="line">top: 10</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="添加自定义域名"><a href="#添加自定义域名" class="headerlink" title="添加自定义域名"></a>添加自定义域名</h4><p>在<code>public</code>文件下添加<code>CNAME</code>文件。内容仅为需要映射的自定义域名。</p>
+<h3 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h3><p>Matery主题自带Gittalk模块，只需要配置Gittalk参数即可。Gittalk利用GitHup的repo中ISSUE功能，实现了全部用前端代码的强大评论功能。那么需要我们创建一个<a href="https://github.com/settings/installations" target="_blank" rel="noopener">OAuth应用</a>来存储评论信息，并且添加对应信息。</p>
+<blockquote>
+<p>Homepage:博客地址</p>
+<p>Authorization callback URL:存储评论的库地址</p>
+<p><a href="https://blog.csdn.net/qing_gee/article/details/100133060" target="_blank" rel="noopener">详细可以查看</a></p>
+</blockquote>
+<p>接下来在<code>hexo-theme-matery</code>文件下的配置文件<code>_config.yml</code>中配置相关关键词<code>repo</code>、<code>clientID</code>、<code>clientSecret</code>等等。</p>
+<p><img src="http://static.come2rss.xyz/image-20200917133230897.png" alt="image-20200917133230897"></p>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><p>至此，部署到GitHub的工作已经完成，之后如果我们希望对自己的博客进行修改或者需要发布新的文章时，可以按以下三步进行。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean # 删除已经生成的静态页面</span><br><span class="line">#下面两个命令可以简写为 hexo g -d</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h2><h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo new "postName" #新建文章</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h2><h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new "postName" #新建文章</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br><span class="line">hexo clean; hexo g -d; #清理已生成的页面，重新生成并部署。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>启动本地服务器并监视文件变化，同时编译渲染。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s --watch</span><br></pre></td></tr></tbody></table></figure>
@@ -1082,7 +1090,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141.4k</span>&nbsp;字
+                class="white-color">141.6k</span>&nbsp;字
             
             
             
