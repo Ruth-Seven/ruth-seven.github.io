@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Numpy笔记, Hexo">
+    <meta name="keywords" content="谈谈笔记, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Numpy笔记 | Hexo</title>
+    <title>谈谈笔记 | Hexo</title>
     <link rel="icon" type="image/png" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Numpy笔记</h1>
+                    <h1 class="description center-align post-title">谈谈笔记</h1>
                 </div>
             </div>
         </div>
@@ -436,19 +436,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Language/" class="post-category">
-                                Language
-                            </a>
-                        
-                            <a href="/categories/Language/Python/" class="post-category">
-                                Python
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -456,28 +443,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-07
+                    2020-09-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-09-01
+                    2020-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    4 Min
                 </div>
                 
 
@@ -492,182 +479,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h2 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h2><p>常常用于指定函数的计算方式，如sum(x,axis=0)会得到一个row array,而不是按行计算的column array。</p>
+                <p>最近总是因为学习资料的存放和学习地方而烦恼，一来我是一个重度MD使用患者，极度喜爱使用简洁高效的MD文件形式和快速便捷的Typore软件，二来我需要一个快速而强大搜索能力的存储器具来安全的保存我的数据、笔记。</p>
 <a id="more"></a>
 
-<p><a href="http://static.come2rss.xyz/image-20200503125336529.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125336529.png" alt="image-20200503125336529"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125336529.png" target="_blank" rel="noopener">image-20200503125336529</a></p>
-<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>首先</p>
+<p>这么一来，安全性，便捷性，支持MD文件成了我需要的三个指标。为此我参考了多个市面上的桌面端软件：</p>
 <table>
 <thead>
 <tr>
-<th align="left">矩阵乘法</th>
-<th align="left">符号</th>
-<th align="left">说明</th>
-<th align="left">Np</th>
+<th>软件</th>
+<th>数据安全</th>
+<th>使用便捷</th>
+<th>支持MD</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><code>matmul</code></td>
-<td align="left">.</td>
-<td align="left">矩阵乘法</td>
-<td align="left">np.dot(M1,M2)</td>
+<td>Onenote</td>
+<td>✔ 云端同步</td>
+<td>✔ 史上最全，无需考虑图床问题。</td>
+<td>✖ 可通过插件弥补一点</td>
 </tr>
 <tr>
-<td align="left"><code>Hadamard product</code></td>
-<td align="left">⊙⊙</td>
-<td align="left">element-wise乘法，逐元素对应相乘</td>
-<td align="left">np.multiply(M1,M2)或者M1*M2</td>
+<td>EverNote</td>
+<td>✔ 云端同步</td>
+<td>✔便捷但功简单，适合剪辑各个来源的资料</td>
+<td>✔ 魔改了MD格式</td>
 </tr>
 <tr>
-<td align="left"><code>Kronecker product</code></td>
-<td align="left">⊗⊗</td>
-<td align="left">任意形状矩阵相乘</td>
-<td align="left">?</td>
+<td>自建博客</td>
+<td>✔ 可备份</td>
+<td>✔ 搭建完成后 ，方便分享和大众搜索。但是搜索很慢</td>
+<td>✔ 完全支持原生MD</td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>✖ 数据只存储在服务器上</td>
+<td>✔ 未来的笔记本，美观，支持富文本动态编辑器，但是使用搜索都很慢</td>
+<td>✖ 不完全支持</td>
 </tr>
 </tbody></table>
-<p>不太明朗的第三个乘法举例：</p>
-<p><a href="http://static.come2rss.xyz/image-20200503125443492.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125443492.png" alt="image-20200503125443492"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125443492.png" target="_blank" rel="noopener">image-20200503125443492</a></p>
-<table>
-<thead>
-<tr>
-<th align="left">向量乘法</th>
-<th align="left">符号</th>
-<th align="left">说明</th>
-<th align="left">Np</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>Inner Product</code>,<code>dot product</code></td>
-<td align="left">..</td>
-<td align="left">运算结果为标量(A scalar)</td>
-<td align="left">np.dot(L1,L2)</td>
-</tr>
-<tr>
-<td align="left"><code>outer product</code></td>
-<td align="left">⊗⊗</td>
-<td align="left">结果是矩阵</td>
-<td align="left">np.outer(a1,a2)或者</td>
-</tr>
-<tr>
-<td align="left"><code>cross product</code></td>
-<td align="left">××</td>
-<td align="left">结果是向量</td>
-<td align="left">?</td>
-</tr>
-</tbody></table>
+<p>（ 接下来是我的牢骚时间：）</p>
+<p>其他应用暂时不予考虑。追求一款软件的尽善尽美是不可能的，也是非常痛苦的，因为你没有办法找到一款梦想中的软件，完全符合你的需求和定义。在放弃了一个8分的软件之后，你着眼于所放弃的软件所失去的2分而开始寻找下一个得心称手的工具，最后却迷失在各个工具都有他失去的2分，3分，甚至各个工具失去的分数各不相同，患得患失又期望于抉择出更好的软件。就好像不知道如何从众多男友抉择出的女生的焦虑心情（吐了~）。</p>
+<p>在此，我重构出做决策的行为原则：</p>
+<ol>
+<li><p>重要的事情花更多的时间去做好，次要的事情尽量通过简单的原则来判断并快速做出决断。</p>
+<ol>
+<li>所谓重要的事情就是对未来和现在会产生重大的，或者不可逆的影响的事情。反之就是次要的事情。</li>
+</ol>
+</li>
+<li><p>面对必须选择多个目标中一个，如果在目前的考量下如果差不多大差不差，那就随便选择一个，然后把选择的那个变成最好的那个。</p>
 <blockquote>
-<p>上两表中‘Li’表示<strong>列表</strong>，‘Mi’表示矩阵，‘Ai’表示向量Array</p>
-<p>上表中 <code>np.multiple</code>以及<code>np.outer</code>都可以接受矩阵（nArray）、向量（nArray)以及列表（LIST），唯有<code>np.dot</code>在接受nArray是表现为矩阵乘法，在接受LIST表现为向量内积。</p>
+<p>这是为了减少决策时间而带来的延误，虽然可能因为判断不够仔细，导致失误反而导致结果变差。哈哈，世事无常，安能掌握一切。譬如日日坚持读书学习，坚持锻炼身体提高精力，这些当前重要但是不紧急的行为，反而决定你未来的强大之处。</p>
 </blockquote>
-<p><code>dot product</code>，即点积或者内积。</p>
-<p><a href="http://static.come2rss.xyz/image-20200503125432138.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125432138.png" alt="image-20200503125432138"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125432138.png" target="_blank" rel="noopener">image-20200503125432138</a></p>
-<p>点乘的几何意义：点乘可以用来计算两个向量的夹角</p>
-<p><a href="http://static.come2rss.xyz/image-20200503125425021.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125425021.png" alt="image-20200503125425021"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125425021.png" target="_blank" rel="noopener">image-20200503125425021</a></p>
-<p><code>Outer production</code>或``，即外积，在线性代数中一般指两个向量的张量积，结果为一个矩阵。可调用<code>np.outer(x1,x2)</code>。例子如下：</p>
-<p><a href="http://static.come2rss.xyz/image-20200503125416187.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125416187.png" alt="image-20200503125416187"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125416187.png" target="_blank" rel="noopener">image-20200503125416187</a></p>
-<p>向量叉积(<code>Cross product</code>)：叉乘的结果是一个<strong>向量</strong>，使用符号 [<img src="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg" alt="[公式]](http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg)"></p>
-<p>[<a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/equation-1581420237739.svg">公式]</a></p>
-<p>，举例</p>
-<p><a href="http://static.come2rss.xyz/image-20200503125406301.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125406301.png" alt="image-20200503125406301"></a></p>
-<p><a href="http://static.come2rss.xyz/image-20200503125406301.png" target="_blank" rel="noopener">image-20200503125406301</a></p>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>对于一个多维Array,使用单一的数组索引会产生一定意义上的语义模糊。如果索引单个元素，就要写上所有维度的索引。比如</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = np.zeors((1,3))</span><br><span class="line">print(c[0,1]) #两个维度</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.exp()</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>np.square()</code> return the element-wise square of the input.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.sum(a, axis=None, dtype=None, out=None, keepdims=&lt;no value&gt;, initial=&lt;no value&gt;, where=&lt;no value&gt;)</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p><strong>axis</strong> : None or int or tuple of ints, optional</p>
-<p><strong>Axis or axes along which a sum is performed</strong>. The default, <strong>axis=None</strong>, will sum all of the elements of the input array. If axis is negative it counts from the last to the first axis.</p>
-<p>If axis is a tuple of ints, a sum is performed on all of the axes specified in the tuple instead of a single axis or all the axes as before.</p>
-</blockquote>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(a,n）`(‘np.’以下全省略）</span><br><span class="line">`.array(LIST)` 新建一个numpy array。</span><br><span class="line">`.exp()</span><br><span class="line">.reshape()` 类似`array.reshape</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>.dot(X1,X2)</code> 矩阵乘法</p>
-<p><code>.zeros(shape, dtype=float, order='C')</code> Return a new array of given shape and type, filled with zeros.</p>
-<blockquote>
-<p>shape: int or tuple of ints</p>
-<p> Shape of the new array, e.g., <code>(2, 3)</code> or <code>2</code></p>
-</blockquote>
-<p><code>.squeeze()</code> Remove single-dimensional（单维度条目，即shape=1的条目） entries from the shape of an array.</p>
-<p><a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png"><img src="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png" alt="image-20200212162003524"></a></p>
-<p><a href="http://blog.come2rss.xyz/2020/04/26/language/python/Numpy%E7%AC%94%E8%AE%B0/Numpy%E7%AC%94%E8%AE%B0/image-20200212162003524.png">image-20200212162003524</a></p>
-<p><code>.divide(x1,x2）</code> returna true division of the input, elelment-wise.</p>
-<p><code>.copy(a, order='K')</code> Return an array copy of the given object.(真复制)</p>
-<p><code>.linspace(start,stop,num=50)</code> Return evenly spaced numbers over a specified interval. <code>num</code> 表示产生的列表的数字个数。</p>
-<p><code>np.random.shuffle(x)</code>, 把x本身shuffle一下，注意不返回值。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.savetxt('new.csv', my_matrix, delimiter = ',')</span><br></pre></td></tr></tbody></table></figure>
-
-<p>将数组或者矩阵存储为csv文件</p>
-<h1 id="Array用法"><a href="#Array用法" class="headerlink" title="Array用法"></a>Array用法</h1><p><code>Array.reshap()</code>（以下省略<code>array</code>）</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.reshape()</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>.shape[i]</code> 访问shape元祖中的第i个数。</p>
-<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><p><strong>np.array(list/tuple)</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.ndarray()</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>shape</code>：数组的形状。</p>
-<p><code>dtype</code>：数据类型。</p>
-<p><code>buffer</code>：对象暴露缓冲区接口。</p>
-<p><code>offset</code>：数组数据的偏移量。</p>
-<p><code>strides</code>：数据步长。</p>
-<p><code>order</code>：<code>{'C'，'F'}</code>，以行或列为主排列顺序。</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>可以使用array对list，或者DF进行初始化。</p>
-<blockquote>
-<p>稍稍注意一下， python中的<code>(3)</code>是一个INT对象，而<code>（3，）</code>是一个tuple对象</p>
-</blockquote>
-<p>In [12]:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(a.shape)</span><br><span class="line">(1, 3)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In [13]:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3])</span><br><span class="line">print(a.shape)</span><br><span class="line">(3,)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In [17]:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[1], [2], [3]])</span><br><span class="line">print(a.shape)</span><br><span class="line"></span><br><span class="line">(3, 1)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In [19]:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1,2,3], ndmin =  2)</span><br><span class="line">print(a.shape)</span><br><span class="line">(1, 3)</span><br></pre></td></tr></tbody></table></figure>
-
-<p>In [22]:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3], ndmin = 1)</span><br><span class="line">print(a.shape)</span><br><span class="line">(3,)</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="库"><a href="#库" class="headerlink" title="库"></a>库</h1><h2 id="np-linalg"><a href="#np-linalg" class="headerlink" title="np.linalg"></a>np.linalg</h2><p>linalg = linear + algebra</p>
-<p><code>np.linalg.inv()</code> 矩阵求逆<br><code>np.linalg.det()</code>矩阵求行列式（标量</p>
-<p><code>np.linalg.norm</code> 求范数；</p>
-<blockquote>
-<p>norm(x, ord=None, axis=None, keepdims=False)</p>
-<p>ord表示范数种类</p>
-<p>axis: If <em>axis</em> is an integer, it specifies <strong>the axis of *x*</strong> along which to compute the vector norms.</p>
-<p>keepdims: If this is set to True, the axes which are normed over are left in the result as dimensions with size one.(好像是保留大小为1的维度)</p>
-</blockquote>
-<p>Note: 标准化可使用norm，xnormalized=x∥xnorm∥xnormalized=x‖xnorm‖</p>
-<h2 id="np-random"><a href="#np-random" class="headerlink" title="np.random"></a>np.random</h2><p><code>numpy.random.normal(loc=0.0, scale=1.0, size=None)</code> Draw random samples from a normal (Gaussian) distribution. <code>loc</code> : the meanof the distribution. <code>scale</code> Standard deviation (<code>width</code>) of the distribution. <code>size</code> a int or tuple of ints, optional. If size is none, single value is returned if <code>loc</code> and <code>scale</code> are both scalars. (也就说 loc 和 scale 支持 array-like 参数)</p>
-<h3 id="numpy的优点"><a href="#numpy的优点" class="headerlink" title="numpy的优点"></a>numpy的优点</h3><p>在numpy中矩阵、向量和数值都是numpy array, 不管他是啥。</p>
-<p>numpy可以轻松的进行numpy array和数值之间的+-*/甚至np.exp()的高级运算，而list不行。</p>
-<p><strong>其他：</strong></p>
-<p>np.dot(X1, X2)为矩阵乘法</p>
-<p>np.sum（x1, axis）为求和, axis = 0 为竖直方向求和，axis=1为水平方向，默认竖直方向</p>
-<p>X1.T表示X1的转置</p>
-<p>c = np.dot(a,b) #dot是矩阵乘法 *是element-wise product</p>
-<h1 id="有用的操作"><a href="#有用的操作" class="headerlink" title="有用的操作"></a>有用的操作</h1><p>nArray中的True/Flase转化为1/0.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C = [0.5, 0.6, 0.1]</span><br><span class="line">c = np.array(C) &gt; 0.5</span><br><span class="line">print(c)</span><br><span class="line">print(c + 0)</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><p><code>Df.fillna(value, inplace)</code> 把NaN数据替换成value。</p>
-<p><code>Na[~np.isnan(Na)]</code> 可以通过判判断条件选择数据</p>
-<p><code>[x+1 for x in list if x &lt; 5]</code> list可以以列表表达式来生成新列。</p>
-<h2 id="增加数据维度"><a href="#增加数据维度" class="headerlink" title="增加数据维度"></a><strong>增加数据维度</strong></h2><p>numpy中包含的newaxis可以给原数组增加一个维度</p>
-<p>np.newaxis放的位置不同，产生的新数组也不同</p>
-<p>一维数组</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.randint(1, 8, size=5)</span><br><span class="line"></span><br><span class="line">x</span><br><span class="line">Out[48]: array([4, 6, 6, 6, 5])</span><br><span class="line"></span><br><span class="line">x1 = x[np.newaxis, :]</span><br><span class="line"></span><br><span class="line">x1</span><br><span class="line">Out[50]: array([[4, 6, 6, 6, 5]])</span><br><span class="line"></span><br><span class="line">x2 = x[:, np.newaxis]</span><br><span class="line"></span><br><span class="line">x2</span><br><span class="line">Out[52]: </span><br><span class="line">array([[4],</span><br><span class="line">       [6],</span><br><span class="line">       [6],</span><br><span class="line">       [6],</span><br><span class="line">       [5]])</span><br></pre></td></tr></tbody></table></figure><script>
+</li>
+<li><p>如果可以选择多个目标，那么取长补短，各自采取各自的长处就是一般来说就是最优方案。</p>
+</li>
+</ol>
+<p>由此，我们可以理解到，像做笔记这类工作实际上用不同的应用场景的，不同的应用场景也可以用不同的做法，比如收集咨询采用印象或者微信来剪藏；面对需要制作大量批注，或者手写标识的学习场景，快速收集网络资源，构建知识体系，可能onenote才是更好的选择；对于发发牢骚，写写感悟，畅谈一下人生，与更多人<strong>交流</strong>，抑或记录工作错误感悟才是博客应该有的功能；最后一类，对于文档或者编程知识中含有的需要高亮代码段，既可以使用onenote+插件，也可以用高亮一般的大象来构建。鉴于，知识体系的完整性和便于搜索的考量，减少软件的个数是更明智的选择。</p>
+<p>所以，纠结了一天，最后得出的结果还是用Onenote来制作主力知识结构笔记，用大象笔记作为编程类的知识笔记，用博客作为聊天吹水发牢骚的平台，最后用Notion作为项目管理的工具。</p>
+<h2 id="额外补充"><a href="#额外补充" class="headerlink" title="额外补充"></a>额外补充</h2><p>其实有一点害怕非MD格式的资料有点难用。这也是因为现在大多数文档都是用MD格式所编写，顺便挤掉了其他文档格式的份额，更何况Onenote格式，并不流通。所以最后还是不希望编程系统使用Onenote，虽然他很棒，在很多编程笔记的场景下，都用不太到。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -710,7 +580,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.come2rss.xyz/2020/08/07/language/python/numpy-bi-ji/">https://blog.come2rss.xyz/2020/08/07/language/python/numpy-bi-ji/</a>
+                    <a href="https://blog.come2rss.xyz/2020/09/18/tan-tan-bi-ji/">https://blog.come2rss.xyz/2020/09/18/tan-tan-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -790,7 +660,7 @@
         repo: 'gitalk',
         owner: 'Ruth-Seven',
         admin: ["Ruth-Seven"],
-        id: '2020-08-07T13-08-45',
+        id: '2020-09-18T14-01-42',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -814,51 +684,42 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/08/07/language/python/pandas-bi-ji/">
+                <a href="/2020/09/18/tan-tan-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="pandas笔记">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="谈谈笔记">
                         
-                        <span class="card-title">pandas笔记</span>
+                        <span class="card-title">谈谈笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用函数1pandas.read_excel(io, sheet_name, dtype)
-
-神奇的函数：io可使用多种URL，如http、ftp、file、path。
+                            最近总是因为学习资料的存放和学习地方而烦恼，一来我是一个重度MD使用患者，极度喜爱使用简洁高效的MD文件形式和快速便捷的Typore软件，二来我需要一个快速而强大搜索能力的存储器具来安全的保存我的数据、笔记。
 
 
-sheet_name 指定读取的工作簿
-dtype：以dict的形
+这么一来，安全性，便捷性，
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-18
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Language/" class="post-category">
-                                    Language
-                                </a>
-                            
-                            <a href="/categories/Language/Python/" class="post-category">
-                                    Python
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -869,43 +730,54 @@ dtype：以dict的形
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/07/language/python/matplotlib-bi-ji/">
+                <a href="/2020/09/17/shua-ti/leetcode/37.jie-shu-du/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="matplotlib笔记">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="37.解数独">
                         
-                        <span class="card-title">matplotlib笔记</span>
+                        <span class="card-title">37.解数独</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本库pyplotmatplotlib.pyplot is a state-based interface to matplotlib. It provides a MATLAB-like way of plotting.
-
-
-pyplot
+                            37 解数独编写一个程序，通过已填充的空格来解决数独问题。
+一个数独的解法需遵循如下规则：
+数字 1-9 在每一行只能出现一次。数字 1-9 在每一列只能出现一次。数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。空白格用 ‘
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Language/" class="post-category">
-                                    Language
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
                                 </a>
                             
-                            <a href="/categories/Language/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                        <span class="chip bg-color">回溯</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1110,7 +982,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141.6k</span>&nbsp;字
+                class="white-color">113.3k</span>&nbsp;字
             
             
             
