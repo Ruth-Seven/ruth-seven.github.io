@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ssh笔记, Hexo">
+    <meta name="keywords" content="谈谈笔记, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ssh笔记 | Hexo</title>
+    <title>谈谈笔记 | Hexo</title>
     <link rel="icon" type="image/png" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ssh笔记</h1>
+                    <h1 class="description center-align post-title">谈谈笔记</h1>
                 </div>
             </div>
         </div>
@@ -436,19 +436,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Code-tools/" class="post-category">
-                                Code tools
-                            </a>
-                        
-                            <a href="/categories/Code-tools/Linux/" class="post-category">
-                                Linux
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -456,28 +443,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-07
+                    2020-09-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-08-27
+                    2020-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    4 Min
                 </div>
                 
 
@@ -492,68 +479,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://missing.csail.mit.edu/2020/command-line/" target="_blank" rel="noopener">这内容是真的丰富</a></p>
-<p>Secure Shell(SSH) 是由 IETF(The Internet Engineering Task Force) 制定的建立在应用层基础上的安全网络协议。它是专为远程登录会话(甚至可以用Windows远程登录Linux服务器进行文件互传)和其他网络服务提供安全性的协议，可有效弥补网络中的漏洞。通过SSH，可以把所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。目前已经成为Linux系统的标准配置。</p>
+                <p>最近总是因为学习资料的存放和学习地方而烦恼，一来我是一个重度MD使用患者，极度喜爱使用简洁高效的MD文件形式和快速便捷的Typore软件，二来我需要一个快速而强大搜索能力的存储器具来安全的保存我的数据、笔记。</p>
 <a id="more"></a>
 
-<h2 id="ssh安全机制"><a href="#ssh安全机制" class="headerlink" title="ssh安全机制"></a>ssh安全机制</h2><p>SSH之所以能够保证安全，原因在于它采用了非对称加密技术(RSA)加密了所有传输的数据。传统的网络服务程序，如FTP、Pop和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据，然后再冒充用户把数据传给真正的服务器。</p>
-<p>但并不是说SSH就是绝对安全的，因为它本身提供两种级别的验证方法：</p>
-<p>第一种级别（基于口令的安全验证）：只要你知道自己帐号和口令，就可以登录到远程主机。所有传输的数据都会被加密，但是不能保证你正在连接的服务器就是你想连接的服务器。可能会有别的服务器在冒充真正的服务器，也就是受到“中间人攻击”这种方式的攻击。</p>
-<p>第二种级别（基于密钥的安全验证）：你必须为自己创建一对密钥，并把公钥放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就会向服务器发出请求，请求用你的密钥进行安全验证。服务器收到请求之后，先在该服务器上你的主目录下寻找你的公钥，然后把它和你发送过来的公钥进行比较。如果两个密钥一致，服务器就用公钥加密“质询”(challenge)并把它发送给客户端软件。客户端软件收到“质询”之后就可以用你的私钥在本地解密再把它发送给服务器完成登录。与第一种级别相比，第二种级别不仅加密所有传输的数据，也不需要在网络上传送口令，因此安全性更高，可以有效防止中间人攻击。</p>
-<p><a href="https://blog.csdn.net/li528405176/article/details/82810342" target="_blank" rel="noopener">原文链接</a></p>
-<h2 id="ssh基本操作"><a href="#ssh基本操作" class="headerlink" title="ssh基本操作"></a>ssh基本操作</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>查看安装包</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l | grep ssh</span><br></pre></td></tr></tbody></table></figure>
-
-<p>安装本地的ssh的服务器和客户端</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-client #连其他人</span><br><span class="line">sudo apt-get install openssh-server #让别人连</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>启动ssh服务</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># -e identail to -A select all processe</span><br><span class="line">ps -e | grep ssh #如果有sshd 表示ssh已经启动</span><br><span class="line">#没有则启动ssh</span><br><span class="line">sudo /etc/init.d/ssh start</span><br></pre></td></tr></tbody></table></figure>
-
-<p>停止和重启ssh服务</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh stop  #server停止ssh服务 </span><br><span class="line">sudo /etc/init.d/ssh restart  #server重启ssh服务</span><br></pre></td></tr></tbody></table></figure>
-
-<p>登陆</p>
-<h3 id="口令登陆"><a href="#口令登陆" class="headerlink" title="口令登陆"></a><strong>口令登陆</strong></h3><p><strong>单个私钥登陆</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ssh name@ip</span><br><span class="line"></span><br><span class="line">#调用图形界面</span><br><span class="line">ssh -X name@ip</span><br><span class="line"></span><br><span class="line">#如何客户机和服务器的登陆用户名相同可以省略用户名</span><br><span class="line">ssh ip</span><br><span class="line"></span><br><span class="line">#设置端口, 默认22	</span><br><span class="line">ssh -p port name@ip</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果是第一次登陆还需要把服务器的IP加入可信列表。之后输入密码即可登陆。</p>
-<p><strong>多个私钥配置</strong></p>
-<p>修改：~/.ssh/config</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host name</span><br><span class="line">	HostName xxx.xxx.xxx.xxx</span><br><span class="line">	Port 22</span><br><span class="line">	User root</span><br><span class="line">	IdentityFile ~\\.ssh\\id_rsa</span><br><span class="line">	PreferredAuthentications publickey</span><br></pre></td></tr></tbody></table></figure>
-
-<p>简化登录： ssh name</p>
-<h3 id="公钥配置"><a href="#公钥配置" class="headerlink" title="公钥配置"></a>公钥配置</h3><p>本机生成密钥对</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # -t 表示密钥类型</span><br><span class="line">#密钥生成后存在放 /home/用户名/.ssh,其中私钥为id_rsa, 公钥为 id_rsa.pub</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Linux上传密钥到远程linux主机</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id name@ip</span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">ssh-copy-id -i .ssh/id_ed25519.pub foobar@remote</span><br><span class="line"><span class="meta">#</span><span class="bash">再或者</span></span><br><span class="line">cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat &gt;&gt; ~/.ssh/authorized_keys'</span><br></pre></td></tr></tbody></table></figure>
-
-<p>也可以手动创建对应文件：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh &amp;&amp; touch authorized_keys //没有这个文件则创建</span><br><span class="line">cat id_ras.pub &gt;&gt;  authorized_keys   //追加公钥，可以是多个 手动拷贝也可以，可以不用要后面的用户名，一行一个</span><br><span class="line">chmod 600 authorized_keys</span><br><span class="line">cd .. &amp;&amp; chmod 700 .ssh</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>之后就可以直接使用ssh登陆而无需输入密码了</p>
-<p>Window主机上传到Linux主机可以使用如下命令：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp id_rsa.pub root@xxx:/root/.ssh/ 或者手动ftp等方式拷贝也可以</span><br></pre></td></tr></tbody></table></figure>
-
-<p>修改ssh配置</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#: vim /etc/ssh/sshd_config</span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">PermitRootLogin yes</span><br><span class="line">#: service sshd restart</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">#或者按 Ctrl + D</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h3 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h3><p>当我们利用ssh在远程主机上跑程序的时候，只要关闭了终端就会中断ssh连接，然后远程主机上正在跑的程序或者服务就会自动停止运行。我们可以利用 nohup + 需要运行的程序 使运行的程序在切断ssh连接的时候仍然能够继续在远程主机中运行。nohup即no hang up(不挂起)。</p>
-<h3 id="Executing-commands"><a href="#Executing-commands" class="headerlink" title="Executing commands"></a>Executing commands</h3><p>An often overlooked feature of ssh is the ability to run commands directly. ssh foobar@server ls will execute ls in the home folder of foobar. It works with pipes, so ssh foobar@server ls | grep PATTERN will grep locally the remote output of ls and ls | ssh foobar@server grep PATTERN will grep remotely the local output of ls</p>
+<p>这么一来，安全性，便捷性，支持MD文件成了我需要的三个指标。为此我参考了多个市面上的桌面端软件：</p>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>数据安全</th>
+<th>使用便捷</th>
+<th>支持MD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Onenote</td>
+<td>✔ 云端同步</td>
+<td>✔ 史上最全，无需考虑图床问题。</td>
+<td>✖ 可通过插件弥补一点</td>
+</tr>
+<tr>
+<td>EverNote</td>
+<td>✔ 云端同步</td>
+<td>✔便捷但功简单，适合剪辑各个来源的资料</td>
+<td>✔ 魔改了MD格式</td>
+</tr>
+<tr>
+<td>自建博客</td>
+<td>✔ 可备份</td>
+<td>✔ 搭建完成后 ，方便分享和大众搜索。但是搜索很慢</td>
+<td>✔ 完全支持原生MD</td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>✖ 数据只存储在服务器上</td>
+<td>✔ 未来的笔记本，美观，支持富文本动态编辑器，但是使用搜索都很慢</td>
+<td>✖ 不完全支持</td>
+</tr>
+</tbody></table>
+<p>（ 接下来是我的牢骚时间：）</p>
+<p>其他应用暂时不予考虑。追求一款软件的尽善尽美是不可能的，也是非常痛苦的，因为你没有办法找到一款梦想中的软件，完全符合你的需求和定义。在放弃了一个8分的软件之后，你着眼于所放弃的软件所失去的2分而开始寻找下一个得心称手的工具，最后却迷失在各个工具都有他失去的2分，3分，甚至各个工具失去的分数各不相同，患得患失又期望于抉择出更好的软件。就好像不知道如何从众多男友抉择出的女生的焦虑心情（吐了~）。</p>
+<p>在此，我重构出做决策的行为原则：</p>
+<ol>
+<li><p>重要的事情花更多的时间去做好，次要的事情尽量通过简单的原则来判断并快速做出决断。</p>
+<ol>
+<li>所谓重要的事情就是对未来和现在会产生重大的，或者不可逆的影响的事情。反之就是次要的事情。</li>
+</ol>
+</li>
+<li><p>面对必须选择多个目标中一个，如果在目前的考量下如果差不多大差不差，那就随便选择一个，然后把选择的那个变成最好的那个。</p>
 <blockquote>
-<p>注意两个命令的区别</p>
+<p>这是为了减少决策时间而带来的延误，虽然可能因为判断不够仔细，导致失误反而导致结果变差。哈哈，世事无常，安能掌握一切。譬如日日坚持读书学习，坚持锻炼身体提高精力，这些当前重要但是不紧急的行为，反而决定你未来的强大之处。</p>
 </blockquote>
-<p><em>参考文章： (基本内容)[<a href="https://blog.csdn.net/li528405176/article/details/82810342]" target="_blank" rel="noopener">https://blog.csdn.net/li528405176/article/details/82810342]</a>, (进阶)[<a href="https://blog.csdn.net/pipisorry/article/details/52269785]" target="_blank" rel="noopener">https://blog.csdn.net/pipisorry/article/details/52269785]</a></em></p>
-<h2 id="ssh其他"><a href="#ssh其他" class="headerlink" title="ssh其他"></a>ssh其他</h2><h3 id="强制使用密码登陆"><a href="#强制使用密码登陆" class="headerlink" title="强制使用密码登陆"></a>强制使用密码登陆</h3><p>面对需要测试密码正确性，但秘钥配置完成的情况，需要强制密码登陆。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no user@host</span><br></pre></td></tr></tbody></table></figure>
-
+</li>
+<li><p>如果可以选择多个目标，那么取长补短，各自采取各自的长处就是一般来说就是最优方案。</p>
+</li>
+</ol>
+<p>由此，我们可以理解到，像做笔记这类工作实际上用不同的应用场景的，不同的应用场景也可以用不同的做法，比如收集咨询采用印象或者微信来剪藏；面对需要制作大量批注，或者手写标识的学习场景，快速收集网络资源，构建知识体系，可能onenote才是更好的选择；对于发发牢骚，写写感悟，畅谈一下人生，与更多人<strong>交流</strong>，抑或记录工作错误感悟，书写解题思路，才是博客应该有的功能；最后一类，对于文档或者编程知识中含有的需要高亮代码段，既可以使用onenote+插件，也可以用高亮一般的大象来构建。鉴于，知识体系的完整性和便于搜索的考量，减少软件的个数是也许是一个更明智的选择。</p>
+<p>所以，纠结了一天，最后得出的结果还是用Onenote来制作主力知识结构笔记，用大象笔记作为编程类的知识笔记，用博客作为聊天吹水，发题解，写算法，总结思考的平台，最后用Notion作为项目管理的工具。</p>
+<h2 id="额外补充"><a href="#额外补充" class="headerlink" title="额外补充"></a>额外补充</h2><p>其实有一点害怕非MD格式的资料有点难用。这也是因为现在大多数文档都是用MD格式所编写，顺便挤掉了其他文档格式的份额，更何况Onenote格式，并不流通。所以最后还是不希望编程系统使用Onenote，虽然他很棒，在很多编程笔记的场景下，都用不太到。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -597,7 +580,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.come2rss.xyz/2020/08/07/code-tools/linux/ssh-bi-ji/">https://blog.come2rss.xyz/2020/08/07/code-tools/linux/ssh-bi-ji/</a>
+                    <a href="https://blog.come2rss.xyz/2020/09/18/code-tools/blog/tan-tan-bi-ji/">https://blog.come2rss.xyz/2020/09/18/code-tools/blog/tan-tan-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -677,7 +660,7 @@
         repo: 'gitalk',
         owner: 'Ruth-Seven',
         admin: ["Ruth-Seven"],
-        id: '2020-08-07T12-51-22',
+        id: '2020-09-18T14-01-42',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -701,51 +684,42 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/08/07/code-tools/linux/linux-bi-ji/">
+                <a href="/2020/09/18/code-tools/blog/tan-tan-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux笔记">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="谈谈笔记">
                         
-                        <span class="card-title">Linux笔记</span>
+                        <span class="card-title">谈谈笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基础命令uname -r 查看内核版本
+                            最近总是因为学习资料的存放和学习地方而烦恼，一来我是一个重度MD使用患者，极度喜爱使用简洁高效的MD文件形式和快速便捷的Typore软件，二来我需要一个快速而强大搜索能力的存储器具来安全的保存我的数据、笔记。
 
 
-sudo lsb_release -a 查看系统系统版本
-cp 复制
-sudo -i 提权， 使用 root 权限登录
-su user 切换为user用户， 如果验证失败，可能原因是root密码未
+这么一来，安全性，便捷性，
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-18
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Code-tools/" class="post-category">
-                                    Code tools
-                                </a>
-                            
-                            <a href="/categories/Code-tools/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
                             
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -756,43 +730,54 @@ su user 切换为user用户， 如果验证失败，可能原因是root密码未
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/07/code-tools/windows/wsl-sha-si-jin-cheng/">
+                <a href="/2020/09/17/shua-ti/leetcode/37.jie-shu-du/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="WSL杀死进程">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="37.解数独">
                         
-                        <span class="card-title">WSL杀死进程</span>
+                        <span class="card-title">37.解数独</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            WLS2的Ubuntu18.04下没有办法直接使用kill -s 9 PID杀死进程，可是神奇的用kill -9 PID代替。
-
-        document.querySelectorAll('.github-emoji')
-    
+                            37 解数独编写一个程序，通过已填充的空格来解决数独问题。
+一个数独的解法需遵循如下规则：
+数字 1-9 在每一行只能出现一次。数字 1-9 在每一列只能出现一次。数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。空白格用 ‘
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Code-tools/" class="post-category">
-                                    Code tools
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
                                 </a>
                             
-                            <a href="/categories/Code-tools/Windows/" class="post-category">
-                                    Windows
+                            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                        <span class="chip bg-color">回溯</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -997,7 +982,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">113.3k</span>&nbsp;字
+                class="white-color">85.6k</span>&nbsp;字
             
             
             
