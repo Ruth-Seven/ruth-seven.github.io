@@ -436,6 +436,19 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Code-tools/" class="post-category">
+                                Code tools
+                            </a>
+                        
+                            <a href="/categories/Code-tools/Blog/" class="post-category">
+                                Blog
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -464,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    3 Min
                 </div>
                 
 
@@ -537,25 +550,7 @@
 <p>由此，我们可以理解到，像做笔记这类工作实际上用不同的应用场景的，不同的应用场景也可以用不同的做法，比如收集咨询采用印象或者微信来剪藏；面对需要制作大量批注，或者手写标识的学习场景，快速收集网络资源，构建知识体系，可能onenote才是更好的选择；对于发发牢骚，写写感悟，畅谈一下人生，与更多人<strong>交流</strong>，抑或记录工作错误感悟，书写解题思路，才是博客应该有的功能；最后一类，对于文档或者编程知识中含有的需要高亮代码段，既可以使用onenote+插件，也可以用高亮一般的大象来构建。鉴于，知识体系的完整性和便于搜索的考量，减少软件的个数是也许是一个更明智的选择。</p>
 <p>所以，纠结了一天，最后得出的结果还是用Onenote来制作主力知识结构笔记，用大象笔记作为编程类的知识笔记，用博客作为聊天吹水，发题解，写算法，总结思考的平台，最后用Notion作为项目管理的工具。</p>
 <h2 id="额外补充"><a href="#额外补充" class="headerlink" title="额外补充"></a>额外补充</h2><p>其实有一点害怕非MD格式的资料有点难用。这也是因为现在大多数文档都是用MD格式所编写，顺便挤掉了其他文档格式的份额，更何况Onenote格式，并不流通。所以最后还是不希望编程系统使用Onenote，虽然他很棒，在很多编程笔记的场景下，都用不太到。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -684,42 +679,59 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/09/18/code-tools/blog/tan-tan-bi-ji/">
+                <a href="/2020/09/21/shua-ti/leetcode/972-equal-rational-numbers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="谈谈笔记">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="972.Equal Rational Numbers">
                         
-                        <span class="card-title">谈谈笔记</span>
+                        <span class="card-title">972.Equal Rational Numbers</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近总是因为学习资料的存放和学习地方而烦恼，一来我是一个重度MD使用患者，极度喜爱使用简洁高效的MD文件形式和快速便捷的Typore软件，二来我需要一个快速而强大搜索能力的存储器具来安全的保存我的数据、笔记。
+                            972. Equal Rational Numbers思路不止一种，老老实实敲敲代码但不想优化方法的人是没有前途的。
 
 
-这么一来，安全性，便捷性，
+思路：第一种：按字符匹配模式分类讨论
+
+两个字符串都没有重复字符串：直接去尾零比较相等值。
+只有一个字符串有重复字符串
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-21
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%97/">
+                        <span class="chip bg-color">数字</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -982,7 +994,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">85.6k</span>&nbsp;字
+                class="white-color">87k</span>&nbsp;字
             
             
             
