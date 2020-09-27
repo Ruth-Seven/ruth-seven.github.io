@@ -1,6 +1,5 @@
 ---
 title: 106. Construct Binary Tree from Inorder and Postorder Traversal
-thumbnail: 'http://static.come2rss.xyz/西班牙韦斯卡.jpg'
 toc: true
 top: 10
 tags:
@@ -11,7 +10,7 @@ categories:
 date: 2020-09-25 08:24:07
 ---
 
-
+hello world 
 
 ## [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 
