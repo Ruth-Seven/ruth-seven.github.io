@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-09-27T06:52:21.875Z</updated>
+  <updated>2020-09-28T00:07:25.280Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>413. Arithmetic Slices</title>
+    <link href="https://blog.come2rss.xyz/2020/09/28/shua-ti/leetcode/413-arithmetic-slices/"/>
+    <id>https://blog.come2rss.xyz/2020/09/28/shua-ti/leetcode/413-arithmetic-slices/</id>
+    <published>2020-09-28T00:02:55.000Z</published>
+    <updated>2020-09-28T00:07:25.280Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;413-Arithmetic-Slices&quot;&gt;&lt;a href=&quot;#413-Arithmetic-Slices&quot; class=&quot;headerlink&quot; title=&quot;413. Arithmetic Slices&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/arithmetic-slices/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;413. Arithmetic Slices&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;题目简单，倒是遇到一个bug：new一个size==0的数组会越界错误。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="dp" scheme="https://blog.come2rss.xyz/tags/dp/"/>
+    
+    <category term="bug" scheme="https://blog.come2rss.xyz/tags/bug/"/>
+    
+  </entry>
+  
+  <entry>
     <title>1411. Number of Ways to Paint N × 3 Grid</title>
     <link href="https://blog.come2rss.xyz/2020/09/27/shua-ti/leetcode/1411-number-of-ways-to-paint-n-x-3-grid/"/>
     <id>https://blog.come2rss.xyz/2020/09/27/shua-ti/leetcode/1411-number-of-ways-to-paint-n-x-3-grid/</id>
     <published>2020-09-27T06:39:28.000Z</published>
-    <updated>2020-09-27T06:52:21.875Z</updated>
+    <updated>2020-09-27T06:52:44.025Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;1411-Number-of-Ways-to-Paint-N-×-3-Grid&quot;&gt;&lt;a href=&quot;#1411-Number-of-Ways-to-Paint-N-×-3-Grid&quot; class=&quot;headerlink&quot; title=&quot;1411. Number of Ways to Paint N × 3 Grid&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/number-of-ways-to-paint-n-x-3-grid/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;1411. Number of Ways to Paint N × 3 Grid&lt;/a&gt;&lt;/h4&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="dp" scheme="https://blog.come2rss.xyz/tags/dp/"/>
@@ -40,12 +63,16 @@
     <link href="https://blog.come2rss.xyz/2020/09/27/shua-ti/leetcode/235-lowest-common-ancestor-of-a-binary-search-tree/"/>
     <id>https://blog.come2rss.xyz/2020/09/27/shua-ti/leetcode/235-lowest-common-ancestor-of-a-binary-search-tree/</id>
     <published>2020-09-27T03:37:57.000Z</published>
-    <updated>2020-09-27T03:42:36.083Z</updated>
+    <updated>2020-09-27T06:52:44.025Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree&quot;&gt;&lt;a href=&quot;#235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree&quot; class=&quot;headerlink&quot; title=&quot;235. Lowest Common Ancestor of a Binary Search Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;235. Lowest Common Ancestor of a Binary Search Tree&lt;/a&gt;&lt;/h2&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="LCA" scheme="https://blog.come2rss.xyz/tags/LCA/"/>
@@ -416,30 +443,6 @@
     
     <category term="CN" scheme="https://blog.come2rss.xyz/categories/CS/CN/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>记一次自建DNS</title>
-    <link href="https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/"/>
-    <id>https://blog.come2rss.xyz/2020/08/31/code-tools/linux/ji-yi-ci-dns-fen-liu/</id>
-    <published>2020-08-31T12:21:44.000Z</published>
-    <updated>2020-09-09T09:30:48.930Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近因为下载Github文件却总是无法获取到真实IP，经过搜索发现是DNS被污染了。于是开始快乐的自建一个DNS服务器！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以通过win自带的&lt;code&gt;nslookup&lt;/code&gt;工具判断正在使用的DNS服务是否被污染。“正常”的DNS服务器可以解析出地址，如果无法解析肯定可以说明DNS被污染了。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
-    
-    
-    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
