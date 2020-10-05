@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-09-28T00:08:24.390Z</updated>
+  <updated>2020-10-05T04:51:51.220Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1340. Jump Game V</title>
+    <link href="https://blog.come2rss.xyz/2020/10/05/1340-jump-game-v/"/>
+    <id>https://blog.come2rss.xyz/2020/10/05/1340-jump-game-v/</id>
+    <published>2020-10-05T03:04:43.000Z</published>
+    <updated>2020-10-05T04:51:51.220Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这个题目还是蛮入门的……&lt;/p&gt;
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题如果采用DP的思想去做，很难。第一，如果设$dp[t][i]$为第i个数字为终点,最多移动t步的情况下最大经过的数字个数，那么DP转移方程就涉及到搜索上一层合理数字，复杂度大增（离线可计算，但是还是不快）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;后面给的第二种算法就是该版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;第二，如果$dp[t][i]$为第i个数字为起点,最多走t步的最大经过的数字个数，虽然由于顺着题目的意思，相比上一种方法减少了搜索上一层的合理数字，但还是不够快。可以从DP版本1中看出来，许多状态转移的计算都是无谓的。时间复杂度为$O(N^2D)$，即使有一点点剪枝也没法AC。&lt;/p&gt;
+&lt;p&gt;第三，通过记忆化搜索的方法，可以大幅减少重复计算。  &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="记忆化搜索" scheme="https://blog.come2rss.xyz/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>413. Arithmetic Slices</title>
@@ -419,27 +442,6 @@
 &lt;p&gt;&amp;lt;转载自&lt;a href=&quot;https://www.zhihu.com/org/nan-tong-xiao-yun-wang-luo-ke-ji-you-xian-gong-si&quot; target=&quot;_blank&quot;</summary>
         
       
-    
-    
-    
-    <category term="CS" scheme="https://blog.come2rss.xyz/categories/CS/"/>
-    
-    <category term="CN" scheme="https://blog.come2rss.xyz/categories/CS/CN/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>http劫持</title>
-    <link href="https://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/"/>
-    <id>https://blog.come2rss.xyz/2020/08/31/cs/cn/http-jie-chi/</id>
-    <published>2020-08-31T13:26:39.000Z</published>
-    <updated>2020-08-31T13:58:01.950Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&amp;lt;转载自&lt;a href=&quot;https://juejin.im/post/6844903495485636615&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金&lt;/a&gt;&amp;gt;&lt;/p&gt;
-&lt;h1 id=&quot;深入理解Http请求、DNS劫持与解析。&quot;&gt;&lt;a href=&quot;#深入理解Http请求、DNS劫持与解析。&quot; class=&quot;headerlink&quot; title=&quot;深入理解Http请求、DNS劫持与解析。&quot;&gt;&lt;/a&gt;深入理解Http请求、DNS劫持与解析。&lt;/h1&gt;&lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;前段时间在处理iOS端的HTTPDNS相关SDK，在接入和测试环节发现大家对HTTP的整体请求流程包括HTTP劫持原理以及HTTPDNS的工作原理并不是太清楚，所以写下这边文章帮助大家深入web请求过程：如何发起请求，HTTP协议解析，DNS域名解析。&lt;/p&gt;
-&lt;h3 id=&quot;HTTP发起一个请求&quot;&gt;&lt;a href=&quot;#HTTP发起一个请求&quot; class=&quot;headerlink&quot; title=&quot;HTTP发起一个请求&quot;&gt;&lt;/a&gt;HTTP发起一个请求&lt;/h3&gt;</summary>
     
     
     
