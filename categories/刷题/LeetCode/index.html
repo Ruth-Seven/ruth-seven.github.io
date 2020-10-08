@@ -451,11 +451,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%88%B7%E9%A2%98/" title="刷题: 44">
+                <a href="/categories/%E5%88%B7%E9%A2%98/" title="刷题: 46">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F8C471;">刷题
-                        <span class="tag-length">44</span>
+                        <span class="tag-length">46</span>
                     </span>
                 </a>
                 
@@ -505,11 +505,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" title="LeetCode: 19">
+                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" title="LeetCode: 21">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">LeetCode
-                        <span class="tag-length">19</span>
+                        <span class="tag-length">21</span>
                     </span>
                 </a>
                 
@@ -542,6 +542,111 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/07/shua-ti/leetcode/790-domino-and-tromino-tiling/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="790. Domino and Tromino Tiling">
+                            
+                            <span class="card-title">790. Domino and Tromino Tiling</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                这题真的需要很多考虑
+
+
+思路：DP可以进行bit dp，设置dp[status]为当前列为状态status时的拼接方法。
+1234status = 0b00 : 上下格子都为空status = 0b10 : 上格子填好，下格子为空stat
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/dp/">
+                            <span class="chip bg-color">dp</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/05/shua-ti/leetcode/1340-jump-game-v/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="1340. Jump Game V">
+                            
+                            <span class="card-title">1340. Jump Game V</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                这个题目还是蛮入门的……
+思路：这题如果采用DP的思想去做，很难。第一，如果设$dp[t][i]$为第i个数字为终点,最多移动t步的情况下最大经过的数字个数，那么DP转移方程就涉及到搜索上一层合理数字，复杂度大增（离线可计算，但是还是不快）
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/">
+                            <span class="chip bg-color">记忆化搜索</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1495,66 +1600,33 @@ EZ
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/shua-ti/leetcode/654-zui-da-er-cha-shu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="654. 最大二叉树">
-                            
-                            <span class="card-title">654. 最大二叉树</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-
-
-一个基础的递归建树就可以解决。
-以递归的思想处理每一个新数组，先找出最大值所在并以此值一分数组为2个数组，同时递归建树即可。
-Note：注意边界错误，如right到底没有没值
-1234567891011121314151617181
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
-                                    刷题
-                                </a>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
-                                    LeetCode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/BinaryTree/">
-                            <span class="chip bg-color">BinaryTree</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 

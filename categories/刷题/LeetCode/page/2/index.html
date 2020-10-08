@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: Algorithms, Hexo">
+    <meta name="keywords" content="Category: LeetCode, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Category: Algorithms | Hexo</title>
+    <title>Category: LeetCode | Hexo</title>
     <link rel="icon" type="image/png" href="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,7 +390,7 @@
                 
                 <a href="/categories/CS/Algorithms/" title="Algorithms: 11">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #E8F8F5;">Algorithms
                         <span class="tag-length">11</span>
                     </span>
@@ -507,7 +507,7 @@
                 
                 <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" title="LeetCode: 21">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #F9EBEA;">LeetCode
                         <span class="tag-length">21</span>
                     </span>
@@ -545,23 +545,26 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/pai-xu-zong-jie/">
+                    <a href="/2020/08/07/shua-ti/leetcode/654-zui-da-er-cha-shu/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="排序总结">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="654. 最大二叉树">
                             
-                            <span class="card-title">排序总结</span>
+                            <span class="card-title">654. 最大二叉树</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                交换类？选择排序不具有稳定性，复杂度稳定在O(n2)O(n2)。
+                                
 
-存在不同元素大范围交换，所以不稳定。
 
-1234567891011121314151617181920int main(){    // freopen("./data.i
+
+一个基础的递归建树就可以解决。
+以递归的思想处理每一个新数组，先找出最大值所在并以此值一分数组为2个数组，同时递归建树即可。
+Note：注意边界错误，如right到底没有没值
+1234567891011121314151617181
                             
                         </div>
                         <div class="publish-info">
@@ -572,186 +575,12 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
                                 </a>
                                 
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/kuai-su-mi/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="快速幂">
-                            
-                            <span class="card-title">快速幂</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                快速幂算法，也称二分幂。 递归写法：
-123456789typedef long long ll;ll binaryPow(ll a, ll b, ll m){	if(b == 0) return 1;	if(b &amp; 1) retu
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/shuang-zhi-zhen-fa/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="双指针法">
-                            
-                            <span class="card-title">双指针法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                双指针算法作为编程中的一种思想，利用了数据有序性，有效减少了算法复杂度。比如在两数之和的题目，可达到O(n)O(n)复杂度，而非O(n2)O(n2)。在序列递增的数组中找两个数之和为aim。
-
-对于a[i]+a[j]==Ma[i]+a[j]
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/zui-da-gong-yue-shu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="最大公约数——欧几里得算法">
-                            
-                            <span class="card-title">最大公约数——欧几里得算法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                欧几里得算法又称碾转相除法，其算法基于以下定理：
-gcd(a,b)=gcd(b,agcd(a,b)=gcd(b,a
-其中gcd(a, b)表示a除于b的余数。
-1234int gcd(int a, int b){    return b? 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/su-shu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="素数">
-                            
-                            <span class="card-title">素数</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                用素数性质简单判断1234567bool isPrime(int n){    if(n &lt;= 1) return false;    int sqr = (int)sqrt(1.0 * n);    for(int i = 2; i
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                                 
                                 
@@ -762,307 +591,8 @@ gcd(a,b)=gcd(b,agcd(a,b)=gcd(b,a
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/MATH/">
-                            <span class="chip bg-color">MATH</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/zhong-zhui-shi-ji-suan/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="中缀式计算">
-                            
-                            <span class="card-title">中缀式计算</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                中缀表示式计算分为两个步骤，一是中缀转后缀，二是后缀表达式计算；
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/tuo-bu-pai-xu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="拓扑排序">
-                            
-                            <span class="card-title">拓扑排序</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                            <span class="chip bg-color">拓扑排序</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/zui-duan-lu/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="最短路">
-                            
-                            <span class="card-title">最短路</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                            <span class="chip bg-color">最短路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/guan-jian-lu-jing/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="关键路径">
-                            
-                            <span class="card-title">关键路径</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ​    ```
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/">
-                            <span class="chip bg-color">关键路径</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/zi-fu-chuan-hash/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="字符串hash">
-                            
-                            <span class="card-title">字符串hash</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                滚动哈希：O(n+m)时间内完成字符串匹配；实现：选取两个台适的互素数$b$和h(l&lt;b&lt;h)，假设字符串 C=clc2c3…CmC=clc2c3…Cm，定义哈希函数：$$H(C)=(C_1b_{m−1}+C_2b_{m−2}+
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/hash/">
-                            <span class="chip bg-color">hash</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/07/cs/algorithms/lca-wen-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="LCA问题">
-                            
-                            <span class="card-title">LCA问题</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                LCA问题即最近公共祖先问题
-常见解法有递归法，向上
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/Algorithms/" class="post-category">
-                                    Algorithms
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/LAC/">
-                            <span class="chip bg-color">LAC</span>
+                        <a href="/tags/BinaryTree/">
+                            <span class="chip bg-color">BinaryTree</span>
                         </a>
                         
                     </div>
@@ -1073,6 +603,30 @@ gcd(a,b)=gcd(b,agcd(a,b)=gcd(b,a
         </div>
     </article>
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 
