@@ -3,12 +3,13 @@ title: 1286. Iterator for Combination
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-10-08 09:06:01
 tags:
-- bits
-- permutaion
+  - bits
+  - permutaion
 categories:
-
+  - 刷题
+  - LeetCode
+date: 2020-10-08 09:06:01
 ---
 
 想了一下全组合的写法，顺便复习了一下全排列(full permutaion)的思想。
