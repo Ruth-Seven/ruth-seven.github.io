@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-08T01:14:15.474Z</updated>
+  <updated>2020-10-09T00:17:03.554Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,64 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>455. Assign Cookies</title>
+    <link href="https://blog.come2rss.xyz/2020/10/09/455-assign-cookies/"/>
+    <id>https://blog.come2rss.xyz/2020/10/09/455-assign-cookies/</id>
+    <published>2020-10-09T00:14:33.000Z</published>
+    <updated>2020-10-09T00:17:03.554Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h4 id=&quot;455-Assign-Cookies&quot;&gt;&lt;a href=&quot;#455-Assign-Cookies&quot; class=&quot;headerlink&quot; title=&quot;455. Assign Cookies&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
+    
+    <category term="bug" scheme="https://blog.come2rss.xyz/tags/bug/"/>
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Coroutine协程简记</title>
+    <link href="https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/"/>
+    <id>https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/</id>
+    <published>2020-10-08T05:35:04.000Z</published>
+    <updated>2020-10-08T06:31:55.802Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序，&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>1286. Iterator for Combination</title>
     <link href="https://blog.come2rss.xyz/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/"/>
     <id>https://blog.come2rss.xyz/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/</id>
     <published>2020-10-08T01:06:01.000Z</published>
-    <updated>2020-10-08T01:14:15.474Z</updated>
+    <updated>2020-10-08T01:16:30.434Z</updated>
     
     
     <summary type="html">&lt;p&gt;想了一下全组合的写法，顺便复习了一下全排列(full permutaion)的思想。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="bits" scheme="https://blog.come2rss.xyz/tags/bits/"/>
@@ -252,8 +300,8 @@
   
   <entry>
     <title>有趣的题目</title>
-    <link href="https://blog.come2rss.xyz/2020/09/23/shua-ti/you-qu-de-ti-mu/"/>
-    <id>https://blog.come2rss.xyz/2020/09/23/shua-ti/you-qu-de-ti-mu/</id>
+    <link href="https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/"/>
+    <id>https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/</id>
     <published>2020-09-23T02:07:11.000Z</published>
     <updated>2020-10-08T01:15:02.444Z</updated>
     
@@ -402,47 +450,6 @@
     <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
     <category term="errornote" scheme="https://blog.come2rss.xyz/tags/errornote/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS防污染配置</title>
-    <link href="https://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/"/>
-    <id>https://blog.come2rss.xyz/2020/09/02/code-tools/linux/dns-fang-wu-ran-pei-zhi/</id>
-    <published>2020-09-02T00:28:59.000Z</published>
-    <updated>2020-09-09T09:48:39.220Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;由于我国正处于发展不充分，不完全的阶段，DNS总是会出现一些莫名其妙的错误。twitter上不去，github下不了，非常尴尬。为了增进电脑使用体验，决定自己建一个DNS服务器避免DNS劫持和DNS毒化。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
-    
-    
-    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux开机启动服务/进程</title>
-    <link href="https://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/"/>
-    <id>https://blog.come2rss.xyz/2020/09/02/code-tools/linux/linux-kai-ji-qi-dong-fu-wu-jin-cheng/</id>
-    <published>2020-09-02T00:15:54.000Z</published>
-    <updated>2020-09-06T05:21:54.480Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;简记一下。&lt;/p&gt;
-&lt;h2 id=&quot;开机以root用户启动脚本&quot;&gt;&lt;a href=&quot;#开机以root用户启动脚本&quot; class=&quot;headerlink&quot; title=&quot;开机以root用户启动脚本&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://askubuntu.com/questions/290099/how-to-run-a-script-during-boot-as-root&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;开机以root用户启动脚本&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Place the script you want to run in the /etc/init.d directory and make the script executable.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
-    
     
   </entry>
   
