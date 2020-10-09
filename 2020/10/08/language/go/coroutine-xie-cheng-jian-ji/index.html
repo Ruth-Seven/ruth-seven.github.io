@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CS/">
+                                <span class="chip bg-color">CS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -450,21 +454,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-10-08
+                    2020-10-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    46
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -479,11 +483,53 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序，</p>
+                <p>Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。</p>
 <a id="more"></a>
 
+<h1 id="A-Simple-Overview-of-Coroutine"><a href="#A-Simple-Overview-of-Coroutine" class="headerlink" title="A Simple Overview of Coroutine"></a>A Simple Overview of Coroutine</h1><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>Wiki百科的定义比较广泛，但是它提出了协程的三个重要特征：</p>
+<blockquote>
+<p>Coroutines（协程） are computer program components that generalize subroutines for non-preemptive multitasking, by allowing execution to be suspended and resumed. </p>
+</blockquote>
+<ul>
+<li>运行子程序</li>
+<li>完成协作性质任务</li>
+<li>运行时可暂停和重新唤醒</li>
+</ul>
+<p>这三点已经可以概括了协程的面貌了，为了更深入了解协程的特点，我们可以从其他相似概念，最后从python的<code>asycio</code>入手了解协程。</p>
+<h3 id="Analogy"><a href="#Analogy" class="headerlink" title="Analogy"></a>Analogy</h3><h4 id="Comparison-with-subroutines"><a href="#Comparison-with-subroutines" class="headerlink" title="Comparison with subroutines"></a>Comparison with subroutines</h4><p>subroutine看似高大上，与routine有着密不可分的关系，就其定义来说就是一个<code>A set of instructions that performs a specific task for a main routine</code>，也可以称之为<code>function</code>，<code>procedure</code>。</p>
+<p>子程序是协程的特例，子程序从开头执行到末尾就结束了，仅仅返回一个值而且不保存状态，但是协程不同，它的“结束形式”是调用另一个协程的，同时其内部变量依旧保存，在下次被调用时仍然可以使用。值得注意的，被调用的<code>coroutine</code>仍可以调用调用它的<code>coroutine</code>，从这个角度说，不似与一般调用方法的<code>caller-callee</code>关系，<code>coroutine</code>的关系是<code>symmetric</code>的。</p>
+<h4 id="Comparison-with-threads"><a href="#Comparison-with-threads" class="headerlink" title="Comparison with threads:"></a>Comparison with threads:</h4><p>协程与线程很相似，但是协程是合作性质的多任务，而线程是典型的抢占式多任务性质的。</p>
+<p>协程是典型的<code>concurrency</code>（并发）性质的程序，而非<code>parallelism</code>（并发）性质的程序。也就是说协程仅仅创建了一个线程或者说一个进程。</p>
+<blockquote>
+<p><code>parallism</code>是<code>concurrency</code>的真子集。</p>
+<p>BTW, <code>threading</code>（多线程化）是<code>concurrency</code>的一种实现手段，<code>multprocessing</code> （多处理器运行）是<code>paralism</code>的一种实现手段。</p>
+<p>四者的关系如图：</p>
+<p><a href="https://files.realpython.com/media/Screen_Shot_2018-10-17_at_3.18.44_PM.c02792872031.jpg" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/muiltclip_image001.jpg" alt="Concurrency versus parallelism"></a></p>
+</blockquote>
+<p>协程无需进行线程切换的优势让它性能优势远超多线程进程，更加适合<code>hard-time realtime context</code>， GO语言的火爆也得力于此。</p>
+<p>多线程的缺点在于线程切换涉及到系统调用和调用阻塞，大大减慢了速度；多线程的同步竞争问题也需要信号量和同步锁维护。</p>
+<h4 id="Comparison-with-generators"><a href="#Comparison-with-generators" class="headerlink" title="Comparison with generators:"></a>Comparison with generators:</h4><p>生成器也称之为半协程，是协程的一个子集。熟知的语言如C++、python都实现了<code>generator</code>的机制，可以看出<code>generator</code>基本符合协程的三个特征。但是对于<code>generator</code>来说，<code>sysmmetric</code>还是不太够。</p>
+<p>其次，<code>genenrator</code>的<code>yield</code>关键词定义了<code>generator</code>退出和重新执行的<code>entry</code>，同上面所述，<code>generator</code>并没有主动<code>yield</code>(割让控制权)和重新执行的权利，他更像被动生产者，把控制权交给调用<code>generator</code>的<code>caller</code>。而<code>coroutie</code>可以在<code>yield</code>之后突然夺回控制权，</p>
+<h4 id="Comparison-with-mutual-recursion："><a href="#Comparison-with-mutual-recursion：" class="headerlink" title="Comparison with mutual recursion："></a>Comparison with mutual recursion：</h4><p> 讨论到，控制权在不同<code>subroutine</code>之间相互交换的情况，相互调用的函数可以类比<code>coroutine</code>。但是有明显的不同，就如一开始<code>Definition</code>所说，<code>coroutine</code>可以保存状态，变量和<code>execution point</code>，而且能<code>resume execution from execution point</code> 而不是从头执行。</p>
+<p>另外, <code>mutual recursion</code>调用的对方函数后，会增加系统函数栈的层数(<code>stack frame</code>)。而<code>coroutine</code>在传递控制权的时候，可以使用已经存在的<code>context</code>，并且仅仅只用一个<code>jump</code>来完成。</p>
+<blockquote>
+<p>具体实现未曾探究。</p>
+</blockquote>
+<h2 id="Coroutines-in-asyncio"><a href="#Coroutines-in-asyncio" class="headerlink" title="Coroutines in asyncio"></a>Coroutines in <code>asyncio</code></h2><p><code>asyncio</code>是python的内置系异步包，其API在3.4~3.7中快速迭代，如果幸运的话，以后可能会稳定下来。</p>
+<blockquote>
+<p>更多异步包可以用<code>pip install --upgrade pip aiohttp aiofiles</code>安装即可。</p>
+</blockquote>
+<p><code>asyncio</code>就是<code>Asynchrnous IO</code>缩写。众所周知，<code>cpu-bound</code>(所谓劳动密集型任😂)更需要多线程多处理器完成，<code>IO-bound</code>型任务需要多个线程来处理IO堵塞，或者由强大的😈协程完成。重复一遍，<code>coroutine</code>编程仅仅是一个单一线程单一进程的风格，他并不是<code>parallelism</code>，而是<code>concurrent</code>。更详细的说：</p>
+<ul>
+<li>异步<code>coroutine</code>在等待一个任务完成之时可以，可以停止执行，让其他<code>coroutines</code>执行。这个性质非常想进程同步所说的让权等待。</li>
+</ul>
+<p>为了支持异步处理，python引入了两个新key words: <code>async</code> and <code>awati</code>。前者定义异步函数，后者声明可以让权的语句。比如下面这个小程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"One"</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"Two"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">await</span> asyncio.gather(count(), count(), count())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    s = time.perf_counter()</span><br><span class="line">    asyncio.run(main())</span><br><span class="line">    elapsed = time.perf_counter() - s</span><br><span class="line">    print(<span class="string">f"<span class="subst">&#123;__file__&#125;</span> executed in <span class="subst">&#123;elapsed:<span class="number">0.2</span>f&#125;</span> seconds."</span>)</span><br></pre></td></tr></table></figure>
 
-
+<p>三个异步执行的<code>count()</code>会在各自阻塞的时候让权给其他<code>count()</code>。可以想到，这个程序执行时间大概在1秒，而非同步执行的3秒。</p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><blockquote>
+<p>接下的内容由于，个人水平和时间都有限，虽然做了更多的学习，但还是打算不发出来误人子弟了。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -509,7 +555,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/">https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/</a>
+                    <a href="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/">https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -546,7 +592,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/CS/">
+                                    <span class="chip bg-color">CS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -617,7 +667,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/10/09/455-assign-cookies/">
+                <a href="/2020/10/09/shua-ti/leetcode/455-assign-cookies/">
                     <div class="card-image">
                         
                         
@@ -929,7 +979,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">79.6k</span>&nbsp;字
+                class="white-color">80.8k</span>&nbsp;字
             
             
             

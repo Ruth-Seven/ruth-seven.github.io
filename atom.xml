@@ -18,8 +18,8 @@
   
   <entry>
     <title>455. Assign Cookies</title>
-    <link href="https://blog.come2rss.xyz/2020/10/09/455-assign-cookies/"/>
-    <id>https://blog.come2rss.xyz/2020/10/09/455-assign-cookies/</id>
+    <link href="https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/"/>
+    <id>https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/</id>
     <published>2020-10-09T00:14:33.000Z</published>
     <updated>2020-10-09T00:17:03.554Z</updated>
     
@@ -47,16 +47,18 @@
   
   <entry>
     <title>Coroutine协程简记</title>
-    <link href="https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/"/>
-    <id>https://blog.come2rss.xyz/2020/10/08/coroutine-xie-cheng-jian-ji/</id>
+    <link href="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/"/>
+    <id>https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/</id>
     <published>2020-10-08T05:35:04.000Z</published>
-    <updated>2020-10-08T06:31:55.802Z</updated>
+    <updated>2020-10-09T14:50:23.399Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序，&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="CS" scheme="https://blog.come2rss.xyz/tags/CS/"/>
     
   </entry>
   
@@ -303,7 +305,7 @@
     <link href="https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/"/>
     <id>https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/</id>
     <published>2020-09-23T02:07:11.000Z</published>
-    <updated>2020-10-08T01:15:02.444Z</updated>
+    <updated>2020-10-09T00:18:25.984Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录一下写到的好玩的题目：&lt;/p&gt;</summary>
@@ -311,6 +313,8 @@
     
     
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
   </entry>
