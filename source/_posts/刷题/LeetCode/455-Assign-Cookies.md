@@ -3,12 +3,14 @@ title: 455. Assign Cookies
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-10-09 08:14:33
 tags:
-- 贪心
-- 二分
-- bug
+  - 贪心
+  - 二分
+  - bug
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-10-09 08:14:33
 ---
 
 <!-- more -->
