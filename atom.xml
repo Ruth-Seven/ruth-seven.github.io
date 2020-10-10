@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-10T00:09:44.027Z</updated>
+  <updated>2020-10-10T04:12:59.207Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python字符编码简记</title>
+    <link href="https://blog.come2rss.xyz/2020/10/10/language/python/python-zi-fu-bian-ma-jian-ji/"/>
+    <id>https://blog.come2rss.xyz/2020/10/10/language/python/python-zi-fu-bian-ma-jian-ji/</id>
+    <published>2020-10-10T04:05:48.000Z</published>
+    <updated>2020-10-10T04:12:59.207Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;python字符集编码简记&quot;&gt;&lt;a href=&quot;#python字符集编码简记&quot; class=&quot;headerlink&quot; title=&quot;python字符集编码简记&quot;&gt;&lt;/a&gt;python字符集编码简记&lt;/h2&gt;&lt;p&gt;不讨论python2的情况下，python3将string分为两种类型，一种是&lt;code&gt;str&lt;/code&gt;,另一种是&lt;code&gt;bytes&lt;/code&gt;。前者存储unicode编码的字符串，负责存储unicode code point，后者负责按bytes存储字符串，也是就ACSII编码的code point存储。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="字符" scheme="https://blog.come2rss.xyz/tags/%E5%AD%97%E7%AC%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>135. Candy</title>
     <link href="https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/"/>
     <id>https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/</id>
     <published>2020-10-10T00:02:10.000Z</published>
-    <updated>2020-10-10T00:09:44.027Z</updated>
+    <updated>2020-10-10T00:10:40.137Z</updated>
     
     
     <summary type="html">&lt;p&gt;这题还行吧，一般一般。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="记忆化搜索" scheme="https://blog.come2rss.xyz/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
@@ -437,27 +458,6 @@
     <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
     
     <category term="位运算" scheme="https://blog.come2rss.xyz/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建RSS服务</title>
-    <link href="https://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/"/>
-    <id>https://blog.come2rss.xyz/2020/09/09/code-tools/linux/da-jian-rss-fu-wu/</id>
-    <published>2020-09-09T09:01:58.000Z</published>
-    <updated>2020-09-09T09:48:54.460Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;好怀念神奇又快捷的RSS功能啊。经过不懈的尝试和努力，终于在VPS-Ubuntuuh建了一个。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
-    
-    
-    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
     
   </entry>
   
