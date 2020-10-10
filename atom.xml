@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-09T00:17:03.554Z</updated>
+  <updated>2020-10-10T00:09:44.027Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>135. Candy</title>
+    <link href="https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/"/>
+    <id>https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/</id>
+    <published>2020-10-10T00:02:10.000Z</published>
+    <updated>2020-10-10T00:09:44.027Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这题还行吧，一般一般。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="记忆化搜索" scheme="https://blog.come2rss.xyz/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>455. Assign Cookies</title>
     <link href="https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/"/>
     <id>https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/</id>
     <published>2020-10-09T00:14:33.000Z</published>
-    <updated>2020-10-09T00:17:03.554Z</updated>
+    <updated>2020-10-09T14:51:23.409Z</updated>
     
     
       
@@ -35,6 +54,10 @@
       
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
@@ -50,12 +73,16 @@
     <link href="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/"/>
     <id>https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/</id>
     <published>2020-10-08T05:35:04.000Z</published>
-    <updated>2020-10-09T14:50:23.399Z</updated>
+    <updated>2020-10-09T14:51:23.409Z</updated>
     
     
     <summary type="html">&lt;p&gt;Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。&lt;/p&gt;</summary>
     
     
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="Go" scheme="https://blog.come2rss.xyz/categories/Language/Go/"/>
     
     
     <category term="CS" scheme="https://blog.come2rss.xyz/tags/CS/"/>
@@ -431,29 +458,6 @@
     
     
     <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次配置ShadowSocks</title>
-    <link href="https://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/"/>
-    <id>https://blog.come2rss.xyz/2020/09/06/code-tools/linux/ji-yi-ci-pei-zhi-shadowsocks/</id>
-    <published>2020-09-06T11:18:39.000Z</published>
-    <updated>2020-09-09T09:49:09.040Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;用香港服务器做一个代理。网上的教程很多，只需要5分钟就可以配置好。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
-    
-    
-    <category term="折腾" scheme="https://blog.come2rss.xyz/tags/%E6%8A%98%E8%85%BE/"/>
-    
-    <category term="errornote" scheme="https://blog.come2rss.xyz/tags/errornote/"/>
     
   </entry>
   
