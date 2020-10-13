@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-12T01:24:56.386Z</updated>
+  <updated>2020-10-13T00:31:51.970Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>605. Can Place Flowers</title>
+    <link href="https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/605-can-place-flowers/"/>
+    <id>https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/605-can-place-flowers/</id>
+    <published>2020-10-13T00:26:22.000Z</published>
+    <updated>2020-10-13T00:31:51.970Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h4 id=&quot;605-Can-Place-Flowers&quot;&gt;&lt;a href=&quot;#605-Can-Place-Flowers&quot; class=&quot;headerlink&quot; title=&quot;605. Can Place</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>452. Minimum Number of Arrows to Burst Balloons</title>
+    <link href="https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/452-minimum-number-of-arrows-to-burst-balloons/"/>
+    <id>https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/452-minimum-number-of-arrows-to-burst-balloons/</id>
+    <published>2020-10-13T00:26:09.000Z</published>
+    <updated>2020-10-13T00:29:44.490Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;452-Minimum-Number-of-Arrows-to-Burst-Balloons&quot;&gt;&lt;a href=&quot;#452-Minimum-Number-of-Arrows-to-Burst-Balloons&quot; class=&quot;headerlink&quot; title=&quot;452. Minimum Number of Arrows to Burst Balloons&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;452. Minimum Number of Arrows to Burst Balloons&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;类似于leetcode435贪心题&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>435. Non-overlapping Intervals</title>
     <link href="https://blog.come2rss.xyz/2020/10/12/shua-ti/leetcode/435-non-overlapping-intervals/"/>
     <id>https://blog.come2rss.xyz/2020/10/12/shua-ti/leetcode/435-non-overlapping-intervals/</id>
     <published>2020-10-12T01:19:14.000Z</published>
-    <updated>2020-10-12T01:24:56.386Z</updated>
+    <updated>2020-10-12T01:25:41.266Z</updated>
     
     
     <summary type="html">&lt;p&gt;还是蛮经典的题，想了想就出来了。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
@@ -38,12 +84,16 @@
     <link href="https://blog.come2rss.xyz/2020/10/11/shua-ti/leetcode/697-degree-of-an-array/"/>
     <id>https://blog.come2rss.xyz/2020/10/11/shua-ti/leetcode/697-degree-of-an-array/</id>
     <published>2020-10-11T00:28:27.000Z</published>
-    <updated>2020-10-11T00:29:03.493Z</updated>
+    <updated>2020-10-12T01:25:41.266Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;697-Degree-of-an-Array&quot;&gt;&lt;a href=&quot;#697-Degree-of-an-Array&quot; class=&quot;headerlink&quot; title=&quot;697. Degree of an Array&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/degree-of-an-array/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;697. Degree of an Array&lt;/a&gt;&lt;/h4&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;简单遍历，不过数据给的水，可以稍稍放松一下遍历的范围，就不用写这么长了0&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
   </entry>
@@ -400,56 +450,6 @@
     
     <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>1289.Minimum Falling Path Sum2</title>
-    <link href="https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/1289-minimum-falling-path-sum2/"/>
-    <id>https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/1289-minimum-falling-path-sum2/</id>
-    <published>2020-09-23T01:58:21.000Z</published>
-    <updated>2020-09-23T02:09:13.840Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;1289-Minimum-Falling-Path-Sum-II&quot;&gt;&lt;a href=&quot;#1289-Minimum-Falling-Path-Sum-II&quot; class=&quot;headerlink&quot; title=&quot;1289.</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="dp" scheme="https://blog.come2rss.xyz/tags/dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>972.Equal Rational Numbers</title>
-    <link href="https://blog.come2rss.xyz/2020/09/21/shua-ti/leetcode/972-equal-rational-numbers/"/>
-    <id>https://blog.come2rss.xyz/2020/09/21/shua-ti/leetcode/972-equal-rational-numbers/</id>
-    <published>2020-09-21T01:59:40.000Z</published>
-    <updated>2020-09-23T02:09:13.840Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;972-Equal-Rational-Numbers&quot;&gt;&lt;a href=&quot;#972-Equal-Rational-Numbers&quot; class=&quot;headerlink&quot; title=&quot;972. Equal Rational Numbers&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/equal-rational-numbers/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;972. Equal Rational Numbers&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;思路不止一种，老老实实敲敲代码但不想优化方法的人是没有前途的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="数字" scheme="https://blog.come2rss.xyz/tags/%E6%95%B0%E5%AD%97/"/>
     
   </entry>
   
