@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-13T00:31:51.970Z</updated>
+  <updated>2020-10-15T00:47:15.752Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,90 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>406. Queue Reconstruction by Height</title>
+    <link href="https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/406-queue-reconstruction-by-height/"/>
+    <id>https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/406-queue-reconstruction-by-height/</id>
+    <published>2020-10-15T00:43:44.000Z</published>
+    <updated>2020-10-15T00:47:15.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>122. Best Time to Buy and Sell Stock II</title>
+    <link href="https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/"/>
+    <id>https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/</id>
+    <published>2020-10-14T23:02:41.000Z</published>
+    <updated>2020-10-14T23:04:11.870Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;贪心做每一个可以交易的交易就行&lt;/p&gt;
+&lt;h2 id=&quot;代码：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>763. Partition Labels</title>
+    <link href="https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/"/>
+    <id>https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/</id>
+    <published>2020-10-14T00:26:06.000Z</published>
+    <updated>2020-10-14T00:27:32.026Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;题目不错，贪心到最晚出现的字符就行了。&lt;/p&gt;
+&lt;h2 id=&quot;代码：&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>605. Can Place Flowers</title>
     <link href="https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/605-can-place-flowers/"/>
     <id>https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/605-can-place-flowers/</id>
     <published>2020-10-13T00:26:22.000Z</published>
-    <updated>2020-10-13T00:31:51.970Z</updated>
+    <updated>2020-10-13T00:32:32.670Z</updated>
     
     
       
@@ -38,6 +117,10 @@
     
     
     
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
+    
     
   </entry>
   
@@ -46,12 +129,16 @@
     <link href="https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/452-minimum-number-of-arrows-to-burst-balloons/"/>
     <id>https://blog.come2rss.xyz/2020/10/13/shua-ti/leetcode/452-minimum-number-of-arrows-to-burst-balloons/</id>
     <published>2020-10-13T00:26:09.000Z</published>
-    <updated>2020-10-13T00:29:44.490Z</updated>
+    <updated>2020-10-13T00:32:32.670Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;452-Minimum-Number-of-Arrows-to-Burst-Balloons&quot;&gt;&lt;a href=&quot;#452-Minimum-Number-of-Arrows-to-Burst-Balloons&quot; class=&quot;headerlink&quot; title=&quot;452. Minimum Number of Arrows to Burst Balloons&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;452. Minimum Number of Arrows to Burst Balloons&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;类似于leetcode435贪心题&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
@@ -391,65 +478,6 @@
     
     
     <category term="binaryTree" scheme="https://blog.come2rss.xyz/tags/binaryTree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 16.05. Factorial Zeros LCCI</title>
-    <link href="https://blog.come2rss.xyz/2020/09/24/shua-ti/leetcode/mian-shi-ti-16-05-factorial-zeros-lcci/"/>
-    <id>https://blog.come2rss.xyz/2020/09/24/shua-ti/leetcode/mian-shi-ti-16-05-factorial-zeros-lcci/</id>
-    <published>2020-09-24T01:24:55.000Z</published>
-    <updated>2020-09-24T01:29:15.890Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;面试题-16-05-Factorial-Zeros-LCCI&quot;&gt;&lt;a href=&quot;#面试题-16-05-Factorial-Zeros-LCCI&quot; class=&quot;headerlink&quot; title=&quot;面试题 16.05. Factorial Zeros LCCI&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/factorial-zeros-lcci/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;面试题 16.05. Factorial Zeros LCCI&lt;/a&gt;&lt;/h4&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="数学" scheme="https://blog.come2rss.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>747. Largest Number At Least Twice of Others</title>
-    <link href="https://blog.come2rss.xyz/2020/09/24/shua-ti/leetcode/747-largest-number-at-least-twice-of-others/"/>
-    <id>https://blog.come2rss.xyz/2020/09/24/shua-ti/leetcode/747-largest-number-at-least-twice-of-others/</id>
-    <published>2020-09-24T01:05:25.000Z</published>
-    <updated>2020-09-24T01:29:15.890Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;747-Largest-Number-At-Least-Twice-of-Others&quot;&gt;&lt;a href=&quot;#747-Largest-Number-At-Least-Twice-of-Others&quot; class=&quot;headerlink&quot; title=&quot;747. Largest Number At Least Twice of Others&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;747. Largest Number At Least Twice of Others&lt;/a&gt;&lt;/h4&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>有趣的题目</title>
-    <link href="https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/"/>
-    <id>https://blog.come2rss.xyz/2020/09/23/shua-ti/leetcode/you-qu-de-ti-mu/</id>
-    <published>2020-09-23T02:07:11.000Z</published>
-    <updated>2020-10-09T00:18:25.984Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;记录一下写到的好玩的题目：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
     
   </entry>
   
