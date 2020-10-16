@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-15T00:47:15.752Z</updated>
+  <updated>2020-10-16T05:50:34.536Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,55 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>665. Non-decreasing Array</title>
+    <link href="https://blog.come2rss.xyz/2020/10/16/665-non-decreasing-array/"/>
+    <id>https://blog.come2rss.xyz/2020/10/16/665-non-decreasing-array/</id>
+    <published>2020-10-16T05:47:28.000Z</published>
+    <updated>2020-10-16T05:50:34.536Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h4 id=&quot;665-Non-decreasing-Array&quot;&gt;&lt;a href=&quot;#665-Non-decreasing-Array&quot; class=&quot;headerlink&quot; title=&quot;665. Non-decreasing</summary>
+        
+      
+    
+    
+    
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树状数组</title>
+    <link href="https://blog.come2rss.xyz/2020/10/15/cs/algorithms/shu-zhuang-shu-zu/"/>
+    <id>https://blog.come2rss.xyz/2020/10/15/cs/algorithms/shu-zhuang-shu-zu/</id>
+    <published>2020-10-15T01:54:18.000Z</published>
+    <updated>2020-10-15T01:56:57.289Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;树状数组&quot;&gt;&lt;a href=&quot;#树状数组&quot; class=&quot;headerlink&quot; title=&quot;树状数组&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://oi-wiki.org/ds/fenwick/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树状数组&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;对&lt;code&gt;A[i]&lt;/code&gt;数组进行前前缀和的维护的时更新成了一个大难题，树状数组提供&lt;code&gt;O(logn)&lt;/code&gt;的复杂度更新速度。&lt;code&gt;C[i]&lt;/code&gt;所能管理的&lt;code&gt;A[i]&lt;/code&gt;数字如下图所示，如果查询7的前缀和，则需要计算&lt;code&gt;C[7] + C[6] + C[4]&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="树状数组" scheme="https://blog.come2rss.xyz/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>406. Queue Reconstruction by Height</title>
     <link href="https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/406-queue-reconstruction-by-height/"/>
     <id>https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/406-queue-reconstruction-by-height/</id>
     <published>2020-10-15T00:43:44.000Z</published>
-    <updated>2020-10-15T00:47:15.752Z</updated>
+    <updated>2020-10-15T00:47:41.692Z</updated>
     
     
       
@@ -36,6 +80,10 @@
     
     
     
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
+    
     
     <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
     
@@ -46,7 +94,7 @@
     <link href="https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/"/>
     <id>https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/</id>
     <published>2020-10-14T23:02:41.000Z</published>
-    <updated>2020-10-14T23:04:11.870Z</updated>
+    <updated>2020-10-15T00:47:41.692Z</updated>
     
     
       
@@ -64,6 +112,10 @@
     
     
     
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
+    
     
     <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
     
@@ -74,7 +126,7 @@
     <link href="https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/"/>
     <id>https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/</id>
     <published>2020-10-14T00:26:06.000Z</published>
-    <updated>2020-10-14T00:27:32.026Z</updated>
+    <updated>2020-10-15T00:47:41.692Z</updated>
     
     
       
@@ -89,6 +141,10 @@
       
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
@@ -437,47 +493,6 @@
     
     <category term="Linux" scheme="https://blog.come2rss.xyz/categories/Code-tools/Linux/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>341. Flatten Nested List Iterator</title>
-    <link href="https://blog.come2rss.xyz/2020/09/25/shua-ti/leetcode/341-flatten-nested-list-iterator/"/>
-    <id>https://blog.come2rss.xyz/2020/09/25/shua-ti/leetcode/341-flatten-nested-list-iterator/</id>
-    <published>2020-09-25T01:14:36.000Z</published>
-    <updated>2020-09-25T01:16:30.280Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;341-Flatten-Nested-List-Iterator&quot;&gt;&lt;a href=&quot;#341-Flatten-Nested-List-Iterator&quot; class=&quot;headerlink&quot; title=&quot;341. Flatten Nested List Iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/flatten-nested-list-iterator/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;341. Flatten Nested List Iterator&lt;/a&gt;&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
-    <link href="https://blog.come2rss.xyz/2020/09/25/shua-ti/leetcode/106-construct-binary-tree-from-inorder-and-postorder-traversal/"/>
-    <id>https://blog.come2rss.xyz/2020/09/25/shua-ti/leetcode/106-construct-binary-tree-from-inorder-and-postorder-traversal/</id>
-    <published>2020-09-25T00:24:07.000Z</published>
-    <updated>2020-09-27T01:57:30.373Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;hello world &lt;/p&gt;
-&lt;h2 id=&quot;106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal&quot;&gt;&lt;a href=&quot;#106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal&quot; class=&quot;headerlink&quot; title=&quot;106. Construct Binary Tree from Inorder and Postorder Traversal&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;106. Construct Binary Tree from Inorder and Postorder Traversal&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://static.come2rss.xyz/%E8%A5%BF%E7%8F%AD%E7%89%99%E9%9F%A6%E6%96%AF%E5%8D%A1.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="binaryTree" scheme="https://blog.come2rss.xyz/tags/binaryTree/"/>
     
   </entry>
   
