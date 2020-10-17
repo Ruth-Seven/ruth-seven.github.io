@@ -3,10 +3,12 @@ title: 665. Non-decreasing Array
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-10-16 13:47:28
 tags:
-- 贪心
+  - 贪心
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-10-16 13:47:28
 ---
 
 <!-- more -->
