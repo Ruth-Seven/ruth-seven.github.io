@@ -440,6 +440,19 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                刷题
+                            </a>
+                        
+                            <a href="/categories/%E5%88%B7%E9%A2%98/%E6%B4%9B%E8%B0%B7/" class="post-category">
+                                洛谷
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -627,18 +640,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/10/18/shua-ti/luo-gu/p1025-shu-de-hua-fen/">
+                <a href="/2020/10/18/shua-ti/leetcode/1609-even-odd-tree/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="P1025 数的划分">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="1609. Even Odd Tree">
                         
-                        <span class="card-title">P1025 数的划分</span>
+                        <span class="card-title">1609. Even Odd Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -646,17 +658,14 @@
                         
                             
 
-
-
-思路：秀的一批的dp：可以把问题分解两位子问题Q1(a), Q2(b)，其中a+b==1。
-Q1(a): 将a分解为含有1的分解方案。将其中的一个1去掉，可转化其他问题。
-Q2(b): 将a分解为不含有1的分解方案。将每个数都减去1
+思路:层序遍历。记录边界即可。
+代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -665,12 +674,11 @@ Q2(b): 将a分解为不含有1的分解方案。将每个数都减去1
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dp/">
-                        <span class="chip bg-color">dp</span>
+                    <a href="/tags/BinaryTree/">
+                        <span class="chip bg-color">BinaryTree</span>
                     </a>
                     
                 </div>
@@ -708,8 +716,16 @@ Q2(b): 将a分解为不含有1的分解方案。将每个数都减去1
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                            
+                            <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -917,7 +933,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">83.5k</span>&nbsp;字
+                class="white-color">84.2k</span>&nbsp;字
             
             
             
