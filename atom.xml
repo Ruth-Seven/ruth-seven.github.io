@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-21T05:44:23.744Z</updated>
+  <updated>2020-10-22T01:16:11.303Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>524. Longest Word in Dictionary through Deleting</title>
+    <link href="https://blog.come2rss.xyz/2020/10/22/shua-ti/leetcode/524-longest-word-in-dictionary-through-deleting/"/>
+    <id>https://blog.come2rss.xyz/2020/10/22/shua-ti/leetcode/524-longest-word-in-dictionary-through-deleting/</id>
+    <published>2020-10-22T01:15:18.000Z</published>
+    <updated>2020-10-22T01:16:11.303Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;524-Longest-Word-in-Dictionary-through-Deleting&quot;&gt;&lt;a href=&quot;#524-Longest-Word-in-Dictionary-through-Deleting&quot; class=&quot;headerlink&quot; title=&quot;524. Longest Word in Dictionary through Deleting&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;524. Longest Word in Dictionary through Deleting&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;2020.10.22日&lt;/p&gt;
+&lt;p&gt;这题还是稍微锻炼了一下我、&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>python decorators in detial</title>
     <link href="https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/"/>
     <id>https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/</id>
     <published>2020-10-21T05:42:12.000Z</published>
-    <updated>2020-10-21T05:44:23.744Z</updated>
+    <updated>2020-10-21T05:47:39.374Z</updated>
     
     
     <summary type="html">&lt;p&gt;简单介绍一下python装饰器的写法，妙处和应用。&lt;a href=&quot;https://realpython.com/primer-on-python-decorators/#stateful-decorators&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文英文链接&lt;/a&gt;&lt;/p&gt;</summary>
     
     
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
     
     
   </entry>
@@ -509,29 +529,6 @@
     
     
     <category term="CS" scheme="https://blog.come2rss.xyz/tags/CS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1286. Iterator for Combination</title>
-    <link href="https://blog.come2rss.xyz/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/"/>
-    <id>https://blog.come2rss.xyz/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/</id>
-    <published>2020-10-08T01:06:01.000Z</published>
-    <updated>2020-10-08T01:16:30.434Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;想了一下全组合的写法，顺便复习了一下全排列(full permutaion)的思想。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="bits" scheme="https://blog.come2rss.xyz/tags/bits/"/>
-    
-    <category term="permutaion" scheme="https://blog.come2rss.xyz/tags/permutaion/"/>
     
   </entry>
   
