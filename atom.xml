@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-22T08:31:45.760Z</updated>
+  <updated>2020-10-23T02:48:48.710Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>76. Minimum Window Substring</title>
+    <link href="https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/"/>
+    <id>https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/</id>
+    <published>2020-10-23T02:48:10.000Z</published>
+    <updated>2020-10-23T02:48:48.710Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;76-Minimum-Window-Substring&quot;&gt;&lt;a href=&quot;#76-Minimum-Window-Substring&quot; class=&quot;headerlink&quot; title=&quot;76. Minimum Window Substring&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-window-substring/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;76. Minimum Window Substring&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路1&quot;&gt;&lt;a href=&quot;#思路1&quot; class=&quot;headerlink&quot; title=&quot;思路1:&quot;&gt;&lt;/a&gt;思路1:&lt;/h2&gt;&lt;p&gt;经典双指针下的滑动窗口算法。滑动窗口的左右部分分别由两个指针&lt;code&gt;l&lt;/code&gt;,&lt;code&gt;r&lt;/code&gt;指向。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
+    
+  </entry>
+  
+  <entry>
     <title>opencv-python 之路径问题</title>
     <link href="https://blog.come2rss.xyz/2020/10/22/language/python/opencv-python-zhi-lu-jing-wen-ti/"/>
     <id>https://blog.come2rss.xyz/2020/10/22/language/python/opencv-python-zhi-lu-jing-wen-ti/</id>
     <published>2020-10-22T08:27:49.000Z</published>
-    <updated>2020-10-22T08:31:45.760Z</updated>
+    <updated>2020-10-22T08:34:03.690Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天被OPEPCV-PYTHON整了，用&lt;code&gt;cv2.imread(path)&lt;/code&gt;导入图片，结果啥都没有。查了半天发现是WINDOW下&lt;code&gt;opencv&lt;/code&gt;在绝对路径下只支持&lt;code&gt;\&lt;/code&gt;作为分隔符，在相对路径上只支持&lt;code&gt;/&lt;/code&gt;！！&lt;/p&gt;</summary>
     
     
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
     
     
     <category term="bugs" scheme="https://blog.come2rss.xyz/tags/bugs/"/>
@@ -494,39 +515,6 @@
     
     
     <category term="记忆化搜索" scheme="https://blog.come2rss.xyz/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
-    
-    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>455. Assign Cookies</title>
-    <link href="https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/"/>
-    <id>https://blog.come2rss.xyz/2020/10/09/shua-ti/leetcode/455-assign-cookies/</id>
-    <published>2020-10-09T00:14:33.000Z</published>
-    <updated>2020-10-09T14:51:23.409Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h4 id=&quot;455-Assign-Cookies&quot;&gt;&lt;a href=&quot;#455-Assign-Cookies&quot; class=&quot;headerlink&quot; title=&quot;455. Assign Cookies&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
-    
-    <category term="bug" scheme="https://blog.come2rss.xyz/tags/bug/"/>
     
     <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
     
