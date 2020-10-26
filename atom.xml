@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-23T02:48:48.710Z</updated>
+  <updated>2020-10-26T02:04:43.940Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>680. Valid Palindrome II</title>
+    <link href="https://blog.come2rss.xyz/2020/10/26/shua-ti/leetcode/680-valid-palindrome-ii/"/>
+    <id>https://blog.come2rss.xyz/2020/10/26/shua-ti/leetcode/680-valid-palindrome-ii/</id>
+    <published>2020-10-26T02:01:17.000Z</published>
+    <updated>2020-10-26T02:04:43.940Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;680-Valid-Palindrome-II&quot;&gt;&lt;a href=&quot;#680-Valid-Palindrome-II&quot; class=&quot;headerlink&quot; title=&quot;680. Valid Palindrome II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/valid-palindrome-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;680. Valid Palindrome II&lt;/a&gt;&lt;/h4&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;典型的贪心题 + 二指针。这题还蛮不错的。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+    <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>633. Sum of Square Numbers</title>
+    <link href="https://blog.come2rss.xyz/2020/10/24/shua-ti/leetcode/633-sum-of-square-numbers/"/>
+    <id>https://blog.come2rss.xyz/2020/10/24/shua-ti/leetcode/633-sum-of-square-numbers/</id>
+    <published>2020-10-24T01:34:40.000Z</published>
+    <updated>2020-10-24T01:35:45.697Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;633-Sum-of-Square-Numbers&quot;&gt;&lt;a href=&quot;#633-Sum-of-Square-Numbers&quot; class=&quot;headerlink&quot; title=&quot;633. Sum of Square Numbers&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/sum-of-square-numbers/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;633. Sum of Square Numbers&lt;/a&gt;&lt;/h2&gt;</summary>
+    
+    
+    
+    
+    <category term="towpoints" scheme="https://blog.come2rss.xyz/tags/towpoints/"/>
+    
+    <category term="math" scheme="https://blog.come2rss.xyz/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>76. Minimum Window Substring</title>
     <link href="https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/"/>
     <id>https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/</id>
     <published>2020-10-23T02:48:10.000Z</published>
-    <updated>2020-10-23T02:48:48.710Z</updated>
+    <updated>2020-10-23T02:49:30.190Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;76-Minimum-Window-Substring&quot;&gt;&lt;a href=&quot;#76-Minimum-Window-Substring&quot; class=&quot;headerlink&quot; title=&quot;76. Minimum Window Substring&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-window-substring/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;76. Minimum Window Substring&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路1&quot;&gt;&lt;a href=&quot;#思路1&quot; class=&quot;headerlink&quot; title=&quot;思路1:&quot;&gt;&lt;/a&gt;思路1:&lt;/h2&gt;&lt;p&gt;经典双指针下的滑动窗口算法。滑动窗口的左右部分分别由两个指针&lt;code&gt;l&lt;/code&gt;,&lt;code&gt;r&lt;/code&gt;指向。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
@@ -473,50 +515,6 @@
     
     <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>python字符编码简记</title>
-    <link href="https://blog.come2rss.xyz/2020/10/10/language/python/python-zi-fu-bian-ma-jian-ji/"/>
-    <id>https://blog.come2rss.xyz/2020/10/10/language/python/python-zi-fu-bian-ma-jian-ji/</id>
-    <published>2020-10-10T04:05:48.000Z</published>
-    <updated>2020-10-10T04:13:28.517Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;python字符集编码简记&quot;&gt;&lt;a href=&quot;#python字符集编码简记&quot; class=&quot;headerlink&quot; title=&quot;python字符集编码简记&quot;&gt;&lt;/a&gt;python字符集编码简记&lt;/h2&gt;&lt;p&gt;不讨论python2的情况下，python3将string分为两种类型，一种是&lt;code&gt;str&lt;/code&gt;,另一种是&lt;code&gt;bytes&lt;/code&gt;。前者存储unicode编码的字符串，负责存储unicode code point，后者负责按bytes存储字符串，也是就ACSII编码的code point存储。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
-    
-    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
-    
-    
-    <category term="字符" scheme="https://blog.come2rss.xyz/tags/%E5%AD%97%E7%AC%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>135. Candy</title>
-    <link href="https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/"/>
-    <id>https://blog.come2rss.xyz/2020/10/10/shua-ti/leetcode/135-candy/</id>
-    <published>2020-10-10T00:02:10.000Z</published>
-    <updated>2020-10-10T00:10:40.137Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这题还行吧，一般一般。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="记忆化搜索" scheme="https://blog.come2rss.xyz/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"/>
-    
-    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
