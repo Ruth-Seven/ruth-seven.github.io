@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-30T01:57:51.280Z</updated>
+  <updated>2020-10-31T14:44:58.620Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,19 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>81. Search in Rotated Sorted Array II</title>
-    <link href="https://blog.come2rss.xyz/2020/10/30/81-search-in-rotated-sorted-array-ii/"/>
-    <id>https://blog.come2rss.xyz/2020/10/30/81-search-in-rotated-sorted-array-ii/</id>
-    <published>2020-10-30T01:56:38.000Z</published>
-    <updated>2020-10-30T01:57:51.280Z</updated>
+    <title>Python 代码风格 PEP8 总结</title>
+    <link href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"/>
+    <id>https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/</id>
+    <published>2020-10-31T14:44:09.000Z</published>
+    <updated>2020-10-31T14:44:58.620Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;81-Search-in-Rotated-Sorted-Array-II&quot;&gt;&lt;a href=&quot;#81-Search-in-Rotated-Sorted-Array-II&quot; class=&quot;headerlink&quot; title=&quot;81. Search in Rotated Sorted Array II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;81. Search in Rotated Sorted Array II&lt;/a&gt;&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;Python-代码风格-PEP8-总结&quot;&gt;&lt;a href=&quot;#Python-代码风格-PEP8-总结&quot; class=&quot;headerlink&quot; title=&quot;Python 代码风格 PEP8 总结&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://pep8.org/#descriptive-naming-styles&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python 代码风格 PEP8 总结&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。&lt;/p&gt;
+&lt;p&gt;花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性&lt;code&gt;readability&lt;/code&gt;，让整个代码风格的一致，非常重要。&lt;/p&gt;
+&lt;p&gt;总体来说：&lt;/p&gt;</summary>
     
     
     
-    
-    <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
