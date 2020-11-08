@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -358,6 +358,119 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="1286. Iterator for Combination">
+                            
+                            <span class="card-title">1286. Iterator for Combination</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                想了一下全组合的写法，顺便复习了一下全排列(full permutaion)的思想。
+
+1286. Iterator for Combination思路：官方给出了生成法，这种方法比较死板不去学习。
+我依据全排列的递归生成方法，扩展到全组合
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/bits/">
+                            <span class="chip bg-color">bits</span>
+                        </a>
+                        
+                        <a href="/tags/permutaion/">
+                            <span class="chip bg-color">permutaion</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/07/shua-ti/leetcode/790-domino-and-tromino-tiling/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="790. Domino and Tromino Tiling">
+                            
+                            <span class="card-title">790. Domino and Tromino Tiling</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                这题真的需要很多考虑
+
+
+思路：DP可以进行bit dp，设置dp[status]为当前列为状态status时的拼接方法。
+1234status = 0b00 : 上下格子都为空status = 0b10 : 上格子填好，下格子为空stat
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/dp/">
+                            <span class="chip bg-color">dp</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1808,95 +1921,6 @@ Linux虚拟内存系统Linux将虚拟内存分为一个个区域（area），所
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt=".brshrc的作用">
-                            
-                            <span class="card-title">.brshrc的作用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Linux的Ubunut的用户目录下，.bashrc常被用于存储环境变量和别名语句，该文件会在Shell启动的时候自动被导入。
-
-
-常见的手动导入.bashrc文件方式有source ~/.bashrc和exce bash。两者存在略微的不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Code-tools/" class="post-category">
-                                    Code tools
-                                </a>
-                                
-                                <a href="/categories/Code-tools/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CSAPP笔记5-程序优化">
-                            
-                            <span class="card-title">CSAPP笔记5-程序优化</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                GCC为我们C++语言提供了优秀的自动优化方法，-O1,-O2,-Og可以配置不同优化程度。但是GCC的优化也有局限性，它小心翼翼地保护不能确定结果的代码，比如：下述代码中，如果p2指向了v的最后一个元素，其计算结果和p2指向一个int d
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/CS/" class="post-category">
-                                    CS
-                                </a>
-                                
-                                <a href="/categories/CS/CSAPP/" class="post-category">
-                                    CSAPP
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1996,7 +2020,7 @@ Linux虚拟内存系统Linux将虚拟内存分为一个个区域（area），所
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">91.8k</span>&nbsp;字
+                class="white-color">92.2k</span>&nbsp;字
             
             
             

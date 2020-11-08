@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-10-31T14:44:58.620Z</updated>
+  <updated>2020-11-08T23:56:36.120Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>540. Single Element in a Sorted Array</title>
+    <link href="https://blog.come2rss.xyz/2020/11/09/540-single-element-in-a-sorted-array/"/>
+    <id>https://blog.come2rss.xyz/2020/11/09/540-single-element-in-a-sorted-array/</id>
+    <published>2020-11-08T23:55:11.000Z</published>
+    <updated>2020-11-08T23:56:36.120Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;540-Single-Element-in-a-Sorted-Array&quot;&gt;&lt;a href=&quot;#540-Single-Element-in-a-Sorted-Array&quot; class=&quot;headerlink&quot; title=&quot;540. Single Element in a Sorted Array&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/single-element-in-a-sorted-array/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;540. Single Element in a Sorted Array&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;设计一个二分即可。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>154. Find Minimum in Rotated Sorted Array II</title>
+    <link href="https://blog.come2rss.xyz/2020/11/01/shua-ti/leetcode/154-find-minimum-in-rotated-sorted-array-ii/"/>
+    <id>https://blog.come2rss.xyz/2020/11/01/shua-ti/leetcode/154-find-minimum-in-rotated-sorted-array-ii/</id>
+    <published>2020-11-01T00:40:48.000Z</published>
+    <updated>2020-11-01T00:42:01.170Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;154-Find-Minimum-in-Rotated-Sorted-Array-II&quot;&gt;&lt;a href=&quot;#154-Find-Minimum-in-Rotated-Sorted-Array-II&quot; class=&quot;headerlink&quot; title=&quot;154. Find Minimum in Rotated Sorted Array II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;154. Find Minimum in Rotated Sorted Array II&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题非常具有启发性质，hard~&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 代码风格 PEP8 总结</title>
     <link href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"/>
     <id>https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/</id>
     <published>2020-10-31T14:44:09.000Z</published>
-    <updated>2020-10-31T14:44:58.620Z</updated>
+    <updated>2020-10-31T14:45:43.960Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Python-代码风格-PEP8-总结&quot;&gt;&lt;a href=&quot;#Python-代码风格-PEP8-总结&quot; class=&quot;headerlink&quot; title=&quot;Python 代码风格 PEP8 总结&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://pep8.org/#descriptive-naming-styles&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python 代码风格 PEP8 总结&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。&lt;/p&gt;
@@ -29,6 +61,10 @@
 &lt;p&gt;总体来说：&lt;/p&gt;</summary>
     
     
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
     
     
   </entry>
@@ -450,68 +486,6 @@
     
     
     <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>122. Best Time to Buy and Sell Stock II</title>
-    <link href="https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/"/>
-    <id>https://blog.come2rss.xyz/2020/10/15/shua-ti/leetcode/122-best-time-to-buy-and-sell-stock-ii/</id>
-    <published>2020-10-14T23:02:41.000Z</published>
-    <updated>2020-10-15T00:47:41.692Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-
-&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;贪心做每一个可以交易的交易就行&lt;/p&gt;
-&lt;h2 id=&quot;代码：&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="暴力" scheme="https://blog.come2rss.xyz/tags/%E6%9A%B4%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>763. Partition Labels</title>
-    <link href="https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/"/>
-    <id>https://blog.come2rss.xyz/2020/10/14/shua-ti/leetcode/763-partition-labels/</id>
-    <published>2020-10-14T00:26:06.000Z</published>
-    <updated>2020-10-15T00:47:41.692Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;题目不错，贪心到最晚出现的字符就行了。&lt;/p&gt;
-&lt;h2 id=&quot;代码：&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
