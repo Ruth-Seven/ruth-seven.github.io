@@ -3,9 +3,11 @@ title: 540. Single Element in a Sorted Array
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
+categories:
+  - 刷题
+  - LeetCode
 date: 2020-11-09 07:55:11
 tags:
-categories:
 ---
 
 ## [540. Single Element in a Sorted Array](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
