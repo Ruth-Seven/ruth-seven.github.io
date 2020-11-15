@@ -460,11 +460,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%88%B7%E9%A2%98/" title="刷题: 69">
+                <a href="/categories/%E5%88%B7%E9%A2%98/" title="刷题: 71">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9E79F;">刷题
-                        <span class="tag-length">69</span>
+                        <span class="tag-length">71</span>
                     </span>
                 </a>
                 
@@ -532,11 +532,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" title="LeetCode: 43">
+                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" title="LeetCode: 45">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F9EBEA;">LeetCode
-                        <span class="tag-length">43</span>
+                        <span class="tag-length">45</span>
                     </span>
                 </a>
                 
@@ -578,6 +578,107 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/12/shua-ti/leetcode/4-median-of-two-sorted-arrays/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="4. Median of Two Sorted Arrays">
+                            
+                            <span class="card-title">4. Median of Two Sorted Arrays</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                4. Median of Two Sorted Arrays
+
+思路：将查找中位数扩大为更广义的解法：求解第$K$位的数字。每次在A,B两个数组中划分出两个k/2个元素，并排除划分出的最后一个数字比较小的数组，然后减去对应的排除的数组的数字
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E4%BA%8C%E5%88%86/">
+                            <span class="chip bg-color">二分</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AC%ACK%E5%A4%A7/">
+                            <span class="chip bg-color">第K大</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/09/shua-ti/leetcode/540-single-element-in-a-sorted-array/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="540. Single Element in a Sorted Array">
+                            
+                            <span class="card-title">540. Single Element in a Sorted Array</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                540. Single Element in a Sorted Array思路：设计一个二分即可。
+
+
+代码：123456789101112131415161718192021class Solution &#123;public:    
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
+                                    刷题
+                                </a>
+                                
+                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1554,108 +1655,6 @@ Q2(b): 将a分解为不含有1的分解方案。将每个数都减去1
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/12/shua-ti/leetcode/435-non-overlapping-intervals/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="435. Non-overlapping Intervals">
-                            
-                            <span class="card-title">435. Non-overlapping Intervals</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                还是蛮经典的题，想了想就出来了。
-
-
-思路：求出最少舍弃的区间，换一个角度就是留下更多的区间。为了留下的区间最多，直观上来看最好是区间长度小，起点和终点都小的区间。
-通过仔细的思考，只有终点最小才能满足区间尽可能留下的条件。
-代码：1234
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
-                                    刷题
-                                </a>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
-                                    LeetCode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                            <span class="chip bg-color">贪心</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/11/shua-ti/leetcode/697-degree-of-an-array/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="697. Degree of an Array">
-                            
-                            <span class="card-title">697. Degree of an Array</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                697. Degree of an Array思路：简单遍历，不过数据给的水，可以稍稍放松一下遍历的范围，就不用写这么长了0
-
-
-
-
-代码：12345678910111213141516171819202122232425262728293
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/" class="post-category">
-                                    刷题
-                                </a>
-                                
-                                <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" class="post-category">
-                                    LeetCode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -1753,7 +1752,7 @@ Q2(b): 将a分解为不含有1的分解方案。将每个数都减去1
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92.5k</span>&nbsp;字
+                class="white-color">93.2k</span>&nbsp;字
             
             
             
