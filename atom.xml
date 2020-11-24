@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-22T01:46:45.060Z</updated>
+  <updated>2020-11-24T02:18:25.170Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>417. Pacific Atlantic Water Flow</title>
+    <link href="https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/"/>
+    <id>https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/</id>
+    <published>2020-11-24T02:15:40.000Z</published>
+    <updated>2020-11-24T02:18:25.170Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
+&lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>547. Friend Circles</title>
     <link href="https://blog.come2rss.xyz/2020/11/22/shua-ti/leetcode/547-friend-circles/"/>
     <id>https://blog.come2rss.xyz/2020/11/22/shua-ti/leetcode/547-friend-circles/</id>
     <published>2020-11-22T01:45:38.000Z</published>
-    <updated>2020-11-22T01:46:45.060Z</updated>
+    <updated>2020-11-22T01:47:32.740Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;547-Friend-Circles&quot;&gt;&lt;a href=&quot;#547-Friend-Circles&quot; class=&quot;headerlink&quot; title=&quot;547. Friend Circles&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/friend-circles/&quot;&gt;547. Friend Circles&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;dfs搜索人头就行。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
@@ -423,37 +445,6 @@
     
     <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>142. Linked List Cycle II</title>
-    <link href="https://blog.come2rss.xyz/2020/10/19/shua-ti/leetcode/142-linked-list-cycle-ii/"/>
-    <id>https://blog.come2rss.xyz/2020/10/19/shua-ti/leetcode/142-linked-list-cycle-ii/</id>
-    <published>2020-10-19T05:53:17.000Z</published>
-    <updated>2020-10-19T06:34:36.614Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-
-&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="towpoints" scheme="https://blog.come2rss.xyz/tags/towpoints/"/>
     
   </entry>
   
