@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-24T02:18:25.170Z</updated>
+  <updated>2020-11-24T02:42:13.780Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,17 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>46. Permutations</title>
+    <link href="https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/46-permutations/"/>
+    <id>https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/46-permutations/</id>
+    <published>2020-11-24T02:41:53.000Z</published>
+    <updated>2020-11-24T02:42:13.780Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;46-Permutations2&quot;&gt;&lt;a href=&quot;#46-Permutations2&quot; class=&quot;headerlink&quot; title=&quot;46. Permutations2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations/&quot;&gt;46. Permutations&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯法确定全排列。复杂度$o(n*n!)$，（复制 * permute调用次数）。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="回朔" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%9C%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>417. Pacific Atlantic Water Flow</title>
     <link href="https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/"/>
     <id>https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/</id>
     <published>2020-11-24T02:15:40.000Z</published>
-    <updated>2020-11-24T02:18:25.170Z</updated>
+    <updated>2020-11-24T02:19:17.580Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
 &lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
@@ -425,25 +446,6 @@
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python decorators in detial</title>
-    <link href="https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/"/>
-    <id>https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/</id>
-    <published>2020-10-21T05:42:12.000Z</published>
-    <updated>2020-10-21T05:47:39.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;简单介绍一下python装饰器的写法，妙处和应用。&lt;a href=&quot;https://realpython.com/primer-on-python-decorators/#stateful-decorators&quot;&gt;原文英文链接&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
-    
-    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
     
     
   </entry>
