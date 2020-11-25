@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-24T02:42:13.780Z</updated>
+  <updated>2020-11-25T13:42:58.932Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,54 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>优秀是会遗传的吧？</title>
+    <link href="https://blog.come2rss.xyz/2020/11/25/sui-tan/you-xiu-shi-hui-yi-chuan-de-ba/"/>
+    <id>https://blog.come2rss.xyz/2020/11/25/sui-tan/you-xiu-shi-hui-yi-chuan-de-ba/</id>
+    <published>2020-11-25T13:38:57.000Z</published>
+    <updated>2020-11-25T13:42:58.932Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;G姐妈妈访谈录&quot;&gt;&lt;a href=&quot;#G姐妈妈访谈录&quot; class=&quot;headerlink&quot; title=&quot;G姐妈妈访谈录&quot;&gt;&lt;/a&gt;G姐妈妈访谈录&lt;/h2&gt;&lt;p&gt;听到G姐麻麻和G姐的访谈，非常非常震惊。G姐家庭环境非常好，爸爸是富二代，妈妈美国名校硕士，哈佛博士后。妈妈比较开明，理性，对家庭和孩子都是采取鼓励式教育。我最欣赏的是G妈身上那股专注投身于命运的专注，那种全身心的投入目标中去，抗争所能争取的，从不疲劳不抱怨的状态和心境。同时也为她这种看透人世的智慧，巧妙的与人相处的气质所膜拜。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="优秀" scheme="https://blog.come2rss.xyz/tags/%E4%BC%98%E7%A7%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>77. Combinations</title>
+    <link href="https://blog.come2rss.xyz/2020/11/25/shua-ti/leetcode/77-combinations/"/>
+    <id>https://blog.come2rss.xyz/2020/11/25/shua-ti/leetcode/77-combinations/</id>
+    <published>2020-11-25T06:02:41.000Z</published>
+    <updated>2020-11-25T06:04:12.110Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;77-Combinations&quot;&gt;&lt;a href=&quot;#77-Combinations&quot; class=&quot;headerlink&quot; title=&quot;77. Combinations&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/combinations/&quot;&gt;77. Combinations&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯，获取搭配数组，&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>46. Permutations</title>
     <link href="https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/46-permutations/"/>
     <id>https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/46-permutations/</id>
     <published>2020-11-24T02:41:53.000Z</published>
-    <updated>2020-11-24T02:42:13.780Z</updated>
+    <updated>2020-11-24T02:42:48.990Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;46-Permutations2&quot;&gt;&lt;a href=&quot;#46-Permutations2&quot; class=&quot;headerlink&quot; title=&quot;46. Permutations2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations/&quot;&gt;46. Permutations&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯法确定全排列。复杂度$o(n*n!)$，（复制 * permute调用次数）。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="回朔" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%9C%94/"/>
@@ -406,47 +444,6 @@
     
     
     <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv-python 之路径问题</title>
-    <link href="https://blog.come2rss.xyz/2020/10/22/language/python/opencv-python-zhi-lu-jing-wen-ti/"/>
-    <id>https://blog.come2rss.xyz/2020/10/22/language/python/opencv-python-zhi-lu-jing-wen-ti/</id>
-    <published>2020-10-22T08:27:49.000Z</published>
-    <updated>2020-10-22T08:34:03.690Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天被OPEPCV-PYTHON整了，用&lt;code&gt;cv2.imread(path)&lt;/code&gt;导入图片，结果啥都没有。查了半天发现是WINDOW下&lt;code&gt;opencv&lt;/code&gt;在绝对路径下只支持&lt;code&gt;\&lt;/code&gt;作为分隔符，在相对路径上只支持&lt;code&gt;/&lt;/code&gt;！！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
-    
-    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
-    
-    
-    <category term="bugs" scheme="https://blog.come2rss.xyz/tags/bugs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>524. Longest Word in Dictionary through Deleting</title>
-    <link href="https://blog.come2rss.xyz/2020/10/22/shua-ti/leetcode/524-longest-word-in-dictionary-through-deleting/"/>
-    <id>https://blog.come2rss.xyz/2020/10/22/shua-ti/leetcode/524-longest-word-in-dictionary-through-deleting/</id>
-    <published>2020-10-22T01:15:18.000Z</published>
-    <updated>2020-10-22T01:16:37.383Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;524-Longest-Word-in-Dictionary-through-Deleting&quot;&gt;&lt;a href=&quot;#524-Longest-Word-in-Dictionary-through-Deleting&quot; class=&quot;headerlink&quot; title=&quot;524. Longest Word in Dictionary through Deleting&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/&quot;&gt;524. Longest Word in Dictionary through Deleting&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;2020.10.22日&lt;/p&gt;
-&lt;p&gt;这题还是稍微锻炼了一下我、&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
     
   </entry>
   
