@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-25T13:42:58.932Z</updated>
+  <updated>2020-11-26T00:42:56.240Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>79. Word Search</title>
+    <link href="https://blog.come2rss.xyz/2020/11/26/shua-ti/leetcode/79-word-search/"/>
+    <id>https://blog.come2rss.xyz/2020/11/26/shua-ti/leetcode/79-word-search/</id>
+    <published>2020-11-26T00:42:40.000Z</published>
+    <updated>2020-11-26T00:42:56.240Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;79-Word-Search&quot;&gt;&lt;a href=&quot;#79-Word-Search&quot; class=&quot;headerlink&quot; title=&quot;79. Word Search&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-search/&quot;&gt;79. Word Search&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯直接k.o.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>优秀是会遗传的吧？</title>
     <link href="https://blog.come2rss.xyz/2020/11/25/sui-tan/you-xiu-shi-hui-yi-chuan-de-ba/"/>
     <id>https://blog.come2rss.xyz/2020/11/25/sui-tan/you-xiu-shi-hui-yi-chuan-de-ba/</id>
     <published>2020-11-25T13:38:57.000Z</published>
-    <updated>2020-11-25T13:42:58.932Z</updated>
+    <updated>2020-11-25T13:43:24.802Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;G姐妈妈访谈录&quot;&gt;&lt;a href=&quot;#G姐妈妈访谈录&quot; class=&quot;headerlink&quot; title=&quot;G姐妈妈访谈录&quot;&gt;&lt;/a&gt;G姐妈妈访谈录&lt;/h2&gt;&lt;p&gt;听到G姐麻麻和G姐的访谈，非常非常震惊。G姐家庭环境非常好，爸爸是富二代，妈妈美国名校硕士，哈佛博士后。妈妈比较开明，理性，对家庭和孩子都是采取鼓励式教育。我最欣赏的是G妈身上那股专注投身于命运的专注，那种全身心的投入目标中去，抗争所能争取的，从不疲劳不抱怨的状态和心境。同时也为她这种看透人世的智慧，巧妙的与人相处的气质所膜拜。&lt;/p&gt;</summary>
     
     
+    
+    <category term="随谈" scheme="https://blog.come2rss.xyz/categories/%E9%9A%8F%E8%B0%88/"/>
     
     
     <category term="优秀" scheme="https://blog.come2rss.xyz/tags/%E4%BC%98%E7%A7%80/"/>
@@ -38,12 +55,16 @@
     <link href="https://blog.come2rss.xyz/2020/11/25/shua-ti/leetcode/77-combinations/"/>
     <id>https://blog.come2rss.xyz/2020/11/25/shua-ti/leetcode/77-combinations/</id>
     <published>2020-11-25T06:02:41.000Z</published>
-    <updated>2020-11-25T06:04:12.110Z</updated>
+    <updated>2020-11-25T13:43:24.802Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;77-Combinations&quot;&gt;&lt;a href=&quot;#77-Combinations&quot; class=&quot;headerlink&quot; title=&quot;77. Combinations&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/combinations/&quot;&gt;77. Combinations&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯，获取搭配数组，&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
@@ -423,27 +444,6 @@
     <category term="towpoints" scheme="https://blog.come2rss.xyz/tags/towpoints/"/>
     
     <category term="math" scheme="https://blog.come2rss.xyz/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>76. Minimum Window Substring</title>
-    <link href="https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/"/>
-    <id>https://blog.come2rss.xyz/2020/10/23/shua-ti/leetcode/76-minimum-window-substring/</id>
-    <published>2020-10-23T02:48:10.000Z</published>
-    <updated>2020-10-23T02:49:30.190Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;76-Minimum-Window-Substring&quot;&gt;&lt;a href=&quot;#76-Minimum-Window-Substring&quot; class=&quot;headerlink&quot; title=&quot;76. Minimum Window Substring&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-window-substring/&quot;&gt;76. Minimum Window Substring&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路1&quot;&gt;&lt;a href=&quot;#思路1&quot; class=&quot;headerlink&quot; title=&quot;思路1:&quot;&gt;&lt;/a&gt;思路1:&lt;/h2&gt;&lt;p&gt;经典双指针下的滑动窗口算法。滑动窗口的左右部分分别由两个指针&lt;code&gt;l&lt;/code&gt;,&lt;code&gt;r&lt;/code&gt;指向。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
     
   </entry>
   
