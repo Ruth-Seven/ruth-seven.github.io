@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-26T00:42:56.240Z</updated>
+  <updated>2020-11-27T01:21:53.410Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,16 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>51. N-Queens</title>
+    <link href="https://blog.come2rss.xyz/2020/11/27/shua-ti/leetcode/51-n-queens/"/>
+    <id>https://blog.come2rss.xyz/2020/11/27/shua-ti/leetcode/51-n-queens/</id>
+    <published>2020-11-27T01:21:27.000Z</published>
+    <updated>2020-11-27T01:21:53.410Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;51-N-Queens&quot;&gt;&lt;a href=&quot;#51-N-Queens&quot; class=&quot;headerlink&quot; title=&quot;51. N-Queens&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>79. Word Search</title>
     <link href="https://blog.come2rss.xyz/2020/11/26/shua-ti/leetcode/79-word-search/"/>
     <id>https://blog.come2rss.xyz/2020/11/26/shua-ti/leetcode/79-word-search/</id>
     <published>2020-11-26T00:42:40.000Z</published>
-    <updated>2020-11-26T00:42:56.240Z</updated>
+    <updated>2020-11-26T00:43:22.330Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;79-Word-Search&quot;&gt;&lt;a href=&quot;#79-Word-Search&quot; class=&quot;headerlink&quot; title=&quot;79. Word Search&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-search/&quot;&gt;79. Word Search&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯直接k.o.&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
   </entry>
@@ -421,29 +448,6 @@
     <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
     
     <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>633. Sum of Square Numbers</title>
-    <link href="https://blog.come2rss.xyz/2020/10/24/shua-ti/leetcode/633-sum-of-square-numbers/"/>
-    <id>https://blog.come2rss.xyz/2020/10/24/shua-ti/leetcode/633-sum-of-square-numbers/</id>
-    <published>2020-10-24T01:34:40.000Z</published>
-    <updated>2020-10-26T02:07:36.880Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;633-Sum-of-Square-Numbers&quot;&gt;&lt;a href=&quot;#633-Sum-of-Square-Numbers&quot; class=&quot;headerlink&quot; title=&quot;633. Sum of Square Numbers&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/sum-of-square-numbers/&quot;&gt;633. Sum of Square Numbers&lt;/a&gt;&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="towpoints" scheme="https://blog.come2rss.xyz/tags/towpoints/"/>
-    
-    <category term="math" scheme="https://blog.come2rss.xyz/tags/math/"/>
     
   </entry>
   
