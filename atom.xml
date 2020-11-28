@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-27T01:21:53.410Z</updated>
+  <updated>2020-11-28T02:04:29.840Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>934. Shortest Bridge</title>
+    <link href="https://blog.come2rss.xyz/2020/11/28/shua-ti/leetcode/934-shortest-bridge/"/>
+    <id>https://blog.come2rss.xyz/2020/11/28/shua-ti/leetcode/934-shortest-bridge/</id>
+    <published>2020-11-28T02:04:11.000Z</published>
+    <updated>2020-11-28T02:04:29.840Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;934-Shortest-Bridge&quot;&gt;&lt;a href=&quot;#934-Shortest-Bridge&quot; class=&quot;headerlink&quot; title=&quot;934. Shortest Bridge&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shortest-bridge/&quot;&gt;934. Shortest Bridge&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;一次dfs搜索一个岛屿，一次bfs搜最短路径。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>51. N-Queens</title>
     <link href="https://blog.come2rss.xyz/2020/11/27/shua-ti/leetcode/51-n-queens/"/>
     <id>https://blog.come2rss.xyz/2020/11/27/shua-ti/leetcode/51-n-queens/</id>
     <published>2020-11-27T01:21:27.000Z</published>
-    <updated>2020-11-27T01:21:53.410Z</updated>
+    <updated>2020-11-27T01:22:15.250Z</updated>
     
     
       
@@ -33,6 +48,10 @@
       
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
@@ -124,10 +143,10 @@
     <link href="https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/"/>
     <id>https://blog.come2rss.xyz/2020/11/24/shua-ti/leetcode/417-pacific-atlantic-water-flow/</id>
     <published>2020-11-24T02:15:40.000Z</published>
-    <updated>2020-11-24T02:19:17.580Z</updated>
+    <updated>2020-11-28T02:06:01.910Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;417-Pacific-Atlantic-Water-Flow&quot;&gt;&lt;a href=&quot;#417-Pacific-Atlantic-Water-Flow&quot; class=&quot;headerlink&quot; title=&quot;417. Pacific Atlantic Water Flow&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/&quot;&gt;417. Pacific Atlantic Water Flow&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
 &lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
     
     
@@ -425,29 +444,6 @@
     <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
     
     <category term="牛顿迭代法" scheme="https://blog.come2rss.xyz/tags/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>680. Valid Palindrome II</title>
-    <link href="https://blog.come2rss.xyz/2020/10/26/shua-ti/leetcode/680-valid-palindrome-ii/"/>
-    <id>https://blog.come2rss.xyz/2020/10/26/shua-ti/leetcode/680-valid-palindrome-ii/</id>
-    <published>2020-10-26T02:01:17.000Z</published>
-    <updated>2020-10-26T02:07:36.880Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;680-Valid-Palindrome-II&quot;&gt;&lt;a href=&quot;#680-Valid-Palindrome-II&quot; class=&quot;headerlink&quot; title=&quot;680. Valid Palindrome II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/valid-palindrome-ii/&quot;&gt;680. Valid Palindrome II&lt;/a&gt;&lt;/h4&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;典型的贪心题 + 二指针。这题还蛮不错的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="贪心" scheme="https://blog.come2rss.xyz/tags/%E8%B4%AA%E5%BF%83/"/>
-    
-    <category term="twopoints" scheme="https://blog.come2rss.xyz/tags/twopoints/"/>
     
   </entry>
   
