@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-11-30T01:11:11.400Z</updated>
+  <updated>2020-12-03T04:59:17.662Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>47. Permutations II</title>
+    <link href="https://blog.come2rss.xyz/2020/12/03/shua-ti/leetcode/47-permutations-ii/"/>
+    <id>https://blog.come2rss.xyz/2020/12/03/shua-ti/leetcode/47-permutations-ii/</id>
+    <published>2020-12-03T04:58:55.000Z</published>
+    <updated>2020-12-03T04:59:17.662Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;47-Permutations-II2&quot;&gt;&lt;a href=&quot;#47-Permutations-II2&quot; class=&quot;headerlink&quot; title=&quot;47. Permutations II2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations-ii/&quot;&gt;47. Permutations II&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;保证&lt;code&gt;idx&lt;/code&gt;位的元素不重复即可。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以用set去重nums[idx]&lt;/li&gt;
+&lt;li&gt;用set去重res&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>130. Surrounded Regions</title>
+    <link href="https://blog.come2rss.xyz/2020/12/01/shua-ti/leetcode/130-surrounded-regions/"/>
+    <id>https://blog.come2rss.xyz/2020/12/01/shua-ti/leetcode/130-surrounded-regions/</id>
+    <published>2020-12-01T00:23:07.000Z</published>
+    <updated>2020-12-01T00:24:04.980Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;130-Surrounded-Regions&quot;&gt;&lt;a href=&quot;#130-Surrounded-Regions&quot; class=&quot;headerlink&quot; title=&quot;130. Surrounded Regions&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/surrounded-regions/&quot;&gt;130. Surrounded Regions&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;如果用普通dfs搜索所有区域是速度有点慢的。&lt;/p&gt;
+&lt;p&gt;但只是反过来思考，如果只所搜索所有不被包围的&lt;code&gt;O&lt;/code&gt;并标记，同时翻转所有剩下的&lt;code&gt;X&lt;/code&gt;，最后把所有的P翻转回来是不是会更快。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不搞特例的话，一般都是后者快。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>126. Word Ladder II</title>
     <link href="https://blog.come2rss.xyz/2020/11/29/shua-ti/leetcode/126-word-ladder-ii/"/>
     <id>https://blog.come2rss.xyz/2020/11/29/shua-ti/leetcode/126-word-ladder-ii/</id>
     <published>2020-11-29T02:59:06.000Z</published>
-    <updated>2020-11-30T01:11:11.400Z</updated>
+    <updated>2020-11-30T01:11:47.650Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;126-Word-Ladder-II&quot;&gt;&lt;a href=&quot;#126-Word-Ladder-II&quot; class=&quot;headerlink&quot; title=&quot;126. Word Ladder II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-ladder-ii/&quot;&gt;126. Word Ladder II&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;blockquote&gt;
@@ -32,6 +74,10 @@
 &lt;p&gt;最好用邻接矩阵优化BFS搜索数量，同时显然的，你没法通过绕一个小弯找到最短路，这可以剪枝。&lt;/p&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="tbfs" scheme="https://blog.come2rss.xyz/tags/tbfs/"/>
@@ -403,44 +449,6 @@
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 代码风格 PEP8 总结</title>
-    <link href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"/>
-    <id>https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/</id>
-    <published>2020-10-31T14:44:09.000Z</published>
-    <updated>2020-10-31T14:45:43.960Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Python-代码风格-PEP8-总结&quot;&gt;&lt;a href=&quot;#Python-代码风格-PEP8-总结&quot; class=&quot;headerlink&quot; title=&quot;Python 代码风格 PEP8 总结&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://pep8.org/#descriptive-naming-styles&quot;&gt;Python 代码风格 PEP8 总结&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。&lt;/p&gt;
-&lt;p&gt;花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性&lt;code&gt;readability&lt;/code&gt;，让整个代码风格的一致，非常重要。&lt;/p&gt;
-&lt;p&gt;总体来说：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
-    
-    <category term="Python" scheme="https://blog.come2rss.xyz/categories/Language/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>81. Search in Rotated Sorted Array II</title>
-    <link href="https://blog.come2rss.xyz/2020/10/30/shua-ti/leetcode/81-search-in-rotated-sorted-array-ii/"/>
-    <id>https://blog.come2rss.xyz/2020/10/30/shua-ti/leetcode/81-search-in-rotated-sorted-array-ii/</id>
-    <published>2020-10-30T01:56:38.000Z</published>
-    <updated>2020-10-30T01:57:51.280Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;81-Search-in-Rotated-Sorted-Array-II&quot;&gt;&lt;a href=&quot;#81-Search-in-Rotated-Sorted-Array-II&quot; class=&quot;headerlink&quot; title=&quot;81. Search in Rotated Sorted Array II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/&quot;&gt;81. Search in Rotated Sorted Array II&lt;/a&gt;&lt;/h2&gt;</summary>
-    
-    
     
     
     <category term="二分" scheme="https://blog.come2rss.xyz/tags/%E4%BA%8C%E5%88%86/"/>
