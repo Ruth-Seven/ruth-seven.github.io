@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-12-03T04:59:17.662Z</updated>
+  <updated>2020-12-03T05:00:02.362Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.come2rss.xyz/2020/12/03/shua-ti/leetcode/47-permutations-ii/"/>
     <id>https://blog.come2rss.xyz/2020/12/03/shua-ti/leetcode/47-permutations-ii/</id>
     <published>2020-12-03T04:58:55.000Z</published>
-    <updated>2020-12-03T04:59:17.662Z</updated>
+    <updated>2020-12-03T05:00:02.362Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;47-Permutations-II2&quot;&gt;&lt;a href=&quot;#47-Permutations-II2&quot; class=&quot;headerlink&quot; title=&quot;47. Permutations II2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations-ii/&quot;&gt;47. Permutations II&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;保证&lt;code&gt;idx&lt;/code&gt;位的元素不重复即可。&lt;/p&gt;
@@ -31,6 +31,10 @@
 &lt;/ol&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="回溯" scheme="https://blog.come2rss.xyz/tags/%E5%9B%9E%E6%BA%AF/"/>
@@ -42,7 +46,7 @@
     <link href="https://blog.come2rss.xyz/2020/12/01/shua-ti/leetcode/130-surrounded-regions/"/>
     <id>https://blog.come2rss.xyz/2020/12/01/shua-ti/leetcode/130-surrounded-regions/</id>
     <published>2020-12-01T00:23:07.000Z</published>
-    <updated>2020-12-01T00:24:04.980Z</updated>
+    <updated>2020-12-03T05:00:02.362Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;130-Surrounded-Regions&quot;&gt;&lt;a href=&quot;#130-Surrounded-Regions&quot; class=&quot;headerlink&quot; title=&quot;130. Surrounded Regions&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/surrounded-regions/&quot;&gt;130. Surrounded Regions&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;如果用普通dfs搜索所有区域是速度有点慢的。&lt;/p&gt;
@@ -52,6 +56,10 @@
 &lt;/blockquote&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
     
     
     <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
