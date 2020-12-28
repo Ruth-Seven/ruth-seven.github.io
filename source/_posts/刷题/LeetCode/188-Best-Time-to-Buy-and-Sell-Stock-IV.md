@@ -18,6 +18,9 @@ categories:
 把transaction拆分为买buy和卖sell，`sell[i][j]`代表对于第`i`个物品，第`j`次卖操作后最大利润。`buy`和`sell`的转移方程如代码所示。
 
 > 形式上更像一个状态转移机。
+>
+> ![image-20201226081801949](http://static.come2rss.xyz/image-20201226081801949.png)
+
 
 <!-- more -->
 

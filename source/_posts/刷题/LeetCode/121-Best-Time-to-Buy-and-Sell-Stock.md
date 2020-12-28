@@ -18,6 +18,9 @@ categories:
 
 记录最值。<!-- more -->
 
+> ![image-20201226081801949](http://static.come2rss.xyz/image-20201226081801949.png)
+
+
 ## 代码：
 
 ```c++
