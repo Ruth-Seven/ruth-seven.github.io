@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2020-12-26T00:31:32.010Z</updated>
+  <updated>2021-01-08T02:16:23.215Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>326. Power of Three</title>
+    <link href="https://blog.come2rss.xyz/2021/01/08/shua-ti/leetcode/326-power-of-three/"/>
+    <id>https://blog.come2rss.xyz/2021/01/08/shua-ti/leetcode/326-power-of-three/</id>
+    <published>2021-01-08T02:16:01.000Z</published>
+    <updated>2021-01-08T02:16:23.215Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;326-Power-of-Three&quot;&gt;&lt;a href=&quot;#326-Power-of-Three&quot; class=&quot;headerlink&quot; title=&quot;326. Power of Three&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/power-of-three/&quot;&gt;326. Power of Three&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;直接上代码：&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>123. Best Time to Buy and Sell Stock III</title>
@@ -435,27 +450,6 @@
     
     <summary type="html">&lt;h2 id=&quot;417-Pacific-Atlantic-Water-Flow&quot;&gt;&lt;a href=&quot;#417-Pacific-Atlantic-Water-Flow&quot; class=&quot;headerlink&quot; title=&quot;417. Pacific Atlantic Water Flow&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/&quot;&gt;417. Pacific Atlantic Water Flow&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
 &lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="dfs" scheme="https://blog.come2rss.xyz/tags/dfs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>547. Friend Circles</title>
-    <link href="https://blog.come2rss.xyz/2020/11/22/shua-ti/leetcode/547-friend-circles/"/>
-    <id>https://blog.come2rss.xyz/2020/11/22/shua-ti/leetcode/547-friend-circles/</id>
-    <published>2020-11-22T01:45:38.000Z</published>
-    <updated>2020-11-22T01:47:32.740Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;547-Friend-Circles&quot;&gt;&lt;a href=&quot;#547-Friend-Circles&quot; class=&quot;headerlink&quot; title=&quot;547. Friend Circles&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/friend-circles/&quot;&gt;547. Friend Circles&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;dfs搜索人头就行。&lt;/p&gt;</summary>
     
     
     
