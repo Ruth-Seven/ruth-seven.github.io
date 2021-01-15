@@ -20,19 +20,19 @@ categories:
 Attention机制提出的目的就是为了把在句子里的不同词语附上不同的权重，类比与人类观察物体时会给不同的物体分配不同的时长和注意力。
 
 以最经典的scaled DOt-Product Attention 和 Multi-Head Attention 为例：
-![image-20210115113529144](D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20210115113529144.png)
+![image-20210115113529144](http://static.come2rss.xyz/image-20210115113529144.png)
 
 单头Attention是多头Attention的组合部分，先讲单头。
 
 QKV是三个输入X变换的向量，分别定义为“query”，“key”和“value”。
 
-![image-20210115113733398](D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20210115113733398.png)
+![image-20210115113733398](http://static.come2rss.xyz/image-20210115113733398.png)
 
-![image-20210115113744158](D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20210115113744158.png)
+![image-20210115113744158](http://static.come2rss.xyz/image-20210115113744158.png)
 
 最后经过$W^0 \in  \R^{d_V \times p}$仿射变化，得到
 
-![image-20210115113802113](D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20210115113802113.png)
+![image-20210115113802113](http://static.come2rss.xyz/image-20210115113802113.png)
 
 其中整个过程用到了4个系数矩阵$W^Q \in  \R^{p \times d_q}$，$W^K  \in  \R^{p \times d_k}$, $W^V \in  \R^{p \times d_v}$和$W^0 \in  \R^{d_V \times p}$ 
 
@@ -47,8 +47,6 @@ $$
 z_i = Attention(Q_i, k_i, V_i) \in \R^{n \times d_v} \\
 C = Concat(Z_i) \in \R ^{n \times (d_v * h)}\\
 Z = CW^0 \in \R^{n * p}
-
-
 $$
 
 > 注意一下， 两者的Z和QVK意义基本相同。
