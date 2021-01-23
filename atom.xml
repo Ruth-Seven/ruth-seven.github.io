@@ -24,7 +24,7 @@
     <updated>2021-01-08T02:16:59.615Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;326-Power-of-Three&quot;&gt;&lt;a href=&quot;#326-Power-of-Three&quot; class=&quot;headerlink&quot; title=&quot;326. Power of Three&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/power-of-three/&quot;&gt;326. Power of Three&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;直接上代码：&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;326-Power-of-Three&quot;&gt;&lt;a href=&quot;#326-Power-of-Three&quot; class=&quot;headerlink&quot; title=&quot;326. Power of Three&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/power-of-three/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;326. Power of Three&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;直接上代码：&lt;/p&gt;</summary>
     
     
     
@@ -43,8 +43,8 @@
     <updated>2020-12-26T00:31:32.010Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;123-Best-Time-to-Buy-and-Sell-Stock-III&quot;&gt;&lt;a href=&quot;#123-Best-Time-to-Buy-and-Sell-Stock-III&quot; class=&quot;headerlink&quot; title=&quot;123. Best Time to Buy and Sell Stock III&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/&quot;&gt;123. Best Time to Buy and Sell Stock III&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;借用&lt;a href=&quot;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&quot;&gt;简单股票&lt;/a&gt;的思路可以双向遍历price,获取&lt;code&gt;price[0, i]&lt;/code&gt;和&lt;code&gt;price[i, n]&lt;/code&gt;两个时间段各自最大的花费。&lt;/li&gt;
+    <summary type="html">&lt;h2 id=&quot;123-Best-Time-to-Buy-and-Sell-Stock-III&quot;&gt;&lt;a href=&quot;#123-Best-Time-to-Buy-and-Sell-Stock-III&quot; class=&quot;headerlink&quot; title=&quot;123. Best Time to Buy and Sell Stock III&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;123. Best Time to Buy and Sell Stock III&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;借用&lt;a href=&quot;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;简单股票&lt;/a&gt;的思路可以双向遍历price,获取&lt;code&gt;price[0, i]&lt;/code&gt;和&lt;code&gt;price[i, n]&lt;/code&gt;两个时间段各自最大的花费。&lt;/li&gt;
 &lt;li&gt;比较巧妙，用第一段操作的利润去抵消第二段购买时的花费，一次遍历。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
@@ -71,7 +71,7 @@
     <updated>2020-12-21T00:37:42.902Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;322-Coin-Change&quot;&gt;&lt;a href=&quot;#322-Coin-Change&quot; class=&quot;headerlink&quot; title=&quot;322. Coin Change&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/coin-change/&quot;&gt;322. Coin Change&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;完全背包思路，注意一下初始值。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;322-Coin-Change&quot;&gt;&lt;a href=&quot;#322-Coin-Change&quot; class=&quot;headerlink&quot; title=&quot;322. Coin Change&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/coin-change/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;322. Coin Change&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;完全背包思路，注意一下初始值。&lt;/p&gt;</summary>
     
     
     
@@ -92,7 +92,7 @@
     <updated>2020-12-15T13:24:46.330Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;1143-Longest-Common-Subsequence&quot;&gt;&lt;a href=&quot;#1143-Longest-Common-Subsequence&quot; class=&quot;headerlink&quot; title=&quot;1143. Longest Common Subsequence&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-common-subsequence/&quot;&gt;1143. Longest Common Subsequence&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;dp[i][[j]&lt;/code&gt;为text1和text2在位置i,j的最长公共子序列。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;1143-Longest-Common-Subsequence&quot;&gt;&lt;a href=&quot;#1143-Longest-Common-Subsequence&quot; class=&quot;headerlink&quot; title=&quot;1143. Longest Common Subsequence&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-common-subsequence/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;1143. Longest Common Subsequence&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;dp[i][[j]&lt;/code&gt;为text1和text2在位置i,j的最长公共子序列。&lt;/p&gt;</summary>
     
     
     
@@ -111,7 +111,7 @@
     <updated>2020-12-09T06:44:10.480Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;64-Minimum-Path-Sum&quot;&gt;&lt;a href=&quot;#64-Minimum-Path-Sum&quot; class=&quot;headerlink&quot; title=&quot;64. Minimum Path Sum&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-path-sum/&quot;&gt;64. Minimum Path Sum&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路:&quot;&gt;&lt;/a&gt;思路:&lt;/h2&gt;&lt;p&gt;dp长度&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;64-Minimum-Path-Sum&quot;&gt;&lt;a href=&quot;#64-Minimum-Path-Sum&quot; class=&quot;headerlink&quot; title=&quot;64. Minimum Path Sum&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-path-sum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;64. Minimum Path Sum&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路:&quot;&gt;&lt;/a&gt;思路:&lt;/h2&gt;&lt;p&gt;dp长度&lt;/p&gt;</summary>
     
     
     
@@ -132,7 +132,7 @@
     <updated>2020-12-07T01:37:17.313Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;413-Arithmetic-Slices&quot;&gt;&lt;a href=&quot;#413-Arithmetic-Slices&quot; class=&quot;headerlink&quot; title=&quot;413. Arithmetic Slices&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/arithmetic-slices/&quot;&gt;413. Arithmetic Slices&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
+    <summary type="html">&lt;h2 id=&quot;413-Arithmetic-Slices&quot;&gt;&lt;a href=&quot;#413-Arithmetic-Slices&quot; class=&quot;headerlink&quot; title=&quot;413. Arithmetic Slices&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/arithmetic-slices/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;413. Arithmetic Slices&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;dp[i]以数字ith为结尾的最长arithmetic sequence的长度，（被包含的dp[k]==0）&lt;/li&gt;
 &lt;li&gt;$dp[i]$以数字i th为结尾的arithmetic sequence的数目个数。&lt;/li&gt;
 &lt;/ol&gt;</summary>
@@ -156,7 +156,7 @@
     <updated>2020-12-07T01:37:17.313Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;70-Climbing-Stairs&quot;&gt;&lt;a href=&quot;#70-Climbing-Stairs&quot; class=&quot;headerlink&quot; title=&quot;70. Climbing Stairs&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/climbing-stairs/&quot;&gt;70. Climbing Stairs&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;dp，用两个变量存储长度为N的数组优化空间&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;70-Climbing-Stairs&quot;&gt;&lt;a href=&quot;#70-Climbing-Stairs&quot; class=&quot;headerlink&quot; title=&quot;70. Climbing Stairs&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/climbing-stairs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;70. Climbing Stairs&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;dp，用两个变量存储长度为N的数组优化空间&lt;/p&gt;
 &lt;p&gt;。</summary>
     
     
@@ -178,7 +178,7 @@
     <updated>2020-12-07T01:37:17.313Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;198-House-Robber&quot;&gt;&lt;a href=&quot;#198-House-Robber&quot; class=&quot;headerlink&quot; title=&quot;198. House Robber&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/house-robber/&quot;&gt;198. House Robber&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
+    <summary type="html">&lt;h2 id=&quot;198-House-Robber&quot;&gt;&lt;a href=&quot;#198-House-Robber&quot; class=&quot;headerlink&quot; title=&quot;198. House Robber&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/house-robber/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;198. House Robber&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;将偷和不偷的两种状态分别记录到两个dp上，dp方程见代码1&lt;/li&gt;
 &lt;li&gt;如果不分解，记$dp[i]$为在房子$i$所能获得最大的金钱收益，应该可以比较偷窃第$i$房子加上之前$i-2$个房子所能偷窃的最大金额，和只偷窃前$i-1$房子的最大金额。&lt;blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;http://static.come2rss.xyz/image-20201207091040289.png&quot; alt=&quot;image-20201207091040289&quot;&gt;&lt;/p&gt;
@@ -205,7 +205,7 @@
     <updated>2020-12-06T01:53:11.320Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;310-Minimum-Height-Trees&quot;&gt;&lt;a href=&quot;#310-Minimum-Height-Trees&quot; class=&quot;headerlink&quot; title=&quot;310. Minimum Height Trees&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-height-trees/&quot;&gt;310. Minimum Height Trees&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
+    <summary type="html">&lt;h2 id=&quot;310-Minimum-Height-Trees&quot;&gt;&lt;a href=&quot;#310-Minimum-Height-Trees&quot; class=&quot;headerlink&quot; title=&quot;310. Minimum Height Trees&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-height-trees/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;310. Minimum Height Trees&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;（超时）bfs&lt;/li&gt;
 &lt;li&gt;拓扑排序变形。从图的边缘点逆向追溯到中心点，可以直接获取到目标点。又有题目性质猜得，没有孤立点（除非n=1），没有环。那么目标点至多只有两个。&lt;/li&gt;
 &lt;/ol&gt;</summary>
@@ -231,7 +231,7 @@
     <updated>2020-12-03T05:00:02.362Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;47-Permutations-II2&quot;&gt;&lt;a href=&quot;#47-Permutations-II2&quot; class=&quot;headerlink&quot; title=&quot;47. Permutations II2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations-ii/&quot;&gt;47. Permutations II&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;保证&lt;code&gt;idx&lt;/code&gt;位的元素不重复即可。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;47-Permutations-II2&quot;&gt;&lt;a href=&quot;#47-Permutations-II2&quot; class=&quot;headerlink&quot; title=&quot;47. Permutations II2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;47. Permutations II&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;保证&lt;code&gt;idx&lt;/code&gt;位的元素不重复即可。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;可以用set去重nums[idx]&lt;/li&gt;
 &lt;li&gt;用set去重res&lt;/li&gt;
@@ -256,7 +256,7 @@
     <updated>2020-12-03T05:00:02.362Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;130-Surrounded-Regions&quot;&gt;&lt;a href=&quot;#130-Surrounded-Regions&quot; class=&quot;headerlink&quot; title=&quot;130. Surrounded Regions&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/surrounded-regions/&quot;&gt;130. Surrounded Regions&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;如果用普通dfs搜索所有区域是速度有点慢的。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;130-Surrounded-Regions&quot;&gt;&lt;a href=&quot;#130-Surrounded-Regions&quot; class=&quot;headerlink&quot; title=&quot;130. Surrounded Regions&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/surrounded-regions/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;130. Surrounded Regions&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;如果用普通dfs搜索所有区域是速度有点慢的。&lt;/p&gt;
 &lt;p&gt;但只是反过来思考，如果只所搜索所有不被包围的&lt;code&gt;O&lt;/code&gt;并标记，同时翻转所有剩下的&lt;code&gt;X&lt;/code&gt;，最后把所有的P翻转回来是不是会更快。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;不搞特例的话，一般都是后者快。&lt;/p&gt;
@@ -281,7 +281,7 @@
     <updated>2020-11-30T01:11:47.650Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;126-Word-Ladder-II&quot;&gt;&lt;a href=&quot;#126-Word-Ladder-II&quot; class=&quot;headerlink&quot; title=&quot;126. Word Ladder II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-ladder-ii/&quot;&gt;126. Word Ladder II&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;blockquote&gt;
+    <summary type="html">&lt;h2 id=&quot;126-Word-Ladder-II&quot;&gt;&lt;a href=&quot;#126-Word-Ladder-II&quot; class=&quot;headerlink&quot; title=&quot;126. Word Ladder II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-ladder-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;126. Word Ladder II&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;这次的bugs很少，开心。&lt;/p&gt;
 &lt;p&gt;这题核心就是BFS（DFS）的基础上加上剪枝优化。或者TBFS&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -326,7 +326,7 @@
     <updated>2020-11-28T02:07:00.120Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;934-Shortest-Bridge&quot;&gt;&lt;a href=&quot;#934-Shortest-Bridge&quot; class=&quot;headerlink&quot; title=&quot;934. Shortest Bridge&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shortest-bridge/&quot;&gt;934. Shortest Bridge&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;一次dfs搜索一个岛屿，一次bfs搜最短路径。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;934-Shortest-Bridge&quot;&gt;&lt;a href=&quot;#934-Shortest-Bridge&quot; class=&quot;headerlink&quot; title=&quot;934. Shortest Bridge&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shortest-bridge/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;934. Shortest Bridge&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;一次dfs搜索一个岛屿，一次bfs搜最短路径。&lt;/p&gt;</summary>
     
     
     
@@ -372,7 +372,7 @@
     <updated>2020-11-26T00:43:22.330Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;79-Word-Search&quot;&gt;&lt;a href=&quot;#79-Word-Search&quot; class=&quot;headerlink&quot; title=&quot;79. Word Search&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-search/&quot;&gt;79. Word Search&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯直接k.o.&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;79-Word-Search&quot;&gt;&lt;a href=&quot;#79-Word-Search&quot; class=&quot;headerlink&quot; title=&quot;79. Word Search&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-search/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;79. Word Search&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯直接k.o.&lt;/p&gt;</summary>
     
     
     
@@ -410,7 +410,7 @@
     <updated>2020-11-25T13:43:24.802Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;77-Combinations&quot;&gt;&lt;a href=&quot;#77-Combinations&quot; class=&quot;headerlink&quot; title=&quot;77. Combinations&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/combinations/&quot;&gt;77. Combinations&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯，获取搭配数组，&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;77-Combinations&quot;&gt;&lt;a href=&quot;#77-Combinations&quot; class=&quot;headerlink&quot; title=&quot;77. Combinations&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/combinations/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;77. Combinations&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯，获取搭配数组，&lt;/p&gt;</summary>
     
     
     
@@ -431,7 +431,7 @@
     <updated>2020-11-24T02:42:48.990Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;46-Permutations2&quot;&gt;&lt;a href=&quot;#46-Permutations2&quot; class=&quot;headerlink&quot; title=&quot;46. Permutations2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations/&quot;&gt;46. Permutations&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯法确定全排列。复杂度$o(n*n!)$，（复制 * permute调用次数）。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;46-Permutations2&quot;&gt;&lt;a href=&quot;#46-Permutations2&quot; class=&quot;headerlink&quot; title=&quot;46. Permutations2&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/permutations/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;46. Permutations&lt;/a&gt;2&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;回溯法确定全排列。复杂度$o(n*n!)$，（复制 * permute调用次数）。&lt;/p&gt;</summary>
     
     
     
@@ -452,8 +452,8 @@
     <updated>2020-11-28T02:06:01.910Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;417-Pacific-Atlantic-Water-Flow&quot;&gt;&lt;a href=&quot;#417-Pacific-Atlantic-Water-Flow&quot; class=&quot;headerlink&quot; title=&quot;417. Pacific Atlantic Water Flow&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/&quot;&gt;417. Pacific Atlantic Water Flow&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
-&lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;417-Pacific-Atlantic-Water-Flow&quot;&gt;&lt;a href=&quot;#417-Pacific-Atlantic-Water-Flow&quot; class=&quot;headerlink&quot; title=&quot;417. Pacific Atlantic Water Flow&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;417. Pacific Atlantic Water Flow&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;按着题目的意思顺着流向DFS有以下问题。做了正向的代码发现有个DFS依赖问题。&lt;/p&gt;
+&lt;p&gt;网上大神给出了**&lt;a href=&quot;https://leetcode-cn.com/problems/pacific-atlantic-water-flow/solution/shen-du-sou-suo-dfs-by-jawhiow/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;逆流&lt;/a&gt;**DFS的思路。&lt;/p&gt;</summary>
     
     
     
