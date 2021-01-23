@@ -104,11 +104,11 @@ exclude:
 ignore:
 
 # Extensions
-## Plugins: https://hexo.io/plugins/
+# Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+# theme: icarus
 # theme: Anisina
-# theme: fluid
+theme: fluid
 # theme: hexo-theme-matery
 # theme: next
 
