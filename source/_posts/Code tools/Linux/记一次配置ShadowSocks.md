@@ -4,11 +4,9 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - errornote
+  - bugs
   - 折腾
 categories:
-  - Code tools
-  - Linux
 date: 2020-09-06 19:18:39
 ---
 

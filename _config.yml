@@ -66,9 +66,10 @@ include: null
 exclude: null
 ignore: null
 theme: icarus
+
 auto_category:
   enable: true
-  depth: null
+  depth: 3
   search:
     path: search.xml
     field: post

@@ -4,8 +4,6 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 categories:
-  - Code tools
-  - Windows
 date: 2020-08-07 12:56:47
 tags:
   - 折腾

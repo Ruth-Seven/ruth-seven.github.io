@@ -4,10 +4,7 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - LAC
 categories:
-  - CS
-  - Algorithms
 date: 2020-08-07 12:00:46
 ---
 

@@ -4,8 +4,6 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 categories:
-  - Code tools
-  - Linux
 date: 2020-09-27 09:51:38
 tags:
 ---

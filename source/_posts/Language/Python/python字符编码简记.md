@@ -4,10 +4,8 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - 字符
+  - 总结
 categories:
-  - Language
-  - Python
 date: 2020-10-10 12:05:48
 ---
 

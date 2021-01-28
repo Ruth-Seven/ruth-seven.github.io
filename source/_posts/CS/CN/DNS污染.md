@@ -4,8 +4,6 @@ thumbnail: 'http://static.come2rss.xyz/v2-67f3d2ee0cbe8ce18f94b0abcaabbcec_1440w
 toc: true
 top: 10
 categories:
-  - CS
-  - CN
 date: 2020-08-31 21:29:09
 tags:
 ---

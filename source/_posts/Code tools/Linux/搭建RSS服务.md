@@ -6,8 +6,6 @@ top: 10
 tags:
   - 折腾
 categories:
-  - Code tools
-  - Linux
 date: 2020-09-09 17:01:58
 ---
 

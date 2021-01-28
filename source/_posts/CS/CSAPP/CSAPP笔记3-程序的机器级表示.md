@@ -4,8 +4,6 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 categories:
-  - CS
-  - CSAPP
 date: 2020-08-12 13:18:54
 tags:
 ---

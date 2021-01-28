@@ -6,8 +6,6 @@ top: 10
 tags:
   - bugs
 categories:
-  - Language
-  - Python
 date: 2020-10-22 16:27:49
 ---
 
