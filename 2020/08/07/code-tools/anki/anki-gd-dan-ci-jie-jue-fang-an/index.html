@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Anki作为一款记忆神器，丰富的插件和本身的记忆原理相得益彰。这几天学习了一下其强大的功能，作为背单词的实用工具。本身只用Anki背诵单词，那么主要采取两种方法来快速生成导入单词卡片。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="anki+GD单词解决方案">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/code-tools/anki/anki-gd-dan-ci-jie-jue-fang-an/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Anki作为一款记忆神器，丰富的插件和本身的记忆原理相得益彰。这几天学习了一下其强大的功能，作为背单词的实用工具。本身只用Anki背诵单词，那么主要采取两种方法来快速生成导入单词卡片。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200503125952535.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200503130008304.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200503130021147.png">
+<meta property="article:published_time" content="2020-08-07T04:32:27.000Z">
+<meta property="article:modified_time" content="2020-08-31T14:01:05.390Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.come2rss.xyz/image-20200503125952535.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/code-tools/anki/anki-gd-dan-ci-jie-jue-fang-an/"/>
+
+
+
+
+
+  <title>anki+GD单词解决方案 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/07/code-tools/anki/anki-gd-dan-ci-jie-jue-fang-an/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">anki+GD单词解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-07T12:32:27+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code-tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Code tools</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code-tools/Anki/" itemprop="url" rel="index">
+                    <span itemprop="name">Anki</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Anki作为一款记忆神器，丰富的插件和本身的记忆原理相得益彰。这几天学习了一下其强大的功能，作为背单词的实用工具。本身只用Anki背诵单词，那么主要采取两种方法来快速生成导入单词卡片。</p>
+<a id="more"></a>
+
+<h2 id="GoldDict-FastWordQuery"><a href="#GoldDict-FastWordQuery" class="headerlink" title="GoldDict + FastWordQuery"></a>GoldDict + FastWordQuery</h2><p>GoldDict是一款俄罗斯大佬开发的开源单词软件，支持本地词典、在线词典，网页查词查询，拥有快捷键，收藏，取词查词支持等丰富功能，基本上已经覆盖了查词的任何需求。选择单词并<code>Ctrl+C</code>两次可快速查词，<code>Ctrl+E</code>可快速收藏，收藏后的单词支持导出为txt文件。</p>
+<p>将txt文件的单词导入Anki软件后，后续可由Anki插件FastWordQuery快速查词并制作卡片。</p>
+<blockquote>
+<p>FastWQ插件安装码 <a href="https://ankiweb.net/shared/info/1807206748" target="_blank" rel="noopener">1807206748</a>， <a href="https://zhuanlan.zhihu.com/p/81645669" target="_blank" rel="noopener">使用教程</a></p>
+</blockquote>
+<p>推荐配置如下：</p>
+<p><a href="http://static.come2rss.xyz/image-20200503125952535.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503125952535.png" alt="image-20200503125952535"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503125952535.png" target="_blank" rel="noopener">image-20200503125952535</a></p>
+<p>正面卡片模板如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-tools&#x3D;&quot;135编辑器&quot; data-id&#x3D;&quot;97876&quot;&gt;</span><br><span class="line">    &lt;section style&#x3D;&quot;margin:10px auto;text-align: center;&quot;&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;display:inline-block;color:#f28461;&quot;&gt;</span><br><span class="line">            &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;text-align:right;&quot;&gt;</span><br><span class="line">                &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:70px;display:inline-block;&quot;&gt;</span><br><span class="line">                    &lt;img class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:100%;display:block;&quot; src&#x3D;&quot;https:&#x2F;&#x2F;bdn.135editor.com&#x2F;files&#x2F;images&#x2F;editor_styles&#x2F;de6c8d76ce15363fdd1b8feccfe81302.jpg&quot; data-ratio&#x3D;&quot;0.3157894736842105&quot; data-w&#x3D;&quot;475&quot; data-width&#x3D;&quot;100%&quot;&#x2F;&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;border:1px solid #fcbd6b;padding-right:5px;box-sizing: border-box;margin-top:-5px;&quot;&gt;</span><br><span class="line">                &lt;section class&#x3D;&quot;135brush&quot; data-brushtype&#x3D;&quot;text&quot; style&#x3D;&quot;border-right:1px solid #fcbd6b;letter-spacing:1.5px;font-size:16px;padding:8px 1.2em;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                    &#123;&#123;单词&#125;&#125;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;display:flex;justify-content:flex-end;align-items:center;border:1px solid #fcbd6b;box-sizing: border-box;border-top:none;&quot;&gt;</span><br><span class="line">                &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;;width:6px;height:6px;background-color:#fcbd6b;box-sizing: border-box;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    &lt;&#x2F;section&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-tools&#x3D;&quot;135编辑器&quot; data-id&#x3D;&quot;97722&quot; &gt;</span><br><span class="line">    &lt;section style&#x3D;&quot;margin:10px auto;&quot;&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;text-align: center;&quot;&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;display:inline-block;border-top:1px solid #7f5c32;border-bottom:1px solid #7f5c32;padding:0px 0.1em;text-align: center;&quot;&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;background-color: #fffaf3;color:#7f5c32;padding:2px 4px;&quot;&gt;</span><br><span class="line">                    &lt;section style&#x3D;&quot;display: flex;justify-content:center;align-items: center;&quot;&gt;</span><br><span class="line">                        &lt;section class&#x3D;&quot;135brush&quot; data-brushtype&#x3D;&quot;text&quot; style&#x3D;&quot;letter-spacing:1.5px;font-size:16px;text-align: center;&quot;&gt;</span><br><span class="line">                            &#123;&#123;发音&#125;&#125;</span><br><span class="line">                        &lt;&#x2F;section&gt;</span><br><span class="line">                    &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    &lt;&#x2F;section&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-role&#x3D;&quot;paragraph&quot;&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &lt;br&#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br></pre></td></tr></table></figure>
+
+<p>背面卡片模板如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-tools&#x3D;&quot;135编辑器&quot; data-id&#x3D;&quot;97713&quot;&gt;</span><br><span class="line">    &lt;section style&#x3D;&quot;margin:10px auto;&quot;&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;;width:28px;height:28px;background-color: #fff;color:#7f5c32;text-align:center;line-height:26px;border:1px solid #b68b58;box-sizing: border-box;font-size:18px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;&gt;</span><br><span class="line">            0&lt;span class&#x3D;&quot;autonum&quot; data-original-title&#x3D;&quot;&quot; title&#x3D;&quot;&quot;&gt;1&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;margin-top:-20px;&quot;&gt;</span><br><span class="line">            &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;display:flex;justify-content: flex-start;align-items: center;&quot;&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;background-color:#b68b58;box-sizing: border-box;height:1px;flex:1;margin-right:3px;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px transparent; border-left:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px #b68b58; border-left:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px transparent; border-right:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;border:1px solid #b68b58;color:#7f5c32;padding:6px 6px 0px 6px;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                &lt;section data-autoskip&#x3D;&quot;1&quot; class&#x3D;&quot;135brush&quot; style&#x3D;&quot;padding:10px;color:#7f5c32;text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:14px;&quot;&gt;</span><br><span class="line">                    &lt;p&gt;</span><br><span class="line">					&#123;&#123;音标&#125;&#125;</span><br><span class="line">				&lt;&#x2F;p&gt;</span><br><span class="line">				&lt;p&gt;</span><br><span class="line">                        &#123;&#123;释义&#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">                    &lt;&#x2F;p&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;text-align: right;&quot;&gt;</span><br><span class="line">                    &lt;section style&#x3D;&quot;width:35px;display:inline-block;&quot;&gt;</span><br><span class="line">                        &lt;img class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:100%;display:block;&quot; src&#x3D;&quot;http:&#x2F;&#x2F;image2.135editor.com&#x2F;cache&#x2F;remote&#x2F;aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvN1FSVHZrSzJxQzVIaWFTRjdCcEVqU1c4MnFpYkxBZTRRMHRxY3EwNHRVV3U5Q3dod3JGWWlheWZHaWN0Yzkzc24xZzFOSE9ZS1BJZ1E3R3NvM0M2V2hNejVBLzA&#x2F;d3hfZm10PXBuZw&#x3D;&#x3D;&quot; data-ratio&#x3D;&quot;0.5555555555555556&quot; data-w&#x3D;&quot;54&quot; data-width&#x3D;&quot;100%&quot;&#x2F;&gt;</span><br><span class="line">                    &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    &lt;&#x2F;section&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-tools&#x3D;&quot;135编辑器&quot; data-id&#x3D;&quot;97713&quot;&gt;</span><br><span class="line">    &lt;section style&#x3D;&quot;margin:10px auto;&quot;&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;;width:28px;height:28px;background-color: #fff;color:#7f5c32;text-align:center;line-height:26px;border:1px solid #b68b58;box-sizing: border-box;font-size:18px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;&gt;</span><br><span class="line">            0&lt;span class&#x3D;&quot;autonum&quot; data-original-title&#x3D;&quot;&quot; title&#x3D;&quot;&quot; data-num&#x3D;&quot;2&quot;&gt;2&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;margin-top:-20px;&quot;&gt;</span><br><span class="line">            &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;display:flex;justify-content: flex-start;align-items: center;&quot;&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;background-color:#b68b58;box-sizing: border-box;height:1px;flex:1;margin-right:3px;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px transparent; border-left:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px #b68b58; border-left:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:0px; height:0px; border-bottom:solid 6px transparent; border-right:solid 6px #b68b58;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;border:1px solid #b68b58;color:#7f5c32;padding:6px 6px 0px 6px;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                &lt;section data-autoskip&#x3D;&quot;1&quot; class&#x3D;&quot;135brush&quot; style&#x3D;&quot;padding:10px;color:#7f5c32;text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:14px;&quot;&gt;</span><br><span class="line">                    &lt;p&gt;</span><br><span class="line">                        &#123;&#123;例子&#125;&#125;</span><br><span class="line">                    &lt;&#x2F;p&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;text-align: right;&quot;&gt;</span><br><span class="line">                    &lt;section style&#x3D;&quot;width:35px;display:inline-block;&quot;&gt;</span><br><span class="line">                        &lt;img class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:100%;display:block;&quot; src&#x3D;&quot;http:&#x2F;&#x2F;image2.135editor.com&#x2F;cache&#x2F;remote&#x2F;aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvN1FSVHZrSzJxQzVIaWFTRjdCcEVqU1c4MnFpYkxBZTRRMHRxY3EwNHRVV3U5Q3dod3JGWWlheWZHaWN0Yzkzc24xZzFOSE9ZS1BJZ1E3R3NvM0M2V2hNejVBLzA&#x2F;d3hfZm10PXBuZw&#x3D;&#x3D;&quot; data-ratio&#x3D;&quot;0.5555555555555556&quot; data-w&#x3D;&quot;54&quot; data-width&#x3D;&quot;100%&quot;&#x2F;&gt;</span><br><span class="line">                    &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    &lt;&#x2F;section&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;section class&#x3D;&quot;_135editor&quot; data-tools&#x3D;&quot;135编辑器&quot; data-id&#x3D;&quot;97713&quot; &gt;</span><br><span class="line">    &lt;section style&#x3D;&quot;margin:10px auto;&quot;&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;;width:28px;height:28px;background-color: #fff;color:#7f5c32;text-align:center;line-height:26px;border:1px solid #b68b58;box-sizing: border-box;font-size:18px;transform: rotate(0deg);-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);&quot;&gt;</span><br><span class="line">            03</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;section style&#x3D;&quot;margin-top:-20px;&quot;&gt;</span><br><span class="line">            &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;display:flex;justify-content: flex-start;align-items: center;&quot;&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;background-color: #b68b58; box-sizing: border-box; height: 1px; flex: 1 1 0%; margin-right: 3px; overflow: hidden;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width: 0px; height: 6px; border-bottom: 6px solid transparent; border-left: 6px solid #b68b58; overflow: hidden; box-sizing: border-box;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width: 0px; height: 6px; border-bottom: 6px solid #b68b58; border-left: 6px solid #b68b58; overflow: hidden; box-sizing: border-box;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;border:1px solid #b68b58;display:inline-block;box-sizing: border-box;margin-left:3px;&quot;&gt;</span><br><span class="line">                    &lt;section class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width: 0px; height: 6px; border-bottom: 6px solid transparent; border-right: 6px solid #b68b58; overflow: hidden; box-sizing: border-box;&quot;&gt;&lt;&#x2F;section&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;section style&#x3D;&quot;border:1px solid #b68b58;color:#7f5c32;padding:6px 6px 0px 6px;box-sizing: border-box;&quot;&gt;</span><br><span class="line">                &lt;section data-autoskip&#x3D;&quot;1&quot; class&#x3D;&quot;135brush&quot; style&#x3D;&quot;padding: 10px; color: #7f5c32; text-align: justify; line-height: 1.75em; letter-spacing: 1.5px; font-size: 14px; box-sizing: border-box;&quot;&gt;</span><br><span class="line">                    &lt;p&gt;</span><br><span class="line">                        &#123;&#123;词形变化&#125;&#125;</span><br><span class="line">                    &lt;&#x2F;p&gt;</span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">                &lt;section style&#x3D;&quot;text-align: right;&quot;&gt;</span><br><span class="line">                    &lt;section style&#x3D;&quot;width:35px;display:inline-block;&quot;&gt;</span><br><span class="line">                        &lt;img class&#x3D;&quot;assistant&quot; style&#x3D;&quot;width:100%;display:block;&quot; src&#x3D;&quot;http:&#x2F;&#x2F;image2.135editor.com&#x2F;cache&#x2F;remote&#x2F;aHR0cHM6Ly9tbWJpei5xbG9nby5jbi9tbWJpel9wbmcvN1FSVHZrSzJxQzVIaWFTRjdCcEVqU1c4MnFpYkxBZTRRMHRxY3EwNHRVV3U5Q3dod3JGWWlheWZHaWN0Yzkzc24xZzFOSE9ZS1BJZ1E3R3NvM0M2V2hNejVBLzA&#x2F;d3hfZm10PXBuZw&#x3D;&#x3D;&quot; data-ratio&#x3D;&quot;0.5555555555555556&quot; data-w&#x3D;&quot;54&quot; data-width&#x3D;&quot;100%&quot;&#x2F;&gt;</span><br><span class="line">                    &lt;&#x2F;section&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &lt;&#x2F;section&gt;</span><br><span class="line">            &lt;&#x2F;section&gt;</span><br><span class="line">        &lt;&#x2F;section&gt;</span><br><span class="line">    &lt;&#x2F;section&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">var initVoice &#x3D; function () &#123;</span><br><span class="line">    var player &#x3D; document.getElementById(&#39;dictVoice&#39;);</span><br><span class="line">    document.addEventListener(&#39;click&#39;, function (e) &#123;</span><br><span class="line">        var target &#x3D; e.target;</span><br><span class="line">        if (target.hasAttribute(&#39;role&#39;) &amp;&amp; target.getAttribute(&#39;role&#39;).indexOf(&#39;dict_audio_js&#39;) &gt;&#x3D; 0) &#123;</span><br><span class="line">            var url &#x3D; target.getAttribute(&#39;data-rel&#39;);</span><br><span class="line">            player.setAttribute(&#39;src&#39;, url);</span><br><span class="line">            player.volume &#x3D; 1;</span><br><span class="line">            player.play();</span><br><span class="line">            e.preventDefault();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, false);</span><br><span class="line">&#125;;</span><br><span class="line">initVoice();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>预览</p>
+<p><a href="http://static.come2rss.xyz/image-20200503130008304.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503130008304.png" alt="image-20200503130008304"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503130008304.png" target="_blank" rel="noopener">image-20200503130008304</a></p>
+<h2 id="Anki-connect-在线词典助手"><a href="#Anki-connect-在线词典助手" class="headerlink" title="Anki-connect + 在线词典助手"></a>Anki-connect + 在线词典助手</h2><p>面向网页浏览的英语<strong>语境</strong>单词学习，支持在线选词同时配合Anki-connect一键生成卡片到Anki。</p>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/22472893" target="_blank" rel="noopener">开发者教程</a></p>
+<p>anki-connect的插件获取码 <a href="https://ankiweb.net/shared/info/2055492159" target="_blank" rel="noopener">2055492159</a></p>
+<p>anki-connect默认不支持同词多次插入，<a href="https://www.laohuang.net/20180214/ankiconnect-dupe-card-issue/" target="_blank" rel="noopener">修改教程</a>在此。</p>
+<p><a href="https://chrome.google.com/webstore/detail/online-dictionary-helper/lppjdajkacanlmpbbcdkccjkdbpllajb" target="_blank" rel="noopener">在线词典助手</a></p>
+</blockquote>
+<p>在线词典助手配置如下</p>
+<p><a href="http://static.come2rss.xyz/image-20200503130021147.png" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/image-20200503130021147.png" alt="image-20200503130021147"></a></p>
+<p><a href="http://static.come2rss.xyz/image-20200503130021147.png" target="_blank" rel="noopener">image-20200503130021147</a></p>
+<h3 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h3><p><a href="https://zhuanlan.zhihu.com/p/21328602" target="_blank" rel="noopener">anki各种资源</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/24287378?refer=-anki" target="_blank" rel="noopener">有道风格模板</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/07/cs/ds/shu-ju-jie-gou-zhi-shi-dian-bi-ji/" rel="next" title="数据结构知识点笔记 ">
+                <i class="fa fa-chevron-left"></i> 数据结构知识点笔记 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/07/code-tools/windows/wsl-sha-si-jin-cheng/" rel="prev" title="WSL杀死进程">
+                WSL杀死进程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GoldDict-FastWordQuery"><span class="nav-number">1.</span> <span class="nav-text">GoldDict + FastWordQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anki-connect-在线词典助手"><span class="nav-number">2.</span> <span class="nav-text">Anki-connect + 在线词典助手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#资源"><span class="nav-number">2.1.</span> <span class="nav-text">资源</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

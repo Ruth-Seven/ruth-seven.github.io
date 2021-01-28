@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="参考书籍：《数据库系统教程》3Ed. 施伯乐 基本概念概览 数据库（DateBase，DB）：长期存储在计算机内的数据集合  数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。  数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。  实体联系（Entity Relationship，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库管理复习梗概">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考书籍：《数据库系统教程》3Ed. 施伯乐 基本概念概览 数据库（DateBase，DB）：长期存储在计算机内的数据集合  数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。  数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。  实体联系（Entity Relationship，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-07T04:22:24.000Z">
+<meta property="article:modified_time" content="2020-08-07T06:54:49.840Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/"/>
+
+
+
+
+
+  <title>数据库管理复习梗概 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库管理复习梗概</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-07T12:22:24+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/DB/" itemprop="url" rel="index">
+                    <span itemprop="name">DB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参考书籍：《数据库系统教程》3Ed. 施伯乐</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><ul>
+<li><p>数据库（DateBase，DB）：长期存储在计算机内的数据集合</p>
+</li>
+<li><p>数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。</p>
+</li>
+<li><p>数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。</p>
+</li>
+<li><p>实体联系（Entity Relationship，ER）模型：对实体和实体之间关系的抽象。</p>
+</li>
+<li><p>概念模型：对用户需要的建模，往往建立出了ER模型。</p>
+</li>
+<li><p>逻辑模型：表达了数据库整体逻辑的模型。最重要的是关系模型，对象模型，还包括层次模型、网状模型。</p>
+</li>
+<li><p>逻辑独立性：应用程序与数据库的逻辑结构保持独立，即数据库的逻辑结构由DBMS即使变化了，应用程序也无需变化。</p>
+</li>
+<li><p>物理独立性：应用程序与数据库的物理结构保持独立，即数据库在磁盘的保存格式有数据库管理系统设置，应用程序无需关注数据库的物理结构。</p>
+<blockquote>
+<p>两种独立性都是将数据在磁盘中的定义和存储格式独立分离出去，因而简化应用程序编程，减少了程序维护和修改。</p>
+</blockquote>
+<h3 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h3></li>
+<li><p>关系模型：简单理解为一个二维表格</p>
+</li>
+<li><p>子模式：用户需要用到数据的描述（？）</p>
+<ul>
+<li>记录\元祖：表格中的一行数据</li>
+<li>关系\实例：元祖的集合</li>
+<li>字段\属性：表的一列的<strong>列本身</strong></li>
+<li>元数：属性的个数</li>
+<li>基数：元祖个数</li>
+</ul>
+</li>
+<li><p>关键码\key\键：字段或者字段的集合</p>
+<ul>
+<li>超键（super key）：可以唯一标识元祖的键</li>
+<li>候选键（Candidate key）：不含多余属性的超键</li>
+<li>主键（Primary key）：用户选择的候选键</li>
+<li>外键（Foreign key）：其他关系模型的主键</li>
+</ul>
+</li>
+<li><p>完全性规则（*表示省略相同成分）：</p>
+<ul>
+<li>实体：主键不可缺</li>
+<li>参照：外键指向的元祖不可空</li>
+<li>用户：用户可自己定义完整性</li>
+</ul>
+</li>
+<li><p>关系代数</p>
+<ul>
+<li>并：两个关系模型的去重合并</li>
+<li>差：关系模型AB相减</li>
+<li>笛卡尔积：两个关系模型的全排列</li>
+<li>投影：选择一个关系模型若干列</li>
+<li>选择：选择一个关系模型的若干行</li>
+<li>————</li>
+<li>交：求两个关系模型的公共元祖</li>
+<li>连接：筛选出符合条件的两个模型的笛卡尔积</li>
+<li>自然连接：条件是公共字段相同的连接，并去除公共字段</li>
+<li>除法：A/B即尽可能 包含了所有B字段的且除了B字段A字段值相同的元祖集合。（简要的记忆为寻找公因数）</li>
+<li>————</li>
+<li>改名</li>
+<li>广义投影：允许投影中使用算术运算</li>
+<li>外连接：就是把自然连接过程中丢失的元祖加以填充空值（NULL）并加入自然连接的结果</li>
+<li>左（右）外连接：类似于外连接，就是把单单是左（右）边的模型丢弃掉的元祖加入</li>
+<li>半连接：自然连接后投影到一个关系模型（不残缺的那边）上</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><ul>
+<li>基本表：关系模式<ul>
+<li>表的三种类型：<ul>
+<li>基本表：实际存储在数据库中的表</li>
+<li>视图：若干表和其他视图组成的表的定义，在用户面前都是一样的</li>
+<li>导出表：查询导出的表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储文件：存储模式（文件存储的方式）</li>
+<li>视图：子模式</li>
+<li>行：元祖</li>
+<li>列：属性</li>
+<li>SQL模式（schema）：<strong>表</strong>和<strong>约束</strong>的<strong>集合</strong>（可能有多个表）</li>
+</ul>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p><strong>模式创建</strong>：<code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
+<p><strong>模式撤销</strong>：<code>DROP SCHEMA &lt;模式名&gt; [CASCADE | RESTRICT]</code> ; <code>CASCADE</code>即级联式，撤销下属的模式中所有的基本表、视图、索引；<code>RESTRICT</code>即约束式，仅当模式不存在任何下属元素才允许撤销；（<code>SCHEMA</code>可以替换为<code>DATABASE</code>）</p>
+<p><strong>添加自定义类型</strong>：<code>CREATE DOMAIN &lt;YOUR_DOMAIN&gt; CHAR(8)</code>这里把<code>CHAR(8)</code>定义成了自定义的domain名，可直接使用</p>
+<p><strong>创建基本表</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;基本表名&gt;</span><br><span class="line">	(</span><br><span class="line">      --列表类型</span><br><span class="line">      T#  CHAR(4) NOT NULL, --默认允许空值（与主键定义冗余）</span><br><span class="line">	 TITLE CHAR(10), </span><br><span class="line">     -- 完整性约束</span><br><span class="line">	 PRIMARY KEY(T#)    -- 定义主键</span><br><span class="line">     FOREIGN KEY(C#) REFERENCES S(C#) --定义外键为C#，且对应S表的主键C#</span><br><span class="line">    </span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+
+<p><strong>插入数据：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSRET</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改基本表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--增加表的列</span><br><span class="line">ALTER TABLE &lt;基本表名&gt; ADD  &lt;列名&gt; &lt;类型&gt;</span><br><span class="line">--删除表的列</span><br><span class="line">ALTER TABLE &lt;基本表名&gt; DROP &lt;列名&gt; [CASCADE | RESTRICT ]</span><br><span class="line">	-- CASCADE表明删除列的同时删除所有使用该列约束和视图</span><br><span class="line">--修改列形状</span><br><span class="line">ALTER TABLE &lt;基本表名&gt; MODIFY   &lt;列名&gt; &lt;类型&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>撤销基本表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE &lt;基本表名&gt; [ CASCADE| RESTRICT] --同理</span><br></pre></td></tr></table></figure>
+
+<p>索引：？？</p>
+<p><strong>数据查询：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--- 基本sql查询语句</span><br><span class="line">SELECT 属性1,属性2.....属性n </span><br><span class="line">FROM 表1,表2......表N</span><br><span class="line">WHERE 关系表达式</span><br><span class="line"></span><br><span class="line">---sql语句之间可以使用UNION（并） \ INTERSECT（交） \ EXCEPT（差）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">----嵌套查询，括号中的子查询优先进行</span><br><span class="line">SELECT 属性1,属性2.....属性n </span><br><span class="line">FROM 表1,表2......表N</span><br><span class="line">WHERE 关系表达式 IN (</span><br><span class="line">	SQL查询语句</span><br><span class="line">	)</span><br><span class="line">	---嵌套查询的速度往往比笛卡尔积的运算速度快</span><br></pre></td></tr></table></figure>
+
+<p><strong>待补充：更复杂的还有相关子查询（。。）、where使用的运算符,以及（P85~P101）</strong></p>
+<hr>
+<h2 id="关系数据库的规范设计"><a href="#关系数据库的规范设计" class="headerlink" title="关系数据库的规范设计"></a>关系数据库的规范设计</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>函数依赖（FD，Functional Dependency）：</strong>当一个基本表中的属性集Y是属性集X的”函数值”(即X的值可以确定出唯一的Y)，就说明了X-&gt;Y,或者说Y依赖于X，这个基本表存在函数依赖。</p>
+<p>（函数蕴涵P120）</p>
+<p><strong>逻辑蕴涵：</strong>若函数依赖集合F中存在的FD X→YX→Y和Y→ZY→Z，存在X→ZX→Z成立，则可称为F逻辑蕴涵X→ZX→Z 。</p>
+<p><strong>闭包：</strong> 就是函数依赖集上FF所有函数依赖和逻辑蕴涵推出来的依赖关系的完整集合，即为F+F+ 闭包。</p>
+<p><strong>FD推理规则：</strong> A→BA→B</p>
+<ul>
+<li>自反性：AA自身能确定出自身的子集，这样推导出来的FD也称<strong>平凡的FD</strong></li>
+<li>增广性：依赖两边可以同时增加变量</li>
+<li>传递性：可传递（逻辑蕴涵）</li>
+<li>————</li>
+<li>合并性：同时能推导出两个结果BCBC，就能推导出两个结果的和B,CB,C</li>
+<li>分解性：与合并性相反，是将结果BCBC拆分成两个B,CB,C</li>
+<li>伪传递性：传递过程中需要添加一个因素，X→Y,YZ→WX→Y,YZ→W 等价于XZ→WXZ→W</li>
+<li>复合型：两个FD可以两边组成成一个FD</li>
+<li>————</li>
+<li>可以使用FD的定义来定义超键和候选键</li>
+</ul>
+<p>当函数依赖集的闭包相等时，函数依赖集<strong>等价</strong>。可定义最难小函数依赖集：</p>
+<ul>
+<li>FD右边都是单属性；</li>
+<li>无冗余FD</li>
+<li>FD的左边的属性集不是冗余的（子集无法代替集</li>
+</ul>
+<p><strong>求出R的最小依赖集算法</strong></p>
+<ol>
+<li>分解FD的右边属性集，并去重</li>
+<li>消除左边冗余的FD</li>
+<li>消除R中冗余FD</li>
+</ol>
+<p>模式分解特性</p>
+<p><strong>无损分解：</strong>把数据库模式分解为多个模式，并将分解的模式全部自然连接发现多出了元祖（<strong>寄生元祖</strong>）（也就是有损分解，实际上是信息的丢失，信息论！不确定性越大，信息量越小）。反之如果元祖不多不少就是无损分解。</p>
+<blockquote>
+<p>上述讨论中假设模式存在一个“范关系”rr，可以分解为多个子关系rkrk。</p>
+<p>当然也存在不存在范关系的rr，在连接过程中某个riri子关系的元祖会被丢失掉，这个被称为破环范关系的<strong>悬挂元祖</strong></p>
+</blockquote>
+<p><strong>依赖保持：</strong>就是分解的模式中的依赖的并与原模式的依赖等价。</p>
+<p>无损分解的测试方法：略（p128）</p>
+<p>保持函数依赖的分解：略（p129）</p>
+<h3 id="关系模式的范式"><a href="#关系模式的范式" class="headerlink" title="关系模式的范式"></a>关系模式的范式</h3><p><strong>第一范式：</strong>关系模式的R的关系r的属性值都是不可分的单一的（反例“AB”）</p>
+<p><strong>第二范式：</strong>每个非主属性完全依赖于候选键（挺严格的）。不完全依赖也就是局部依赖意味着A→BA→B 这个条件存在BB依赖于AA的一个子集，（注意这个FD推理规则A1不一样）</p>
+<blockquote>
+<p>主属性：关系模式中R的候选键中的属性</p>
+<p>化解成第二范式的算法：将一个局部依赖X→YX→Y的属性XYXY提出来形成一个关系，同时在原有属性集UU形成一个新的关系U−YU−Y；重复上述动作直到没有局部依赖。</p>
+</blockquote>
+<p><strong>第三范式：</strong>每个非主属性都不传递依赖与候选键，即为第三范式</p>
+<blockquote>
+<p>传递依赖就是：X→Y,Y→ZX→Y,Y→Z 且X不依赖与Y，Z不是Y的子集</p>
+</blockquote>
+<p><strong>BC范式：</strong> 每个主属性不都传递依赖于候选键，则为BC范式。（相比于第三范式排除了主属性对候选键的传递依赖）</p>
+<p>分解方法：略（p134）</p>
+<hr>
+<h2 id="数据库设计和ER模式"><a href="#数据库设计和ER模式" class="headerlink" title="数据库设计和ER模式"></a>数据库设计和ER模式</h2><h3 id="数据库设计过程："><a href="#数据库设计过程：" class="headerlink" title="数据库设计过程："></a>数据库设计过程：</h3><ol>
+<li>规划：调查、可行性分析等</li>
+<li>需求分析：分析用户活动，系统范围，分数用户数据，数据流图；数据字典(描述数据)</li>
+<li>概念设计：数据抽象设计局部概念模型和全局概念模型（比如ER）</li>
+<li>逻辑设计：把上一步概念模型转化符合具体DBMS的逻辑模型，比如关系模型；设计外模型（api接口）；评价模型；修正模型</li>
+<li>物理设计：存储记录结构设计；确定存储位置；完全性和安全性考虑；</li>
+</ol>
+<h3 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h3><p><strong>组成结构：</strong></p>
+<ul>
+<li>实体：数据对象</li>
+<li>联系：实体之间的关系<ul>
+<li>元数\度数（degree）：联系所涉及的实体个数</li>
+<li>数值约束：<ul>
+<li>（x,y）表示该实体的联系的<strong>另一方</strong>的数量限制</li>
+<li>N或者：表示对实体在联系中的<strong>映射数量关系</strong></li>
+</ul>
+</li>
+<li>参与约束：<ul>
+<li>双直线：完全参数该联系</li>
+<li>单直线：部分参与该联系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性：实体的特征<ul>
+<li>简单属性和复合属性：在于可不可分</li>
+<li>单值和多值属性：在于可不可同时取多个值<ul>
+<li>替换：<ul>
+<li>多值属性替换为一个新的实体类型</li>
+<li>用多个单值属性代替</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>ER转关系模型的算法：</strong></p>
+<ol>
+<li>实体直接转化为一个关系</li>
+<li>关系的转化方法<ol>
+<li>一元关系直接转化属性</li>
+<li>1：1关系转化为一个实体的外键和属性</li>
+<li>1：N关系转化”N处”实体的外键和属性</li>
+<li>N:M关系转化为两个实体的主键和一个属性</li>
+<li>————</li>
+<li>三元关系可类比二元关系的转化方法（太无聊了不看了）</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="数据库存储结构"><a href="#数据库存储结构" class="headerlink" title="数据库存储结构"></a>数据库存储结构</h2><h4 id="文件组织"><a href="#文件组织" class="headerlink" title="文件组织"></a>文件组织</h4><p>定长存储：连接方法和顺序方法</p>
+<p>不定长存储解决方案：</p>
+<ul>
+<li><p>字符串表示形式：分槽式页结构（定长的首部顺序排列并记录剩余数据的其实起始地址，不定长的二进制数据从低端生长）</p>
+</li>
+<li><p>变长记录的定长表现形式：预留空间、固定块的溢出块相补充、定长块的连接形式（p187）</p>
+<p>(不想看了555)</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/07/cs/csapp/csapp-bi-ji-2/" rel="next" title="CSAPP笔记2">
+                <i class="fa fa-chevron-left"></i> CSAPP笔记2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/07/cs/ds/er-cha-shu-ji-he/" rel="prev" title="二叉树集合">
+                二叉树集合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系模型"><span class="nav-number">1.2.</span> <span class="nav-text">关系模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.</span> <span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#术语"><span class="nav-number">2.1.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.2.</span> <span class="nav-text">操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系数据库的规范设计"><span class="nav-number">3.</span> <span class="nav-text">关系数据库的规范设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系模式的范式"><span class="nav-number">3.2.</span> <span class="nav-text">关系模式的范式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库设计和ER模式"><span class="nav-number">4.</span> <span class="nav-text">数据库设计和ER模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库设计过程："><span class="nav-number">4.1.</span> <span class="nav-text">数据库设计过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ER图"><span class="nav-number">4.2.</span> <span class="nav-text">ER图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库存储结构"><span class="nav-number">5.</span> <span class="nav-text">数据库存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件组织"><span class="nav-number">5.0.1.</span> <span class="nav-text">文件组织</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

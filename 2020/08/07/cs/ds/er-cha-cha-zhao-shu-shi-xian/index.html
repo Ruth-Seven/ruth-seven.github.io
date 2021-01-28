@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BinaryTree," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="二叉查找树的一个实现 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉查找树实现">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/cs/ds/er-cha-cha-zhao-shu-shi-xian/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二叉查找树的一个实现 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-07T04:25:42.000Z">
+<meta property="article:modified_time" content="2020-08-07T06:54:49.840Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BinaryTree">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/cs/ds/er-cha-cha-zhao-shu-shi-xian/"/>
+
+
+
+
+
+  <title>二叉查找树实现 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/07/cs/ds/er-cha-cha-zhao-shu-shi-xian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">二叉查找树实现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-07T12:25:42+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/DS/" itemprop="url" rel="index">
+                    <span itemprop="name">DS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>二叉查找树的一个实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br></pre></td><td class="code"><pre><span class="line">尤其注意删除那一部分的逻辑！</span><br><span class="line"></span><br><span class="line"><span class="comment">/** This is Code of JJ</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Problem      :</span></span><br><span class="line"><span class="comment">Source       :</span></span><br><span class="line"><span class="comment">Solution     :</span></span><br><span class="line"><span class="comment">AnyDetial    :</span></span><br><span class="line"><span class="comment">注意点：</span></span><br><span class="line"><span class="comment">1.递归边界是root为NULL</span></span><br><span class="line"><span class="comment">2.插入：</span></span><br><span class="line"><span class="comment">    查找失败--NULL--即为插入点</span></span><br><span class="line"><span class="comment">    利用插入创建时，第一个数据就是查找失败的点！</span></span><br><span class="line"><span class="comment">3.层序遍历：队列里存的是地址；</span></span><br><span class="line"><span class="comment">DateAndTime  :</span></span><br><span class="line"><span class="comment">CostofTime   :</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data,layer;</span><br><span class="line">    Node *lchild,*rchild;</span><br><span class="line">    Node()</span><br><span class="line">    &#123;</span><br><span class="line">        lchild = <span class="literal">NULL</span>;</span><br><span class="line">        rchild = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Node(<span class="keyword">int</span> a)</span><br><span class="line">    &#123;</span><br><span class="line">        data = a;</span><br><span class="line">        lchild = <span class="literal">NULL</span>;</span><br><span class="line">        rchild = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; <span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="function">Node* <span class="title">newnode</span><span class="params">(<span class="keyword">int</span> a)</span><span class="comment">//! create a node with new!</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Node(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//! find those nodes whose data is x and replace those data with x;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">search_node</span><span class="params">(Node* root, <span class="keyword">int</span> key, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;data==key) root-&gt;data = x;<span class="comment">//! a -&gt; data !</span></span><br><span class="line">    search_node(root-&gt;rchild,key,x);</span><br><span class="line">    search_node(root-&gt;lchild,key,x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Node *&amp;root, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>)<span class="comment">//! The</span></span><br><span class="line">    &#123;</span><br><span class="line">        root = newnode(x);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;data&gt;x)</span><br><span class="line">    &#123;</span><br><span class="line">        insert(root-&gt;lchild,x);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        insert(root-&gt;rchild,x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Node* <span class="title">create</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *root = <span class="literal">NULL</span>;<span class="comment">//!the index begin with 0;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        insert(root,a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(Node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;!</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>,root-&gt;data);</span><br><span class="line">    preorder(root-&gt;lchild);</span><br><span class="line">    preorder(root-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//!可用于递归赋值父节点信息和遍历输出根到所有节点的路径</span></span><br><span class="line"></span><br><span class="line">Node *path[<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">int</span> pos = <span class="number">-1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder_withrint</span><span class="params">(Node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    path[++pos] = root;</span><br><span class="line"><span class="comment">//    cout&lt;&lt;pos&lt;&lt;endl;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;pos;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,path[i]-&gt;data);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,path[pos]-&gt;data);</span><br><span class="line"><span class="comment">//    printf("%d ",root-&gt;data);</span></span><br><span class="line">    preorder_withrint(root-&gt;lchild);</span><br><span class="line">    preorder_withrint(root-&gt;rchild);</span><br><span class="line">    pos--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(Node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    inorder(root-&gt;lchild);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>,root-&gt;data);</span><br><span class="line">    inorder(root-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//!错误代码 ： 此代码无法识别已经某一节点右节点是否已经压入过栈，而陷入无限循环之中</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inoder_withrecursion</span><span class="params">(Node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"Worry Code!\n"</span>;</span><br><span class="line">    Node *q;</span><br><span class="line">    <span class="built_in">stack</span>&lt;Node*&gt; s;</span><br><span class="line">    s.push(root);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        getchar()</span><br><span class="line">        ;q = s.top();</span><br><span class="line">        <span class="keyword">if</span>(q-&gt;lchild)<span class="comment">//!一个错误点</span></span><br><span class="line">            s.push(q-&gt;lchild);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,q-&gt;data);</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="keyword">if</span>(q-&gt;rchild)</span><br><span class="line">                s.push(q-&gt;rchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(Node *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    inorder(root-&gt;lchild);</span><br><span class="line">    inorder(root-&gt;rchild);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>,root-&gt;data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(Node* root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Node*&gt;q;</span><br><span class="line">    q.push(root);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        Node *t = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,t-&gt;data);</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;lchild!=<span class="literal">NULL</span>) q.push(t-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;rchild!=<span class="literal">NULL</span>) q.push(t-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">layerorder_withlayer</span><span class="params">(Node* root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">int</span> Nol = <span class="number">0</span>,Non = <span class="number">0</span>,maxn = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Node*&gt;q;</span><br><span class="line">    root -&gt; layer = <span class="number">1</span>;</span><br><span class="line">    q.push(root);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        Node *t = q.front();</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;layer!=Nol)&#123;</span><br><span class="line">            Nol = t-&gt;layer;</span><br><span class="line">            Non = <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"?"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            Non ++;</span><br><span class="line">        maxn = <span class="built_in">max</span>(Non,maxn);</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,t-&gt;data,t-&gt;layer);</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;lchild!=<span class="literal">NULL</span>) &#123;</span><br><span class="line">            t-&gt;lchild-&gt;layer = Nol + <span class="number">1</span>;</span><br><span class="line">            q.push(t-&gt;lchild);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            t-&gt;rchild-&gt;layer = Nol + <span class="number">1</span>;</span><br><span class="line">            q.push(t-&gt;rchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxn;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//!前序遍历和中序遍历重建树</span></span><br><span class="line"><span class="function">Node *<span class="title">create_in_pre</span><span class="params">( <span class="keyword">int</span> inorder[], <span class="keyword">int</span> inl, <span class="keyword">int</span> inr, <span class="keyword">int</span> preorder[], <span class="keyword">int</span> prel, <span class="keyword">int</span> prer)</span><span class="comment">//! in[l,r], pre[l,r],</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(inl&gt;inr || prel&gt;prer) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> pos_in = inl;</span><br><span class="line">    <span class="keyword">for</span>(;pos_in&lt;=inr;pos_in++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(inorder[pos_in]==preorder[prel])<span class="comment">// find the index of root</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> numleft = pos_in - inl;<span class="comment">// the number of left tree;</span></span><br><span class="line">    Node *root = newnode(preorder[prel]);</span><br><span class="line">    root-&gt;lchild = create_in_pre(inorder, inl, pos_in<span class="number">-1</span>, preorder, prel+<span class="number">1</span>, prel+numleft);</span><br><span class="line">    root-&gt;rchild = create_in_pre(inorder, pos_in+<span class="number">1</span>, inr, preorder, prel+numleft+<span class="number">1</span>, prer);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//!后序遍历和中序遍历重建树</span></span><br><span class="line"><span class="function">Node *<span class="title">create_in_post</span><span class="params">(<span class="keyword">int</span> in[],<span class="keyword">int</span> inl, <span class="keyword">int</span> inr, <span class="keyword">int</span> post[], <span class="keyword">int</span> postl, <span class="keyword">int</span> postr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(inl&gt;inr) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    Node *root = newnode(post[postr]);</span><br><span class="line">    <span class="keyword">int</span> pos = inl;</span><br><span class="line">    <span class="keyword">for</span>(;pos&lt;inr;pos++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(in[pos]==root-&gt;data) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = pos - inl;</span><br><span class="line">    root-&gt;lchild = create_in_post(in,inl,pos<span class="number">-1</span>,post,postl,postl+k<span class="number">-1</span>);</span><br><span class="line">    root-&gt;rchild = create_in_post(in,pos+<span class="number">1</span>,inr,post,postl+k,postr<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">1000</span>] = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">-2</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">-10</span>,<span class="number">15</span>,<span class="number">0</span>&#125; ,n = <span class="number">8</span>;</span><br><span class="line">    Node *root = create(a,n);</span><br><span class="line"><span class="comment">//    preorder(root);</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    inorder(root);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//    inoder_withrecursion(root);</span></span><br><span class="line">    preorder_withrint(root);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//    postorder(root);</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//    layerorder(root);</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;endl&lt;&lt;"max of Layer\n"&lt;&lt; endl;</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;layerorder_withlayer(root);</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;endl;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    int pre[10] = &#123;1 ,-2 ,-10, 0, 3 ,5 ,7 ,15&#125;;</span></span><br><span class="line"><span class="comment">//    int in[10] = &#123;-10, -2, 0, 1, 3, 5, 7, 15&#125;;</span></span><br><span class="line"><span class="comment">//    int post[10] = &#123;-10 ,-2, 0, 3, 5, 7, 15 ,1&#125;;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//    Node *newroot1 = create_in_pre(in,0,7,pre,0,7);</span></span><br><span class="line"><span class="comment">//    Node *newroot2 = create_in_post(in,0,7,post,0,7);</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;"!recreate!\n";</span></span><br><span class="line"><span class="comment">//    inorder(newroot1);</span></span><br><span class="line"><span class="comment">//    cout&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//    inorder(newroot2);</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BinaryTree/" rel="tag"># BinaryTree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/07/cs/ds/dui-suan-fa-he-dui-pai-xu/" rel="next" title="堆算法和堆排序">
+                <i class="fa fa-chevron-left"></i> 堆算法和堆排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/07/cs/ds/avl/" rel="prev" title="AVL">
+                AVL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

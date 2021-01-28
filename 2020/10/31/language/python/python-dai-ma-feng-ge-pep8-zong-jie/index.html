@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Python 代码风格 PEP8 总结首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。 花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性readability，让整个代码风格的一致，非常重要。 总体来说：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 代码风格 PEP8 总结">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python 代码风格 PEP8 总结首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。 花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性readability，让整个代码风格的一致，非常重要。 总体来说：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-31T14:44:09.000Z">
+<meta property="article:modified_time" content="2020-10-31T14:45:43.960Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"/>
+
+
+
+
+
+  <title>Python 代码风格 PEP8 总结 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 代码风格 PEP8 总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-31T22:44:09+08:00">
+                2020-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index">
+                    <span itemprop="name">Language</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python-代码风格-PEP8-总结"><a href="#Python-代码风格-PEP8-总结" class="headerlink" title="Python 代码风格 PEP8 总结"></a><a href="https://pep8.org/#descriptive-naming-styles" target="_blank" rel="noopener">Python 代码风格 PEP8 总结</a></h1><p>首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。</p>
+<p>花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性<code>readability</code>，让整个代码风格的一致，非常重要。</p>
+<p>总体来说：</p>
+<a id="more"></a>
+
+<ul>
+<li>提升代码可读性</li>
+<li>避免对其他人写的、以前写的、支持过去的特性的的代码进行重构、或者修改</li>
+</ul>
+<h2 id="Code-Lay-out"><a href="#Code-Lay-out" class="headerlink" title="Code Lay-out"></a>Code Lay-out</h2><h3 id="Indentation"><a href="#Indentation" class="headerlink" title="Indentation"></a>Indentation</h3><p>Use 4 spaces per indentation level.</p>
+<p>Continuation lines should align wrapped elements either <strong>vertically using Python’s implicit line</strong> joining inside parentheses, brackets and braces, or using a <strong><em>hanging indent</em></strong> <a href="https://pep8.org/#fn3" target="_blank" rel="noopener">3</a>. When using a hanging indent the following should be considered; there should be <strong>no arguments on the first line</strong> and <strong>further indentation</strong> should be used to clearly distinguish itself as a continuation line.</p>
+<blockquote>
+<p>应当有两种书写跨行代码的方式：</p>
+<ul>
+<li>第一行带参数，并保持第二行与第一行垂直对齐</li>
+<li>第一行不带参数，剩下的行数保持对齐<ul>
+<li>需要有更多的缩进来保持与其他代码的不同</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Aligned with opening delimiter.</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br><span class="line"></span><br><span class="line"><span class="comment"># More indentation included to distinguish this from the rest.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        var_one, var_two, var_three,</span></span></span><br><span class="line"><span class="function"><span class="params">        var_four)</span>:</span></span><br><span class="line">    print(var_one)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Hanging indents should add a level.</span></span><br><span class="line">foo = long_function_name(</span><br><span class="line">    var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add some extra indentation on the conditional continuation line.</span></span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing</span><br><span class="line">        <span class="keyword">and</span> that_is_another_thing):</span><br><span class="line">    do_something()</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Tap"><a href="#Tap" class="headerlink" title="Tap?"></a>Tap?</h3><p>Python 3 disallows mixing the use of tabs and spaces for indentation.</p>
+<h3 id="Maximum-Line-Length"><a href="#Maximum-Line-Length" class="headerlink" title="Maximum Line Length"></a>Maximum Line Length</h3><p>Limit all lines to a maximum of 79 characters.</p>
+<p>这么做有利于：</p>
+<ul>
+<li>在编辑器中可以快速浏览水平排列的多个程序文件</li>
+<li>保持一行代码的的简洁性</li>
+</ul>
+<h3 id="Break-a-line-from-binary-operator"><a href="#Break-a-line-from-binary-operator" class="headerlink" title="Break a line from binary operator"></a>Break a line from binary operator</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># No: operators sit far away from their operands</span></span><br><span class="line">income = (gross_wages +</span><br><span class="line">          taxable_interest +</span><br><span class="line">          (dividends - qualified_dividends) -</span><br><span class="line">          ira_deduction -</span><br><span class="line">          student_loan_interest)</span><br></pre></td></tr></table></figure>
+
+<p>通常的二元操作符的分割方法如上所示，但是这样破环了操作符和操作数的连续性，更好的方法是把<code>operator</code>放在前面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Binary operation</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Yes: easy to match operators with operands</span></span><br><span class="line">income = (gross_wages</span><br><span class="line">          + taxable_interest</span><br><span class="line">          + (dividends - qualified_dividends)</span><br><span class="line">          - ira_deduction</span><br><span class="line">          - student_loan_interest)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Blank-Lines"><a href="#Blank-Lines" class="headerlink" title="Blank Lines"></a>Blank Lines</h3><p>Surround top-level function and class <strong>definitions</strong> with two blank lines.</p>
+<p>Method <strong>definitions</strong> inside a class are surrounded by a single blank line.</p>
+<h3 id="Source-File-Encoding"><a href="#Source-File-Encoding" class="headerlink" title="Source File Encoding"></a>Source File Encoding</h3><p>Code in the core Python3 distribution should always use UTF-8.</p>
+<h3 id="Import"><a href="#Import" class="headerlink" title="Import*"></a>Import*</h3><p>Imports should usually be on separate lines, e.g.:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment">#It’s okay to say this though:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> Popen, PIPE</span><br></pre></td></tr></table></figure>
+
+<p>Imports are always put <strong>at the top of the file</strong>, just after any module comments and docstrings, and before module globals and constants.</p>
+<p>Imports should be grouped in the following order:</p>
+<ol>
+<li>standard library imports</li>
+<li>related third party imports</li>
+<li>local application/library specific imports</li>
+</ol>
+<p>You should put a blank line between each group of imports.</p>
+<p><strong>Absolute imports</strong> are recommended, as they are usually more readable and tend to be better behaved.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mypkg.sibling</span><br><span class="line"><span class="keyword">from</span> mypkg <span class="keyword">import</span> sibling</span><br><span class="line"><span class="keyword">from</span> mypkg.sibling <span class="keyword">import</span> example</span><br></pre></td></tr></table></figure>
+
+<p>However, explicit relative imports are an <strong>acceptable alternative</strong> to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> sibling</span><br><span class="line"><span class="keyword">from</span> .sibling <span class="keyword">import</span> example</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Whitespace-in-Expressions-and-Statements"><a href="#Whitespace-in-Expressions-and-Statements" class="headerlink" title="Whitespace in Expressions and Statements"></a>Whitespace in Expressions and Statements</h3><p>Immediately <strong>inside</strong> parentheses, brackets or braces:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spam(ham[<span class="number">1</span>], &#123;eggs: <span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spam( ham[ <span class="number">1</span> ], &#123; eggs: <span class="number">2</span> &#125; )</span><br></pre></td></tr></table></figure>
+
+<p>Between a <strong>trailing comma</strong> and a following close parenthesis:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo = (<span class="number">0</span>,)</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bar = (<span class="number">0</span>, )</span><br></pre></td></tr></table></figure>
+
+<p>Immediately before a comma, semicolon, or colon:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x == <span class="number">4</span>: <span class="keyword">print</span> x, y; x, y = y, x</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x == <span class="number">4</span> : <span class="keyword">print</span> x , y ; x , y = y , x</span><br></pre></td></tr></table></figure>
+
+<p>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
+<blockquote>
+<p>注意下面实例中最后一个例子</p>
+</blockquote>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ham[<span class="number">1</span>:<span class="number">9</span>], ham[<span class="number">1</span>:<span class="number">9</span>:<span class="number">3</span>], ham[:<span class="number">9</span>:<span class="number">3</span>], ham[<span class="number">1</span>::<span class="number">3</span>], ham[<span class="number">1</span>:<span class="number">9</span>:]</span><br><span class="line">ham[lower:upper], ham[lower:upper:], ham[lower::step]</span><br><span class="line"><span class="comment"># 和最后一个对比一下，似乎带有某种运算优先级的暗示</span></span><br><span class="line">ham[lower+offset : upper+offset]</span><br><span class="line">ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]</span><br><span class="line"><span class="comment"># </span></span><br><span class="line">ham[lower + offset : upper + offset]</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ham[lower + offset:upper + offset]</span><br><span class="line">ham[<span class="number">1</span>: <span class="number">9</span>], ham[<span class="number">1</span> :<span class="number">9</span>], ham[<span class="number">1</span>:<span class="number">9</span> :<span class="number">3</span>]</span><br><span class="line">ham[lower : : upper]</span><br><span class="line">ham[ : upper]</span><br></pre></td></tr></table></figure>
+
+<p>Immediately before the open parenthesis that starts the argument list of a function call:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spam(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spam (<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dct[<span class="string">'key'</span>] = lst[index]</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dct [<span class="string">'key'</span>] = lst [index]</span><br></pre></td></tr></table></figure>
+
+<p>More than one space around an assignment (or other) operator to align it with another.</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">2</span></span><br><span class="line">long_variable = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x             = <span class="number">1</span></span><br><span class="line">y             = <span class="number">2</span></span><br><span class="line">long_variable = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Other-Recommendations"><a href="#Other-Recommendations" class="headerlink" title="Other Recommendations"></a>Other Recommendations</h3><p><strong>Avoid trailing whitespace</strong> anywhere. Because it’s usually invisible, it can be confusing: e. g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.</p>
+<p>Always <strong>surround these binary operators with a single space</strong> on either side: assignment (<code>=</code>), augmented assignment (<code>+=</code>, <code>-=</code> etc.), comparisons (<code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>in</code>, <code>not in</code>, <code>is</code>, <code>is not</code>), Booleans (<code>and</code>, <code>or</code>, <code>not</code>).</p>
+<p>If operators with different <strong>priorities</strong> are used, consider a<strong>dding whitespace around the operators with the lowest priority(ies)</strong>. Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
+<p><strong>Don’t</strong> use spaces around the <code>=</code> sign when used to indicate a <strong>keyword argument</strong> or a default parameter value.</p>
+<blockquote>
+<p>与下面第二条不同</p>
+</blockquote>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">complex</span><span class="params">(real, imag=<span class="number">0.0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> magic(r=real, i=imag)</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">complex</span><span class="params">(real, imag = <span class="number">0.0</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> magic(r = real, i = imag)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Function annotations</strong> should use the normal rules for colons and always have spaces around the <code>-&gt;</code> arrow if present. (See <a href="https://pep8.org/#function-annotations" target="_blank" rel="noopener">Function Annotations</a> below for more about function annotations.)</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr)</span>:</span> ...</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">()</span> -&gt; AnyStr:</span> ...</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input:AnyStr)</span>:</span> ...</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">()</span>-&gt;PosInt:</span> ...</span><br></pre></td></tr></table></figure>
+
+<p>When combining an <strong>argument annotation with a default value</strong>, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(sep: AnyStr = None)</span>:</span> ...</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr, sep: AnyStr = None, limit=<span class="number">1000</span>)</span>:</span> ...</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr=None)</span>:</span> ...</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr, limit = <span class="number">1000</span>)</span>:</span> ...</span><br></pre></td></tr></table></figure>
+
+<p><strong>Compound statements</strong> (multiple statements on the same line) are generally discouraged.</p>
+<blockquote>
+<p>简洁还是简洁</p>
+</blockquote>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> foo == <span class="string">'blah'</span>:</span><br><span class="line">    do_blah_thing()</span><br><span class="line">do_one()</span><br><span class="line">do_two()</span><br><span class="line">do_three()</span><br></pre></td></tr></table></figure>
+
+<p>Rather not:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> foo == <span class="string">'blah'</span>: do_blah_thing()</span><br><span class="line">do_one(); do_two(); do_three()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Trailing Commas </p>
+<blockquote>
+<p>commas: <code>,</code></p>
+</blockquote>
+<p>Trailing commas常常用在tuple中的数据分割，我们常常推荐使用圆括号来包含数据和逗号。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">FILES = (<span class="string">'setup.cfg'</span>,)</span><br></pre></td></tr></table></figure>
+
+<p>在List中每一项划分为一行，并把括号分割在下一行中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">FILES = [</span><br><span class="line">    <span class="string">'setup.cfg'</span>,</span><br><span class="line">    <span class="string">'tox.ini'</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">initialize(FILES,</span><br><span class="line">           error=<span class="literal">True</span>,</span><br><span class="line">           )</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>Tips:</p>
+<ul>
+<li>update comments when code is changed</li>
+<li>never alter the <strong>case of identifiers</strong></li>
+<li>be complete sentence</li>
+<li>write in English</li>
+</ul>
+<h3 id="Block-Comments"><a href="#Block-Comments" class="headerlink" title="Block Comments"></a>Block Comments</h3><ul>
+<li>are intended to the same level as that code </li>
+<li>starts with a # and a single space.</li>
+</ul>
+<h3 id="Inline-Comments"><a href="#Inline-Comments" class="headerlink" title="Inline Comments"></a>Inline Comments</h3><ul>
+<li>Use inline comments <strong>sparingly</strong>(简洁的)</li>
+<li>Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.</li>
+</ul>
+<h3 id="Documentation-Strings"><a href="#Documentation-Strings" class="headerlink" title="Documentation Strings"></a>Documentation Strings</h3><p>Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the <code>def</code> line.</p>
+<p>the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself, e.g.:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Return a foobang</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Optional plotz says to frobnicate the bizbaz first.</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Naming-Conventions"><a href="#Naming-Conventions" class="headerlink" title="Naming Conventions"></a>Naming Conventions</h2><h3 id="Overriding-Principle"><a href="#Overriding-Principle" class="headerlink" title="Overriding Principle"></a>Overriding Principle</h3><p>Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.</p>
+<blockquote>
+<p>面向外部的命名其含义远大于实施意义。</p>
+</blockquote>
+<h3 id="Naming-Style3"><a href="#Naming-Style3" class="headerlink" title="Naming Style3"></a>Naming Style3</h3><p>命名的方式多种多样。</p>
+<p>有一种独特的命名方式，是在函数和变量前加一个<code>short unique prefix</code> 去聚合相关的名字函数，但是Python用对象名代替了这种功能。</p>
+<h3 id="Leading-or-trailing-undrescores-下划线添加规则"><a href="#Leading-or-trailing-undrescores-下划线添加规则" class="headerlink" title="Leading or trailing undrescores 下划线添加规则"></a>Leading or trailing undrescores 下划线添加规则</h3><ul>
+<li><p><code>_single_leading_underscore</code>: weak “internal use” indicator. E.g. <code>from M import *</code> does <strong>not import</strong> objects whose name starts with an underscore.</p>
+</li>
+<li></li>
+<li><p><code>single_trailing_underscore_</code>: used by convention to <strong>avoid conflicts</strong> with Python keyword, e.g.:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tkinter.Toplevel(master, class_=<span class="string">'ClassName'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>__double_leading_underscore</code>: when naming a class attribute, i<strong>nvokes name mangling</strong> (inside class FooBar, <code>__boo</code> becomes <code>_FooBar__boo</code>; see below).</p>
+<blockquote>
+<p>To avoid name clashes with subclasses, use two leading underscores to invoke Python’s name mangling rules.</p>
+<p>Python mangles these names with the class name: if class Foo has an attribute named <code>__a</code>, it cannot be accessed by <code>Foo.__a</code>. (An insistent user could still gain access by calling <code>Foo._Foo__a</code>.) Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed.</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><code>__double_leading_and_trailing_underscore__</code>: “<strong>magic” objects or attributes</strong> that live in user-controlled namespaces. E.g. <code>__init__</code>, <code>__import__</code> or <code>__file__</code>. Never invent such names; only use them as documented.</li>
+</ul>
+<h3 id="Never-use-indistinguishable-name"><a href="#Never-use-indistinguishable-name" class="headerlink" title="Never use indistinguishable name"></a>Never use indistinguishable name</h3><p> Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names.</p>
+<h3 id="Package-and-Module-Names"><a href="#Package-and-Module-Names" class="headerlink" title="Package and Module Names"></a>Package and Module Names</h3><p>Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. </p>
+<blockquote>
+<p> the C/C++ module has a leading underscore </p>
+</blockquote>
+<h3 id="Class-Names"><a href="#Class-Names" class="headerlink" title="Class Names"></a>Class Names</h3><p>Class names should normally use the CapWords convention.</p>
+<h3 id="Type-variable-names"><a href="#Type-variable-names" class="headerlink" title="Type variable names"></a>Type variable names</h3><blockquote>
+<p>没懂？？？</p>
+</blockquote>
+<p>Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add suffixes <code>_co</code> or <code>_contra</code> to the variables used to declare covariant or contravariant behavior correspondingly. Examples</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> TypeVar</span><br><span class="line"></span><br><span class="line">  VT_co = TypeVar(<span class="string">'VT_co'</span>, covariant=<span class="literal">True</span>)</span><br><span class="line">  KT_contra = TypeVar(<span class="string">'KT_contra'</span>, contravariant=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Exception-Names"><a href="#Exception-Names" class="headerlink" title="Exception Names"></a>Exception Names</h3><p>Because exceptions should be classes, the class naming convention applies here. However, you should use the <strong>suffix “Error”</strong> on your exception names (if the exception actually is an error).</p>
+<h3 id="Global-Variable-Names"><a href="#Global-Variable-Names" class="headerlink" title="Global Variable Names"></a>Global Variable Names</h3><blockquote>
+<p>对于不想被其他文件导入的变量和函数，使用`<strong>all</strong> mechdanism或者使用prefixing an undersocre.</p>
+</blockquote>
+<p>(Let’s hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.</p>
+<p>Modules that are designed for use via <code>from M import *</code> should use the <code>__all__</code> mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are <strong>“module non-public”</strong>).</p>
+<h3 id="Function-Names"><a href="#Function-Names" class="headerlink" title="Function Names"></a>Function Names</h3><p>Function names should be <strong>lowercase</strong>, with words separated by <strong>underscores</strong> as necessary to improve readability.</p>
+<h3 id="Function-and-method-arguments"><a href="#Function-and-method-arguments" class="headerlink" title="Function and method arguments"></a>Function and method arguments</h3><p>Always use <code>self</code> for the first argument to instance methods.</p>
+<p>Always use <code>cls</code> for the first argument to class methods.</p>
+<p>If a function argument’s name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus <code>class_</code> is better than <code>clss</code>. (Perhaps better is to avoid such clashes by using a synonym.)</p>
+<blockquote>
+<p>The difference between <code>cls</code> and <code>self</code></p>
+<p><code>cls</code> implies that method belongs to the class while self implies that the method is related to instance of the class,therefore member with <code>cls</code> is accessed by class name where as the one with self is accessed by instance of the class…it is the same concept as <code>static member</code> and <code>non-static members</code> in java if you are from java background.</p>
+</blockquote>
+<h3 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h3><p>Constants are <strong>usually defined on a module level</strong> and written in <strong>all capital letters</strong> <strong>with underscores separating</strong> words. Examples include <code>MAX_OVERFLOW</code> and <code>TOTAL</code>.</p>
+<h2 id="Designing-for-inheritance"><a href="#Designing-for-inheritance" class="headerlink" title="Designing for inheritance"></a>Designing for inheritance</h2><p>Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.</p>
+<p>如果需要暴露公共属性，必须保证向后兼容性（后来的代码），尽量设置属性为私有。</p>
+<p>特别对于父类，需要仔细考虑代码的</p>
+<h3 id="Public-and-internal-interfaces"><a href="#Public-and-internal-interfaces" class="headerlink" title="Public and internal interfaces"></a>Public and internal interfaces</h3><p>所有没有被文档记载的属性和方法都应该是私有的，也就是说文档记载的属性可以是私有的或者是公共的。</p>
+<p>To better support <strong>introspection</strong>, modules should explicitly declare the names in their public API using the <code>__all__</code> attribute. Setting <code>__all__</code> to an <strong>empty</strong> list indicates that the module has no public API.</p>
+<h3 id="Programming-Recommendation"><a href="#Programming-Recommendation" class="headerlink" title="Programming Recommendation"></a>Programming Recommendation</h3><p><strong>少用的lambda表达式:</strong></p>
+<p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span> <span class="keyword">return</span> <span class="number">2</span>*x</span><br></pre></td></tr></table></figure>
+
+<p>No:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> x: <span class="number">2</span>*x</span><br></pre></td></tr></table></figure>
+
+<p>The first form means that the name of the resulting function object is specifically ‘f’ instead of the generic ‘<lambda>’. This is more useful for <strong>tracebacks</strong> and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit def statement (i.e. that it can be embedded inside a larger expression).</p>
+<h3 id="在try语句中尽量少用的语句。"><a href="#在try语句中尽量少用的语句。" class="headerlink" title="在try语句中尽量少用的语句。"></a>在<code>try</code>语句中尽量少用的语句。</h3><h3 id="坚持在函数末尾返回None或者应该有的表达式"><a href="#坚持在函数末尾返回None或者应该有的表达式" class="headerlink" title="坚持在函数末尾返回None或者应该有的表达式"></a>坚持在函数末尾返回<code>None</code>或者应该有的表达式</h3><h3 id="Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes"><a href="#Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes" class="headerlink" title="Use &#39;&#39;.startswith() and &#39;&#39;.endswith() instead of string slicing to check for prefixes or suffixes"></a>Use <code>&#39;&#39;.startswith()</code> and <code>&#39;&#39;.endswith()</code> instead of string slicing to check for prefixes or suffixes</h3><blockquote>
+<p>更快</p>
+</blockquote>
+<h3 id="Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly"><a href="#Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly" class="headerlink" title="Object type comparisons should always use isinstance() instead of comparing types directly:"></a>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly:</h3><p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> isinstance(obj, int):</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false"><a href="#For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false" class="headerlink" title="For sequences, (strings, lists, tuples), use the fact that empty sequences are false:"></a>For sequences, (strings, lists, tuples), use the fact that empty sequences are false:</h3><p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> seq:</span><br><span class="line"><span class="keyword">if</span> seq:</span><br></pre></td></tr></table></figure>
+
+<h3 id="Don’t-compare-boolean-values-to-True-or-False-using"><a href="#Don’t-compare-boolean-values-to-True-or-False-using" class="headerlink" title="Don’t compare boolean values to True or False using ==:"></a>Don’t compare boolean values to True or False using <code>==</code>:</h3><p>Yes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> greeting:</span><br></pre></td></tr></table></figure>
+
+<p>Worse:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> greeting <span class="keyword">is</span> <span class="literal">True</span>:</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/30/shua-ti/leetcode/2020-10-30-81.search-in-rotated-sorted-array-ii/" rel="next" title="81. Search in Rotated Sorted Array II">
+                <i class="fa fa-chevron-left"></i> 81. Search in Rotated Sorted Array II
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/01/shua-ti/leetcode/154-find-minimum-in-rotated-sorted-array-ii/" rel="prev" title="154. Find Minimum in Rotated Sorted Array II">
+                154. Find Minimum in Rotated Sorted Array II <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-代码风格-PEP8-总结"><span class="nav-number">1.</span> <span class="nav-text">Python 代码风格 PEP8 总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Lay-out"><span class="nav-number">1.1.</span> <span class="nav-text">Code Lay-out</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Indentation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Indentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tap"><span class="nav-number">1.1.2.</span> <span class="nav-text">Tap?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Line-Length"><span class="nav-number">1.1.3.</span> <span class="nav-text">Maximum Line Length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Break-a-line-from-binary-operator"><span class="nav-number">1.1.4.</span> <span class="nav-text">Break a line from binary operator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blank-Lines"><span class="nav-number">1.1.5.</span> <span class="nav-text">Blank Lines</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-File-Encoding"><span class="nav-number">1.1.6.</span> <span class="nav-text">Source File Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Import"><span class="nav-number">1.1.7.</span> <span class="nav-text">Import*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Whitespace-in-Expressions-and-Statements"><span class="nav-number">1.1.8.</span> <span class="nav-text">Whitespace in Expressions and Statements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Recommendations"><span class="nav-number">1.1.9.</span> <span class="nav-text">Other Recommendations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments"><span class="nav-number">1.2.</span> <span class="nav-text">Comments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Block-Comments"><span class="nav-number">1.2.1.</span> <span class="nav-text">Block Comments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inline-Comments"><span class="nav-number">1.2.2.</span> <span class="nav-text">Inline Comments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Documentation-Strings"><span class="nav-number">1.2.3.</span> <span class="nav-text">Documentation Strings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naming-Conventions"><span class="nav-number">1.3.</span> <span class="nav-text">Naming Conventions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overriding-Principle"><span class="nav-number">1.3.1.</span> <span class="nav-text">Overriding Principle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naming-Style3"><span class="nav-number">1.3.2.</span> <span class="nav-text">Naming Style3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leading-or-trailing-undrescores-下划线添加规则"><span class="nav-number">1.3.3.</span> <span class="nav-text">Leading or trailing undrescores 下划线添加规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Never-use-indistinguishable-name"><span class="nav-number">1.3.4.</span> <span class="nav-text">Never use indistinguishable name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-and-Module-Names"><span class="nav-number">1.3.5.</span> <span class="nav-text">Package and Module Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Names"><span class="nav-number">1.3.6.</span> <span class="nav-text">Class Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-variable-names"><span class="nav-number">1.3.7.</span> <span class="nav-text">Type variable names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exception-Names"><span class="nav-number">1.3.8.</span> <span class="nav-text">Exception Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Variable-Names"><span class="nav-number">1.3.9.</span> <span class="nav-text">Global Variable Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Names"><span class="nav-number">1.3.10.</span> <span class="nav-text">Function Names</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-and-method-arguments"><span class="nav-number">1.3.11.</span> <span class="nav-text">Function and method arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants"><span class="nav-number">1.3.12.</span> <span class="nav-text">Constants</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Designing-for-inheritance"><span class="nav-number">1.4.</span> <span class="nav-text">Designing for inheritance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Public-and-internal-interfaces"><span class="nav-number">1.4.1.</span> <span class="nav-text">Public and internal interfaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Recommendation"><span class="nav-number">1.4.2.</span> <span class="nav-text">Programming Recommendation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在try语句中尽量少用的语句。"><span class="nav-number">1.4.3.</span> <span class="nav-text">在try语句中尽量少用的语句。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坚持在函数末尾返回None或者应该有的表达式"><span class="nav-number">1.4.4.</span> <span class="nav-text">坚持在函数末尾返回None或者应该有的表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes"><span class="nav-number">1.4.5.</span> <span class="nav-text">Use &#39;&#39;.startswith() and &#39;&#39;.endswith() instead of string slicing to check for prefixes or suffixes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly"><span class="nav-number">1.4.6.</span> <span class="nav-text">Object type comparisons should always use isinstance() instead of comparing types directly:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false"><span class="nav-number">1.4.7.</span> <span class="nav-text">For sequences, (strings, lists, tuples), use the fact that empty sequences are false:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Don’t-compare-boolean-values-to-True-or-False-using"><span class="nav-number">1.4.8.</span> <span class="nav-text">Don’t compare boolean values to True or False using &#x3D;&#x3D;:</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

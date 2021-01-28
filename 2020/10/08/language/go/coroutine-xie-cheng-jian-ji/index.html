@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CS," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coroutine协程简记">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://static.come2rss.xyz/muiltclip_image001.jpg">
+<meta property="article:published_time" content="2020-10-08T05:35:04.000Z">
+<meta property="article:modified_time" content="2020-10-09T14:51:23.409Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.come2rss.xyz/muiltclip_image001.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/"/>
+
+
+
+
+
+  <title>Coroutine协程简记 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/10/08/language/go/coroutine-xie-cheng-jian-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Coroutine协程简记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-08T13:35:04+08:00">
+                2020-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/" itemprop="url" rel="index">
+                    <span itemprop="name">Language</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Language/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Coroutine，即协程。虽然名字很像线程进程，但是协程与前两者的相似之处很少。协程，顾名思义为协作合作的多任务程序。</p>
+<a id="more"></a>
+
+<h1 id="A-Simple-Overview-of-Coroutine"><a href="#A-Simple-Overview-of-Coroutine" class="headerlink" title="A Simple Overview of Coroutine"></a>A Simple Overview of Coroutine</h1><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>Wiki百科的定义比较广泛，但是它提出了协程的三个重要特征：</p>
+<blockquote>
+<p>Coroutines（协程） are computer program components that generalize subroutines for non-preemptive multitasking, by allowing execution to be suspended and resumed. </p>
+</blockquote>
+<ul>
+<li>运行子程序</li>
+<li>完成协作性质任务</li>
+<li>运行时可暂停和重新唤醒</li>
+</ul>
+<p>这三点已经可以概括了协程的面貌了，为了更深入了解协程的特点，我们可以从其他相似概念，最后从python的<code>asycio</code>入手了解协程。</p>
+<h3 id="Analogy"><a href="#Analogy" class="headerlink" title="Analogy"></a>Analogy</h3><h4 id="Comparison-with-subroutines"><a href="#Comparison-with-subroutines" class="headerlink" title="Comparison with subroutines"></a>Comparison with subroutines</h4><p>subroutine看似高大上，与routine有着密不可分的关系，就其定义来说就是一个<code>A set of instructions that performs a specific task for a main routine</code>，也可以称之为<code>function</code>，<code>procedure</code>。</p>
+<p>子程序是协程的特例，子程序从开头执行到末尾就结束了，仅仅返回一个值而且不保存状态，但是协程不同，它的“结束形式”是调用另一个协程的，同时其内部变量依旧保存，在下次被调用时仍然可以使用。值得注意的，被调用的<code>coroutine</code>仍可以调用调用它的<code>coroutine</code>，从这个角度说，不似与一般调用方法的<code>caller-callee</code>关系，<code>coroutine</code>的关系是<code>symmetric</code>的。</p>
+<h4 id="Comparison-with-threads"><a href="#Comparison-with-threads" class="headerlink" title="Comparison with threads:"></a>Comparison with threads:</h4><p>协程与线程很相似，但是协程是合作性质的多任务，而线程是典型的抢占式多任务性质的。</p>
+<p>协程是典型的<code>concurrency</code>（并发）性质的程序，而非<code>parallelism</code>（并发）性质的程序。也就是说协程仅仅创建了一个线程或者说一个进程。</p>
+<blockquote>
+<p><code>parallism</code>是<code>concurrency</code>的真子集。</p>
+<p>BTW, <code>threading</code>（多线程化）是<code>concurrency</code>的一种实现手段，<code>multprocessing</code> （多处理器运行）是<code>paralism</code>的一种实现手段。</p>
+<p>四者的关系如图：</p>
+<p><a href="https://files.realpython.com/media/Screen_Shot_2018-10-17_at_3.18.44_PM.c02792872031.jpg" target="_blank" rel="noopener"><img src="http://static.come2rss.xyz/muiltclip_image001.jpg" alt="Concurrency versus parallelism"></a></p>
+</blockquote>
+<p>协程无需进行线程切换的优势让它性能优势远超多线程进程，更加适合<code>hard-time realtime context</code>， GO语言的火爆也得力于此。</p>
+<p>多线程的缺点在于线程切换涉及到系统调用和调用阻塞，大大减慢了速度；多线程的同步竞争问题也需要信号量和同步锁维护。</p>
+<h4 id="Comparison-with-generators"><a href="#Comparison-with-generators" class="headerlink" title="Comparison with generators:"></a>Comparison with generators:</h4><p>生成器也称之为半协程，是协程的一个子集。熟知的语言如C++、python都实现了<code>generator</code>的机制，可以看出<code>generator</code>基本符合协程的三个特征。但是对于<code>generator</code>来说，<code>sysmmetric</code>还是不太够。</p>
+<p>其次，<code>genenrator</code>的<code>yield</code>关键词定义了<code>generator</code>退出和重新执行的<code>entry</code>，同上面所述，<code>generator</code>并没有主动<code>yield</code>(割让控制权)和重新执行的权利，他更像被动生产者，把控制权交给调用<code>generator</code>的<code>caller</code>。而<code>coroutie</code>可以在<code>yield</code>之后突然夺回控制权，</p>
+<h4 id="Comparison-with-mutual-recursion："><a href="#Comparison-with-mutual-recursion：" class="headerlink" title="Comparison with mutual recursion："></a>Comparison with mutual recursion：</h4><p> 讨论到，控制权在不同<code>subroutine</code>之间相互交换的情况，相互调用的函数可以类比<code>coroutine</code>。但是有明显的不同，就如一开始<code>Definition</code>所说，<code>coroutine</code>可以保存状态，变量和<code>execution point</code>，而且能<code>resume execution from execution point</code> 而不是从头执行。</p>
+<p>另外, <code>mutual recursion</code>调用的对方函数后，会增加系统函数栈的层数(<code>stack frame</code>)。而<code>coroutine</code>在传递控制权的时候，可以使用已经存在的<code>context</code>，并且仅仅只用一个<code>jump</code>来完成。</p>
+<blockquote>
+<p>具体实现未曾探究。</p>
+</blockquote>
+<h2 id="Coroutines-in-asyncio"><a href="#Coroutines-in-asyncio" class="headerlink" title="Coroutines in asyncio"></a>Coroutines in <code>asyncio</code></h2><p><code>asyncio</code>是python的内置系异步包，其API在3.4~3.7中快速迭代，如果幸运的话，以后可能会稳定下来。</p>
+<blockquote>
+<p>更多异步包可以用<code>pip install --upgrade pip aiohttp aiofiles</code>安装即可。</p>
+</blockquote>
+<p><code>asyncio</code>就是<code>Asynchrnous IO</code>缩写。众所周知，<code>cpu-bound</code>(所谓劳动密集型任😂)更需要多线程多处理器完成，<code>IO-bound</code>型任务需要多个线程来处理IO堵塞，或者由强大的😈协程完成。重复一遍，<code>coroutine</code>编程仅仅是一个单一线程单一进程的风格，他并不是<code>parallelism</code>，而是<code>concurrent</code>。更详细的说：</p>
+<ul>
+<li>异步<code>coroutine</code>在等待一个任务完成之时可以，可以停止执行，让其他<code>coroutines</code>执行。这个性质非常想进程同步所说的让权等待。</li>
+</ul>
+<p>为了支持异步处理，python引入了两个新key words: <code>async</code> and <code>awati</code>。前者定义异步函数，后者声明可以让权的语句。比如下面这个小程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"One"</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"Two"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">await</span> asyncio.gather(count(), count(), count())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    s = time.perf_counter()</span><br><span class="line">    asyncio.run(main())</span><br><span class="line">    elapsed = time.perf_counter() - s</span><br><span class="line">    print(<span class="string">f"<span class="subst">&#123;__file__&#125;</span> executed in <span class="subst">&#123;elapsed:<span class="number">0.2</span>f&#125;</span> seconds."</span>)</span><br></pre></td></tr></table></figure>
+
+<p>三个异步执行的<code>count()</code>会在各自阻塞的时候让权给其他<code>count()</code>。可以想到，这个程序执行时间大概在1秒，而非同步执行的3秒。</p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><blockquote>
+<p>接下的内容由于，个人水平和时间都有限，虽然做了更多的学习，但还是打算不发出来误人子弟了。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CS/" rel="tag"># CS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/08/shua-ti/leetcode/1286-iterator-for-combination/" rel="next" title="1286. Iterator for Combination">
+                <i class="fa fa-chevron-left"></i> 1286. Iterator for Combination
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/09/shua-ti/leetcode/455-assign-cookies/" rel="prev" title="455. Assign Cookies">
+                455. Assign Cookies <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Simple-Overview-of-Coroutine"><span class="nav-number">1.</span> <span class="nav-text">A Simple Overview of Coroutine</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">1.0.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analogy"><span class="nav-number">1.0.2.</span> <span class="nav-text">Analogy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparison-with-subroutines"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">Comparison with subroutines</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparison-with-threads"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">Comparison with threads:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparison-with-generators"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">Comparison with generators:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comparison-with-mutual-recursion："><span class="nav-number">1.0.2.4.</span> <span class="nav-text">Comparison with mutual recursion：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coroutines-in-asyncio"><span class="nav-number">1.1.</span> <span class="nav-text">Coroutines in asyncio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#END"><span class="nav-number">1.2.</span> <span class="nav-text">END</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

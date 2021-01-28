@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tbfs,bfs," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="126. Word Ladder II思路： 这次的bugs很少，开心。 这题核心就是BFS（DFS）的基础上加上剪枝优化。或者TBFS  建立搜索树BFS搜索结果即可。 最好用邻接矩阵优化BFS搜索数量，同时显然的，你没法通过绕一个小弯找到最短路，这可以剪枝。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="126. Word Ladder II">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/11/29/shua-ti/leetcode/126-word-ladder-ii/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="126. Word Ladder II思路： 这次的bugs很少，开心。 这题核心就是BFS（DFS）的基础上加上剪枝优化。或者TBFS  建立搜索树BFS搜索结果即可。 最好用邻接矩阵优化BFS搜索数量，同时显然的，你没法通过绕一个小弯找到最短路，这可以剪枝。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/个人文件/重要文件/闲书与笔记/MD暂存文件/164a736e22a59a44e7e51e79e2f22f77d392fcd4dc621ea0083a91bd86855884.jpg">
+<meta property="article:published_time" content="2020-11-29T02:59:06.000Z">
+<meta property="article:modified_time" content="2021-01-28T08:39:24.949Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="tbfs">
+<meta property="article:tag" content="bfs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/个人文件/重要文件/闲书与笔记/MD暂存文件/164a736e22a59a44e7e51e79e2f22f77d392fcd4dc621ea0083a91bd86855884.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/11/29/shua-ti/leetcode/126-word-ladder-ii/"/>
+
+
+
+
+
+  <title>126. Word Ladder II | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/11/29/shua-ti/leetcode/126-word-ladder-ii/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">126. Word Ladder II</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-29T10:59:06+08:00">
+                2020-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="126-Word-Ladder-II"><a href="#126-Word-Ladder-II" class="headerlink" title="126. Word Ladder II"></a><a href="https://leetcode-cn.com/problems/word-ladder-ii/" target="_blank" rel="noopener">126. Word Ladder II</a></h2><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><blockquote>
+<p>这次的bugs很少，开心。</p>
+<p>这题核心就是BFS（DFS）的基础上加上剪枝优化。或者TBFS</p>
+</blockquote>
+<p>建立搜索树BFS搜索结果即可。</p>
+<p>最好用邻接矩阵优化BFS搜索数量，同时显然的，你没法通过绕一个小弯找到最短路，这可以剪枝。</p>
+<a id="more"></a>
+
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\164a736e22a59a44e7e51e79e2f22f77d392fcd4dc621ea0083a91bd86855884.jpg" alt="img"></p>
+<p>第二种思路就是双头搜索。因为题目给出了起始地点和结束地点的字符串。在搜索的时候控制一下搜索空间，搜索深度就AC了。击败96%！。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 26th样例超时</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; <span class="title">findLadders</span><span class="params">(<span class="built_in">string</span> beginWord, <span class="built_in">string</span> endWord, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">int</span> n = wordList.<span class="built_in">size</span>(), flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(wordList[i] == endWord) flag = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="built_in">queue</span>&lt;SN*&gt; que;</span><br><span class="line">        wordList.push_back(beginWord); <span class="comment">// size++</span></span><br><span class="line">        que.push(<span class="keyword">new</span> SN(n, <span class="number">-1</span>, <span class="number">0</span>, <span class="literal">nullptr</span>));</span><br><span class="line">        <span class="keyword">int</span> endlevel = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(que.<span class="built_in">size</span>())&#123;</span><br><span class="line">            SN *p = que.front(); </span><br><span class="line">            que.pop();</span><br><span class="line">            <span class="comment">// cout &lt;&lt; wordList[p.x] &lt;&lt;"  " &lt;&lt; p.l &lt;&lt; '#';</span></span><br><span class="line">            <span class="comment">// if(p.plink != nullptr)</span></span><br><span class="line">            <span class="comment">//     cout &lt;&lt; p.x &lt;&lt; (p.plink)-&gt;x &lt;&lt; endl;</span></span><br><span class="line">            <span class="comment">// cout &lt;&lt; (p.plink == &amp;p) &lt;&lt; endl;  // bugs: p.plink == &amp;p</span></span><br><span class="line">            <span class="comment">//search the final points.</span></span><br><span class="line">            <span class="keyword">if</span>(endlevel &gt; <span class="number">0</span> &amp;&amp; p-&gt;l &gt; endlevel) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(wordList[p-&gt;x] == endWord)&#123;</span><br><span class="line">                endlevel = p-&gt;l;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tmp;</span><br><span class="line">                SN* np = p;</span><br><span class="line">                <span class="keyword">while</span>(np  != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                    tmp.push_back(wordList[np-&gt;x]);</span><br><span class="line">                    np = np-&gt;plink;      </span><br><span class="line">                    <span class="comment">// cout &lt;&lt; np-&gt;x &lt;&lt; " ";              </span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; endl;</span></span><br><span class="line">                reverse(tmp.<span class="built_in">begin</span>(), tmp.<span class="built_in">end</span>());</span><br><span class="line">                ans.push_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            <span class="comment">// emplace more points.</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(islink(wordList[j], wordList[p-&gt;x]))&#123;                    </span><br><span class="line">                    SN* newp = <span class="keyword">new</span> SN(j, p-&gt;x, p-&gt;l + <span class="number">1</span>, p); <span class="comment">//bugs: 这里取的地址是变量p的地址，同时地址指向不变，但是p指向的内容会受暂存变量p赋值而变化。 这可是C++基础啊</span></span><br><span class="line">                    <span class="comment">//解决方法： 给每个变量一个新的地址即可</span></span><br><span class="line">                    <span class="comment">// cout &lt;&lt; (&amp;newp == &amp;p) &lt;&lt; endl;</span></span><br><span class="line">                    que.push(newp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">islink</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;a, <span class="keyword">const</span> <span class="built_in">string</span>  &amp;b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = a.<span class="built_in">size</span>(), t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != b[i]) t++;</span><br><span class="line">            <span class="keyword">if</span>(t &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SN</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span>  x;</span><br><span class="line">        <span class="keyword">int</span> px;</span><br><span class="line">        <span class="keyword">int</span> l;</span><br><span class="line">        SN * plink;</span><br><span class="line">        SN(<span class="keyword">int</span> _x, <span class="keyword">int</span> _px, <span class="keyword">int</span> _l, SN* _plink):x(_x), px(_px), l(_l), plink(_plink)&#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>AC</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//图优化版本</span></span><br><span class="line"><span class="comment">// 执行用时：</span></span><br><span class="line"><span class="comment">// 644 ms</span></span><br><span class="line"><span class="comment">// , 在所有 C++ 提交中击败了</span></span><br><span class="line"><span class="comment">// 61.99%</span></span><br><span class="line"><span class="comment">// 的用户</span></span><br><span class="line"><span class="comment">// 内存消耗：</span></span><br><span class="line"><span class="comment">// 19.1 MB</span></span><br><span class="line"><span class="comment">// , 在所有 C++ 提交中击败了</span></span><br><span class="line"><span class="comment">// 66.81%</span></span><br><span class="line"><span class="comment">// 的用户</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; <span class="title">findLadders</span><span class="params">(<span class="built_in">string</span> beginWord, <span class="built_in">string</span> endWord, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; ans;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = wordList.<span class="built_in">size</span>(), flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(wordList[i] == endWord) flag = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//bulid the map.</span></span><br><span class="line">        wordList.push_back(beginWord); <span class="comment">// size++</span></span><br><span class="line">        n++;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; edges;</span><br><span class="line">        edges.resize(n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(islink(wordList[i], wordList[j]))&#123;</span><br><span class="line">                    edges[i].push_back(j);</span><br><span class="line">                    edges[j].push_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  <span class="title">cost</span><span class="params">(n, n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        cost[n - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//bfs</span></span><br><span class="line">        <span class="built_in">queue</span>&lt;SN*&gt; que;        </span><br><span class="line">        que.push(<span class="keyword">new</span> SN(n - <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="literal">nullptr</span>));</span><br><span class="line">        <span class="keyword">int</span> endlevel = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(que.<span class="built_in">size</span>())&#123;</span><br><span class="line">            SN *p = que.front(); </span><br><span class="line">            que.pop();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(endlevel &gt; <span class="number">0</span> &amp;&amp; p-&gt;l &gt; endlevel) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(wordList[p-&gt;x] == endWord)&#123;</span><br><span class="line">                endlevel = p-&gt;l;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tmp;</span><br><span class="line">                SN* np = p;</span><br><span class="line">                <span class="keyword">while</span>(np  != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                    tmp.push_back(wordList[np-&gt;x]);</span><br><span class="line">                    np = np-&gt;plink;                          </span><br><span class="line">                &#125;                </span><br><span class="line">                reverse(tmp.<span class="built_in">begin</span>(), tmp.<span class="built_in">end</span>());</span><br><span class="line">                ans.push_back(tmp);</span><br><span class="line">            &#125;</span><br><span class="line">                        </span><br><span class="line">            <span class="comment">// emplace more points.</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> j : edges[p-&gt;x])&#123;            </span><br><span class="line">                <span class="keyword">if</span>(cost[j] &gt; cost[p-&gt;x])&#123; <span class="comment">// 没法绕一个圈子找到最短路</span></span><br><span class="line">                    cost[j] = cost[p-&gt;x] + <span class="number">1</span>;</span><br><span class="line">                    SN* newp = <span class="keyword">new</span> SN(j, p-&gt;x, p-&gt;l + <span class="number">1</span>, p);</span><br><span class="line">                    que.push(newp);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">islink</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;a, <span class="keyword">const</span> <span class="built_in">string</span>  &amp;b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = a.<span class="built_in">size</span>(), t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != b[i]) t++;</span><br><span class="line">            <span class="keyword">if</span>(t &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SN</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span>  x;</span><br><span class="line">        <span class="keyword">int</span> px;</span><br><span class="line">        <span class="keyword">int</span> l;</span><br><span class="line">        SN * plink;</span><br><span class="line">        SN(<span class="keyword">int</span> _x, <span class="keyword">int</span> _px, <span class="keyword">int</span> _l, SN* _plink):x(_x), px(_px), l(_l), plink(_plink)&#123;&#125; <span class="comment">//由于历史原因，px和l有点多余</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>双向bfs思路学习；（未完成）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; <span class="title">findLadders</span><span class="params">(<span class="built_in">string</span> beginWord, <span class="built_in">string</span> endWord, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; path;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; dict ,q1, q2; <span class="comment">//dict：搜索空间 q1q2:双头搜索</span></span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;p : wordList)&#123;</span><br><span class="line">            dict.insert(p);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!dict.count(endWord))</span><br><span class="line">            <span class="keyword">return</span> path;</span><br><span class="line"></span><br><span class="line">        dict.erase(beginWord);</span><br><span class="line">        dict.erase(endWord);</span><br><span class="line"></span><br><span class="line">        q1.insert(beginWord);</span><br><span class="line">        q2.insert(endWord);</span><br><span class="line">        <span class="keyword">bool</span> reverse = <span class="literal">false</span>, found = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q1.empty())&#123;</span><br><span class="line">            <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; q;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;w : q1)&#123;</span><br><span class="line">                <span class="built_in">string</span> cw = w;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span> ; i &lt; cw.<span class="built_in">size</span>(); ++i)&#123;</span><br><span class="line">                    <span class="keyword">char</span> c = cw[i];</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; ++j)&#123;</span><br><span class="line">                        cw[i] = j + <span class="string">'a'</span>;</span><br><span class="line">                        <span class="keyword">if</span>(q2.count(cw))&#123;</span><br><span class="line">                            reverse ? next[cw].push_back(w) : next[w].push_back(cw);</span><br><span class="line">                            found = <span class="literal">true</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(dict.count(cw))&#123; <span class="comment">//count 比 find好用</span></span><br><span class="line">                            reverse ? next[cw].push_back(w) : next[w].push_back(cw);</span><br><span class="line">                            q.insert(cw);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cw[i] = c;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// for(const auto &amp;w :q)</span></span><br><span class="line">            <span class="comment">//     cout &lt;&lt; w &lt;&lt; " ";</span></span><br><span class="line">            <span class="comment">// cout &lt;&lt; endl;</span></span><br><span class="line">            <span class="comment">//控制搜索层数            </span></span><br><span class="line">            <span class="keyword">if</span>(found)  <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;w : q)&#123;</span><br><span class="line">                dict.erase(w);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//选择扩展范围小的开始搜索，降低搜索数量</span></span><br><span class="line">            <span class="keyword">if</span>(q.<span class="built_in">size</span>() &lt; q2.<span class="built_in">size</span>())&#123;</span><br><span class="line">                q1 = q;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                reverse = !reverse;</span><br><span class="line">                q1 = q2;</span><br><span class="line">                q2 = q;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; oneway = &#123;beginWord&#125;;</span><br><span class="line">        buildPath(next, path, oneway, beginWord, endWord);</span><br><span class="line">        <span class="keyword">return</span> path;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">buildPath</span><span class="params">(<span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; next, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; path, </span></span></span><br><span class="line"><span class="function"><span class="params">                 <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;oneway, <span class="built_in">string</span> nword, <span class="built_in">string</span> endWord)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nword == endWord)&#123;            </span><br><span class="line">            path.push_back(oneway);</span><br><span class="line">            <span class="keyword">return</span>;        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;w : next[nword])&#123;</span><br><span class="line">            oneway.push_back(w);</span><br><span class="line">            buildPath(next, path, oneway, w, endWord);</span><br><span class="line">            oneway.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tbfs/" rel="tag"># tbfs</a>
+          
+            <a href="/tags/bfs/" rel="tag"># bfs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/28/sui-tan/da-shu-ju-chan-pin-si-kao-di-qiu-bao-wei-zhe/" rel="next" title="大数据产品思考——地球保卫者">
+                <i class="fa fa-chevron-left"></i> 大数据产品思考——地球保卫者
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/01/shua-ti/leetcode/130-surrounded-regions/" rel="prev" title="130. Surrounded Regions">
+                130. Surrounded Regions <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#126-Word-Ladder-II"><span class="nav-number">1.</span> <span class="nav-text">126. Word Ladder II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">3.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

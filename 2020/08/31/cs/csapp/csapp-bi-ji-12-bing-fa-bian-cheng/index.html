@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="现代操作系统提供了三种方法进行并发编程——进程、I&#x2F;O多路复用和线程。这章节提供了三种构造并发服务器的思路。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP笔记12-并发编程">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="现代操作系统提供了三种方法进行并发编程——进程、I&#x2F;O多路复用和线程。这章节提供了三种构造并发服务器的思路。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831092105604.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831123224901.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831130012789.png">
+<meta property="article:published_time" content="2020-08-31T01:13:09.000Z">
+<meta property="article:modified_time" content="2020-08-31T05:00:50.190Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.come2rss.xyz/image-20200831092105604.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/"/>
+
+
+
+
+
+  <title>CSAPP笔记12-并发编程 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSAPP笔记12-并发编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-31T09:13:09+08:00">
+                2020-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现代操作系统提供了三种方法进行并发编程——进程、I/O多路复用和线程。这章节提供了三种构造并发服务器的思路。</p>
+<a id="more"></a>
+
+<h2 id="基于进程的并发服务器"><a href="#基于进程的并发服务器" class="headerlink" title="基于进程的并发服务器"></a>基于进程的并发服务器</h2><p>主进程在TCP链接成功后，<code>fork</code>一个子进程来处理链接内容。主进程绑定僵死信号到自定义函数，保证僵死进程被主进程回收。</p>
+<p><img src="http://static.come2rss.xyz/image-20200831092105604.png" alt="image-20200831092105604"></p>
+<p>明显的，父子进程拥有同一份全局变量，但是父子进程无法直接通信，只能通过IPC（进程间通信）机制。与此同时，带来的进程管理和IPC开销都很高。</p>
+<blockquote>
+<p>unix IPC：指同一主机上一个进程对其他进程相互通信的技术。其中包括，管道、先进先出、系统V共享内存以及系统V信号量。</p>
+</blockquote>
+<h2 id="基于I-O多路复用的并发编程-基于I-O多路复用的并发事件驱动服务器"><a href="#基于I-O多路复用的并发编程-基于I-O多路复用的并发事件驱动服务器" class="headerlink" title="基于I/O多路复用的并发编程/基于I/O多路复用的并发事件驱动服务器"></a>基于I/O多路复用的并发编程/基于I/O多路复用的并发事件驱动服务器</h2><p><code>select</code>函数提供了从多路I/O读取的事件触发唤醒机制。该函数会要求内核挂起进程，并等待至少一个I/O事件发生后，在讲控制权返还给应用程序。他避免了等待终端输入的同时无法处理外部链接的尴尬情况，提高了系统并行程度。虽然当它在处理一个请求时，仍然无法处理另一个请求。</p>
+<p>以此我们可以编写基于多路I/O的并发事件服务器，更进一步的，我们将进程的状态模型化为状态机。每个状态都有一组输入事件，转移。</p>
+<h3 id="优劣之处"><a href="#优劣之处" class="headerlink" title="优劣之处"></a>优劣之处</h3><p>事件驱动事件的优点之一就是根据事件给予程序设计更多控制权。另外，基于多路I/O的事件驱动程序服务器运行在单一进程上下文中，因此每个逻辑流都能访问该进程的所有地址空间，使得流之间的数据共享变得容易。其次，可是使用方便熟悉的调试工具。</p>
+<p>事件驱动的另一个明显的缺点就是编码复杂。不幸的是，如果并发力度减少，复杂性还会上升。它的另一个缺点就是不能充分利用多核资源。</p>
+<h2 id="基于线程的并发编程"><a href="#基于线程的并发编程" class="headerlink" title="基于线程的并发编程"></a>基于线程的并发编程</h2><p>线程是微型进程，由内核调度。多个线程运行在同一进程的上下文中，共享进程虚拟空间的所有内容，包括代码、数据、堆、共享库和打开的文件。那么单个线程独有的资源有程序计数器、栈和栈指针，线程ID，条件码和通用寄存器值。也就是说，线程切换的代价远远比进程小。另外，线程不像进程拥有严格父子关系，主进程和对等线程的唯一区别在于主进程是一个创建的线程。所有和一个进程相关的线程组成一个线程池，其中每一个线程都可以杀死他的对等线程，或者等待其终止。</p>
+<p>线程的栈一般来说都是不共享的，但是由于线程的 栈都保存在进程的虚拟空间中，而且线程的栈的空间对其他的线程总是不设防的。如果一个线程能够获得其他线程的栈地址，实际是读写栈上的任何部分的。</p>
+<p>在变量上，全局变量和本地静态变量（函数内部的带static修饰的变量）都保存在虚拟空间中读写区域，运行过程中只有该变量的一份实例。也就是说，即使每个线程都定了一个<code>cnt</code>变量，每个线程在后续读写也是读写这个静态变量的唯一实例。而本地自动变量随着函数运行而保存在栈中，随着函数结束而消失。</p>
+<p>每个进程都是一个主线程，在创建一个线程后，称那个线程为对等线程（peer thread）。那么两个线程开始并发运行，当主进程遭遇慢速系统调用后，或者被系统的间隔计数器中断，控制转给另一个线程。 这就是线程执行的主要模式。</p>
+<h3 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h3><p>Posix线程（Pthreads）是C程序处理线程的一个标准接口，而且在所有Linux系统上通用。</p>
+<p><code>int pthread_create(pthread_t *tid, pthread_attr_t *attr, func *f, void *arg)</code> 创建一个新线程。<code>pthread_t</code>指线程ID</p>
+<p><code>pthread_t pthread_self(void)</code>：返回线程的ID。</p>
+<h4 id="终止"><a href="#终止" class="headerlink" title="终止"></a>终止</h4><p><code>void pthread_exit(void *thread_return)</code> 主进程调用会等待其他线程终止再终止主进程和整个进程。其他进程调用会显式地终止线程。</p>
+<p><code>exit()</code>终止进程和所有相关的线程</p>
+<p><code>int pthread_cancel(pthread_t tid)</code>：另一个线程调用，终止另一个对等线程。</p>
+<h4 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h4><p><code>int pthread_join(pthread_t tid, void **thread_retunr)</code> 阻塞线程等待其他线程终止。</p>
+<h4 id="分离"><a href="#分离" class="headerlink" title="分离"></a>分离</h4><p><code>int pthread_detach(pthread_t tid)</code>：分离该线程。分离后的线程不会被其他线程杀死或回收，它的内存资源在它终止后将有系统自动释放。相反，可结合的线程可被杀死和回收。</p>
+<blockquote>
+<p>实际上高性能服务器不愿意也没必要等待每一个对等线程终止，载回收它的资源。那么每个资源都应该在调用该函数，分离它自己。<code>pthread_detach(pthread_self())</code>！</p>
+</blockquote>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_once_t</span> once_control = PTHREAD_ONCE_INIT;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_once</span><span class="params">(<span class="keyword">pthread_once_t</span> *once_control, <span class="keyword">void</span> (*init_routine)(<span class="keyword">void</span>))</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>once_control是一个全局或者静态变量。用这个参数调用<code>pthread_once</code>后将在其第一次运行时调用<code>init_routine</code>，之后的再调用<code>pthread_once</code>将不会再干任何事情。这个特性在多个线程动态初始化共享变量特别有用。</p>
+<h3 id="线程的同步和竞争"><a href="#线程的同步和竞争" class="headerlink" title="线程的同步和竞争"></a>线程的同步和竞争</h3><p>同步竞争问题是经典的并行问题，常常在多线程编程对引出麻烦。尤其是仅仅一行简单操作代码却有多条指令组成的情况下，让人百思不得其解。</p>
+<p>具体不记录了，也是一些重复的内容。</p>
+<h3 id="预线程化的并发服务器"><a href="#预线程化的并发服务器" class="headerlink" title="预线程化的并发服务器"></a>预线程化的并发服务器</h3><p><img src="http://static.come2rss.xyz/image-20200831123224901.png" alt="image-20200831123224901"></p>
+<p>descriptors：描述符</p>
+<p>其实这图所示的服务器模型也是一种事件驱动模型。</p>
+<h2 id="线程提高并行性"><a href="#线程提高并行性" class="headerlink" title="线程提高并行性"></a>线程提高并行性</h2><p>不得不提，并发的兄弟——并行。在多核处理器上，每个核都可以运行一个进程或者线程，就是所谓的并行。可以理解，并行程序是并发程序的真子集。并行程序简单的来说可以大任务分成几个小任务分配给不同的线程，再由主线程来收集计算最终结果。但是由于线程之间可能存在的运行同步和竞争问题需要进行PV操作，还有多变量的内存引用，线程切换等开销，并行程序可能还不如非并行版本的程序快。</p>
+<p>要提高效率，要注意几个点：</p>
+<ul>
+<li>尽量减少共享变量，减少巨大的同步开销。</li>
+<li>多引用局部变量来消除不必要的内存引用。</li>
+</ul>
+<h3 id="刻画程序的性能"><a href="#刻画程序的性能" class="headerlink" title="刻画程序的性能"></a>刻画程序的性能</h3><p>并行程序的加速比（强扩展，strong scaling）：<br>$$<br>S_t = \frac{T_1}{T_p}<br>$$<br>$T_p$为程序在$k$个核上的运行时间。如果$T_1$是顺序版本的程序，则称公式为绝对加速比，如果$T_1$是并行版本的程序，那么公式称为相对加速比。前者要求的拥有源代码甚至有等价的复杂度实现要求很高。但是和后者增加无谓的切换线程的开销，使得$S_t$偏大。</p>
+<p>效率（efficiency）：<br>$$<br>E_p = \frac{S_p}{p} = \frac{T_1}{pT_p}<br>$$<br>效率是对由于并行化造成的开销的衡量。高效率的程序在有用的工作上花费更多的时间，而在同步和通信上花费更少的时间。</p>
+<p>弱扩展：同等增加处理器数量和任务总量，可以比较不同阶段的效率和加速比变化，得出其变化是否是线性的。</p>
+<h2 id="线程安全问题"><a href="#线程安全问题" class="headerlink" title="线程安全问题"></a>线程安全问题</h2><p>线程不安全的问题一共有四种：</p>
+<ul>
+<li>不保护共享变量的函数：显然的</li>
+<li>返回指向静态变量的函数：静态变量对于线程来说是共享的，返回指向它的函数容易导致其结果被其他调用篡改</li>
+<li>保持跨越的多个调用状态的函数：调用结果随着调用序列的变化而变化。显然，调用结果容易被多线程所扰乱。</li>
+<li>调用线程不安全的函数：就是调用以上三种不安全函数的函数！</li>
+</ul>
+<p>解决方法：</p>
+<ul>
+<li>第一种：重写代码，加锁；</li>
+<li>第二种：重写代码，加锁；在调用和获取结果的时候，加锁（可以定义一个线程安全的包装函数，执行加锁-复制，然后通过这个包装函数来取代所有线程不安全的调用）。</li>
+<li>第三种：唯一的方式就是重写它。使他不再依赖任何static变量，只依靠参数传递的实参。</li>
+<li>第四种：那就调用线程安全的函数就行了吧</li>
+</ul>
+<h3 id="可重入性"><a href="#可重入性" class="headerlink" title="可重入性"></a>可重入性</h3><p>一类线程安全的函数成为可重入函数。它们的特点就是调用过程中不会引用任何共享数据。那么可以说，可重入函数是线程安全函数的真子集。</p>
+<p><img src="http://static.come2rss.xyz/image-20200831130012789.png" alt="image-20200831130012789"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/" rel="next" title="CSAPP笔记10-系统级I/O">
+                <i class="fa fa-chevron-left"></i> CSAPP笔记10-系统级I/O
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/31/code-tools/linux/ji-yi-ci-zi-jian-dns/" rel="prev" title="记一次DNS分流">
+                记一次DNS分流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于进程的并发服务器"><span class="nav-number">1.</span> <span class="nav-text">基于进程的并发服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于I-O多路复用的并发编程-基于I-O多路复用的并发事件驱动服务器"><span class="nav-number">2.</span> <span class="nav-text">基于I&#x2F;O多路复用的并发编程&#x2F;基于I&#x2F;O多路复用的并发事件驱动服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣之处"><span class="nav-number">2.1.</span> <span class="nav-text">优劣之处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于线程的并发编程"><span class="nav-number">3.</span> <span class="nav-text">基于线程的并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POSIX线程"><span class="nav-number">3.1.</span> <span class="nav-text">POSIX线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#终止"><span class="nav-number">3.1.1.</span> <span class="nav-text">终止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#等待"><span class="nav-number">3.1.2.</span> <span class="nav-text">等待</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离"><span class="nav-number">3.1.3.</span> <span class="nav-text">分离</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的同步和竞争"><span class="nav-number">3.3.</span> <span class="nav-text">线程的同步和竞争</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预线程化的并发服务器"><span class="nav-number">3.4.</span> <span class="nav-text">预线程化的并发服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程提高并行性"><span class="nav-number">4.</span> <span class="nav-text">线程提高并行性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#刻画程序的性能"><span class="nav-number">4.1.</span> <span class="nav-text">刻画程序的性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全问题"><span class="nav-number">5.</span> <span class="nav-text">线程安全问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可重入性"><span class="nav-number">5.1.</span> <span class="nav-text">可重入性</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

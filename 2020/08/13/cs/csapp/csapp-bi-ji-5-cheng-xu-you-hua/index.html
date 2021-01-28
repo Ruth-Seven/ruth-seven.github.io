@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="GCC为我们C++语言提供了优秀的自动优化方法，-O1,-O2,-Og可以配置不同优化程度。但是GCC的优化也有局限性，它小心翼翼地保护不能确定结果的代码，比如：下述代码中，如果p2指向了v的最后一个元素，其计算结果和p2指向一个int data &#x3D; (*v)[(int)v.size() - 1]的结果完全不同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP笔记5-程序优化">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="GCC为我们C++语言提供了优秀的自动优化方法，-O1,-O2,-Og可以配置不同优化程度。但是GCC的优化也有局限性，它小心翼翼地保护不能确定结果的代码，比如：下述代码中，如果p2指向了v的最后一个元素，其计算结果和p2指向一个int data &#x3D; (*v)[(int)v.size() - 1]的结果完全不同。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822134523286.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822134541847.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822135156013.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822135407665.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822140741065.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822142413222.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822142726779.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822145100931.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200822145200831.png">
+<meta property="article:published_time" content="2020-08-13T07:46:49.000Z">
+<meta property="article:modified_time" content="2020-08-22T10:30:05.300Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.come2rss.xyz/image-20200822134523286.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/"/>
+
+
+
+
+
+  <title>CSAPP笔记5-程序优化 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/13/cs/csapp/csapp-bi-ji-5-cheng-xu-you-hua/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSAPP笔记5-程序优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-13T15:46:49+08:00">
+                2020-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>GCC为我们C++语言提供了优秀的自动优化方法，<code>-O1,-O2,-Og</code>可以配置不同优化程度。但是GCC的优化也有局限性，它小心翼翼地保护不能确定结果的代码，比如：下述代码中，如果p2指向了v的最后一个元素，其计算结果和p2指向一个<code>int data = (*v)[(int)v.size() - 1]</code>的结果完全不同。</p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; *v, <span class="keyword">int</span> *p2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v-&gt;<span class="built_in">size</span>(); i++)</span><br><span class="line">		*p2 = *p2 * (*v + i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="程序级优化方法"><a href="#程序级优化方法" class="headerlink" title="程序级优化方法"></a>程序级优化方法</h2><p>上述代码可以有三种可以讨论的方向。</p>
+<blockquote>
+<p>程序优化指标CPE：每个元素（泛指，比如一组指令，一段语句，一句汇编都可以是一个元素）所花费的平均CPU周期。</p>
+</blockquote>
+<h3 id="减少不必要的函数调用"><a href="#减少不必要的函数调用" class="headerlink" title="减少不必要的函数调用"></a>减少不必要的函数调用</h3><p>如果计算过程不存在改变vector的长度，<code>v-&gt;size()</code>应该避免多次调用，因为计算结果都是相同的。但是编译器不会把函数移动出去，因为它不知道<code>for</code>循环体的副作用。程序员应该主动移动该类函数。</p>
+<h3 id="减少不必要的内存引用"><a href="#减少不必要的内存引用" class="headerlink" title="减少不必要的内存引用"></a>减少不必要的内存引用</h3><p>上述例子中<code>p2</code>被不断的读，写，同时体现在编译语言上就不断的从内存中读，到内存中写。然而更好的方法就是定义一个暂时变量，从而在寄存器中保存结果，大幅减少读写指令。同样的因为指针未知指向，编译器也不会主动增加变量来暂存结果，只能由程序员手动更改代码。</p>
+<h3 id="循环展开"><a href="#循环展开" class="headerlink" title="循环展开"></a>循环展开</h3><p>可以在一次循环中计算原本循环中多次计算的结果。</p>
+<h2 id="从现代处理器理解程序优化"><a href="#从现代处理器理解程序优化" class="headerlink" title="从现代处理器理解程序优化"></a>从现代处理器理解程序优化</h2><p>处理器的不同单元有分支、算数运算、加载和存储多个功能，每个单元负责执行不同指令的不同操作。加载单元的数量限制了数据量的上限，称之为<strong>吞吐量界限</strong>。延迟也就是完成运算的需要的总时间。<strong>延迟界限</strong>是顺序指令执行的上限。</p>
+<p>另外，<strong>发射时间</strong>指两个同类型的运算之间需要的最小周期数，<strong>容量</strong>指能够执行单元指令的功能单元数量。</p>
+<p>从数据流图的角度分析代码瓶颈：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">mult</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(; i &lt; len; i++)&#123;</span><br><span class="line">        res = rse * a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>仅仅关注循环翻译的代码可以得到：</p>
+<p><img src="http://static.come2rss.xyz/image-20200822134523286.png" alt="image-20200822134523286"></p>
+<blockquote>
+<p>明显的有，存储器含义如下</p>
+<p>%rax: a[0] + len * 8</p>
+<p>%rdx:a[0] + i * 8</p>
+<p>%xmm0: res</p>
+</blockquote>
+<p>把寄存器和指令关系联系起来，可以得出：</p>
+<p><img src="http://static.come2rss.xyz/image-20200822134541847.png" alt="image-20200822134541847"></p>
+<p>把图形变形一下，然后留下迭代中变化的寄存器和使其变化的指令，可得(b)。</p>
+<p><img src="http://static.come2rss.xyz/image-20200822135156013.png" alt="image-20200822135156013"></p>
+<p>讲多个迭代的数据流图拼接起来可得：</p>
+<p><img src="http://static.come2rss.xyz/image-20200822135407665.png" alt="image-20200822135407665"></p>
+<p>其中明显的有关键路径，也是整个迭代执行的瓶颈，就是说迭代的CPE等于关键路径的CPE。</p>
+<blockquote>
+<p>容易混淆的是，关键路径查找失败，注意寄存器要相同。</p>
+</blockquote>
+<h3 id="循环展开-1"><a href="#循环展开-1" class="headerlink" title="循环展开"></a>循环展开</h3><p>也就是一次循环中计算多次迭代的值，已达到减少迭代的次数的目的。可以提高效率，但是CPE不会超过延迟界限，这是因为本质上将经过循环展开的代码所有执行过程展示，执行op数量和原有迭代相同。</p>
+<blockquote>
+<p>编译器在优化等级3以上就自动循环展开。</p>
+</blockquote>
+<h3 id="提高并行性"><a href="#提高并行性" class="headerlink" title="提高并行性"></a>提高并行性</h3><p>令人兴奋的是，提高并行性的方法可以打破延迟界限，但是无法突破吞吐界限。</p>
+<h4 id="多个累计变量"><a href="#多个累计变量" class="headerlink" title="多个累计变量"></a>多个累计变量</h4><p>将多个迭代拆分成每次迭代中计算多个不相互影响的计算式，从而降低迭代次数。</p>
+<p>比如以下代码可以称为2*2循环展开：</p>
+<blockquote>
+<p>前一个2指循环展开的计算式，</p>
+<p>后一个2指一个迭代计算的变量。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> res1 = <span class="number">1</span>, res2 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i += <span class="number">2</span>)&#123;</span><br><span class="line">    res1 *= a[i];</span><br><span class="line">    res2 *= a[i + <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">res = res1 * res2;</span><br></pre></td></tr></table></figure>
+
+<p>可以猜出，这两条计算指令可以并行处理，而且在数据流图上也出现两条关键路径。假设乘法的CPE为5，那么这个迭代的CPE为$5/2= 2.5$。</p>
+<p><img src="http://static.come2rss.xyz/image-20200822140741065.png" alt="image-20200822140741065"></p>
+<blockquote>
+<p>不过要小心，这种改变了计算顺序的优化方法，可能会导致计算结果的突变。比如浮点数乘法计算的溢出（上溢，下溢），浮点数的加法和乘法是不可结合的，原因如上。不过一般来说，极端数据模式的出现概率很低，而且一般来说，提高代码性能远远比防止极端数据出现更重要。</p>
+<p>放心的是，整数加法和乘法可以结合。</p>
+</blockquote>
+<h4 id="重新结合变化"><a href="#重新结合变化" class="headerlink" title="重新结合变化"></a>重新结合变化</h4><p>如下图，把计算OP顺序改变，可以得到近乎一半的性能提升。</p>
+<p><img src="http://static.come2rss.xyz/image-20200822142413222.png" alt="image-20200822142413222"></p>
+<p>原因仍然可以从数据流图中寻找：</p>
+<p><img src="http://static.come2rss.xyz/image-20200822142726779.png" alt="image-20200822142726779"></p>
+<p>至于另一条的数据流图，也很好画，结果正是两个<code>mul</code>在一个迭代中的关键路径上。</p>
+<blockquote>
+<p>AVX向量指令是Intel引入的SSE指令。（SSE是Streaming SIMD Extensions的缩写，SIMP为Single-In-struction, Multiple-Data，即单指令，多数据流的缩写）当前的AVX寄存器长为32B，每一个寄存器可以存放8个32bits或者4个64bits的数字。</p>
+<p><code>vmulps  (%rcx), %ymm0, %ymm1</code>可以读出8个数据进行相乘，$a_i=a_i*b_i, 0&lt;= i&lt;8$。</p>
+<p>可以对32位运算的效率提高8倍，64位计算的效率提高4倍。</p>
+<p>但，AVX指令无法产生64位整数的并行乘法指令。</p>
+</blockquote>
+<h4 id="其他因素"><a href="#其他因素" class="headerlink" title="其他因素"></a>其他因素</h4><p>由于循环内部暂存量过多，寄存器数量不够，反而导致需要在栈中暂时保存，这会到时效率变低。</p>
+<p>分支语句尽可能转化条件数据传送，否则如果预测错误效率会降很多。</p>
+<blockquote>
+<p>以下就是条件数据传送：</p>
+<p>v = cal_exper1；</p>
+<p>n = cal_exper2;</p>
+<p>if(t) rse = v;</p>
+<p>一般到的if-else形式语句就是条件操作传送。</p>
+</blockquote>
+<h2 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a>综合应用</h2><p>Unix提供了一个GPROF可以分析函数调用情况，以便我们优化代码。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -pg prog.c -o prog //-pg 避免内联函数变形，使用GPROF剖析</span><br><span class="line">./prog file.txt  //产生gmon.out</span><br><span class="line">grpof prog //分析数据</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>剖析第一部分容易看出：</p>
+<p><img src="http://static.come2rss.xyz/image-20200822145100931.png" alt="image-20200822145100931"></p>
+<p>第二部分：</p>
+<p>前两行指<code>find_ele_rec</code>被<code>find_ele_rec</code>和<code>insret_string</code>的调用情况，第三行指<code>find_ele_rec</code>总被调用情况，后两行指<code>find_ele_rec</code>调用的两个函数情况。</p>
+<p><img src="http://static.come2rss.xyz/image-20200822145200831.png" alt="image-20200822145200831"></p>
+<p>可以看出<code>find_ele_rec</code>是一个递归函数，而且……</p>
+<blockquote>
+<p>GPROF计时不准。基于间段计时中断的机制，典型的中断时间是1ms，容易对执行时间不长的程序误判时长。对于计时长的GPROF的程序计时显得准确。</p>
+<p>如果没有执行内联替换则调用信息准确。</p>
+<p>不会显示对库函数的计时，除非用一个包装函数（wrapper function）</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/12/cs/csapp/csapp-bi-ji-3-cheng-xu-de-ji-qi-ji-biao-shi/" rel="next" title="CSAPP笔记3-程序的机器级表示">
+                <i class="fa fa-chevron-left"></i> CSAPP笔记3-程序的机器级表示
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/26/code-tools/linux/brshrc-de-zuo-yong/" rel="prev" title=".brshrc的作用">
+                .brshrc的作用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序级优化方法"><span class="nav-number">1.</span> <span class="nav-text">程序级优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少不必要的函数调用"><span class="nav-number">1.1.</span> <span class="nav-text">减少不必要的函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少不必要的内存引用"><span class="nav-number">1.2.</span> <span class="nav-text">减少不必要的内存引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环展开"><span class="nav-number">1.3.</span> <span class="nav-text">循环展开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从现代处理器理解程序优化"><span class="nav-number">2.</span> <span class="nav-text">从现代处理器理解程序优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环展开-1"><span class="nav-number">2.1.</span> <span class="nav-text">循环展开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提高并行性"><span class="nav-number">2.2.</span> <span class="nav-text">提高并行性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个累计变量"><span class="nav-number">2.2.1.</span> <span class="nav-text">多个累计变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重新结合变化"><span class="nav-number">2.2.2.</span> <span class="nav-text">重新结合变化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他因素"><span class="nav-number">2.2.3.</span> <span class="nav-text">其他因素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合应用"><span class="nav-number">3.</span> <span class="nav-text">综合应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">3.1.</span> <span class="nav-text">操作步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析"><span class="nav-number">3.2.</span> <span class="nav-text">解析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

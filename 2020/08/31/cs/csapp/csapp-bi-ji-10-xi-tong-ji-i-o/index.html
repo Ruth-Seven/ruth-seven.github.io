@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="输入输出是在主存和外部设备（磁盘驱动器、终端和网络）之间复制数据的过程。所有的语言都提供执行I&#x2F;O的高级别工具，比如ASNI的C提供了Scanf和Printf。在Linux系统中，内核提供的系统级Unix I&#x2F;O实现了较高级别的I&#x2F;O函数。学习Unix I&#x2F;O有助于我们理解系统I&#x2F;O的运作原理，理清其他系统概念，甚至在不得已的情况使用Unix I&#x2F;O编程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP笔记10-系统级I&#x2F;O">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="输入输出是在主存和外部设备（磁盘驱动器、终端和网络）之间复制数据的过程。所有的语言都提供执行I&#x2F;O的高级别工具，比如ASNI的C提供了Scanf和Printf。在Linux系统中，内核提供的系统级Unix I&#x2F;O实现了较高级别的I&#x2F;O函数。学习Unix I&#x2F;O有助于我们理解系统I&#x2F;O的运作原理，理清其他系统概念，甚至在不得已的情况使用Unix I&#x2F;O编程。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831084554937.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831083227048.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831083257058.png">
+<meta property="og:image" content="http://static.come2rss.xyz/image-20200831083515013.png">
+<meta property="article:published_time" content="2020-08-30T23:29:46.000Z">
+<meta property="article:modified_time" content="2020-08-31T05:00:50.190Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.come2rss.xyz/image-20200831084554937.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/"/>
+
+
+
+
+
+  <title>CSAPP笔记10-系统级I/O | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/31/cs/csapp/csapp-bi-ji-10-xi-tong-ji-i-o/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSAPP笔记10-系统级I/O</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-31T07:29:46+08:00">
+                2020-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>输入输出是在主存和外部设备（磁盘驱动器、终端和网络）之间复制数据的过程。所有的语言都提供执行I/O的高级别工具，比如ASNI的C提供了Scanf和Printf。在Linux系统中，内核提供的系统级Unix I/O实现了较高级别的I/O函数。学习Unix I/O有助于我们理解系统I/O的运作原理，理清其他系统概念，甚至在不得已的情况使用Unix I/O编程。</p>
+<a id="more"></a>
+
+<h2 id="Unix-I-O"><a href="#Unix-I-O" class="headerlink" title="Unix I/O"></a>Unix I/O</h2><p>一个Unix文件就是一个$m$字节的序列。所有的I/O设备，比如网络、磁盘和终端，都被模型化为文件，而所有的输入输出都被当做文件的读和写。这种优雅的映射方法允许Linux允许一种的统一且一致的方式执行读写。</p>
+<ul>
+<li>打开文件：如果应用程序要求内核打开一个文件，内核负责在打开表中修改文件条记录，从文件描述符池中选一个可用的描述符，然后返回标志该文件的非负整数文件<strong>描述符</strong>。内核负责记录文件的所有信息。</li>
+<li>标准文件：Linux shell创建的每个进程都有三个打开文件，分别是 标准输入、标准输出和标准错误，其描述符分别为0，1和2。在头文件&lt;unistd.h&gt;定义了常量：STDIN_FILNO、STDOUT_FILENO和STDERR_FILENO。它们可以用来代替文件描述符。</li>
+<li>文件位置：每个打开的文件都有内核维护的<strong>文件位置$k$**，每次读和写一段内容都是在文件位置为起点，进行读写，并移动指针到后续部分。当</strong>读**操作使文件位置$k&gt;m$（m为文件长度），触发一个称为<code>end-of-file</code>的条件。应用程序可以检测到这个条件，但实际上文件并没有这个符号。</li>
+<li>关闭文件：当应用程序通知内核关闭文件的时候，内核释放文件打开时创建的数据结构，将描述符恢复到可用的描述符池中。抑或一个进程终止了，内核会关闭该进程打开的所有文件。</li>
+</ul>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>每个Linux文件的都有一个类型（type）:</p>
+<ul>
+<li>普通文件：分为二进制文件和文本文件。文本文件是由文本行序列组成的，一行文本行以<code>\n</code>新行符（ASCII的换行符LF）结束。</li>
+<li>目录：包含了指向其他文件链接的文件。其中至少包含了两个链接，一个指向文件本身<code>.</code>，另一个指向父文件<code>..</code>。</li>
+<li>套接字：一个与其他网络主机进行网络通信的文件。</li>
+</ul>
+<p>其他文件如命名通道， 符号链接以及字符和块设备。</p>
+<p>mu [mu]</p>
+<blockquote>
+<p>size_t：unsigned  int</p>
+<p>ssize_t：long</p>
+</blockquote>
+<h2 id="I-O-API"><a href="#I-O-API" class="headerlink" title="I/O API"></a>I/O API</h2><p><img src="http://static.come2rss.xyz/image-20200831084554937.png" alt="image-20200831084554937"></p>
+<h3 id="基操"><a href="#基操" class="headerlink" title="基操"></a>基操</h3><p><code>int open(char *filename, int flags, int mode)</code> 打开文件并返回描述符。<code>flags</code>参数描述了如何访问，<code>mode</code>描述了读写权限。</p>
+<p><code>ssize_t read(int fd, void *buf, size_t n)</code>：从文件<code>fd</code>中读取<code>n</code>个字节到<code>*buf</code>。文件读取可能因为网络通信，读到EOF或者从终端中读取而传送的字节比应用程序要求的少。这些不足值并非错误，但是不够健壮。</p>
+<p><code>ssize_t write(int fd, cons void *buf, size_t n)</code>从内存位置<code>buf</code>读取<code>n</code>个字节写到文件<code>fd</code>。</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p><code>DIR *opendir(cons char *name)</code>：从路径<code>name</code>获取目录流的指针。流是对条目序列列表的抽象。</p>
+<p><code>struct dirent *readdir(DIR *dirp)</code>：返回指向dirp指向的下一个目录项的指针。</p>
+<p><code>int cloes(DIR *dirp)</code>：关闭目录流并释放所有资源。</p>
+<h3 id="I-O重定向"><a href="#I-O重定向" class="headerlink" title="I/O重定向"></a>I/O重定向</h3><p><code>dup2(int oldfd, int newfd)</code>：把进程的描述符表的<code>oldfd</code>项复制到<code>newfd</code>项，并关闭<code>newfd</code>指向的内容。</p>
+<h3 id="标准I-O"><a href="#标准I-O" class="headerlink" title="标准I/O"></a>标准I/O</h3><p>C语言定义了一组高级输入输出函数，称之为标准I/O库。它将每一个打开的文件模型化一个流。对于程序员而言每一个流就是一个指向<code>FILE</code>结构的指针。</p>
+<p>类型为<code>FILE</code>的流是对文件描述符和流缓冲区的抽象。流缓冲区作用就是把开销较高的Linux I/O系统调用的数量尽可能减少。比如标准I/O函数<code>getc</code>会在第一次调用时调用Unix I/O函数<code>read</code>读取一串字符串，之后便可以返回一个字符给应用程序。之后只要缓冲区有未使用的字符，<code>getc</code>就可以直接从缓冲区中获取。</p>
+<h2 id="打开文件数据结构"><a href="#打开文件数据结构" class="headerlink" title="打开文件数据结构"></a>打开文件数据结构</h2><p>内核用三个数据结构描述打开的文件：</p>
+<ul>
+<li>描述符表：每个文件都有一个描述符表，表中的每个描述符都指向内核得打开文件表。</li>
+<li>打开文件表：记录着打开文件的信息，仅此一张，所有进程共享。每个表项包含了文件位置、引用计数以及一个指向<code>v-node</code>表中的对应表项指针。引用计数会因对应文件的关闭而减少，直到变为零，该文件打开项也关闭。</li>
+<li>v-node表：存放关于文件本身的信息，比如文件存放位置，文件大小，访问权限等等。所有进程共享。</li>
+</ul>
+<p>举几个栗子🌰：</p>
+<p>一个进程打开两个文件：</p>
+<p><img src="http://static.come2rss.xyz/image-20200831083227048.png" alt="image-20200831083227048"></p>
+<p>一个进程用相同的参数打开一个文件两次：</p>
+<p>可以看到内核并不是只打开一个文件一次，而是新增了两个文件打开项（这部分内容和以前学习到内容由冲突）。如此，内核提供了两个读写位置给进程</p>
+<p><img src="http://static.come2rss.xyz/image-20200831083257058.png" alt="image-20200831083257058"></p>
+<p>父子进程刚刚fork完：</p>
+<p><img src="http://static.come2rss.xyz/image-20200831083515013.png" alt="image-20200831083515013"></p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ul>
+<li>尽可能使用标准函数，除非需要的信息太低级</li>
+<li>不要用<code>scanf</code>或<code>rio_readlineb</code>读取二进制文件 。二进制文件的<code>0xa</code>字节会使文件读取失败。</li>
+<li>标准I/O用于网络读取时会出意外的错误，最后使用健壮的<code>rio</code>。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/" rel="next" title="CSAPP笔记-虚拟内存">
+                <i class="fa fa-chevron-left"></i> CSAPP笔记-虚拟内存
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/31/cs/csapp/csapp-bi-ji-12-bing-fa-bian-cheng/" rel="prev" title="CSAPP笔记12-并发编程">
+                CSAPP笔记12-并发编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix-I-O"><span class="nav-number">1.</span> <span class="nav-text">Unix I&#x2F;O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">2.</span> <span class="nav-text">文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-API"><span class="nav-number">3.</span> <span class="nav-text">I&#x2F;O API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基操"><span class="nav-number">3.1.</span> <span class="nav-text">基操</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">3.2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-O重定向"><span class="nav-number">3.3.</span> <span class="nav-text">I&#x2F;O重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准I-O"><span class="nav-number">3.4.</span> <span class="nav-text">标准I&#x2F;O</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件数据结构"><span class="nav-number">4.</span> <span class="nav-text">打开文件数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number">5.</span> <span class="nav-text">建议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

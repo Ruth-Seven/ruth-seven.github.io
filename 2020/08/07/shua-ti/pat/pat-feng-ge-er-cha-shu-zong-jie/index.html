@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BinaryTree," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="总结一下PAT出现的所有树的套路 前序中序转后序1234567891011121314151617181920212223242526272829303132int post[40], n, pos &#x3D; 0;vector&lt;int&gt; pre, in;stack&lt;int&gt;s;void dfs(int l1, int h1, int l2, int h2)&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT风格二叉树总结">
+<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/shua-ti/pat/pat-feng-ge-er-cha-shu-zong-jie/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="总结一下PAT出现的所有树的套路 前序中序转后序1234567891011121314151617181920212223242526272829303132int post[40], n, pos &#x3D; 0;vector&lt;int&gt; pre, in;stack&lt;int&gt;s;void dfs(int l1, int h1, int l2, int h2)&amp;#1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-07T05:17:11.000Z">
+<meta property="article:modified_time" content="2021-01-28T07:48:37.759Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BinaryTree">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/shua-ti/pat/pat-feng-ge-er-cha-shu-zong-jie/"/>
+
+
+
+
+
+  <title>PAT风格二叉树总结 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/07/shua-ti/pat/pat-feng-ge-er-cha-shu-zong-jie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PAT风格二叉树总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-07T13:17:11+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+
+
+
+<p>总结一下PAT出现的所有树的套路</p>
+<h2 id="前序中序转后序"><a href="#前序中序转后序" class="headerlink" title="前序中序转后序"></a>前序中序转后序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">int post[40], n, pos &#x3D; 0;</span><br><span class="line">vector&lt;int&gt; pre, in;</span><br><span class="line">stack&lt;int&gt;s;</span><br><span class="line">void dfs(int l1, int h1, int l2, int h2)&#123;</span><br><span class="line">    if(l1 &gt; h1) return;</span><br><span class="line">    int k &#x3D; l2;</span><br><span class="line">    for(;in[k]!&#x3D;pre[l1];k++);</span><br><span class="line">    dfs(l1 + 1, l1 + k - l2, l2 , k - 1);</span><br><span class="line">    dfs(l1 + k - l2 + 1, h1, k + 1, h2);</span><br><span class="line">    post[pos++] &#x3D; pre[l1];</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int t;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i &#x3D;0 ;i &lt; 2 * n; i++)&#123;</span><br><span class="line">        string a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        if(a[1] &#x3D;&#x3D; &#39;u&#39;)&#123;</span><br><span class="line">            cin &gt;&gt; t;</span><br><span class="line">            s.push(t);</span><br><span class="line">            pre.push_back(t);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            in.push_back(s.top());</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(0, n - 1, 0, n - 1);</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++)&#123;</span><br><span class="line">        if(i &#x3D;&#x3D; n - 1) cout &lt;&lt; post[i];</span><br><span class="line">        else cout &lt;&lt; post[i] &lt;&lt; &#39; &#39; ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BST-CMT-转层序"><a href="#BST-CMT-转层序" class="headerlink" title="BST + CMT 转层序"></a>BST + CMT 转层序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int cbst[2000], n, pos &#x3D; 1, in[2000];</span><br><span class="line">int dfs(int u)&#123;</span><br><span class="line">    if(u &gt; n ) return 0;</span><br><span class="line">    dfs(u * 2);</span><br><span class="line">    cbst[u] &#x3D; in[pos++];</span><br><span class="line">    dfs(u * 2 + 1);</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">        cin &gt;&gt; in[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(in + 1, in + n + 1);</span><br><span class="line">    dfs(1);</span><br><span class="line">    for(int i &#x3D; 1;i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">        if(i &#x3D;&#x3D; n ) printf(&quot;%d&quot;, cbst[i]);</span><br><span class="line">        else printf(&quot;%d &quot;, cbst[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前序中序转后序-1"><a href="#前序中序转后序-1" class="headerlink" title="前序中序转后序"></a>前序中序转后序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; in, post, pre;</span><br><span class="line">int n, flag  &#x3D; 1;</span><br><span class="line">void dfs(int l1, int h1, int l2, int h2)&#123;</span><br><span class="line">    if(l1 &gt;&#x3D; h1)&#123;</span><br><span class="line">        if(l1 &#x3D;&#x3D; h1) in.push_back(pre[l1]); &#x2F;&#x2F; l1 &gt; h1时 才能压入 否则是错误的</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int k &#x3D; l1 + 1;</span><br><span class="line">    while(k &lt;&#x3D; h1 &amp;&amp; pre[k] !&#x3D; post[h2 - 1]) k++;</span><br><span class="line">    if(k &#x3D;&#x3D; l1 + 1)</span><br><span class="line">        flag &#x3D; 0;</span><br><span class="line">    dfs(l1 + 1, k - 1, l2, l2 + k - l1 - 2  );</span><br><span class="line">    in.push_back(pre[l1]);</span><br><span class="line">    dfs(k, h1, l2 + k - l1 - 1, h2 - 1 );</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    post.resize(n);</span><br><span class="line">    pre.resize(n);</span><br><span class="line">    for(int i &#x3D; 0; i &lt; n; i++) cin &gt;&gt; pre[i];</span><br><span class="line">    for(int i &#x3D; 0; i &lt; n; i++) cin &gt;&gt; post[i];</span><br><span class="line">    dfs(0, n - 1, 0 , n - 1);</span><br><span class="line">    if(flag) cout &lt;&lt; &quot;Yes\n&quot;;</span><br><span class="line">    else cout &lt;&lt; &quot;No\n&quot;;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; n; i++)</span><br><span class="line">        if(i &#x3D;&#x3D; n - 1) printf(&quot;%d\n&quot;, in[i]);</span><br><span class="line">        else printf(&quot;%d &quot;, in[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="层序中序转前序后序"><a href="#层序中序转前序后序" class="headerlink" title="层序中序转前序后序"></a>层序中序转前序后序</h2><p>这个问题也非常的巧妙，本来是一个层次遍历划分出一个父节点，但是下一步左右子树划分却成了问题，这个算法有一次刷新了我的世界观。使用中序遍历的思想，在层次遍历中查询每一个节点的归属父节点的左子树还是右子树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">const ll mod &#x3D; 1000000007;</span><br><span class="line">int tree[40][2], val[40], n;</span><br><span class="line">int  in[40];</span><br><span class="line">vector&lt;int&gt; pre, post, lay;</span><br><span class="line"></span><br><span class="line">int build(vector&lt;int&gt; lay, int l, int r)&#123;</span><br><span class="line">    if(l &gt; r) return 0;</span><br><span class="line">    int k &#x3D; 1;</span><br><span class="line">    while(lay[0] !&#x3D; in[k]) k++;</span><br><span class="line">    vector&lt;int&gt; llay, rlay;</span><br><span class="line">    for(int i &#x3D; 1;i &lt; lay.size(); i++)&#123;</span><br><span class="line">        int isl &#x3D; 0;</span><br><span class="line">        for(int j &#x3D; l; j&lt; k; j++)</span><br><span class="line">        if(lay[i] &#x3D;&#x3D; in[j])&#123;</span><br><span class="line">            isl &#x3D; 1;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">        if(isl) llay.push_back(lay[i]);</span><br><span class="line">        else rlay.push_back(lay[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    pre.push_back(in[k]);</span><br><span class="line">    tree[k][0] &#x3D;  build(llay, l, k - 1);</span><br><span class="line">    tree[k][1] &#x3D;  build(rlay, k + 1, r);</span><br><span class="line">    post.push_back(in[k]);</span><br><span class="line">    return k;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    lay.resize(n);</span><br><span class="line">    int root &#x3D; 0;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++) cin &gt;&gt; lay[i];</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++) cin &gt;&gt; in[i + 1];</span><br><span class="line">    root &#x3D; build(lay, 1, n);</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n;i++)</span><br><span class="line">        if(i &#x3D;&#x3D; n - 1) printf(&quot;%d\n&quot;, pre[i]);</span><br><span class="line">        else printf(&quot;%d &quot;, pre[i]);</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n;i++)</span><br><span class="line">        if(i &#x3D;&#x3D; n - 1) printf(&quot;%d\n&quot;, post[i]);</span><br><span class="line">        else printf(&quot;%d &quot;, post[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断完全二叉树"><a href="#判断完全二叉树" class="headerlink" title="判断完全二叉树"></a>判断完全二叉树</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">int tree[200][2], n, ingree[200], root, lastnood, flag &#x3D; 1;</span><br><span class="line">int bfs(int u)&#123;</span><br><span class="line">    int tn &#x3D; 1;</span><br><span class="line">    queue&lt;int&gt; que;</span><br><span class="line">    que.push(u);</span><br><span class="line">    while(que.size())&#123;</span><br><span class="line">        int v &#x3D; que.front(); que.pop();</span><br><span class="line">        lastnood &#x3D; v;</span><br><span class="line">        if(tree[v][0] &#x3D;&#x3D; -1)&#123;</span><br><span class="line">            if(tn !&#x3D; n)</span><br><span class="line">                flag &#x3D; 0;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            que.push(tree[v][0]);</span><br><span class="line">            tn++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(tree[v][1] &#x3D;&#x3D; -1)&#123;</span><br><span class="line">            if(tn !&#x3D; n)</span><br><span class="line">                flag &#x3D; 0;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            que.push(tree[v][1]);</span><br><span class="line">            tn++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    fill(tree[0], tree[0] + 200 * 2 , - 1 );</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++) &#123;</span><br><span class="line">        string a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        if(a !&#x3D; &quot;-&quot;)&#123;</span><br><span class="line">            int v &#x3D; atoi(a.c_str());</span><br><span class="line">            tree[i][0] &#x3D; v;</span><br><span class="line">            ingree[v] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(b !&#x3D; &quot;-&quot;) &#123;</span><br><span class="line">            int v &#x3D; atoi(b.c_str());</span><br><span class="line">            tree[i][1] &#x3D; v;</span><br><span class="line">            ingree[v] ++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; n ;i++) if(ingree[i] &#x3D;&#x3D; 0) root &#x3D; i;</span><br><span class="line">    bfs(root);</span><br><span class="line">    if(flag) cout &lt;&lt; &quot;YES &quot; &lt;&lt; lastnood;</span><br><span class="line">    else cout &lt;&lt; &quot;NO &quot; &lt;&lt; root;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="静态链表建树"><a href="#静态链表建树" class="headerlink" title="静态链表建树"></a>静态链表建树</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int tree[2000][3], lay[2000], n, depest, ct &#x3D; 0;</span><br><span class="line">int insert(int u, int val, int dep)&#123;</span><br><span class="line">    depest &#x3D; max(depest,dep);</span><br><span class="line">&#x2F;&#x2F;    cout &lt;&lt; u &lt;&lt; endl;</span><br><span class="line">    if(u &#x3D;&#x3D; 0)&#123;</span><br><span class="line">        lay[dep] ++;</span><br><span class="line">        tree[++ct][2] &#x3D; val;</span><br><span class="line">        return ct;</span><br><span class="line">    &#125;else if(val &lt;&#x3D; tree[u][2])&#123;</span><br><span class="line">        tree[u][0] &#x3D; insert(tree[u][0], val, dep + 1);</span><br><span class="line">    &#125;else if(val &gt; tree[u][2])&#123;</span><br><span class="line">        tree[u][1] &#x3D; insert(tree[u][1], val, dep + 1);</span><br><span class="line">    &#125;</span><br><span class="line">    return u;</span><br><span class="line"> &#125;</span><br><span class="line"> int main()</span><br><span class="line"> &#123;</span><br><span class="line">     int root &#x3D; 0, tmp;</span><br><span class="line">     cin &gt;&gt; n;</span><br><span class="line">     for(int i &#x3D; 0;i &lt; n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; tmp;</span><br><span class="line">        root &#x3D; insert(root, tmp, 1);</span><br><span class="line">     &#125;</span><br><span class="line">     cout &lt;&lt; lay[depest ] &lt;&lt; &quot; + &quot; &lt;&lt;  lay[depest - 1] &lt;&lt; &quot; &#x3D; &quot; &lt;&lt;  lay[depest] + lay[depest - 1] &lt;&lt; endl;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断树"><a href="#判断树" class="headerlink" title="判断树"></a>判断树</h2><p>晴神的一道题1016</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">int tree[100][3], val[40], n,  ingree[20];</span><br><span class="line">int navln, layer[23], isct &#x3D; 1, switime;</span><br><span class="line">stack&lt;int&gt; s;</span><br><span class="line">&#x2F;&#x2F;avl</span><br><span class="line">int ctavl(int root)&#123;</span><br><span class="line">    if(root &#x3D;&#x3D; 0) return 0;</span><br><span class="line">    int h1 &#x3D; ctavl(tree[root][0]);</span><br><span class="line">    int h2 &#x3D;  ctavl(tree[root][1]);</span><br><span class="line">    if( abs(h1 - h2) &gt; 1) navln ++;</span><br><span class="line">    return max(h1, h2) + 1;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;层序遍历同时存储 逆层序遍历的顺序以便调整堆！</span><br><span class="line">void isctree(int root)&#123;</span><br><span class="line">    int nt &#x3D; 1;</span><br><span class="line">    queue&lt;int&gt; que, lay;</span><br><span class="line">    que.push(root);</span><br><span class="line">    lay.push(1);</span><br><span class="line">    while(que.size())&#123;</span><br><span class="line">        int u &#x3D; que.front(); que.pop();</span><br><span class="line">        int ll &#x3D; lay.front(); lay.pop();</span><br><span class="line">        s.push(u);</span><br><span class="line">        layer[ll] ++;</span><br><span class="line">&#x2F;&#x2F;        cout &lt;&lt; u &lt;&lt; endl;</span><br><span class="line">        if( tree[u][0] )&#123;</span><br><span class="line">            que.push(tree[u][0]);</span><br><span class="line">            lay.push(ll + 1);</span><br><span class="line">            nt ++;</span><br><span class="line">        &#125;else if(nt !&#x3D; n) isct &#x3D; 0;</span><br><span class="line">        if( tree[u][1] )&#123;</span><br><span class="line">            que.push(tree[u][1]);</span><br><span class="line">            lay.push(ll + 1);</span><br><span class="line">            nt ++;</span><br><span class="line">        &#125;else if(nt !&#x3D; n) isct &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 向下调整 大顶堆</span><br><span class="line">void downAdjust(int root)&#123;</span><br><span class="line">    for(int p &#x3D; tree[root][0];p !&#x3D;0; p &#x3D; tree[root][0])&#123;</span><br><span class="line">        int pp &#x3D; tree[root][1];</span><br><span class="line">        if(val[pp] &gt; val[p]) p &#x3D; pp;</span><br><span class="line">        if(val[p] &lt; val[root]) break;</span><br><span class="line">        swap( val[root], val[p]);</span><br><span class="line">        switime ++;</span><br><span class="line">        root &#x3D; p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    string s1, s2;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++)&#123;</span><br><span class="line">        cin &gt;&gt; val[i];</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i &#x3D; 1;i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">        cin &gt;&gt;  s1 &gt;&gt; s2;</span><br><span class="line">        if(s1 !&#x3D; &quot;-&quot;)&#123;</span><br><span class="line">            tree[i][0] &#x3D; atoi(s1.c_str());</span><br><span class="line">            ingree[atoi(s1.c_str())]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s2 !&#x3D; &quot;-&quot;)&#123;</span><br><span class="line">            tree[i][1] &#x3D; atoi(s2.c_str());</span><br><span class="line">            ingree[atoi(s2.c_str())]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int rt &#x3D; -1;</span><br><span class="line">    for(int i &#x3D; 0;i &lt; n; i++)</span><br><span class="line">        if( ingree[i] &#x3D;&#x3D; 0) rt &#x3D; i;</span><br><span class="line">&#x2F;&#x2F;    cout &lt;&lt; rt ;</span><br><span class="line">    ctavl(rt);</span><br><span class="line">    if(navln !&#x3D; 0) cout &lt;&lt; &quot;NOT AVL TREE!!!\n&quot; &lt;&lt;  navln &lt;&lt; endl;</span><br><span class="line">    else&#123;</span><br><span class="line">        isctree(rt);</span><br><span class="line">        int p &#x3D; 1, noden &#x3D; 1;</span><br><span class="line">        while(noden &#x3D;&#x3D; layer[p])&#123;</span><br><span class="line">            noden *&#x3D; 2;</span><br><span class="line">            p++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!isct) cout &lt;&lt; &quot;NOT COMPLETE TREE!!!\n&quot; &lt;&lt; p - 1 &lt;&lt; endl;</span><br><span class="line">        else&#123;</span><br><span class="line">            while(s.size())&#123;</span><br><span class="line">                int u &#x3D; s.top(); s.pop();</span><br><span class="line">                downAdjust(u);</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; &quot;OHHHHH HEAP!!!\n&quot; &lt;&lt; switime &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BinaryTree/" rel="tag"># BinaryTree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/07/code-tools/windows/window-gong-zuo-huan-jing/" rel="next" title="window工作环境">
+                <i class="fa fa-chevron-left"></i> window工作环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/07/shua-ti/pat/pat-1043-er-cha-shu-chong-jian/" rel="prev" title="PAT 1043 二叉树重建">
+                PAT 1043 二叉树重建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前序中序转后序"><span class="nav-number">1.</span> <span class="nav-text">前序中序转后序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST-CMT-转层序"><span class="nav-number">2.</span> <span class="nav-text">BST + CMT 转层序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前序中序转后序-1"><span class="nav-number">3.</span> <span class="nav-text">前序中序转后序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层序中序转前序后序"><span class="nav-number">4.</span> <span class="nav-text">层序中序转前序后序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断完全二叉树"><span class="nav-number">5.</span> <span class="nav-text">判断完全二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链表建树"><span class="nav-number">6.</span> <span class="nav-text">静态链表建树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断树"><span class="nav-number">7.</span> <span class="nav-text">判断树</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
