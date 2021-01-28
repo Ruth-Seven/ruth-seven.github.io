@@ -4,10 +4,10 @@ thumbnail: 'http://static.come2rss.xyz/温哥华东部的弗雷泽河.jpg'
 toc: true
 top: 10
 tags:
-  - LCA
+ - LCA
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-09-27 11:37:57
 ---
 

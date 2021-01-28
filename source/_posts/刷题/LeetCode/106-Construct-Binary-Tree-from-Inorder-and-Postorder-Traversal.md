@@ -3,10 +3,10 @@ title: 106. Construct Binary Tree from Inorder and Postorder Traversal
 toc: true
 top: 10
 tags:
-  - binaryTree
+ - binaryTree
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-09-25 08:24:07
 ---
 

@@ -3,10 +3,12 @@ title: 238. Product of Array Except Self
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-12 11:10:16
 tags:
--数学
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-12 11:10:16
 ---
 
 

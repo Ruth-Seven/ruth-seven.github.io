@@ -3,10 +3,12 @@ title: 739. Daily Temperatures
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-23 18:21:51
 tags:
--单调栈
+  - 单调栈
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-23 18:21:51
 ---
 
 

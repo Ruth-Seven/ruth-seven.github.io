@@ -3,10 +3,12 @@ title: 528. Random Pick with Weight
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-10 10:05:09
 tags:
--数学
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-10 10:05:09
 ---
 
 

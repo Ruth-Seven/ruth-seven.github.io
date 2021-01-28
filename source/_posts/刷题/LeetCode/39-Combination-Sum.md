@@ -3,12 +3,14 @@ title: 39. Combination Sum
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-04 09:50:26
 tags:
-- dfs
-- 剪枝
--回溯
+  - dfs
+  - 剪枝
+  - 回溯
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-04 09:50:26
 ---
 
 

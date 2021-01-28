@@ -3,11 +3,13 @@ title: 241. Different Ways to Add Parentheses
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-02 21:53:55
 tags:
--分治
--dp
+  - 分治
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-02 21:53:55
 ---
 
 

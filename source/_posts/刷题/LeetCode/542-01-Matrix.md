@@ -3,11 +3,13 @@ title: 542. 01 Matrix
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-08 08:55:46
 tags:
--bfs
--dp
+  - bfs
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-08 08:55:46
 ---
 
 

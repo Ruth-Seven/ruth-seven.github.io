@@ -3,10 +3,12 @@ title: 72. Edit Distance
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-21 08:33:52
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-21 08:33:52
 ---
 
 

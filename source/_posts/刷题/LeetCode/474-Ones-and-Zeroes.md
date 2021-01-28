@@ -3,10 +3,12 @@ title: 474. Ones and Zeroes
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-18 09:30:19
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-18 09:30:19
 ---
 
 

@@ -3,10 +3,12 @@ title: 239. Sliding Window Maximum
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-25 15:45:02
 tags:
--deque
+  - deque
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-25 15:45:02
 ---
 
 

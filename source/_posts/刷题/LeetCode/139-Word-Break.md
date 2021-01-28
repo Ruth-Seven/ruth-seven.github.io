@@ -3,10 +3,12 @@ title: 139. Word Break
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-13 09:28:19
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-13 09:28:19
 ---
 
 ## [139. Word Break](https://leetcode-cn.com/problems/word-break/)

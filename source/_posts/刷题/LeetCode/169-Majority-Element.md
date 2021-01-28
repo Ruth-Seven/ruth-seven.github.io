@@ -3,10 +3,12 @@ title: 169. Majority Element
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-15 09:20:03
 tags:
--数字
+  - 数字
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-15 09:20:03
 ---
 
 

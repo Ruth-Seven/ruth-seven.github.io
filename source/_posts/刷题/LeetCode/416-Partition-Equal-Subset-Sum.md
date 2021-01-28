@@ -3,10 +3,12 @@ title: 416. Partition Equal Subset Sum
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-16 08:53:38
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-16 08:53:38
 ---
 
 ## [416. Partition Equal Subset Sum](https://leetcode-cn.com/problems/partition-equal-subset-sum/)

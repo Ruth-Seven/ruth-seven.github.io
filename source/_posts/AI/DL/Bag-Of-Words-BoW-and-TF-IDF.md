@@ -3,10 +3,12 @@ title: Bag Of Words (BoW) and TF-IDF
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-15 14:47:11
 tags:
--nlp
+  - nlp
 categories:
+  - AI
+  - DL
+date: 2021-01-15 14:47:11
 ---
 
 

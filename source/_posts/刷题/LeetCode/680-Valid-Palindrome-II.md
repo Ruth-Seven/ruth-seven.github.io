@@ -4,11 +4,11 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - 贪心
-  - twopoints
+ - 贪心
+ - twopoints
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-10-26 10:01:17
 ---
 

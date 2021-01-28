@@ -3,11 +3,13 @@ title: 37. Sudoku Solver
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-05 10:00:30
 tags:
--dfs
-- 回溯
+  - dfs
+  - 回溯
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-05 10:00:30
 ---
 
 

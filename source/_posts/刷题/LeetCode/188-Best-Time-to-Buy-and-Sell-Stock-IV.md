@@ -3,10 +3,12 @@ title: 188. Best Time to Buy and Sell Stock IV
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-25 09:48:17
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-25 09:48:17
 ---
 
 ## [188. Best Time to Buy and Sell Stock IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)

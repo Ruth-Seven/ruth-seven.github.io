@@ -3,10 +3,12 @@ title: 204. Count Primes
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-07 11:06:15
 tags:
--数学
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-07 11:06:15
 ---
 
 

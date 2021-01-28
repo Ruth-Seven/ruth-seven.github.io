@@ -3,12 +3,14 @@ title: 300. Longest Increasing Subsequence
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-13 09:28:13
 tags:
--dp
--贪心
--二分
+  - dp
+  - 贪心
+  - 二分
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-13 09:28:13
 ---
 
 

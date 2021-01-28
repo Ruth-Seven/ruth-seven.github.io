@@ -4,10 +4,10 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - two points
+ - two points
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-10-17 08:41:18
 ---
 

@@ -3,10 +3,12 @@ title: 384. Shuffle an Array
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-09 19:33:02
 tags:
--数学
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-09 19:33:02
 ---
 
 

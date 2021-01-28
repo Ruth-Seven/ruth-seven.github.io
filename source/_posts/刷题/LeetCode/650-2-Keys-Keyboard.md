@@ -3,11 +3,13 @@ title: 650. 2 Keys Keyboard
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-21 08:34:03
 tags:
--dp
--数学
+  - dp
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-21 08:34:03
 ---
 
 

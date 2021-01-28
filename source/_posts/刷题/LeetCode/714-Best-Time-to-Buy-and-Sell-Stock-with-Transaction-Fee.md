@@ -3,10 +3,12 @@ title: 714. Best Time to Buy and Sell Stock with Transaction Fee
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-26 08:40:39
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-26 08:40:39
 ---
 
 

@@ -3,10 +3,12 @@ title: 218. The Skyline Problem
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-26 11:16:58
 tags:
--扫描线
+  - 扫描线
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-26 11:16:58
 ---
 
 <!-- more -->

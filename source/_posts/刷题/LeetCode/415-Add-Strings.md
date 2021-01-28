@@ -3,10 +3,12 @@ title: 415. Add Strings
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2021-01-07 11:53:27
 tags:
--数学
+  - 数学
 categories:
+  - 刷题
+  - LeetCode
+date: 2021-01-07 11:53:27
 ---
 
 

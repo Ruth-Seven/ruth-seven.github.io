@@ -32,6 +32,7 @@
     "hexo-renderer-marked": "^3.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "hexo-theme-icarus": "^4.1.1",
     "hexo-util": "^1.9.1",
     "hexo-wordcount": "^6.0.1",
     "inferno": "^7.4.2",

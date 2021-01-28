@@ -3,10 +3,12 @@ title: 583. Delete Operation for Two Strings
 thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
-date: 2020-12-29 09:06:59
 tags:
--dp
+  - dp
 categories:
+  - 刷题
+  - LeetCode
+date: 2020-12-29 09:06:59
 ---
 
 

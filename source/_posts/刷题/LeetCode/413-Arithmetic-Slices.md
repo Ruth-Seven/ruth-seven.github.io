@@ -4,11 +4,11 @@ thumbnail: 'http://static.come2rss.xyz/北大西洋的大青鲨.jpg'
 toc: true
 top: 10
 tags:
-  - bug
-  - dp
+ - bug
+ - dp
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-09-28 08:02:55
 ---
 

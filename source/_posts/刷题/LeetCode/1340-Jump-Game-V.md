@@ -4,10 +4,10 @@ thumbnail: 'http://static.come2rss.xyz/尼尔机械.jpg'
 toc: true
 top: 10
 tags:
-  - 记忆化搜索
+ - 记忆化搜索
 categories:
-  - 刷题
-  - LeetCode
+ - 刷题
+ - LeetCode
 date: 2020-10-05 11:04:43
 ---
 这个题目还是蛮入门的……
