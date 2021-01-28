@@ -1,355 +1,6 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-  
-
-
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
-
-
-
-
-
-
-<meta name="description" content="链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。  这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSAPP笔记7：链接">
-<meta property="og:url" content="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。  这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829133841101.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829141748698.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829150135929.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829150159632.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829165319573.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829211920212.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829212452732.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200829223616309.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200830094830284.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200830100908262.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200830103614496.png">
-<meta property="og:image" content="http://static.come2rss.xyz/image-20200830104355735.png">
-<meta property="article:published_time" content="2020-08-28T05:38:40.000Z">
-<meta property="article:modified_time" content="2020-08-30T02:56:22.773Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://static.come2rss.xyz/image-20200829133841101.png">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"/>
-
-
-
-
-
-  <title>CSAPP笔记7：链接 | Hexo</title>
-  
-
-
-
-
-
-
-
-
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">CSAPP笔记7：链接</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-28T13:38:40+08:00">
-                2020-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/" itemprop="url" rel="index">
-                    <span itemprop="name">CS</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS/CSAPP/" itemprop="url" rel="index">
-                    <span itemprop="name">CSAPP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。</p>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CSAPP笔记7：链接 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。  这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。"><meta property="og:type" content="blog"><meta property="og:title" content="CSAPP笔记7：链接"><meta property="og:url" content="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。  这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-28T05:38:40.000Z"><meta property="article:modified_time" content="2021-01-28T14:04:37.939Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-28T05:38:40.000Z","dateModified":"2021-01-28T14:04:37.939Z","author":{"@type":"Person","name":"John Doe"},"description":"链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。  这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/08/28/cs/csapp/csapp-bi-ji-7-lian-jie/"><link rel="icon" href="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-28T05:38:40.000Z" title="8/28/2020, 1:38:40 PM">2020-08-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.939Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/CS/">CS</a><span> / </span><a class="link-muted" href="/categories/CS/CSAPP/">CSAPP</a></span><span class="level-item">37 minutes read (About 5532 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">CSAPP笔记7：链接</h1><div class="content"><p>链接是将各种代码和数据片段手机并组合成为一个单一文件的过程。链接方式从编译时（compile time）的静态链接，到加载时的共享库的动态链接，发展到运行时的共享库的动态链接。</p>
 <blockquote>
 <p>这章的内容比较严谨，对知识的连续性要求较高。最好细细品读，尽可能理解大部分内容，这对后续学习帮助较大。</p>
 </blockquote>
@@ -435,8 +86,23 @@
 <li>如果有多个弱符号，那么随机选择一个弱符号。</li>
 </ul>
 <p>但是规则2和规则3容易显露出一个非常难以察觉的错误：如果有两个未被初始化的同名变量被定义，尤其两个变量类型不同，那么将会可能导致变量类型被覆盖的错误。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* foo5.c */</span> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt; </span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">void</span>)</span></span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> y = <span class="number">15212</span>; </span><br><span class="line"><span class="keyword">int</span> x = <span class="number">15213</span>; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    f();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"x = 0x%x y = 0x%x \n"</span>, <span class="number">12</span> x, y); </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* bar5.c */</span> </span><br><span class="line"><span class="keyword">double</span> x; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    x = <span class="number">-0.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;* foo5.c *&#x2F; 
+#include &lt;stdio.h&gt; 
+void f(void); 
 
+int y &#x3D; 15212; 
+int x &#x3D; 15213; 
+int main()&#123;
+    f();
+	printf(&quot;x &#x3D; 0x%x y &#x3D; 0x%x \n&quot;, 12 x, y); 
+    return 0; 
+&#125;
+
+&#x2F;* bar5.c *&#x2F; 
+double x; 
+void f()&#123;
+    x &#x3D; -0.0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="与静态库连接"><a href="#与静态库连接" class="headerlink" title="与静态库连接"></a>与静态库连接</h3><p>所有编译系统都支持一种机制——将所有的目标模块打包成一个单独文件<code>.a</code>（称为存档<code>archive</code>，有一个头部描述各个成员模块的位置和大小），称为静态库，并作为链接器的输入。当链接器构造一个输出的可执行文件时，它只复制静态库里被应用程序引用的目标模块。静态库机制的出现不仅仅减少因为使用标准函数所带来的代码多余，而且方便迭代所引用的目标模块，再链接一次即可。</p>
@@ -445,8 +111,15 @@
 </blockquote>
 <p>典型链接过程：</p>
 <p><img src="http://static.come2rss.xyz/image-20200829165319573.png" alt="image-20200829165319573"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建静态库</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -c addvec.c multvec.c </span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> ar rcs libvector.a addvec.o multvec.o</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">编译链接</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -c main2.c </span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -static -o prog2c main2.o -L. -lvector <span class="comment">#-static 静态编译</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">or equivalently</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -static -o prog2c main2.o ./libvector.a</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#创建静态库
+linux&gt; gcc -c addvec.c multvec.c 
+linux&gt; ar rcs libvector.a addvec.o multvec.o
 
+#编译链接
+linux&gt; gcc -c main2.c 
+linux&gt; gcc -static -o prog2c main2.o -L. -lvector #-static 静态编译
+#or equivalently
+linux&gt; gcc -static -o prog2c main2.o .&#x2F;libvector.a    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="链接器用静态库来解析引用"><a href="#链接器用静态库来解析引用" class="headerlink" title="链接器用静态库来解析引用"></a>链接器用静态库来解析引用</h3><p>解析静态库的算法概括一下就是：从左到右遍历一次所有文件；对于可重定位目标文件，记录下符号引用，并解析记录下的符号引用；对于静态库，单单只是解析符号引用。</p>
 <p>所以如果一个包含了符号定义的文件排在引用其符号的文件之前，链接器无法对这个符号进行解析，导致直接报错。一般关于库的准则是将他们放在命令行的结尾。当然也可重复写库名来应对多个文件循环调用的情况。</p>
 <h2 id="重定位"><a href="#重定位" class="headerlink" title="重定位"></a>重定位</h2><p>一旦链接器完成了符号连接过程，接下来就是重定位：</p>
@@ -478,8 +151,10 @@
 <li>加载器加载程序到内存中，找到动态链接的节，加载和运行动态链接器。</li>
 <li>动态链接器重定位共性库的文本和数据到某个内存中；然后重定位程序中对共享库的程序和数据的符号引用。（修改了目标文件的代码，算不上位置无关代码）</li>
 </ul>
-<h3 id="动态链接命令："><a href="#动态链接命令：" class="headerlink" title="动态链接命令："></a>动态链接命令：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">生成动态库</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -shared -fpic -o libvector.so addvec.c multvec.c <span class="comment">#-fpic 指示编译器产生位置无关代码 -shared指示链接器创建一个共享的目标文件</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">编译</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -o prog2l main2.c ./libvector.so</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="动态链接命令："><a href="#动态链接命令：" class="headerlink" title="动态链接命令："></a>动态链接命令：</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#生成动态库
+linux&gt; gcc -shared -fpic -o libvector.so addvec.c multvec.c #-fpic 指示编译器产生位置无关代码 -shared指示链接器创建一个共享的目标文件
+#编译
+linux&gt; gcc -o prog2l main2.c .&#x2F;libvector.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="运行时动态链接"><a href="#运行时动态链接" class="headerlink" title="运行时动态链接"></a>运行时动态链接</h2><p>这种技术支持了应用无需在编译和链接是将库链接到应用中，是一项非常强大的技术。比如，分发共享库的新版本来更新软件；Web服务器通过生成动态内容的共享库，并将其存储在内存中，达到快速调用的目的，而无需生成一个线程或者进程，减少了开销，提高了性能。更进一步的说，无需停止服务器，而可以更新已经存在的函数，以及添加新的函数！</p>
 <p>栗子：Linux提供了动态链接库的简单接口<code>dlopne</code>，<code>dlerror</code>，<code>dlclose</code>和<code>dlsym</code>。</p>
 <p><img src="http://static.come2rss.xyz/image-20200829223616309.png" alt="image-20200829223616309"></p>
@@ -490,17 +165,21 @@
 <p><img src="http://static.come2rss.xyz/image-20200830100908262.png" alt="image-20200830100908262"></p>
 <h2 id="库打桩机制"><a href="#库打桩机制" class="headerlink" title="库打桩机制"></a>库打桩机制</h2><p>库打桩技术就是把调用函数替换成其他函数，一般用包装函数来代替原来的函数，用于追踪数据，记录调用情况，甚至直接替换成另一个实现。有三种不同的打桩机制：</p>
 <h3 id="编译时打桩"><a href="#编译时打桩" class="headerlink" title="编译时打桩"></a>编译时打桩</h3><p>拥有源代码，保证不修改源代码的情况下，最好添加一个<code>#define func() myfunc()</code>和函数声明的源文件，一个函数定义的<code>.h</code>文件。在编译选项中添加<code>-I</code>参数进行打桩，告诉C预处理器先在本地目录寻找<code>malloc.h</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -DCOMPILETIME -c mymalloc.c</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -I. -o intc int.c mymalloc.o</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">linux&gt; gcc -DCOMPILETIME -c mymalloc.c
+linux&gt; gcc -I. -o intc int.c mymalloc.o <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="http://static.come2rss.xyz/image-20200830103614496.png" alt="image-20200830103614496"></p>
 <h3 id="链接时打桩"><a href="#链接时打桩" class="headerlink" title="链接时打桩"></a>链接时打桩</h3><p>Linux静态编译器支持在链接过程中<code>--wrap f</code>标志来打桩，链接器会把<code>f</code>解析成<code>__wrap_f</code>，把<code>__real_f</code>解析成<code>f</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -Wl,--wrap,malloc -Wl,--wrap,free -o intl int.o mymalloc.o</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -Wl 把`,--wrap,malloc`替换成` --wrap malloc`传递给静态链接器</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">linux&gt; gcc -Wl,--wrap,malloc -Wl,--wrap,free -o intl int.o mymalloc.o
+# -Wl 把&#96;,--wrap,malloc&#96;替换成&#96; --wrap malloc&#96;传递给静态链接器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>那么只要编写一个wrap和free字符包装过的函数声明和定义就Ok了。而且仅仅只需要可重定位目标文件就行了！</p>
 <p><img src="http://static.come2rss.xyz/image-20200830104355735.png" alt="image-20200830104355735"></p>
 <h3 id="运行时打桩"><a href="#运行时打桩" class="headerlink" title="运行时打桩"></a>运行时打桩</h3><p>如果程序使用的共享库的函数是我们想要打桩的，直接修改动态链接器的<code>LD_PRELOAD</code>环境变量为当前打桩的所替换的共享库路径即可。动态链接器会先去那个路径寻找共享库，从而自动替换打桩函数。但是需要创建共享库，而且被替换函数之前得是共享库函数。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建共享库</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -DRUNTIME -shared -fpic -o mymalloc.so mymalloc.c -ldl</span></span><br><span class="line"><span class="meta">#</span><span class="bash">编译</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> gcc -o intr int.c</span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改环境变量</span></span><br><span class="line"><span class="meta">linux&gt;</span><span class="bash"> LD_PRELOAD=<span class="string">"./mymalloc.so"</span> ./intr</span></span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#创建共享库
+linux&gt; gcc -DRUNTIME -shared -fpic -o mymalloc.so mymalloc.c -ldl
+#编译
+linux&gt; gcc -o intr int.c
+#修改环境变量
+linux&gt; LD_PRELOAD&#x3D;&quot;.&#x2F;mymalloc.so&quot; .&#x2F;intr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="工具小结"><a href="#工具小结" class="headerlink" title="工具小结"></a>工具小结</h2><p><code>ar</code>. Creates static libraries, and inserts, deletes, lists, and extracts members. </p>
@@ -510,385 +189,92 @@
 <p><code>size</code>. Lists the names and sizes of the sections in an object ﬁle. </p>
 <p><code>readelf</code>. Displays the complete structure of an object ﬁle, including all of the information encoded in the ELF header. Subsumes the functionality of size and nm. </p>
 <p><code>objdump</code>. The mother of all binary tools. Can display all of the information in an object ﬁle. Its most useful function is disassembling the binary instructions in the .text section.<br>Linux systems also provide the <code>ldd</code> program for manipulating shared libraries:<br><code>ldd</code>: Lists the shared libraries that an executable needs at run time.</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">CSAPP笔记-虚拟内存</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/"><span class="level-item">CSAPP笔记8-异常控制流</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "f2cd3c5da989be5eb54c1ec5f058fb95",
+            repo: "Some-of-Your-GitHub-Repo",
+            owner: "2019-nNewG+C",
+            clientID: "68309e2465123e9ed5fb",
+            clientSecret: "1a622945bd15a7219dd02e477cb2b6b8f2a40697",
+            admin: ["2019-nNewG+C"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
             
-              <a href="/2020/08/27/cs/csapp/csapp-bi-ji-8-yi-liu-kong-zhi/" rel="next" title="CSAPP笔记8-异常控制流">
-                <i class="fa fa-chevron-left"></i> CSAPP笔记8-异常控制流
-              </a>
             
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
+            enableHotKey: true,
             
-              <a href="/2020/08/30/cs/csapp/csapp-bi-ji-9-xu-ni-nei-cun/" rel="prev" title="CSAPP笔记-虚拟内存">
-                CSAPP笔记-虚拟内存 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">223</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">65</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译过程"><span class="nav-number">1.</span> <span class="nav-text">编译过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态链接"><span class="nav-number">2.</span> <span class="nav-text">静态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标文件"><span class="nav-number">3.</span> <span class="nav-text">目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重定位目标文件"><span class="nav-number">4.</span> <span class="nav-text">可重定位目标文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#符号和符号表"><span class="nav-number">4.0.1.</span> <span class="nav-text">符号和符号表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号解析"><span class="nav-number">5.</span> <span class="nav-text">符号解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链接器解析多重定义的全局符号"><span class="nav-number">5.1.</span> <span class="nav-text">链接器解析多重定义的全局符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与静态库连接"><span class="nav-number">5.2.</span> <span class="nav-text">与静态库连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接器用静态库来解析引用"><span class="nav-number">5.3.</span> <span class="nav-text">链接器用静态库来解析引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定位"><span class="nav-number">6.</span> <span class="nav-text">重定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可执行二进制文件"><span class="nav-number">7.</span> <span class="nav-text">可执行二进制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加载过程"><span class="nav-number">7.1.</span> <span class="nav-text">加载过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序加载的内存映像"><span class="nav-number">7.2.</span> <span class="nav-text">程序加载的内存映像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载时动态链接"><span class="nav-number">8.</span> <span class="nav-text">加载时动态链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态链接命令："><span class="nav-number">8.1.</span> <span class="nav-text">动态链接命令：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时动态链接"><span class="nav-number">9.</span> <span class="nav-text">运行时动态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置无关代码"><span class="nav-number">10.</span> <span class="nav-text">位置无关代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#库打桩机制"><span class="nav-number">11.</span> <span class="nav-text">库打桩机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译时打桩"><span class="nav-number">11.1.</span> <span class="nav-text">编译时打桩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接时打桩"><span class="nav-number">11.2.</span> <span class="nav-text">链接时打桩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时打桩"><span class="nav-number">11.3.</span> <span class="nav-text">运行时打桩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具小结"><span class="nav-number">12.</span> <span class="nav-text">工具小结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">224</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/01/28/shua-ti-sou-suo-er-fen-81-search-in-rotated-sorted-array-ii/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="81. Search in Rotated Sorted Array II"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-28T09:02:19.000Z">2021-01-28</time></p><p class="title"><a href="/2021/01/28/shua-ti-sou-suo-er-fen-81-search-in-rotated-sorted-array-ii/">81. Search in Rotated Sorted Array II</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/">搜索</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/">二分
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/28/shua-ti-shu-ju-jie-gou-ou-la-tu-332-reconstruct-itinerary/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="332. Reconstruct Itinerary"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-28T06:43:49.000Z">2021-01-28</time></p><p class="title"><a href="/2021/01/28/shua-ti-shu-ju-jie-gou-ou-la-tu-332-reconstruct-itinerary/">332. Reconstruct Itinerary</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%AC%A7%E6%8B%89%E5%9B%BE/">欧拉图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/27/shua-ti/shu-ju-jie-gou/ha-xi/149-max-points-on-a-line/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="149. Max Points on a Line"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-27T15:23:34.000Z">2021-01-27</time></p><p class="title"><a href="/2021/01/27/shua-ti/shu-ju-jie-gou/ha-xi/149-max-points-on-a-line/">149. Max Points on a Line</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/">哈希</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/26/shua-ti-sao-miao-xian-218-the-skyline-problem/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="218. The Skyline Problem"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-26T03:16:58.000Z">2021-01-26</time></p><p class="title"><a href="/2021/01/26/shua-ti-sao-miao-xian-218-the-skyline-problem/">218. The Skyline Problem</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%89%AB%E6%8F%8F%E7%BA%BF/">扫描线
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/01/25/shua-ti-shu-ju-jie-gou-deque-239-sliding-window-maximum/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="239. Sliding Window Maximum"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-01-25T07:45:02.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/shua-ti-shu-ju-jie-gou-deque-239-sliding-window-maximum/">239. Sliding Window Maximum</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/deque/">deque
+</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">46</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#编译过程"><span class="level-left"><span class="level-item">1</span><span class="level-item">编译过程</span></span></a></li><li><a class="level is-mobile" href="#静态链接"><span class="level-left"><span class="level-item">2</span><span class="level-item">静态链接</span></span></a></li><li><a class="level is-mobile" href="#目标文件"><span class="level-left"><span class="level-item">3</span><span class="level-item">目标文件</span></span></a></li><li><a class="level is-mobile" href="#可重定位目标文件"><span class="level-left"><span class="level-item">4</span><span class="level-item">可重定位目标文件</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#符号和符号表"><span class="level-left"><span class="level-item">4.1.1</span><span class="level-item">符号和符号表</span></span></a></li></ul></ul></li><li><a class="level is-mobile" href="#符号解析"><span class="level-left"><span class="level-item">5</span><span class="level-item">符号解析</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#链接器解析多重定义的全局符号"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">链接器解析多重定义的全局符号</span></span></a></li><li><a class="level is-mobile" href="#与静态库连接"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">与静态库连接</span></span></a></li><li><a class="level is-mobile" href="#链接器用静态库来解析引用"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">链接器用静态库来解析引用</span></span></a></li></ul></li><li><a class="level is-mobile" href="#重定位"><span class="level-left"><span class="level-item">6</span><span class="level-item">重定位</span></span></a></li><li><a class="level is-mobile" href="#可执行二进制文件"><span class="level-left"><span class="level-item">7</span><span class="level-item">可执行二进制文件</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#加载过程"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">加载过程</span></span></a></li><li><a class="level is-mobile" href="#程序加载的内存映像"><span class="level-left"><span class="level-item">7.2</span><span class="level-item">程序加载的内存映像</span></span></a></li></ul></li><li><a class="level is-mobile" href="#加载时动态链接"><span class="level-left"><span class="level-item">8</span><span class="level-item">加载时动态链接</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#动态链接命令："><span class="level-left"><span class="level-item">8.1</span><span class="level-item">动态链接命令：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#运行时动态链接"><span class="level-left"><span class="level-item">9</span><span class="level-item">运行时动态链接</span></span></a></li><li><a class="level is-mobile" href="#位置无关代码"><span class="level-left"><span class="level-item">10</span><span class="level-item">位置无关代码</span></span></a></li><li><a class="level is-mobile" href="#库打桩机制"><span class="level-left"><span class="level-item">11</span><span class="level-item">库打桩机制</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#编译时打桩"><span class="level-left"><span class="level-item">11.1</span><span class="level-item">编译时打桩</span></span></a></li><li><a class="level is-mobile" href="#链接时打桩"><span class="level-left"><span class="level-item">11.2</span><span class="level-item">链接时打桩</span></span></a></li><li><a class="level is-mobile" href="#运行时打桩"><span class="level-left"><span class="level-item">11.3</span><span class="level-item">运行时打桩</span></span></a></li></ul></li><li><a class="level is-mobile" href="#工具小结"><span class="level-left"><span class="level-item">12</span><span class="level-item">工具小结</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">164</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">33</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">28</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">24</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">21</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LCA/"><span class="level-start"><span class="level-item">LCA
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/deque/"><span class="level-start"><span class="level-item">deque
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/"><span class="level-start"><span class="level-item">二叉树</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8B%93%E6%89%91/"><span class="level-start"><span class="level-item">拓扑
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/"><span class="level-start"><span class="level-item">栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%AC%A7%E6%8B%89%E5%9B%BE/"><span class="level-start"><span class="level-item">欧拉图
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
