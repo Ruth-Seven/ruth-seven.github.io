@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-01-28T14:04:37.839Z</updated>
+  <updated>2021-01-29T03:48:15.313Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>560. Subarray Sum Equals K</title>
+    <link href="https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/560-subarray-sum-equals-k/"/>
+    <id>https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/560-subarray-sum-equals-k/</id>
+    <published>2021-01-29T03:47:14.000Z</published>
+    <updated>2021-01-29T03:48:15.313Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;560-Subarray-Sum-Equals-K&quot;&gt;&lt;a href=&quot;#560-Subarray-Sum-Equals-K&quot; class=&quot;headerlink&quot; title=&quot;560. Subarray Sum Equals K&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/subarray-sum-equals-k/&quot;&gt;560. Subarray Sum Equals K&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;hash+ 前缀。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>304. Range Sum Query 2D - Immutable</title>
+    <link href="https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/304-range-sum-query-2d-immutable/"/>
+    <id>https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/304-range-sum-query-2d-immutable/</id>
+    <published>2021-01-29T03:47:00.000Z</published>
+    <updated>2021-01-29T03:47:55.013Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;304-Range-Sum-Query-2D-Immutable&quot;&gt;&lt;a href=&quot;#304-Range-Sum-Query-2D-Immutable&quot; class=&quot;headerlink&quot; title=&quot;304. Range Sum Query 2D - Immutable&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/range-sum-query-2d-immutable/&quot;&gt;304. Range Sum Query 2D - Immutable&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;二维前缀和，不仅是计算二维矩阵之和的过程可以用二维矩阵组合起来，而且二维前缀和的计算过程也可以用之前计算的矩阵简化计算。&lt;/p&gt;
+&lt;p&gt;$o(n^2)$&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>303. Range Sum Query - Immutable</title>
+    <link href="https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/303-range-sum-query-immutable/"/>
+    <id>https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/303-range-sum-query-immutable/</id>
+    <published>2021-01-29T03:46:52.000Z</published>
+    <updated>2021-01-29T03:48:00.553Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;303-Range-Sum-Query-Immutable&quot;&gt;&lt;a href=&quot;#303-Range-Sum-Query-Immutable&quot; class=&quot;headerlink&quot; title=&quot;303. Range Sum Query - Immutable&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/range-sum-query-immutable/&quot;&gt;303. Range Sum Query - Immutable&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;前缀和</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>81. Search in Rotated Sorted Array II</title>
@@ -405,72 +463,6 @@
     <summary type="html">&lt;h2 id=&quot;260-Single-Number-III&quot;&gt;&lt;a href=&quot;#260-Single-Number-III&quot; class=&quot;headerlink&quot; title=&quot;260. Single Number III&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/single-number-iii/&quot;&gt;260. Single Number III&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;em&gt;划分数组&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;思路非常精巧。用异或所有数组，由于异或的性质，只有两个唯一且不等的出现的数字$x$,$y$被记录下来，记为$z$。可以推测，$z$比不为零，且第一个1要么来自$x$，要么来自$y$。同时可以根据这个“第一个1”是否在其他数字上存在，将数组划分为两部分，一组是带有$x$和成对的数字，另一组类似。&lt;/p&gt;
 &lt;p&gt;如此划分数组，同时异或其中一组，就可以得到$x$或者$y$。当然也可以通过上面的$z$异或其中一个数字来得到另一个数字。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="位运算
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>268. Missing Number</title>
-    <link href="https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-268-missing-number/"/>
-    <id>https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-268-missing-number/</id>
-    <published>2021-01-19T03:18:43.000Z</published>
-    <updated>2021-01-28T14:04:37.879Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;268-Missing-Number&quot;&gt;&lt;a href=&quot;#268-Missing-Number&quot; class=&quot;headerlink&quot; title=&quot;268. Missing Number&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/missing-number/&quot;&gt;268. Missing Number&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;排序&lt;/li&gt;
-&lt;li&gt;哈希&lt;/li&gt;
-&lt;li&gt;异或位运算 &lt;/li&gt;
-&lt;li&gt;高斯求和&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;3和4实现了$O(n)$的时间复杂度和$O(1)$的空间复杂度。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="位运算
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>693. Binary Number with Alternating Bits</title>
-    <link href="https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-693-binary-number-with-alternating-bits/"/>
-    <id>https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-693-binary-number-with-alternating-bits/</id>
-    <published>2021-01-19T03:18:28.000Z</published>
-    <updated>2021-01-28T14:04:37.879Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;693-Binary-Number-with-Alternating-Bits&quot;&gt;&lt;a href=&quot;#693-Binary-Number-with-Alternating-Bits&quot; class=&quot;headerlink&quot; title=&quot;693. Binary Number with Alternating Bits&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-number-with-alternating-bits/&quot;&gt;693. Binary Number with Alternating Bits&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路:&quot;&gt;&lt;/a&gt;思路:&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="位运算
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>476. Number Complement</title>
-    <link href="https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-476-number-complement/"/>
-    <id>https://blog.come2rss.xyz/2021/01/19/shua-ti-wei-yun-suan-476-number-complement/</id>
-    <published>2021-01-19T03:18:16.000Z</published>
-    <updated>2021-01-28T14:04:37.879Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;476-Number-Complement&quot;&gt;&lt;a href=&quot;#476-Number-Complement&quot; class=&quot;headerlink&quot; title=&quot;476. Number Complement&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/number-complement/&quot;&gt;476. Number Complement&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;数字取反前把前缀零全部转化为前缀1.&lt;/p&gt;</summary>
     
     
     
