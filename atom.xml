@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-02-12T12:29:13.610Z</updated>
+  <updated>2021-02-14T13:11:16.069Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,9 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>647. Palindromic Substrings</title>
+    <link href="https://blog.come2rss.xyz/2021/02/14/shua-ti/zi-fu-chuan/647-palindromic-substrings/"/>
+    <id>https://blog.come2rss.xyz/2021/02/14/shua-ti/zi-fu-chuan/647-palindromic-substrings/</id>
+    <published>2021-02-14T13:02:17.000Z</published>
+    <updated>2021-02-14T13:11:16.069Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;647-Palindromic-Substrings1&quot;&gt;&lt;a href=&quot;#647-Palindromic-Substrings1&quot; class=&quot;headerlink&quot; title=&quot;647. Palindromic Substrings1&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/palindromic-substrings/&quot;&gt;647. Palindromic Substrings&lt;/a&gt;1&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Manacher&lt;/code&gt;算法：&lt;/p&gt;
+&lt;p&gt;回文字符串的判断方式方式会从中心点从发向外不断扩展，&lt;code&gt;Manacher&lt;/code&gt;算法给出了缩减了字符串判断回文的重复步骤。其核心思想在于，一段回文&lt;code&gt;s&lt;/code&gt;上的呈对称状的左右&lt;code&gt;A&lt;/code&gt;和&lt;code&gt;B&lt;/code&gt;两点，&lt;code&gt;B&lt;/code&gt;点的最小回文长度可以通过&lt;code&gt;A&lt;/code&gt;点的回文长度和&lt;code&gt;B&lt;/code&gt;到&lt;code&gt;s&lt;/code&gt;边右边界的长度最小值决定。另外，为了改变回文串长度为偶数和奇数的不同，在每个字符前和后都插入一个&lt;code&gt;#&lt;/code&gt;，如此插入后的&lt;code&gt;T&lt;/code&gt;的最长回文串&lt;strong&gt;半径&lt;/strong&gt;&lt;code&gt;d&lt;/code&gt;，与&lt;code&gt;S&lt;/code&gt;最长回文串&lt;strong&gt;半径&lt;/strong&gt;的&lt;code&gt;k&lt;/code&gt;有， &lt;code&gt;k = [d / 2]&lt;/code&gt; 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;[]&lt;/code&gt;向下取整。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>227. Basic Calculator II</title>
-    <link href="https://blog.come2rss.xyz/2021/02/12/227-basic-calculator-ii/"/>
-    <id>https://blog.come2rss.xyz/2021/02/12/227-basic-calculator-ii/</id>
+    <link href="https://blog.come2rss.xyz/2021/02/12/shua-ti/zi-fu-chuan/227-basic-calculator-ii/"/>
+    <id>https://blog.come2rss.xyz/2021/02/12/shua-ti/zi-fu-chuan/227-basic-calculator-ii/</id>
     <published>2021-02-12T12:22:37.000Z</published>
     <updated>2021-02-12T12:29:13.610Z</updated>
     
@@ -33,6 +56,10 @@
       
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
     
   </entry>
@@ -364,8 +391,8 @@
   
   <entry>
     <title>218. The Skyline Problem</title>
-    <link href="https://blog.come2rss.xyz/2021/01/26/shua-ti-sao-miao-xian-218-the-skyline-problem/"/>
-    <id>https://blog.come2rss.xyz/2021/01/26/shua-ti-sao-miao-xian-218-the-skyline-problem/</id>
+    <link href="https://blog.come2rss.xyz/2021/01/26/shua-ti-qi-ta-sao-miao-xian-218-the-skyline-problem/"/>
+    <id>https://blog.come2rss.xyz/2021/01/26/shua-ti-qi-ta-sao-miao-xian-218-the-skyline-problem/</id>
     <published>2021-01-26T03:16:58.000Z</published>
     <updated>2021-01-28T14:04:37.839Z</updated>
     
@@ -386,8 +413,10 @@
     
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
+    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
+    
     <category term="扫描线
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%89%AB%E6%8F%8F%E7%BA%BF/"/>
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"/>
     
     
   </entry>
@@ -429,31 +458,6 @@
     
     <summary type="html">&lt;h2 id=&quot;1-Two-Sum&quot;&gt;&lt;a href=&quot;#1-Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;1. Two Sum&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/two-sum/&quot;&gt;1. Two Sum&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;hash即可&lt;/p&gt;
 &lt;p&gt;练习一下 STL。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="set
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>128. Longest Consecutive Sequence</title>
-    <link href="https://blog.come2rss.xyz/2021/01/25/shua-ti-shu-ju-jie-gou-set-128-longest-consecutive-sequence/"/>
-    <id>https://blog.come2rss.xyz/2021/01/25/shua-ti-shu-ju-jie-gou-set-128-longest-consecutive-sequence/</id>
-    <published>2021-01-25T07:44:42.000Z</published>
-    <updated>2021-01-28T14:04:37.859Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;128-Longest-Consecutive-Sequence&quot;&gt;&lt;a href=&quot;#128-Longest-Consecutive-Sequence&quot; class=&quot;headerlink&quot; title=&quot;128. Longest Consecutive Sequence&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-consecutive-sequence/&quot;&gt;128. Longest Consecutive Sequence&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;sort排序&lt;/li&gt;
-&lt;li&gt;用set去重，在序列的第一个数字上搜索连续数字长度值！&lt;/li&gt;
-&lt;/ol&gt;</summary>
     
     
     
