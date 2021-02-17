@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-02-15T03:12:24.770Z</updated>
+  <updated>2021-02-17T12:53:55.143Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.come2rss.xyz/2021/02/15/28-implement-strstr/"/>
     <id>https://blog.come2rss.xyz/2021/02/15/28-implement-strstr/</id>
     <published>2021-02-15T02:18:48.000Z</published>
-    <updated>2021-02-15T03:12:24.770Z</updated>
+    <updated>2021-02-17T12:53:55.143Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;经典的字符子串匹配问题：&lt;/p&gt;
