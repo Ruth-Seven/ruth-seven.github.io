@@ -18,8 +18,8 @@
   
   <entry>
     <title>28. Implement strStr()</title>
-    <link href="https://blog.come2rss.xyz/2021/02/15/28-implement-strstr/"/>
-    <id>https://blog.come2rss.xyz/2021/02/15/28-implement-strstr/</id>
+    <link href="https://blog.come2rss.xyz/2021/02/15/shua-ti/zi-fu-chuan/28-implement-strstr/"/>
+    <id>https://blog.come2rss.xyz/2021/02/15/shua-ti/zi-fu-chuan/28-implement-strstr/</id>
     <published>2021-02-15T02:18:48.000Z</published>
     <updated>2021-02-17T12:53:55.143Z</updated>
     
@@ -32,6 +32,10 @@
 &lt;/ol&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
     
   </entry>
