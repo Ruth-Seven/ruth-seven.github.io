@@ -15,7 +15,7 @@ date: 2020-11-14 10:11:48
 
 
 
-复习一遍第K大算法的三种经典解法
+复习一遍第K大算法的三 ➕ 一种经典解法
 
 <!-- more -->
 
@@ -24,6 +24,9 @@ date: 2020-11-14 10:11:48
 1. 暴力排序
 2. 快速排序的Partition
 3. 建长度为`k`的小顶堆
+4. ⭐⭐⭐快速指针算法, $O(N)$ 
+
+> 这题的算法非常巧妙！同样也是`partition`思想，取一个`nums[k]`作为`pivot`，并放在数组最右边作为哨兵。用两个指针`i`和`j`从左到右遍历数组，其意义在于指向比`pivot`小的数字区间左右闭区间。如果`nums[j]>pivot`，则`swap(nums[j++], nums[i++])`。否则，`j++`。这一遍历动作维持了指针的性质。最后遍历结束后后，可能有`[2, 1, 3, pivot, pivot, pivot, 10,9,]`，其中`i=4`。
 
 ## 代码：
 
@@ -149,6 +152,43 @@ public:
         }            
         return que.top();
 
+    }
+
+ 
+
+};
+```
+
+
+
+
+
+```c++
+class Solution {
+public:
+    // 最优解 快速选择算法
+    int findth(vector<int>& nums, int l, int r){
+        swap(nums[r], nums[rand() % (r - l + 1) + l]);
+        int i, j;
+        i = j = 0;
+        while(j <= r){
+            if(nums[j] > nums[r]) ++j;
+            else{
+                swap(nums[j++], nums[i++]);
+            }
+        }
+        // cout << l << ' ' << r << " " << nums[i - 1] << endl;;
+        return i - 1; //povit
+    }
+    int recurfindth(vector<int>& nums, int l, int r, int k){
+        int th = findth(nums, l, r);
+        int findk = nums.size() - th;
+        if( k == findk) return nums[th];
+        else if(k < findk) return recurfindth(nums, th + 1, r, k);
+        else return recurfindth(nums, l, th - 1, k);
+    }
+    int findKthLargest(vector<int>& nums, int k) {    
+        return recurfindth(nums, 0, nums.size() - 1, k);
     }
 
  
