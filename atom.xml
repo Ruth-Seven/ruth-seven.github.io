@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-03T04:33:14.530Z</updated>
+  <updated>2021-03-03T08:01:13.771Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>653. Two Sum IV - Input is a BST</title>
+    <link href="https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/shu/653-two-sum-iv-input-is-a-bst/"/>
+    <id>https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/shu/653-two-sum-iv-input-is-a-bst/</id>
+    <published>2021-03-03T07:58:11.000Z</published>
+    <updated>2021-03-03T08:01:13.771Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;利用BST性质， 前序遍历数据的同时，搜索对应的&lt;code&gt;k - val&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;当然可以搜索一遍，同时&lt;code&gt;hash&lt;/code&gt;遍历的数据，转化为一般的两数之和。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>450. Delete Node in a BST</title>
+    <link href="https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/shu/450-delete-node-in-a-bst/"/>
+    <id>https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/shu/450-delete-node-in-a-bst/</id>
+    <published>2021-03-03T06:28:21.000Z</published>
+    <updated>2021-03-03T06:31:13.261Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;删除一个只有一个子节点，或者没有子节点的节点，比较简单。&lt;/p&gt;
+&lt;p&gt;删除有两个子节点的节点&lt;code&gt;A&lt;/code&gt;，需要把找一个比&lt;code&gt;A&lt;/code&gt;大的最小子节点&lt;code&gt;B&lt;/code&gt;来替换该&lt;code&gt;A&lt;/code&gt;。那么同时也需要递归的删除节点&lt;code&gt;B&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>380. Insert Delete GetRandom O(1)</title>
@@ -418,45 +462,6 @@
     <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>560. Subarray Sum Equals K</title>
-    <link href="https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/560-subarray-sum-equals-k/"/>
-    <id>https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/560-subarray-sum-equals-k/</id>
-    <published>2021-01-29T03:47:14.000Z</published>
-    <updated>2021-01-29T03:48:15.313Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;560-Subarray-Sum-Equals-K&quot;&gt;&lt;a href=&quot;#560-Subarray-Sum-Equals-K&quot; class=&quot;headerlink&quot; title=&quot;560. Subarray Sum Equals K&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/subarray-sum-equals-k/&quot;&gt;560. Subarray Sum Equals K&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;hash+ 前缀。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>304. Range Sum Query 2D - Immutable</title>
-    <link href="https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/304-range-sum-query-2d-immutable/"/>
-    <id>https://blog.come2rss.xyz/2021/01/29/shua-ti/qi-ta/304-range-sum-query-2d-immutable/</id>
-    <published>2021-01-29T03:47:00.000Z</published>
-    <updated>2021-01-29T03:47:55.013Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;304-Range-Sum-Query-2D-Immutable&quot;&gt;&lt;a href=&quot;#304-Range-Sum-Query-2D-Immutable&quot; class=&quot;headerlink&quot; title=&quot;304. Range Sum Query 2D - Immutable&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/range-sum-query-2d-immutable/&quot;&gt;304. Range Sum Query 2D - Immutable&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;二维前缀和，不仅是计算二维矩阵之和的过程可以用二维矩阵组合起来，而且二维前缀和的计算过程也可以用之前计算的矩阵简化计算。&lt;/p&gt;
-&lt;p&gt;$o(n^2)$&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>
