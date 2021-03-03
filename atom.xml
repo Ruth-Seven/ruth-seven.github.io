@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-02T09:23:12.060Z</updated>
+  <updated>2021-03-03T04:33:14.530Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,17 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>882. Reachable Nodes In Subdivided Graph</title>
-    <link href="https://blog.come2rss.xyz/2021/03/02/882-reachable-nodes-in-subdivided-graph/"/>
-    <id>https://blog.come2rss.xyz/2021/03/02/882-reachable-nodes-in-subdivided-graph/</id>
-    <published>2021-03-02T09:19:28.000Z</published>
-    <updated>2021-03-02T09:23:12.060Z</updated>
+    <title>380. Insert Delete GetRandom O(1)</title>
+    <link href="https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/380-insert-delete-getrandom-o-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/03/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/380-insert-delete-getrandom-o-1/</id>
+    <published>2021-03-03T04:26:20.000Z</published>
+    <updated>2021-03-03T04:33:14.530Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;subdivision nodes&lt;/code&gt;可以化为路径的长度，将此问题转化为可以用dijstra求解的问题。&lt;/p&gt;
-&lt;p&gt;每次遍历到最新最短的节点都可以进行求出此点相连的边的可以累加&lt;code&gt;subdivistion nodes&lt;/code&gt;的个数，但是需要控制重复累加比较麻烦。最后采用记录下每条边可到达的点，最后统一累计即可。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;要求插入，删除，随机获取元素用$O(1)$&lt;/p&gt;
+&lt;p&gt;不要求数据有序，也不要要求数据按原序。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hash + 动态数组&lt;/code&gt;即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;删除的时候，交换待删除元素到动态数组末就行了。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="复杂数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
   </entry>
