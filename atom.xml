@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-03T08:01:13.771Z</updated>
+  <updated>2021-03-04T01:33:44.170Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>236. Lowest Common Ancestor of a Binary Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/236-lowest-common-ancestor-of-a-binary-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/236-lowest-common-ancestor-of-a-binary-tree/</id>
+    <published>2021-03-04T01:26:57.000Z</published>
+    <updated>2021-03-04T01:33:44.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>897. Increasing Order Search Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/897-increasing-order-search-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/897-increasing-order-search-tree/</id>
+    <published>2021-03-04T01:09:22.000Z</published>
+    <updated>2021-03-04T01:10:47.070Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;前序遍历 + 建树&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>109. Convert Sorted List to Binary Search Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/109-convert-sorted-list-to-binary-search-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/03/04/shua-ti/shu-ju-jie-gou/shu/109-convert-sorted-list-to-binary-search-tree/</id>
+    <published>2021-03-04T00:54:37.000Z</published>
+    <updated>2021-03-04T00:57:56.610Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;链表实际上给出的是二叉树前序的结果，因为AVL树任意左右子树高度不超过1，我们可以选择链表中点，并将链表的长度尽可能一样长的两部分划分到左右子树，所以高度性质可以维持住。&lt;/p&gt;
+&lt;p&gt;在中序遍历链表，控制子树长度，即可构建符合题意的AVL树。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>653. Two Sum IV - Input is a BST</title>
@@ -390,70 +464,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;225-Implement-Stack-using-Queues&quot;&gt;&lt;a href=&quot;#225-Implement-Stack-using-Queues&quot; class=&quot;headerlink&quot; title=&quot;225. Implement Stack using Queues&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/implement-stack-using-queues/&quot;&gt;225. Implement Stack using Queues&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;其实我想到了，但是这个效率真的差。</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>566. Reshape the Matrix</title>
-    <link href="https://blog.come2rss.xyz/2021/01/30/shua-ti/qi-ta/566-reshape-the-matrix/"/>
-    <id>https://blog.come2rss.xyz/2021/01/30/shua-ti/qi-ta/566-reshape-the-matrix/</id>
-    <published>2021-01-30T07:12:10.000Z</published>
-    <updated>2021-01-30T07:13:17.930Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;566-Reshape-the-Matrix&quot;&gt;&lt;a href=&quot;#566-Reshape-the-Matrix&quot; class=&quot;headerlink&quot; title=&quot;566. Reshape the Matrix&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/reshape-the-matrix/&quot;&gt;566. Reshape the Matrix&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;从今天起，有些水题就不写了。浪费时间了。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="其他" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>594. Longest Harmonious Subsequence</title>
-    <link href="https://blog.come2rss.xyz/2021/01/30/shua-ti/dp/594-longest-harmonious-subsequence/"/>
-    <id>https://blog.come2rss.xyz/2021/01/30/shua-ti/dp/594-longest-harmonious-subsequence/</id>
-    <published>2021-01-30T07:11:50.000Z</published>
-    <updated>2021-01-30T07:13:52.240Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;594-Longest-Harmonious-Subsequence&quot;&gt;&lt;a href=&quot;#594-Longest-Harmonious-Subsequence&quot; class=&quot;headerlink&quot; title=&quot;594. Longest Harmonious Subsequence&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-harmonious-subsequence/&quot;&gt;594. Longest Harmonious Subsequence&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;一道经典的最大递增子序列的变形题&lt;/p&gt;
-&lt;p&gt;结果用DP思路做了半天，发现越做复杂！？？？？&lt;/p&gt;
-&lt;p&gt;怀疑人生的同时发现自己的思路还是太窄了。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>503. Next Greater Element II</title>
-    <link href="https://blog.come2rss.xyz/2021/01/30/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/503-next-greater-element-ii/"/>
-    <id>https://blog.come2rss.xyz/2021/01/30/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/503-next-greater-element-ii/</id>
-    <published>2021-01-30T07:11:34.000Z</published>
-    <updated>2021-01-30T07:13:28.850Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;503-Next-Greater-Element-II&quot;&gt;&lt;a href=&quot;#503-Next-Greater-Element-II&quot; class=&quot;headerlink&quot; title=&quot;503. Next Greater Element II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/next-greater-element-ii/&quot;&gt;503. Next Greater Element II&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;单调栈！比较更大值的神。&lt;/p&gt;
-&lt;p&gt;遍历数组维护单调栈，在排除栈中更小的元素时，就已经为他们找到了更大值。为了保证数组是环形查找的，可以插入两次数组元素。&lt;/p&gt;</summary>
     
     
     
