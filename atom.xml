@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-04T01:33:44.170Z</updated>
+  <updated>2021-03-08T03:48:42.320Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>132. Palindrome Partitioning II</title>
+    <link href="https://blog.come2rss.xyz/2021/03/08/shua-ti/zi-fu-chuan/132-palindrome-partitioning-ii/"/>
+    <id>https://blog.come2rss.xyz/2021/03/08/shua-ti/zi-fu-chuan/132-palindrome-partitioning-ii/</id>
+    <published>2021-03-08T03:48:05.000Z</published>
+    <updated>2021-03-08T03:48:42.320Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;132-Palindrome-Partitioning-II&quot;&gt;&lt;a href=&quot;#132-Palindrome-Partitioning-II&quot; class=&quot;headerlink&quot; title=&quot;132. Palindrome Partitioning II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/palindrome-partitioning-ii/&quot;&gt;132. Palindrome Partitioning II&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;dp&lt;/code&gt;，&lt;code&gt;dp[i]&lt;/code&gt;表示最小分割子串数，状态转移方程为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.come2rss.xyz/image-20210308114617311.png&quot; alt=&quot;image-20210308114617311&quot;&gt;&lt;/p&gt;
+&lt;p&gt;其中子串是否为回文串可以预计算，这样就把复杂度从&lt;code&gt;o(N^3)&lt;/code&gt;降到&lt;code&gt;o(N^2)&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>236. Lowest Common Ancestor of a Binary Tree</title>
@@ -451,27 +472,6 @@
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="双指针" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>225. Implement Stack using Queues</title>
-    <link href="https://blog.come2rss.xyz/2021/01/30/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/225-implement-stack-using-queues/"/>
-    <id>https://blog.come2rss.xyz/2021/01/30/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/225-implement-stack-using-queues/</id>
-    <published>2021-01-30T07:12:26.000Z</published>
-    <updated>2021-01-30T07:13:08.070Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;225-Implement-Stack-using-Queues&quot;&gt;&lt;a href=&quot;#225-Implement-Stack-using-Queues&quot; class=&quot;headerlink&quot; title=&quot;225. Implement Stack using Queues&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/implement-stack-using-queues/&quot;&gt;225. Implement Stack using Queues&lt;/a&gt;&lt;/h2&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;其实我想到了，但是这个效率真的差。</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
     
     
   </entry>
