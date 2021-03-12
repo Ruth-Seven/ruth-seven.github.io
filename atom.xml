@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-08T03:48:42.320Z</updated>
+  <updated>2021-03-12T07:40:09.030Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>331. Verify Preorder Serialization of a Binary Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/03/12/shua-ti/shu-ju-jie-gou/shu/331-verify-preorder-serialization-of-a-binary-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/03/12/shua-ti/shu-ju-jie-gou/shu/331-verify-preorder-serialization-of-a-binary-tree/</id>
+    <published>2021-03-12T06:54:28.000Z</published>
+    <updated>2021-03-12T07:40:09.030Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;331-Verify-Preorder-Serialization-of-a-Binary-Tree&quot;&gt;&lt;a href=&quot;#331-Verify-Preorder-Serialization-of-a-Binary-Tree&quot; class=&quot;headerlink&quot; title=&quot;331. Verify Preorder Serialization of a Binary Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/verify-preorder-serialization-of-a-binary-tree/&quot;&gt;331. Verify Preorder Serialization of a Binary Tree&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;按照字符串提供的数据按前序遍历伪建树，如果用完了所有字符就建树成功。&lt;/li&gt;
+&lt;li&gt;前序遍历允许我们的用栈记录当前节点以及之前节点应该生长的分支数，比如碰到一个数字，上一个节点的减一分支数，插入一个当点节点的分支数2。遍历过程中，栈为空或者遍历后，字符数还有剩余，显然建树失败。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>错排问题:年会抽奖</title>
+    <link href="https://blog.come2rss.xyz/2021/03/10/shua-ti-shu-xue-cuo-pai-wen-ti-nian-hui-chou-jiang/"/>
+    <id>https://blog.come2rss.xyz/2021/03/10/shua-ti-shu-xue-cuo-pai-wen-ti-nian-hui-chou-jiang/</id>
+    <published>2021-03-10T10:07:43.000Z</published>
+    <updated>2021-03-10T14:29:22.330Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;所谓错排问题就是N个1~N数字的序列都恰好不在对应位上，比如序列&lt;code&gt;3 1 2 &lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;题目：年会抽奖&quot;&gt;&lt;a href=&quot;#题目：年会抽奖&quot; class=&quot;headerlink&quot; title=&quot;题目：年会抽奖&quot;&gt;&lt;/a&gt;题目：年会抽奖&lt;/h3&gt;&lt;p&gt;今年公司年会的奖品特别给力，但获奖的规矩却很奇葩：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先，所有人员都将一张写有自己名字的字条放入抽奖箱中；&lt;/li&gt;
+&lt;li&gt;待所有字条加入完毕，每人从箱中取一个字条；&lt;/li&gt;
+&lt;li&gt;如果抽到的字条上写的就是自己的名字，那么“恭喜你，中奖了！”&lt;br&gt;现在告诉你参加晚会的人数，请你计算有多少概率会出现无人获奖？&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数学
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>132. Palindrome Partitioning II</title>
@@ -432,46 +482,6 @@
     
     <category term="贪心
 " scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>313. Super Ugly Number</title>
-    <link href="https://blog.come2rss.xyz/2021/02/05/shua-ti-shu-xue-313-super-ugly-number/"/>
-    <id>https://blog.come2rss.xyz/2021/02/05/shua-ti-shu-xue-313-super-ugly-number/</id>
-    <published>2021-02-05T12:38:02.000Z</published>
-    <updated>2021-02-05T12:39:15.556Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;313-Super-Ugly-Number&quot;&gt;&lt;a href=&quot;#313-Super-Ugly-Number&quot; class=&quot;headerlink&quot; title=&quot;313. Super Ugly Number&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/super-ugly-number/&quot;&gt;313. Super Ugly Number&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;丑数的每个前身都是丑数，丑上加丑。</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数学
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>287. Find the Duplicate Number</title>
-    <link href="https://blog.come2rss.xyz/2021/02/05/shua-ti/shuang-zhi-zhen/287-find-the-duplicate-number/"/>
-    <id>https://blog.come2rss.xyz/2021/02/05/shua-ti/shuang-zhi-zhen/287-find-the-duplicate-number/</id>
-    <published>2021-02-05T12:37:27.000Z</published>
-    <updated>2021-02-05T12:39:26.236Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;287-Find-the-Duplicate-Number&quot;&gt;&lt;a href=&quot;#287-Find-the-Duplicate-Number&quot; class=&quot;headerlink&quot; title=&quot;287. Find the Duplicate Number&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/find-the-duplicate-number/&quot;&gt;287. Find the Duplicate Number&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;快慢指针算法，$o(n), o(1)$。&lt;/p&gt;
-&lt;p&gt;这题的难点是看出能把数组转化为链表，而且链表中有环。</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="双指针" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
     
   </entry>
