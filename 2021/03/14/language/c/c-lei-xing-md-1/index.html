@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>C++类型 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="C++类型const 常量修饰符const与引用对常量的引用。 const int a &amp;#x3D; 10; const int &amp;amp;r1 &amp;#x3D; a; &amp;#x2F;&amp;#x2F; 并非赋值，执行的是绑定动作 初始化：引用本身的类型必须与所引用的类型一致，或者能够转化过来，比如引用变量，引用表达式，引用常量。 int i &amp;#x3D; 42 const int &amp;amp;r1 &amp;amp;"><meta property="og:type" content="blog"><meta property="og:title" content="C++类型"><meta property="og:url" content="https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-xing-md-1/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="C++类型const 常量修饰符const与引用对常量的引用。 const int a &amp;#x3D; 10; const int &amp;amp;r1 &amp;#x3D; a; &amp;#x2F;&amp;#x2F; 并非赋值，执行的是绑定动作 初始化：引用本身的类型必须与所引用的类型一致，或者能够转化过来，比如引用变量，引用表达式，引用常量。 int i &amp;#x3D; 42 const int &amp;amp;r1 &amp;amp;"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2021-03-14T08:01:40.000Z"><meta property="article:modified_time" content="2021-03-14T08:16:31.230Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-xing-md-1/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2021-03-14T08:01:40.000Z","dateModified":"2021-03-14T08:16:31.230Z","author":{"@type":"Person","name":"John Doe"},"description":"C++类型const 常量修饰符const与引用对常量的引用。 const int a &#x3D; 10; const int &amp;r1 &#x3D; a; &#x2F;&#x2F; 并非赋值，执行的是绑定动作 初始化：引用本身的类型必须与所引用的类型一致，或者能够转化过来，比如引用变量，引用表达式，引用常量。 int i &#x3D; 42 const int &amp;r1 &amp;"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-xing-md-1/"><link rel="icon" href="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-14T08:01:40.000Z" title="3/14/2021, 4:01:40 PM">2021-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-14T08:16:31.230Z" title="3/14/2021, 4:16:31 PM">2021-03-14</time></span><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">36 minutes read (About 5461 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">C++类型</h1><div class="content"><a id="more"></a>
+
+
+
+<h1 id="C-类型"><a href="#C-类型" class="headerlink" title="C++类型"></a>C++类型</h1><h1 id="const-常量修饰符"><a href="#const-常量修饰符" class="headerlink" title="const 常量修饰符"></a>const 常量修饰符</h1><h3 id="const与引用"><a href="#const与引用" class="headerlink" title="const与引用"></a><code>const</code>与引用</h3><p>对常量的引用。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int a &#x3D; 10;
+const int &amp;r1 &#x3D; a; &#x2F;&#x2F; 并非赋值，执行的是绑定动作<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>初始化：引用本身的类型必须与所引用的类型一致，或者能够转化过来，比如引用变量，引用表达式，引用常量。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 42
+const int &amp;r1 &#x3D; i * 2; &#x2F;&#x2F; ✔
+int &amp;r2 &#x3D; i * 2 &#x2F;&#x2F; 非常量引用无法引用常量（年轻人无法改变老头子）
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="const和指针"><a href="#const和指针" class="headerlink" title="const和指针"></a><code>const</code>和指针</h3><p>指向常量的指针的功能和初始化，类似于指向常量的引用。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const int i &#x3D; 10;
+const int *p &#x3D; &amp;i; &#x2F;&#x2F;✔
+int *q &#x3D; &amp;i &#x2F;&#x2F;✖ 类似对常量的引用
+    
+*p &#x3D; 20 &#x2F;&#x2F;✖ 无法改变常量
+    
+int c &#x3D; 1;
+const int *k &#x3D; &amp;c; &#x2F;&#x2F;✔<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对常量的引用和对常量的指针的<strong>统一深层含义</strong>都是不能改变指向的变量的值。</p>
+<p><code>const</code>指针，指针作为对象是可以为常量的，这是不同于引用的一点。也带来了新的复杂性。它意味着指针本身无法被修改，而指向的值的特性无关。</p>
+<blockquote>
+<p><strong>常量指针</strong>：表示const修饰的为所申明的类型。</p>
+<p><strong>指针常量</strong>：表示const修饰的指针。</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int c &#x3D; 0
+int *const p &#x3D; &amp;c;
+
+const double PI &#x3D; 3.14414;
+const double *q &#x3D; &amp;PI;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="顶层和底层const"><a href="#顶层和底层const" class="headerlink" title="顶层和底层const"></a>顶层和底层<code>const</code></h3><p>描述对象本身是常量的<code>const</code>称为顶层<code>cosnt</code>，复杂数据结构有的描述其指向的对象是静态，称为底层<code>const</code>。</p>
+<p>重要的是，在<strong>赋值和绑定</strong>的过程中，两个值如果底层<code>const</code>不一样就有麻烦。</p>
+<p>一般来说，要么两个值<code>const</code>一致，要么把变量转化为常量。</p>
+<p>在</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int c  &#x3D; 9;
+const int *p1 &#x3D; &amp;c;
+const int *const p2 &#x3D; p1;
+int *const p3 &#x3D; p2; &#x2F;&#x2F;&#x2F;&#x2F; p指针是顶层const；const int 用同样有底层const的值赋值，成立！
+const int &amp;r &#x3D; c; &#x2F;&#x2F; 底层const int 绑定到int上，成立！ 
+
+int *p &#x3D; p1; &#x2F;&#x2F;✖ 底层const不一样
+p2 &#x3D; p3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="const与函数"><a href="#const与函数" class="headerlink" title="const与函数"></a><code>const</code>与函数</h3><p>const 修饰<strong>类成员函数</strong>，其目的是防止成员函数修改被调用对象的值，如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。<code>int get_cm()const;</code>。</p>
+<h2 id="constexpr"><a href="#constexpr" class="headerlink" title=" constexpr"></a><code> constexpr</code></h2><p>在定义常量时，为了在定义就验证变量是否是一个常量表达式，<code>constexpr</code>提供了如此一条道路。</p>
+<p>字面值类型<code>literal type</code>，简单，值也显而易见。比如指针，算数类型和引用。</p>
+<blockquote>
+<p><code>constexpr</code>指针只能指向非函数体内部的变量（栈外）。</p>
+</blockquote>
+<p><code>constexpr</code>函数是指形参和返回值都是<code>cosntexpr</code>的函数，而且除了无动作的语句，只能有一句返回值。</p>
+<p>另外， 常量表达是指用常量表达式计算得来的表达式，也就是说<code>constexper</code>量和函数都可以是常量表达式的一部分。</p>
+<h1 id="static"><a href="#static" class="headerlink" title="static"></a><code>static</code></h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youxin/archive/2012/05/17/2506757.html">C++ static 关键字详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/d1622983cfdb47e98908f648f65576df">代码中使用const定义的变量，存放在下面哪个段中？（）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yanqi0124/p/3795547.html">read more</a> </p>
+</blockquote>
+<p>其实我们通常声明的不用static修饰的变量，都是auto的，因为它是默认的，就象short和long总是默认为int一样；我们通常声明一个变量：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int a;
+&#x2F;&#x2F; int 就是 auto int
+auto string s;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>auto</code>的含义是由程序自动控制变量的生存周期，通常指的就是变量在进入其作用域的时候被分配，离开其作用域的时候被释放；而<code>static</code>就是不<code>auto</code>，变量在程序初始化时被分配，直到程序退出前才被释放；也就是<code>static</code>是按照程序的生命周期来分配释放变量的，而不是变量自己的生命周期；所以，像这样的例子：</p>
+<h4 id="类静态成员"><a href="#类静态成员" class="headerlink" title="类静态成员"></a>类静态成员</h4><p>静态数据成员存储在<strong>全局数据区</strong>。静态数据成员定义时要分配空间，所以不能在类声明中定义（放在<code>.cpp</code>里面）。</p>
+<blockquote>
+<p>因为<code>static</code>是声明性关键字(同<code>friend</code>，声明时只需在友元的名称前加上关键字<code>friend</code>， 也同<code>extern</code>）</p>
+</blockquote>
+<p>属于类的“全局变量”，所有实例共用。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; A.h
+class A&#123;
+    static int s_value;
+    const static int k_value &#x3D; 1; &#x2F;&#x2F; const staic 可以在类内声明
+&#125;
+&#x2F;&#x2F; A.cpp
+A::s_value &#x3D; 1; &#x2F;&#x2F;没有 static
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="类的静态函数"><a href="#类的静态函数" class="headerlink" title="类的静态函数"></a>类的静态函数</h4><p>类的静态函数是类的范畴的全局函数，只能访问类的静态成员。实际上，它就是增加了类的访问权限的全局函数：</p>
+<p>静态成员函数可以继承和覆盖,但无法是虚函数。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class A&#123;
+    static void func(int value); 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="在cpp内有效的静态全局变量"><a href="#在cpp内有效的静态全局变量" class="headerlink" title="在cpp内有效的静态全局变量"></a>在cpp内有效的静态<strong>全局</strong>变量</h4><p>在该cpp内有效，但是其他的cpp文件不能访问这个变量；如果有两个cpp文件声明了同名的<strong>全局</strong>静态变量，那么他们实际上是独立的两个变量；</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">static int g_value &#x3D; 0;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>如果不使用<code>static</code>声明全局变量，该变量可能有被多个文件共用的风险，但是如果想要被多个cpp共享，应该声明为<code>extern</code>。所以为了明确用法，全局变量要么<code>extern</code>的，要么是<code>static</code>的。</p>
+<p>在头文件中声明<code>static</code>变量也是不建议的，因为会生成一组同名不同域的变量。如果需要声明cpp共享的变量：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;A.h
+extern int g_value; &#x2F;&#x2F;不要初始化，不要定义
+&#x2F;&#x2F;A.cpp
+int g_value &#x3D;  1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h4 id="在cpp内有效的静态全局函数"><a href="#在cpp内有效的静态全局函数" class="headerlink" title="在cpp内有效的静态全局函数"></a>在cpp内有效的静态全局函数</h4><p>这个函数只可在本cpp内使用，函数的实现不需要static修饰，不会同其他cpp中的同名函数引起冲突。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">static void func();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>和第三点相同的是：</p>
+<ul>
+<li>不要在头文件中声明static的全局函数</li>
+<li>不要在cpp内声明非static的全局函数</li>
+<li>如果你要在多个cpp中复用该函数，就把它的声明提到头文件里去，否则在cpp内部声明需要加上static修饰；在C语言中这点由为重要！</li>
+</ul>
+<h4 id="初始化静态变量"><a href="#初始化静态变量" class="headerlink" title="初始化静态变量"></a>初始化静态变量</h4><p>static变量只有一次初始化，不管在类中还是在函数中..有这样一个函数：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void foo()&#123;
+    static int s &#x3D; 0;
+    s++;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>只有第一次调用，<code>s</code>初始化为零。</p>
+<p> 在类中使用非const的static类成员变量。初始化时要使用<code>typename classname::variablename = value</code>的形式</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class A&#123;
+    static int a;
+    cosnt staic int b &#x3D; 1; &#x2F;&#x2F;静态常量可以在类中初始化 
+	cosnt staic int c; 
+&#125;
+int A::a &#x3D; 1; &#x2F;&#x2F; here initialize
+const int c &#x3D; 20;&#x2F;&#x2F;静态常量可以在类外初始化 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果是模板中使用非const的static的变量..那需要根据具体类型初始化。</p>
+<p>例如 <code>int myClass&lt;int&gt;::a = 4</code>;</p>
+<h4 id="静态带来了什么"><a href="#静态带来了什么" class="headerlink" title="静态带来了什么"></a>静态带来了什么</h4><p>全局变量都是静态存储方式，静态全局变量限制了该变量只能在该源文件中使用。</p>
+<p>而局部变量加上<code>static</code>只不过改变了她的生存期。</p>
+<blockquote>
+<p>把全局变量改为静态变量不过改变了他的作用域</p>
+</blockquote>
+<p>同理的，静态函数在内存中只有一份，而普通函数在每次调用都维持一份拷贝。</p>
+<h4 id="静态变量在哪"><a href="#静态变量在哪" class="headerlink" title="静态变量在哪"></a>静态变量在哪</h4><p>一个由c/C++编译的程序占用的内存分为以下几个部分</p>
+<p>栈区（stack）——由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
+<p>堆区（heap）——一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。</p>
+<p>全局区——（静态区 static segment）：全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域(.data)，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域(.bss)。 - 程序结束后由系统释放。</p>
+<p>COMMON——用于存放未初始化的全局变量，因为在编译过程中，未初始化的全局变量可能在其他文件中已经定义，属于弱全局变量。如果找到一个强符号和一个弱符号，编译器会直接把该变量分给<code>bss</code>。静态符号也类似，直接分给<code>data</code>或者<code>bss</code>。</p>
+<p>常量区——只读数据存放区，比如<code>const</code>修饰的变量。常量字符串就是放在这里的(.rodata)。 程序结束后由系统释放。</p>
+<p>程序代码区——存放函数体的二进制代码(.text)。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;main.cpp
+int a &#x3D; 0;          &#x2F;&#x2F; 全局初始化区
+char *p1;           &#x2F;&#x2F; 全局未初始化区
+main()
+&#123;
+  int b;            &#x2F;&#x2F; 栈区
+  char s[] &#x3D; &quot;abc&quot;; &#x2F;&#x2F; 栈区
+  char *p2;         &#x2F;&#x2F; 栈区
+  char *p3 &#x3D; &quot;123456&quot;;     &#x2F;&#x2F; &quot;123456\0&quot; 在常量区，p3在栈区
+  static int c &#x3D;0;         &#x2F;&#x2F; 全局（静态）初始化区
+ 
+  p1 &#x3D; (char *)malloc(10);
+  p2 &#x3D; (char *)malloc(20); &#x2F;&#x2F; 分配得来的10和20字节的区域就在堆区
+ 
+  strcpy(p1, &quot;123456&quot;);    &#x2F;&#x2F; &quot;123456\0&quot; 放在常量区，编译器可能会将它
+                              &#x2F;&#x2F; 与p3所指向的&quot;123456&quot;优化成一个地方。
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p><a target="_blank" rel="noopener" href="https://www.huaweicloud.com/articles/c3dfc11b1b3e1b2bfdcab4730305bd24.html">静态构造函数在C++不成立</a></p>
+<h1 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h1><p><code>extern</code> 是 <code>C/C++</code> 语言中表明函数和全局变量作用范围（可见性）在其他模块可见的<strong>声明性</strong>关键字。</p>
+<h2 id="extern-“C”"><a href="#extern-“C”" class="headerlink" title="extern “C”"></a>extern “C”</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/123269132">extern “C”详解</a></p>
+</blockquote>
+<p>被 extern “C” 修饰的变量和函数是按照 <code>C</code> 语言方式编译和连接的。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifdef __cplusplus
+extern &quot;C&quot; &#123;
+#endif
+&#x2F;&#x2F;和
+#ifdef __cplusplus
+&#125;
+#endif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="C-和C-的函数是怎样编译的。"><a href="#C-和C-的函数是怎样编译的。" class="headerlink" title="C++和C 的函数是怎样编译的。"></a><code>C++</code>和<code>C</code> 的函数是怎样编译的。</h3><p>作为一种面向对象的语言， <code>C++</code> 支持函数重载，而过程式语言 <code>C</code> 则不支持。所以，函数被 <code>C++</code> 编译后在符号库中的名字与 <code>C</code> 语言的有所不同。例如，假设某个函数的原型为：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">void foo( int x, int y );<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>该函数被 <code>C</code> 编译器编译后在符号库中的名字为 <code>_foo</code> ，而 <code>C++</code> 编译器则会产生像 <code>_foo_int_int</code> 之类的名字（不同的编译器可能生成的名字不同，但是都采用了相同的机制，生成的新名字称为 <code>mangled name</code> ）。 <code>_foo_int_int</code> 这样的名字包含了函数名、函数参数数量及类型信息， <code>C++</code> 就是靠这种机制来实现函数重载的。 </p>
+<p>同样地， <code>C++</code> 中的变量除支持局部变量外，还支持类成员变量和全局变量。用户所编写程序的类成员变量可能与全局变量同名，我们以 <code>.</code> 来区分。而本质上，编译器在进行编译时，与函数的处理相似，也为类中的变量取了一个独一无二的名字，这个名字与用户程序中同名的全局变量名字不同。</p>
+<h3 id="extern-“C”-的作用"><a href="#extern-“C”-的作用" class="headerlink" title="extern “C” 的作用"></a>extern “C” 的作用</h3><p><code>extern &quot;C&quot;</code>的目的就是为了在<code>C++ </code>里实现与 <code>C</code> 及其它语言的混合编程。<code>extern &quot;C&quot;</code>修饰的变量和函数将<code>C</code>的方式进行编译，可以提供其他<code>C</code>程序连接。</p>
+<h1 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h1><p><code>inline</code>修饰的函数即为内联函数，<strong>内联函数</strong>就是<strong>编译时期展开函数</strong>。</p>
+<p>​    </p>
+<p>节省了每次调用函数带来的额外时间开支。尽量用<code>inline</code>、<code>const</code>、<code>enum</code>替换 <code>define</code>。尽量用编译器替换预处理。</p>
+<blockquote>
+<p><code>#define</code>宏预处理阶段进行粗暴替换，不进行语法检查，而<code>inline</code>函数是在编译器阶段进行的替换，接受语法，语义的检查。相对更安全。<code>#define</code> 的错误一般很难最查到。</p>
+</blockquote>
+<p>类中除了虚函数的所有成员函数，都默认是内联的，但内联只是一个请求，是否内联决定于编译器的选择。</p>
+<p>⚡无论何时，使用基类指针或引用来调用虚函数，它都不能为内联函数(因为调用发生在运行时)。但是，无论何时，使用类的对象(不是指针或引用)来调用时，可以当做是内联，因为编译器在编译时确切知道对象是哪个类的。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Base
+&#123;
+    inline virtual void who() &#123;..........&#125;
+&#125;
+class Derived : public Base
+&#123;
+    inline void who() &#123;............&#125;
+&#125;
+
+
+&#x2F;&#x2F; 此处的虚函数who()，是通过类的具体对象来调用的，编译期间就能确定了，所以它可以是内联的。
+    Base b;
+    b.who();
+ 
+    &#x2F;&#x2F; 此处的虚函数是通过指针调用的，需要在运行时期间才能确定，所以不能为内联。
+    Base *ptr &#x3D; new Derived();
+    ptr-&gt;who();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h1 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h1><p><code>C++11</code>引入的类型推导符，可以极大的缩短类型说明，解放程序员。</p>
+<p>由于<code>auto</code>会自动去掉类型的引用，可能带来性能开销。</p>
+<p>另外，<code>c++14</code>能在函数定义的返回值里使用<code>auto</code>。</p>
+<h2 id="auto和-decltype的区别"><a href="#auto和-decltype的区别" class="headerlink" title="auto和 decltype的区别"></a>auto和 decltype的区别</h2><h3 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h3><p><code>auto</code>需要被赋初始值的变量来推断类型，更简洁。</p>
+<p><code>decltypen</code>根据<code>exp</code>表达式推导出变量的类型的，更灵活。</p>
+<h3 id="对const和volatile关键字的统称"><a href="#对const和volatile关键字的统称" class="headerlink" title="对const和volatile关键字的统称"></a>对<code>const</code>和<code>volatile</code>关键字的统称</h3><p>「cv 限定符」是 const 和 volatile 关键字的统称：</p>
+<ul>
+<li>const 关键字用来表示数据是只读的，也就是不能被修改；</li>
+<li>volatile 和 const 是相反的，它用来表示数据是可变的、易变的，目的是不让 CPU 将数据缓存到寄存器，而是从原始的内存中读取。</li>
+</ul>
+<p><code>auto</code>关键字对表达式是指针或者引用的类型，会保留<code>cv</code>限定符。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;非指针非引用类型
+const int n1 &#x3D; 0;
+auto n2 &#x3D; 10;
+n2 &#x3D; 99;  &#x2F;&#x2F;赋值不报错
+decltype(n1) n3 &#x3D; 20;
+n3 &#x3D; 5;  &#x2F;&#x2F;赋值报错
+&#x2F;&#x2F;指针类型
+const int *p1 &#x3D; &amp;n1;
+auto p2 &#x3D; p1;
+*p2 &#x3D; 66;  &#x2F;&#x2F;赋值报错
+decltype(p1) p3 &#x3D; p1;
+*p3 &#x3D; 19;  &#x2F;&#x2F;赋值报错
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="对引用的处理"><a href="#对引用的处理" class="headerlink" title="对引用的处理"></a>对引用的处理</h3><p>decltype 会保留引用类型，而 auto 会抛弃引用类型，直接推导出它的原始类型。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+
+int main() &#123;
+    int n &#x3D; 10;
+    int &amp;r1 &#x3D; n;
+
+    &#x2F;&#x2F;auto推导
+    auto r2 &#x3D; r1;
+    r2 &#x3D; 20;
+    cout &lt;&lt; n &lt;&lt; &quot;, &quot; &lt;&lt; r1 &lt;&lt; &quot;, &quot; &lt;&lt; r2 &lt;&lt; endl;
+
+    &#x2F;&#x2F;decltype推导
+    decltype(r1) r3 &#x3D; n;
+    r3 &#x3D; 99;
+    cout &lt;&lt; n &lt;&lt; &quot;, &quot; &lt;&lt; r1 &lt;&lt; &quot;, &quot; &lt;&lt; r3 &lt;&lt; endl;
+
+    return 0;
+&#125;
+&#x2F;&#x2F;运行结果：10, 10, 20 ;99, 99, 99<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>auto 虽然在书写格式上比 decltype 简单，但是它的推导规则复杂，有时候会改变表达式的原始类型；而 decltype 比较纯粹，它一般会坚持保留原始表达式的任何类型，让推导的结果更加原汁原味。</p>
+<p>从代码是否健壮的角度考虑，我推荐使用 decltype，它没有那么多是非；但是 decltype 总是显得比较麻烦，尤其是当表达式比较复杂时。</p>
+<h1 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h1><p>sizeof是一个操作符（operator），作用是返回一个对象或类型所占的内存字节数。</p>
+<p>sizeof的东西会被编译器直接替换掉</p>
+<h1 id="cast"><a href="#cast" class="headerlink" title="cast"></a>cast</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><strong>static_cast</strong></h2><p>格式：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">static_cast&lt;type&gt;(expression)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>任何明确的类型转换都可以使用static_cast（static_cast不能转换掉底层const，volatile和__unaligned属性）。由于在编译器期间就进行了类型转化，不提供运行时的检查，所以叫static_cast，因此，需要在编写程序时确认转换的安全性。</p>
+<p>主要在以下几种场合中使用：</p>
+<ol>
+<li>用于类层次结构中，父类和子类之间指针和引用的转换；进行上行转换，把子类对象的指针/引用转换为父类指针/引用，这种转换是安全的；进行下行转换，把父类对象的指针/引用转换成子类指针/引用，这种转换是不安全的，需要编写程序时来确认；</li>
+<li>用于基本数据类型之间的转换，例如把int转char，int转enum等，需要编写程序时来确认安全性；</li>
+<li>把void指针转换成目标类型的指针（这是极其不安全的）；</li>
+</ol>
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><strong>dynamic_cast</strong></h2><p>格式：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">dynamic_cast&lt;type&gt;(expression)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>相比static_cast，dynamic_cast会在<strong>运行时</strong>检查类型转换是否合法，具有一定的安全性。由于运行时的检查，所以会额外消耗一些性能。dynamic_cast使用场景与static相似，在类层次结构中使用时，上行转换和static_cast没有区别，都是安全的；下行转换时，dynamic_cast会检查转换的类型，相比static_cast更安全。</p>
+<p><strong>dynamic_cast转换仅适用于指针或引用。</strong></p>
+<p>在转换可能发生的前提下，dynamic_cast会尝试转换，若指针转换失败，则返回空指针，若引用转换失败，则抛出异常。</p>
+<p>1.继承中的转换</p>
+<p>(1)上行转换：</p>
+<p>在继承关系中 ，dynamic_cast由子类向父类的转换与static_cast和隐式转换一样，都是非常安全的。</p>
+<p>(2)下行转换</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class A &#123; virtual void f()&#123;&#125;; &#125;;
+class B : public A&#123; &#125;;
+void main()
+&#123;
+     A* pA &#x3D; new B;
+     B* pB &#x3D; dynamic_cast&lt;B*&gt;(pA); 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意类A和类B中定义了一个虚函数，这是不可缺少的。因为类中存在虚函数，说明它可能有子类，这样才有类型转换的情况发生，由于运行时类型检查需要运行时类型信息，而这个信息存储在类的虚函数表中，<strong>只有定义了虚函数的类才有虚函数表</strong>。</p>
+<p>2.void*的转换</p>
+<p>一些情况下，我们需要将指针转换为void<em>，然后再合适的时候重新将void</em>转换为目标类型指针。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class A &#123; virtual void f()&#123;&#125; &#125;;
+int main()
+&#123;
+     A *pA &#x3D; new A;
+     void *pV &#x3D; dynamic_cast&lt;void *&gt;(pA); 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3.菱形继承中的上行转换</p>
+<p>首先，定义一组菱形继承的类：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class A &#123; virtual void f() &#123;&#125;; &#125;;
+class B :public A &#123; void f() &#123;&#125;; &#125;;
+class C :public A &#123; void f() &#123;&#125;; &#125;;
+class D :public B, public C &#123; void f() &#123;&#125;; &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>继承关系如图：</p>
+<p><img src="http://static.come2rss.xyz/v2-485ce8e9bbcc314e48b691f425d935e8_720w.jpg" alt="img"></p>
+<p>多重继承的上行转化必须明确指定继承路径。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class A &#123; virtual void f() &#123;&#125;; &#125;;
+class B :public A &#123; void f() &#123;&#125;; &#125;;
+class C :public A &#123; void f() &#123;&#125;; &#125;;
+class D :public B, public C &#123; void f() &#123;&#125;; &#125;;
+
+void main()
+&#123;
+    D *pD &#x3D; new D;
+    B *pB &#x3D; dynamic_cast&lt;B *&gt;(pD);
+    A *pA &#x3D; dynamic_cast&lt;A *&gt;(pB);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<blockquote>
+<p>除了<code>dynamic_cast&lt;&gt;</code>是运行时处理的，运行时要进行类型检查，其他三种都是编译时完成的。</p>
+</blockquote>
+<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><strong>const_cast</strong></h2><p>格式：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const_cast&lt;type&gt;(expression)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>const_cast用于移除类型的const、volatile和__unaligned属性。</p>
+<p>常量指针被转换成非常量指针，并且仍然指向原来的对象；常量引用被转换成非常量引用，并且仍然引用原来的对象。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const char *pc;
+char *p &#x3D; const_cast&lt;char*&gt;(pc);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><strong>reinterpret_cast</strong></h2><p>格式：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">reinterpret_cast&lt;type&gt;(expression)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>非常激进的指针类型转换，在编译期完成，可以转换任何类型的指针，所以极不安全。非极端情况不要使用。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int *ip;
+char *pc &#x3D; reinterpret_cast&lt;char*&gt;(ip);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>一个实际用途是在哈希函数中，即，通过让两个不同的值几乎不以相同的索引结尾的方式将值映射到索引</p>
+<h1 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h1><blockquote>
+<p>p470</p>
+</blockquote>
+<p>左值表示对象的身份，可以赋值，可以获取值。右值是表示对象的值。</p>
+<p><strong>左值引用</strong>只能绑定到变量，而<strong>右值引用</strong>只能绑定到即将销毁的对象上，比如表达式，字面常量，或者返回右值的表达式。两者完全相反。</p>
+<blockquote>
+<p><code>const</code>的左值引用可以绑定到右值引用绑定的东西上。<code>const int  = getInt(); </code></p>
+</blockquote>
+<blockquote>
+<p>⭕绑定到右值引用的变量是左值！</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int &amp;&amp;t &#x3D; &quot;hello&quot;;
+int &amp;&amp;rlvaue &#x3D; t; &#x2F;&#x2F;error<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>右值引用要求我们被绑定的东西要么被销毁，要么被赋值。它可以自由的使用被引用对象的资源。</p>
+</blockquote>
+<p>显然的，对象是左值。</p>
+<blockquote>
+<p><code>int &amp;&amp; a = 2 * 32</code> 中 <code>a</code>就是变量。</p>
+</blockquote>
+<p> <code>std::move(a)</code>可以返回变量的右值引用。结合上文， <code>a</code>之后的值无法被使用。</p>
+<h2 id="右值引用和成员函数"><a href="#右值引用和成员函数" class="headerlink" title="右值引用和成员函数"></a>右值引用和成员函数</h2><p>形参的右值和左值可以作为函数重载的的区分。首先函数匹配会根据传入参数是左值还是右值调用对应版本的函数。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">string s &#x3D; &quot;hello world&quot;
+vec.push_back(s); &#x2F;&#x2F; 左值
+vec.push_back(&quot;jjklsdf&quot;); &#x2F;&#x2F; 右值
+vec.push_back(string(&quot;jjklsdf&quot;)); &#x2F;&#x2F; 右值
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>C++是不会对右值被赋值这种行动作出限制的（<code>str1 + str2 = &quot;hello&quot;</code>）。</p>
+<p>引用限定符允许设置成员函数中<code>this</code>指针是属于右值还是左值。调用对象也会根据<strong>引用限定符的版本来选择重载版本</strong>。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Class Foo&#123;
+    public:
+    	Foo &amp;operator&#x3D;(const Foo &amp;f) const &amp;  &#123; &#x2F;&#x2F;this 为左值  且 const 必须在 &amp; 前面
+            &#x2F;&#x2F;省略赋值步骤
+            return *this;
+        &#125;
+		Foo sorted() &amp;;		&#x2F;&#x2F;👈左值foo 调用
+    	Foo sorted() &amp;&amp;; 	&#x2F;&#x2F;右值foo 调用
+&#125;
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>而<strong>同名</strong>成员函数的要么全不写引用限定符，要么全写。</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">C++标准库</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><span class="level-item">C++深入基础</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "1b9b5662fc4173529077e0fd8eadeb37",
+            repo: "Some-of-Your-GitHub-Repo",
+            owner: "2019-nNewG+C",
+            clientID: "68309e2465123e9ed5fb",
+            clientSecret: "1a622945bd15a7219dd02e477cb2b6b8f2a40697",
+            admin: ["2019-nNewG+C"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">262</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">52</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="706. Design HashMap"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-15T03:13:45.000Z">2021-03-15</time></p><p class="title"><a href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/">706. Design HashMap</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">复杂数据结构</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="面经 题目C++list"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:42.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/">面经 题目C++list</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++标准库"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/">C++标准库</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-lei-xing-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++类型"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-lei-xing-md-1/">C++类型</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++深入基础"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/">C++深入基础</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#C-类型"><span class="level-left"><span class="level-item">1</span><span class="level-item">C++类型</span></span></a></li><li><a class="level is-mobile" href="#const-常量修饰符"><span class="level-left"><span class="level-item">2</span><span class="level-item">const 常量修饰符</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#const与引用"><span class="level-left"><span class="level-item">2.1.1</span><span class="level-item">const与引用</span></span></a></li><li><a class="level is-mobile" href="#const和指针"><span class="level-left"><span class="level-item">2.1.2</span><span class="level-item">const和指针</span></span></a></li><li><a class="level is-mobile" href="#顶层和底层const"><span class="level-left"><span class="level-item">2.1.3</span><span class="level-item">顶层和底层const</span></span></a></li><li><a class="level is-mobile" href="#const与函数"><span class="level-left"><span class="level-item">2.1.4</span><span class="level-item">const与函数</span></span></a></li></ul><li><a class="level is-mobile" href="#constexpr"><span class="level-left"><span class="level-item">2.2</span><span class="level-item"> constexpr</span></span></a></li></ul></li><li><a class="level is-mobile" href="#static"><span class="level-left"><span class="level-item">3</span><span class="level-item">static</span></span></a></li><li><a class="level is-mobile" href="#extern"><span class="level-left"><span class="level-item">4</span><span class="level-item">extern</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#extern-“C”"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">extern “C”</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#C-和C-的函数是怎样编译的。"><span class="level-left"><span class="level-item">4.1.1</span><span class="level-item">C++和C 的函数是怎样编译的。</span></span></a></li><li><a class="level is-mobile" href="#extern-“C”-的作用"><span class="level-left"><span class="level-item">4.1.2</span><span class="level-item">extern “C” 的作用</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#inline"><span class="level-left"><span class="level-item">5</span><span class="level-item">inline</span></span></a></li><li><a class="level is-mobile" href="#auto"><span class="level-left"><span class="level-item">6</span><span class="level-item">auto</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#auto和-decltype的区别"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">auto和 decltype的区别</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#语法格式"><span class="level-left"><span class="level-item">6.1.1</span><span class="level-item">语法格式</span></span></a></li><li><a class="level is-mobile" href="#对const和volatile关键字的统称"><span class="level-left"><span class="level-item">6.1.2</span><span class="level-item">对const和volatile关键字的统称</span></span></a></li><li><a class="level is-mobile" href="#对引用的处理"><span class="level-left"><span class="level-item">6.1.3</span><span class="level-item">对引用的处理</span></span></a></li></ul></li><li><a class="level is-mobile" href="#总结"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">总结</span></span></a></li></ul></li><li><a class="level is-mobile" href="#sizeof"><span class="level-left"><span class="level-item">7</span><span class="level-item">sizeof</span></span></a></li><li><a class="level is-mobile" href="#cast"><span class="level-left"><span class="level-item">8</span><span class="level-item">cast</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#static-cast"><span class="level-left"><span class="level-item">8.1</span><span class="level-item">static_cast</span></span></a></li><li><a class="level is-mobile" href="#dynamic-cast"><span class="level-left"><span class="level-item">8.2</span><span class="level-item">dynamic_cast</span></span></a></li><li><a class="level is-mobile" href="#const-cast"><span class="level-left"><span class="level-item">8.3</span><span class="level-item">const_cast</span></span></a></li><li><a class="level is-mobile" href="#reinterpret-cast"><span class="level-left"><span class="level-item">8.4</span><span class="level-item">reinterpret_cast</span></span></a></li></ul></li><li><a class="level is-mobile" href="#左值和右值"><span class="level-left"><span class="level-item">9</span><span class="level-item">左值和右值</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#右值引用和成员函数"><span class="level-left"><span class="level-item">9.1</span><span class="level-item">右值引用和成员函数</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">194</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">26</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">35</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

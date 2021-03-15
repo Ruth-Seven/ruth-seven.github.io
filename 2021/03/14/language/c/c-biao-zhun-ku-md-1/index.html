@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>C++标准库 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="C++标准库IO库iostream包含的istream，ostream和iostream是iofstream和iosstream所包含的继承类的范例。（w宽字符系列类先不讨论。）这极大方便了对不同输入输出的编程工作！ 常见的cin就是一个istream实例。 IO对象无靠拷贝和赋值，所以一般调用都是用引用。IO对象。 IO对象有效才能工作，出错有专门的状态位表示，也可以使用函数查询和置位。"><meta property="og:type" content="blog"><meta property="og:title" content="C++标准库"><meta property="og:url" content="https://blog.come2rss.xyz/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="C++标准库IO库iostream包含的istream，ostream和iostream是iofstream和iosstream所包含的继承类的范例。（w宽字符系列类先不讨论。）这极大方便了对不同输入输出的编程工作！ 常见的cin就是一个istream实例。 IO对象无靠拷贝和赋值，所以一般调用都是用引用。IO对象。 IO对象有效才能工作，出错有专门的状态位表示，也可以使用函数查询和置位。"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2021-03-14T08:01:40.000Z"><meta property="article:modified_time" content="2021-03-14T08:15:29.570Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2021/03/14/language/c/c-biao-zhun-ku-md-1/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2021-03-14T08:01:40.000Z","dateModified":"2021-03-14T08:15:29.570Z","author":{"@type":"Person","name":"John Doe"},"description":"C++标准库IO库iostream包含的istream，ostream和iostream是iofstream和iosstream所包含的继承类的范例。（w宽字符系列类先不讨论。）这极大方便了对不同输入输出的编程工作！ 常见的cin就是一个istream实例。 IO对象无靠拷贝和赋值，所以一般调用都是用引用。IO对象。 IO对象有效才能工作，出错有专门的状态位表示，也可以使用函数查询和置位。"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><link rel="icon" href="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-14T08:01:40.000Z" title="3/14/2021, 4:01:40 PM">2021-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-14T08:15:29.570Z" title="3/14/2021, 4:15:29 PM">2021-03-14</time></span><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">29 minutes read (About 4352 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">C++标准库</h1><div class="content"><a id="more"></a>
+
+
+
+<h1 id="C-标准库"><a href="#C-标准库" class="headerlink" title="C++标准库"></a>C++标准库</h1><h1 id="IO库"><a href="#IO库" class="headerlink" title="IO库"></a>IO库</h1><p><code>iostream</code>包含的<code>istream</code>，<code>ostream</code>和<code>iostream</code>是<code>iofstream</code>和<code>iosstream</code>所包含的继承类的范例。（<code>w</code>宽字符系列类先不讨论。）这极大方便了对不同输入输出的编程工作！</p>
+<p>常见的<code>cin</code>就是一个<code>istream</code>实例。</p>
+<p>IO对象无靠拷贝和赋值，所以一般调用都是用引用。IO对象。</p>
+<p>IO对象有效才能工作，出错有专门的状态位表示，也可以使用函数查询和置位。</p>
+<h2 id="文件流对象"><a href="#文件流对象" class="headerlink" title="文件流对象"></a>文件流对象</h2><p>文件IO对象需要打开文件，其销毁时会自动销毁，也可以手动关闭。</p>
+<p>文件流对象的新创建或者每次打开文件，都会改变其文件模式。默认模式一般是<code>out</code>和<code>trunc</code>，写的同时截断所有内容（消除）。</p>
+<blockquote>
+<p>文件流读写要注意权限，尤其是Linux编程！</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 默认模式
+ofstream out(&quot;file&quot;) ;
+&#x2F;&#x2F; 输出 + 添加
+ofstream out(&quot;file&quot;， ofstream::out | ofstream::app);
+
+&#x2F;&#x2F;open 也是一样
+ofstream out;
+out.open(&quot;file&quot;, ofsteam::app)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="字符串流"><a href="#字符串流" class="headerlink" title="字符串流"></a>字符串流</h2><p><code>stringstream</code>、<code>istringstream</code>和<code>ostringstream</code>的工作同上。<code>ostringstream.str()</code>可获取最后输出的结果。</p>
+<hr>
+<h1 id="顺序容器"><a href="#顺序容器" class="headerlink" title="顺序容器"></a>顺序容器</h1><h2 id="序列容器"><a href="#序列容器" class="headerlink" title="序列容器"></a>序列容器</h2><p>序列容器<code>strign</code>| <code>vector</code>| <code>deque</code> | <code>list</code> | <code>forward_list</code> | <code>array</code>，支持几乎统一的接口，比如迭代器（正向和反向），插入，初始化等等。比较特殊用的少的，<code>array</code>初始化还需要指定固定大小。</p>
+<blockquote>
+<p> 值初始化是容器没有指定初始化值对各个元素进行的默认初始化过程。</p>
+</blockquote>
+<p>各种类型的容器因为其特性的限制，经常有一些API无法使用。比如<code>vector</code>和<code>string</code>没有<code>pop_front</code>，<code>forward_list</code>没有<code>psuh_back</code>，</p>
+<p><strong>容器的拷贝和赋值</strong>方法很多，一般来说都是要求元素和容器类型相同，拷贝中<code>contain(other.begin(), other.end())</code>允许支持不同但是兼容的元素类型，因为他们可以相互转换。赋值有<code>container.assign(oldstyle.begin(), oldstyle.end())</code>，也支持元素转化，比如<code>*char</code>到<code>string</code>。</p>
+<p>插入相关的方法还是非常多。<code>emplace</code>族方法会在直接在容器管理的内存空间中构建元素，调用时要符合被压入元素的构造方法：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 两者结果等价
+c.emplace_back(&quot;info&quot;, 20, 20.0);
+c.emplace_back(&#123;&quot;info&quot;, 20, 20.0&#125;);
+
+&#x2F;&#x2F; 使用默认构造函数
+c.emplace_back();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>访问对象的出乎意料的有<code>front()</code>和<code>back()</code>，返回了引用的数据（可<code>const</code>）。</p>
+<p>对于<code>vector</code>，<code>string</code>和<code>deque</code>，插入，删除操作定位会是容器的迭代器失效。当然也有不失效的时候，当容器内存空间没重构，或者改变的部分没有波及到迭代器指向的元素，就不会有事。但维护迭代器的有效性是非常重要的。</p>
+<p>需要“内存管理”的容器，<code>string</code>，<code>vector</code>和<code>deque</code>都有内存管理函数，<code>size()</code>，<code>capacity()</code>、<code>reserve()</code>和<code>shrink_to_fit()</code>。容器可以提前分配内存，以提供后续元素置入，也可以在添加元素时自动扩容。</p>
+<p><code>string</code>容器具有特殊<code>s(str, pos, len)</code>等多个构造方法，其<code>str</code>可以<code>string</code>或者<code>const *char</code>（不过按照转化规则，<code>*char</code>也是可以的）。常用的有<code>insert()</code>、<code>erase()</code>、<code>assign()</code>、<code>replace()</code>、<code>find()</code>、<code>find_first_of()</code>、<code>stod()</code>、<code>to_string()</code>。</p>
+<blockquote>
+<p>光光，记住所有API和其他们的繁杂的函数签名是性价比不高的，但是记住存在这么一个API并且在应用时能够快速检索到是非常有效的，如果说记住三两种常用的也是可取的 。</p>
+</blockquote>
+<p><code>list</code>和<code>forward_list</code>具有类似于通用泛型算法的专属算法，但是略有不同的是，<code>list.merge()</code>和<code>list.unique()</code>都会直接改变输入参数<code>list</code>的内存值，前者会销毁合并的两条链，后者会删除掉多余元素。</p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="扩容原理概述"><a href="#扩容原理概述" class="headerlink" title="扩容原理概述"></a>扩容原理概述</h3><p>新增元素：Vector通过一个连续的数组存放元素，如果集合已满，在新增数据的时候，就要分配一块更大的内存，将原来的数据复制过来，释放之前的内存，在插入新增的元素；<br>对vector的任何操作，一旦引起空间重新配置，指向原vector的所有迭代器就都失效了 ；<br>初始时刻vector的capacity为0，塞入第一个元素后capacity增加为1；<br>不同的编译器实现的扩容方式不一样，VS2015中以1.5倍扩容，GCC以2倍扩容。</p>
+<h3 id="resize和reverse"><a href="#resize和reverse" class="headerlink" title="resize和reverse"></a><code>resize</code>和<code>reverse</code></h3><p>reserve是容器预留空间，但并不真正创建元素对象，在创建对象之前，不能引用容器内的元素，因此当加入新的元素时，需要用<code>push_back()/insert()</code>函数。</p>
+<p>resize是改变容器的大小，并且创建对象，因此，调用这个函数之后，就可以引用容器内的对象了，因此当加入新的元素时，用operator[]操作符，或者用迭代器来引用元素对象。</p>
+<h2 id="stack适配器"><a href="#stack适配器" class="headerlink" title="stack适配器"></a><code>stack</code>适配器</h2><h4 id="pop-返回类型："><a href="#pop-返回类型：" class="headerlink" title="pop()返回类型："></a>pop()返回类型：</h4><p>为什么pop（）返回viod，而不是类型T呢？也就是说，为什么先用top（），然后用pop（）来访问和删除站定的元素，而不是把它们合并一个返回类型T的成员函数。</p>
+<p>这种设计有很好的理由。如果pop（）返回栈顶元素，则必须按值返回，而不是按引用返回。按引用返回是不可行的，因为元素</p>
+<p>在栈中已经不存在，必须在按引用返回之前现将其存储到某个地方。如果选用动态内存，除非动态内存最终被删除，否则将导致内存泄露。</p>
+<p>按照<strong>数值返回效率很差</strong>，因为它包含对类型T的复制构造函数的调用。让pop（）返回数值将会导致潜在的内存问题或效率很低下，</p>
+<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a><code>deque</code></h2><p><code>deque</code>的内部结构就是这么简单，一个<code>map</code>，加上<code>map</code>中元素指向的固定大小的数组空间。</p>
+<blockquote>
+<p>我当初怎么没想到，草</p>
+</blockquote>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2-191213161305R5.gif" alt="deque容器的底层存储机制"></p>
+<p>如果<code>map</code>数组满了就搬运，这点性能损失还是承受到起。</p>
+<h3 id="deque迭代器"><a href="#deque迭代器" class="headerlink" title="deque迭代器"></a><code>deque</code>迭代器</h3><p>维护当前遍历数组的首尾空间的，当前元素的，指向当前数组的指针的指针。</p>
+<p>这种调用方式就比较简单~</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2-19121316430U40.gif" alt="deque容器的底层实现"></p>
+<h2 id="顺序容器优缺点"><a href="#顺序容器优缺点" class="headerlink" title="顺序容器优缺点"></a>顺序容器优缺点</h2><table>
+<thead>
+<tr>
+<th>顺序容器</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>vector</code></td>
+<td>动态扩容，随机访问</td>
+<td>插入费时</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>随机访问</td>
+<td>无法原地修改</td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>插入很快</td>
+<td>无法随机访问</td>
+</tr>
+<tr>
+<td><code>forward_list</code></td>
+<td>速度快，同上</td>
+<td>同上，没有<code>size</code></td>
+</tr>
+<tr>
+<td><code>deque</code></td>
+<td>随机访问，头尾可插入且速度快</td>
+<td>中间插入费时</td>
+</tr>
+<tr>
+<td><code>array</code></td>
+<td></td>
+<td>固定大小，无法添加删除</td>
+</tr>
+</tbody></table>
+<h2 id="容器适配器"><a href="#容器适配器" class="headerlink" title="容器适配器"></a>容器适配器</h2><p>顾名思义，就是容器的适配器。<code>queue</code> | <code>priority_quueu</code>属于队列适配器，<code>stack</code>属于栈适配器。两者各自一套的API。</p>
+<p>容器适配器建立的其被“包裹”的容器之上，但对其类型有能力的限制。比如<code>stack</code>操作比较简单，除了<code>array</code>和<code>forward_list</code>的序列容器都可以构造，它和<code>queue</code>默认用<code>deque</code>。<code>prority_queue</code>不能用<code>list</code>系列的，默认用<code>vector</code>。</p>
+<hr>
+<h1 id="泛型算法（generic）"><a href="#泛型算法（generic）" class="headerlink" title="泛型算法（generic）"></a>泛型算法（generic）</h1><p>泛型算法是建立在迭代器之上，对<code>容器</code>进行操作的。它本身并不调用容器的API，也就是说与容器无关。它不负责检查迭代器的有效值，这是程序员的事。</p>
+<p>几个有趣的泛型算法：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><code>find()</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>accumulate()</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>equal()</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>fill()</code></td>
+<td><code>fill_n()</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>copy()</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>replace()</code></td>
+<td><code>replace_copy()</code></td>
+</tr>
+<tr>
+<td>支持谓词</td>
+<td><code>sort()</code></td>
+<td><code>stable_sort()</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>unique()</code></td>
+<td><code>unique_copy()</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>for_each()</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>find_if()</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>_if</code> : 表示谓词输入</p>
+<p><code>_copy</code> : 表示不改变原输入，将变化内容输出</p>
+<p>算法常常用谓词来重载算法</p>
+</blockquote>
+<p>为了支持元素在容器末端插入元素，<code>back_inserter()</code>通过接受一个容器会创建一个写入就调用容器<code>push_back()</code>的<code>back_iterator</code>。</p>
+<h2 id="谓词"><a href="#谓词" class="headerlink" title="谓词"></a>谓词</h2><blockquote>
+<p>p346</p>
+</blockquote>
+<p>所谓谓词就是可调用的表达式，其结果能判断出正确或错误。<code>n</code>元谓词接受<code>n</code>个参数。</p>
+<blockquote>
+<p> C++中可调用对象只有：函数、函数指针、重载<code>()</code>的类和<code>lambda</code>表达式。</p>
+</blockquote>
+<h2 id="迭代器”适配器”"><a href="#迭代器”适配器”" class="headerlink" title="迭代器”适配器”"></a>迭代器”适配器”</h2><blockquote>
+<p>p357</p>
+</blockquote>
+<p><code>&lt;iterator&gt;</code>定了其他几种高级迭代器。</p>
+<h3 id="Insert-Iterator"><a href="#Insert-Iterator" class="headerlink" title="Insert Iterator"></a><code>Insert Iterator</code></h3><p>插入迭代器不同于迭代器，它通过获取迭代器产生一个只能“赋值”操作的适配迭代器，从而对容器进行操作。</p>
+<ul>
+<li><code>back_iterator(Container)</code>会创建一个使用<code>push_back()</code>的迭代器，每次赋值都在末尾插入元素</li>
+<li><code>front_iterator(C)</code>会创建一个使用<code>push_front()</code>的迭代器，每次赋值都在首部插入元素</li>
+<li><code>inserter(C, iter)</code>会创建一个使用<code>C.insert(iter)</code>的迭代器，每次赋值都在<code>iter</code>指向的元素之前插入元素。</li>
+</ul>
+<blockquote>
+<p>注意 <code>front</code>和<code>inserter</code>两者插入方式的不同。</p>
+</blockquote>
+<h3 id="iostream迭代器"><a href="#iostream迭代器" class="headerlink" title="iostream迭代器"></a><code>iostream</code>迭代器</h3><p><code>iostream</code>迭代器能够为任何一个输入输出标准流，创建“容器的表现形式”的迭代器。如此，我们就可以通过流迭代器使用泛型算法，甚至用它创建容器。</p>
+<p>要求，<code>istream_iterator</code>和<code>ostream_iterator</code>具有统一的对象，同时对象必须重载了<code>&lt;&lt;</code>和<code>&gt;&gt;</code>运算符。</p>
+<blockquote>
+<p>这很河里。</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iterator&gt;
+#include &lt;string&gt;
+#include &lt;fstream&gt;    
+std::ifstream ffin(argv[1]);
+std::istream_iterator&lt;std::string&gt; filein(ffin), string_eof; &#x2F;&#x2F;默认初始化的string_eof，可以作为流异常或者流读取结束的标志
+&#x2F;&#x2F; std::vector&lt;std::string&gt; doc( , string_eof);
+&#x2F;&#x2F; print(doc);    
+std::ofstream ffout(argv[2], std::ofstream::app);
+std::ostream_iterator&lt;std::string&gt; fileout(ffout, &quot;\n&quot;);
+for_each(filein, string_eof, [&amp;](std::string g)&#123; *fileout++ &#x3D; g;&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>注意， 流迭代和<code>insert iterator</code>的迭代器运算形式都是<code>iter = val</code>,<code>*iter</code>和<code>iter++</code>都是返回<code>iter</code>自身，上述程序写成那样是为了保持和其他迭代器的统一形式。</p>
+<h3 id="reverse-iterator反向迭代器"><a href="#reverse-iterator反向迭代器" class="headerlink" title="reverse iterator反向迭代器"></a><code>reverse iterator</code>反向迭代器</h3><p>这个迭代器最简单，直接把迭代器反过来用就行。</p>
+<h2 id="泛型算法结构"><a href="#泛型算法结构" class="headerlink" title="泛型算法结构"></a>泛型算法结构</h2><blockquote>
+<p>p365</p>
+</blockquote>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代器按照其功能按层次分类， 高级层次包含了低级层村的所有功能。</p>
+<p><code>input iterator</code>只有判等，自加，解引用，支持箭头运算，支持读元素。</p>
+<p><code>output iterator</code>，不能读，只能写。</p>
+<p><code>forward interator</code> 可读写，还是只能向前移动</p>
+<p><code>bidirectional iterator</code> 多了对双向移动的支持；</p>
+<p><code>random-access iterator</code>功能最多，多了支持比较，数字自加自减和加法，迭代器减法，下标访问。而且序列容器大部分直接提供<code>random-access iterator</code>。</p>
+<p>不同的泛型算法对其迭代器所提供的功能有其要求，比如<code>unique()</code>需要随机访问迭代器，<code>copy()</code>需要两个输入迭代器和一个输出迭代器。</p>
+<h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><blockquote>
+<p>p419</p>
+</blockquote>
+<p>关联容器把键和值联系起来，取消了顺序容器对于位置相关的操作，比如<code>push_back()</code>。<code>unordered_</code>、<code>mutil</code>、<code>map</code>和<code>set</code>从三个维度上描述了8个容器的特点。</p>
+<p>容器的初始化在新标准下，可以在进行值初始化了，只要类型转化成立就行。比如：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">map&lt;string, string&gt; authors &#x3D; 
+&#123;
+    &#123;&quot;Jporure&quot;, &quot;James&quot;&#125;,
+    &#123;&quot;Austhem&quot;, &quot;Jane&quot;&#125;,
+    &#123;&quot;Dichens&quot;, &quot;CHarles&quot;&#125;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>有序容器使用关键词类型的<code>&lt;</code>运算符来比较元素：</p>
+<ul>
+<li>若<code>k1 &lt; k2</code>，则 <code>k2 &lt; k1</code> 不成立</li>
+<li><code>&lt;</code>具有传递性</li>
+<li>若<code>k1 &lt; k2</code> 和<code>k2 &lt; k1</code> 都不成立，则<code>k1 == k2</code>。</li>
+</ul>
+<p>关联容器所绑定的关键词如果没有重载<code>&lt;</code>操作符，必须指针关键容器中的关键词的操作类型。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool compare(const Person&amp; a, csont Person &amp; b)&#123;
+    return Person.a &lt; Person.b;
+&#125;
+
+map&lt;Person, vector&lt;Person&gt;, decltype(compare)*&gt; record(compare); &#x2F;&#x2F; 用类型推导快捷的写出 方法指针的类型
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<p>无序容器使用<code>hash</code>算法和<code>==</code>组织元素。他可以帮助我们省下维护容器有序的代价。</p>
+<p><strong>pair</strong></p>
+<h2 id="关联容器迭代器"><a href="#关联容器迭代器" class="headerlink" title="关联容器迭代器"></a>关联容器迭代器</h2><p>使用关联容器的迭代器，可以用<code>while(iter != C.end())</code>控制循环。</p>
+<p>通过迭代器解引用获取容器元素, <code>set</code>获取的<code>set_type</code>,即<code>const value_type</code>类型的元素。<code>map</code>获取的是<code>mapped_type</code>,即<code>pair&lt;const key_type, value_type&gt;</code>的元素。</p>
+<p>这种返回的元素的特性，注定了无法改变关联容器的键，也没有办法在上面使用写的泛型算法，比如<code>sort</code>，而读算法又通常不如内置算法效率高。</p>
+<h2 id="关联容器API"><a href="#关联容器API" class="headerlink" title="关联容器API"></a>关联容器API</h2><p>关联容器的插入，除了直接插入元素，也可以构造成员<code>map.insert(&#123;a, b&#125;)</code>，也可以直接插入迭代器<code>map.insert(p1, p2)</code>。不重复键值的容器插入后，返回插入元素的迭代器和插入是否成功的指标，比如，返回值<code>++rest.first-&gt;second</code>先获取元素，再自增迭代器。而重复键值的容器一定会插入成功，所以只返回插入元素的迭代器。</p>
+<p>它的<code>emplace(args)</code>可以直接接受可以构造为元素的参数列表。</p>
+<p>删除也是老生常谈，<code>map.erase(k)</code>（值）、<code>map.erase(iter)</code>和<code>map.erase(p1, p2)</code>。</p>
+<p>特殊的是，在不存在的键使用下标操作，<code>map</code>和<code>unordered_map</code>会直接创建出值为<code>0</code>的单位。这非常有利于写出简洁的代码。但如果需要区分存在是否，<code>count()</code>和<code>find()</code>就有用很多了。</p>
+<p>对于<code>set</code>下标是无意义的，因为被映射的值。对于多重键的容器，是无法用键搜索到的。</p>
+<p>容器还提供了查找元素的<code>c.lower_bound(k)</code>（<code>*iter&lt;= k</code>），<code>c.uppper_bound(k)</code>(<code>*iter&lt; k</code>)和<code>c.equal_range()</code>(<code>*iter1&lt;= k, iter2&lt;k</code>)。可以看到，第三个方法返回前两个函数的下标的<code>pair</code>,正好可以查找到值为<code>k</code>的所有元素。</p>
+<blockquote>
+<p>特别适用于多重键值的容器。</p>
+</blockquote>
+<p>而多重键的容器其相同键值的元素都相邻，所以可以直接用<code>for</code>和<code>equal_range()</code>遍历所有相同元素。</p>
+<h2 id="无序容器"><a href="#无序容器" class="headerlink" title="无序容器"></a>无序容器</h2><p> 无序容器以<code>hash</code>和重载<code>==</code>操作为支持，把元素映射到各个桶。标准库为内置类型设计了<code>hash</code>模板。</p>
+<p>创建自定义键值的无序容器需要提供<code>hash</code>模板和重载<code>==</code>。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">size_t hasher(const Person &amp;per)&#123;
+    return hash&lt;string&gt;()(per.isbn());
+&#125;
+
+bool epOp(const Person&amp; aPer, const Person&amp; bPer)&#123;
+    return aPer.info() &#x3D;&#x3D; bPer.info();
+&#125;
+using Per_multiset &#x3D; unordered_multiset&lt;Person, decltype(hasher)*, decltype&lt;epOp&gt;*&gt;;
+&#x2F;&#x2F;桶大小， hash函数, 相等性判断函数指针
+Per_multiset PersonInfo(40, hahser, epOp);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="关联容器优缺点"><a href="#关联容器优缺点" class="headerlink" title="关联容器优缺点"></a>关联容器优缺点</h2><table>
+<thead>
+<tr>
+<th>顺序容器</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>map</code></td>
+<td>有序；查找时间平衡</td>
+<td></td>
+</tr>
+<tr>
+<td><code>unordered_mpa</code></td>
+<td><code>o(1)</code>查找，不稳定</td>
+<td>无序；需要扩容</td>
+</tr>
+<tr>
+<td><code>set</code></td>
+<td>有序；查找时间平衡</td>
+<td></td>
+</tr>
+<tr>
+<td><code>mutilset</code></td>
+<td>允许多个相同的值插入</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="标准库特殊设施"><a href="#标准库特殊设施" class="headerlink" title="标准库特殊设施"></a>标准库特殊设施</h1><h2 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h2><blockquote>
+<p>p636</p>
+</blockquote>
+<p><code>tuple&lt;T1, T2, ....., Tn&gt; t(v1, v2, .... , vn)</code>可以方便的容纳不同类型的数据，常见于函数返回和数据存储。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">make_tuple(v1, v3,.... vn);
+auto item &#x3D; get&lt;i&gt;(t); &#x2F;&#x2F;模板方法：返回一个对象的引用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p> 静态程序的痛楚就需要打非常多的类型名称！</p>
+</blockquote>
+<h2 id="bitset"><a href="#bitset" class="headerlink" title="bitset"></a>bitset</h2><p>具有固定的位大小，可以方便的操纵<code>N</code>位二进制的。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bitset&lt;N&gt; b(u); &#x2F;&#x2F;unsigned long long 初始化
+bitset&lt;N&gt; b(&quot;1001020101&quot;); &#x2F;&#x2F;stirng of 0 and 1 初始化
+
+b.any()
+b.all()
+b.test()
+b.flip()
+
+b.to_ulong()
+b.to_string()
+
+os &gt;&gt; b &#x2F;&#x2F;从 0 1 字符流读入数据
+is &lt;&lt; b;
+&#x2F;&#x2F;等等等等<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><blockquote>
+<p>p645 有点复杂，而且不如python的好用，等等再看</p>
+</blockquote>
+<h2 id="随机数生成"><a href="#随机数生成" class="headerlink" title="随机数生成"></a>随机数生成</h2><blockquote>
+<p>659</p>
+</blockquote>
+<p>C++的随机数生成引擎和众多随机数分布配合起来，作为可调用对象，产出随机数。</p>
+<h2 id="IO格式化"><a href="#IO格式化" class="headerlink" title="IO格式化"></a>IO格式化</h2><blockquote>
+<p>p666</p>
+</blockquote>
+<h2 id="迭代器失效"><a href="#迭代器失效" class="headerlink" title="迭代器失效"></a>迭代器失效</h2><h3 id="序列容器-1"><a href="#序列容器-1" class="headerlink" title="序列容器"></a>序列容器</h3><p><code>vector</code>失效情况：</p>
+<ol>
+<li><code>erase</code>元素<code>a</code>导致<code>a</code>后面的迭代器全部失效</li>
+<li>扩容导致迭代器失效</li>
+<li>使用过时的<code>end</code>迭代器</li>
+</ol>
+<p><code>list</code>失效：</p>
+<ol>
+<li><code>erase</code>只会导致指向被删除的元素的迭代器失效</li>
+</ol>
+<p><code>deque</code>迭代器失效:</p>
+<ul>
+<li><p>在deque容器首部或者尾部插入元素，不会使得任何迭代器失效；</p>
+</li>
+<li><p>在deque容器的首部或者尾部删除元素，只会使指向被删元素的迭代器失效；</p>
+</li>
+<li><p>在deque容器的任何其他位置进行<code>插入</code>或<code>删除</code>操作都将使指向该容器元素的所有迭代器失效；</p>
+</li>
+</ul>
+<h3 id="关联容器-1"><a href="#关联容器-1" class="headerlink" title="关联容器"></a>关联容器</h3><p><code>set</code>和<code>map</code>迭代器失效</p>
+<p>与list相同，当对其进行<code>insert</code>或者<code>erase</code>操作时，操作之前的所有迭代器，在操作完成之后都依然有效，但被删除元素的迭代器失效。</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">面经 题目C++list</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/03/14/language/c/c-lei-xing-md-1/"><span class="level-item">C++类型</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "6631fb3056be9e1df311ce62494b2451",
+            repo: "Some-of-Your-GitHub-Repo",
+            owner: "2019-nNewG+C",
+            clientID: "68309e2465123e9ed5fb",
+            clientSecret: "1a622945bd15a7219dd02e477cb2b6b8f2a40697",
+            admin: ["2019-nNewG+C"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">262</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">52</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="706. Design HashMap"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-15T03:13:45.000Z">2021-03-15</time></p><p class="title"><a href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/">706. Design HashMap</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">复杂数据结构</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="面经 题目C++list"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:42.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/">面经 题目C++list</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++标准库"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/">C++标准库</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-lei-xing-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++类型"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-lei-xing-md-1/">C++类型</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++深入基础"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/">C++深入基础</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#C-标准库"><span class="level-left"><span class="level-item">1</span><span class="level-item">C++标准库</span></span></a></li><li><a class="level is-mobile" href="#IO库"><span class="level-left"><span class="level-item">2</span><span class="level-item">IO库</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#文件流对象"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">文件流对象</span></span></a></li><li><a class="level is-mobile" href="#字符串流"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">字符串流</span></span></a></li></ul></li><li><a class="level is-mobile" href="#顺序容器"><span class="level-left"><span class="level-item">3</span><span class="level-item">顺序容器</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#序列容器"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">序列容器</span></span></a></li><li><a class="level is-mobile" href="#vector"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">vector</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#扩容原理概述"><span class="level-left"><span class="level-item">3.2.1</span><span class="level-item">扩容原理概述</span></span></a></li><li><a class="level is-mobile" href="#resize和reverse"><span class="level-left"><span class="level-item">3.2.2</span><span class="level-item">resize和reverse</span></span></a></li></ul></li><li><a class="level is-mobile" href="#stack适配器"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">stack适配器</span></span></a></li><li><a class="level is-mobile" href="#deque"><span class="level-left"><span class="level-item">3.4</span><span class="level-item">deque</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#deque迭代器"><span class="level-left"><span class="level-item">3.4.1</span><span class="level-item">deque迭代器</span></span></a></li></ul></li><li><a class="level is-mobile" href="#顺序容器优缺点"><span class="level-left"><span class="level-item">3.5</span><span class="level-item">顺序容器优缺点</span></span></a></li><li><a class="level is-mobile" href="#容器适配器"><span class="level-left"><span class="level-item">3.6</span><span class="level-item">容器适配器</span></span></a></li></ul></li><li><a class="level is-mobile" href="#泛型算法（generic）"><span class="level-left"><span class="level-item">4</span><span class="level-item">泛型算法（generic）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#谓词"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">谓词</span></span></a></li><li><a class="level is-mobile" href="#迭代器”适配器”"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">迭代器”适配器”</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Insert-Iterator"><span class="level-left"><span class="level-item">4.2.1</span><span class="level-item">Insert Iterator</span></span></a></li><li><a class="level is-mobile" href="#iostream迭代器"><span class="level-left"><span class="level-item">4.2.2</span><span class="level-item">iostream迭代器</span></span></a></li><li><a class="level is-mobile" href="#reverse-iterator反向迭代器"><span class="level-left"><span class="level-item">4.2.3</span><span class="level-item">reverse iterator反向迭代器</span></span></a></li></ul></li><li><a class="level is-mobile" href="#泛型算法结构"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">泛型算法结构</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#迭代器"><span class="level-left"><span class="level-item">4.3.1</span><span class="level-item">迭代器</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#关联容器"><span class="level-left"><span class="level-item">5</span><span class="level-item">关联容器</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#关键字"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">关键字</span></span></a></li><li><a class="level is-mobile" href="#关联容器迭代器"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">关联容器迭代器</span></span></a></li><li><a class="level is-mobile" href="#关联容器API"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">关联容器API</span></span></a></li><li><a class="level is-mobile" href="#无序容器"><span class="level-left"><span class="level-item">5.4</span><span class="level-item">无序容器</span></span></a></li><li><a class="level is-mobile" href="#关联容器优缺点"><span class="level-left"><span class="level-item">5.5</span><span class="level-item">关联容器优缺点</span></span></a></li></ul></li><li><a class="level is-mobile" href="#标准库特殊设施"><span class="level-left"><span class="level-item">6</span><span class="level-item">标准库特殊设施</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#tuple"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">tuple</span></span></a></li><li><a class="level is-mobile" href="#bitset"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">bitset</span></span></a></li><li><a class="level is-mobile" href="#正则表达式"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">正则表达式</span></span></a></li><li><a class="level is-mobile" href="#随机数生成"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">随机数生成</span></span></a></li><li><a class="level is-mobile" href="#IO格式化"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">IO格式化</span></span></a></li><li><a class="level is-mobile" href="#迭代器失效"><span class="level-left"><span class="level-item">6.6</span><span class="level-item">迭代器失效</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#序列容器-1"><span class="level-left"><span class="level-item">6.6.1</span><span class="level-item">序列容器</span></span></a></li><li><a class="level is-mobile" href="#关联容器-1"><span class="level-left"><span class="level-item">6.6.2</span><span class="level-item">关联容器</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">194</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">26</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">35</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

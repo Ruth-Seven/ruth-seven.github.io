@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>C++深入基础 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="[toc] C++深入基础特性C++三大特性继承：类与类的关系，避免重复开发，减少代码冗余； 多态：一个接口，多个方法； 封装：权限管理，信息隐藏，内部管理。 多态的两种类型静态多态设计思想就是，对于相关的对象类型，直接实现格子的定义，不需要共同基类，只需要各个具体类有相同的接口声明，这里的接口称之为隐式接口。把操作对象的函数定义为模板，对具体的类，直接对模板指定该类型实参即可。 静态"><meta property="og:type" content="blog"><meta property="og:title" content="C++深入基础"><meta property="og:url" content="https://blog.come2rss.xyz/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="[toc] C++深入基础特性C++三大特性继承：类与类的关系，避免重复开发，减少代码冗余； 多态：一个接口，多个方法； 封装：权限管理，信息隐藏，内部管理。 多态的两种类型静态多态设计思想就是，对于相关的对象类型，直接实现格子的定义，不需要共同基类，只需要各个具体类有相同的接口声明，这里的接口称之为隐式接口。把操作对象的函数定义为模板，对具体的类，直接对模板指定该类型实参即可。 静态"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2021-03-14T08:01:40.000Z"><meta property="article:modified_time" content="2021-03-14T08:14:05.770Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2021-03-14T08:01:40.000Z","dateModified":"2021-03-14T08:14:05.770Z","author":{"@type":"Person","name":"John Doe"},"description":"[toc] C++深入基础特性C++三大特性继承：类与类的关系，避免重复开发，减少代码冗余； 多态：一个接口，多个方法； 封装：权限管理，信息隐藏，内部管理。 多态的两种类型静态多态设计思想就是，对于相关的对象类型，直接实现格子的定义，不需要共同基类，只需要各个具体类有相同的接口声明，这里的接口称之为隐式接口。把操作对象的函数定义为模板，对具体的类，直接对模板指定该类型实参即可。 静态"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><link rel="icon" href="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-14T08:01:40.000Z" title="3/14/2021, 4:01:40 PM">2021-03-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-14T08:14:05.770Z" title="3/14/2021, 4:14:05 PM">2021-03-14</time></span><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/C/">C++</a></span><span class="level-item">2 hours read (About 16234 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">C++深入基础</h1><div class="content"><a id="more"></a>
+
+
+
+
+
+<p>[toc]</p>
+<h1 id="C-深入基础"><a href="#C-深入基础" class="headerlink" title="C++深入基础"></a>C++深入基础</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="C-三大特性"><a href="#C-三大特性" class="headerlink" title="C++三大特性"></a>C++三大特性</h3><p>继承：类与类的关系，避免重复开发，减少代码冗余；</p>
+<p>多态：一个接口，多个方法；</p>
+<p>封装：权限管理，信息隐藏，内部管理。</p>
+<h3 id="多态的两种类型"><a href="#多态的两种类型" class="headerlink" title="多态的两种类型"></a>多态的两种类型</h3><p>静态多态设计思想就是，对于相关的对象类型，直接实现格子的定义，不需要共同基类，只需要各个具体类有相同的接口声明，这里的接口称之为<strong>隐式接口</strong>。把操作对象的函数定义为模板，对具体的类，直接对模板指定该类型实参即可。</p>
+<p>静态多态往往通过函数重载和模版（泛型编程）来实现。</p>
+<blockquote>
+<p>隐式接口隐在其类型不明显吧。</p>
+</blockquote>
+<p>所谓动态多态就是在基类中设计共同功能集，在派生类中定义并重写公共接口，完成具体功能。客户端代码通过指向基类的指针或者引用来操纵对象，对虚函数的调用就会自动绑定到实际提供子对象功能函数。</p>
+<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，可以根据指向的子类的不同而调用不同的方法。达到“一个接口，多种实现”的目的了。</p>
+<blockquote>
+<p>静态多态：</p>
+<ol>
+<li>隐式接口</li>
+<li>编译期多态</li>
+</ol>
+<p>动态多态：</p>
+<ol>
+<li>显式接口</li>
+<li>运行时多态</li>
+</ol>
+</blockquote>
+<h3 id="重载、重写和隐藏"><a href="#重载、重写和隐藏" class="headerlink" title="重载、重写和隐藏"></a>重载、重写和隐藏</h3><p><strong>一、重载（overload）</strong><br>指函数名相同，但是它的参数表列个数或顺序，类型不同。但是不能靠返回类型来判断。<br>（1）相同的范围（在同一个作用域中） ；<br>（2）函数名字相同；<br>（3）参数不同；<br>（4）virtual 关键字可有可无。<br>（5）返回值可以不同；</p>
+<blockquote>
+<p>C++中的函数签名(function signature)包括了函数的信息，包括函数名、参数类型、参数个数、顺序以及它所在的类和命名空间。普通函数签名并不包含函数返回值部分，如果两个函数仅仅只有函数返回值不同，那么系统是无法区分这两个函数的，此时编译器会提示语法错误。</p>
+</blockquote>
+<p><strong>二、重写（也称为覆盖 override）</strong><br>是指派生类重新定义基类的虚函数，特征是：<br>（1）不在同一个作用域（分别位于派生类与基类） ；<br>（2）函数名字相同；<br>（3）参数相同；<br>（4）基类函数必须有 virtual 关键字，不能有 static 。<br>（5）<strong>返回值相同（或是协变）</strong>，否则报错；&lt;—-协变这个概念我也是第一次才知道…</p>
+<p>（6）重写函数的访问修饰符可以不同。尽管 virtual 是 private 的，派生类中重写改写为 public,protected 也是可以的</p>
+<blockquote>
+<p>重写要求返回值要相同或者协变，这是为了保持类继承树上的行为一致或者可继承。</p>
+<p>如果需要表现出不同的内容，重载函数即可。</p>
+</blockquote>
+<p><strong>三、重定义（也成隐藏）</strong><br>（1）不在同一个作用域（分别位于派生类与基类） ；<br>（2）函数名字相同；<br>（3）返回值可以不同；<br>（4）参数不同。此时，不论有无 virtual 关键字，基类的函数将被隐藏（注意别与重载以及覆盖混淆） 。<br>（5）参数相同，但是基类函数没有 virtual关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）</p>
+<blockquote>
+<p>协变（Covariance）就是一种约束，派生类中<code>override</code>方法返回值类型<code>Derived</code>必须是基类被<code>override</code>方法返回值<code>Base</code>的派生类，也就是说<code>Base</code>可以替换掉<code>Derived</code>。本质是上里式替换原则。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F;继承关系
+B:A
+RB:RA;
+&#x2F;&#x2F;convar
+RA* A::f();
+RB* B::f();
+&#x2F;&#x2F;这是可以的，于是我们可以很happy的 
+auto r &#x3D; pA-&gt;f();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>如何判断<code>double</code>，<code>float</code>等于零。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;一般float型只能精确到小数到后六位即1e-6,将float型的数a的绝对值abs（a）与1e-6比较，如果abs（a）比1e-6还要小的话就可以认为a的值为零，因为小数六位以后是不精确的，是没有意义的。
+
+float，double分别遵循R32-24,R64-53的标准。
+所以float的精度误差在1e-6；double精度误差在1e-15 
+所以要判断一个单精度浮点数：则是if( abs(f) &lt;&#x3D; 1e-6)；
+要判断一个双精度浮点数：则是if( abs(f) &lt;&#x3D; 1e-15 )；
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="C-vs-Python"><a href="#C-vs-Python" class="headerlink" title="C++ vs Python"></a>C++ vs Python</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>C++</th>
+<th>python</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>执行</td>
+<td><code>compilation</code> 每个平台一个编译版本</td>
+<td>编程成<code>.pyc</code>文件，运行在虚拟机上</td>
+</tr>
+<tr>
+<td>语法</td>
+<td>无所谓</td>
+<td>严格，逻辑表达式</td>
+</tr>
+<tr>
+<td>变量</td>
+<td>支持指针</td>
+<td>万物皆为对象；变量不过是内存中对象的<code>label</code>，可随意替换；<a target="_blank" rel="noopener" href="https://realpython.com/courses/using-list-comprehensions-effectively/"><strong>list comprehensions</strong></a>提供了更易读更简洁的写法；<code>in</code>等标准散算法</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>静态类型；支持模板</td>
+<td>动态类型；鸭子类型代替模板；用<code>mypy</code>进行运行时类型检查，弥补类型不明确的缺陷；</td>
+</tr>
+<tr>
+<td>OOD</td>
+<td>支持操作重载；</td>
+<td>也支持多重继承；不支持权限控制，但有<code>___</code>标识；magical method支持自定义类行为；</td>
+</tr>
+<tr>
+<td>内存管理</td>
+<td>舍弃垃圾回收，换取更高的效率和更危险的操作</td>
+<td>支持垃圾回收：引用计数收集器和世代垃圾收集器；</td>
+</tr>
+<tr>
+<td>并发</td>
+<td>支持线程；依靠<code>fork()</code>提供多进程；支持内置异步</td>
+<td>支持线程，<code>GUL</code>锁限制了一个单线程的运行；内置多进程；支持单线程的异步；</td>
+</tr>
+<tr>
+<td></td>
+<td><code>c++</code>方案用<code>python</code>实现，<code>QT</code></td>
+<td><code>Python/C API</code>支持在<code>C++</code>上嵌入<code>python</code>；比<code>Boost.pyhton</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Fast execution speed; complete  control of memory</td>
+<td>Fast development speed; Managed memory;</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://realpython.com/python-vs-cpp/">参考</a></p>
+</blockquote>
+<h2 id="C-vs-C"><a href="#C-vs-C" class="headerlink" title="C++ vs C"></a>C++ vs C</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>C++</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>模板编程代替C的宏功能</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>添加了引用</td>
+<td></td>
+</tr>
+<tr>
+<td><code>struct</code></td>
+<td><code>struct</code>与类的唯一区别就是权限不同</td>
+<td><code>struct</code>只是一种固定的内存组织</td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>内存分配</td>
+<td>添加了<code>new</code>和<code>delete</code></td>
+<td>有<code>malloc</code>和``free`</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>C本身没有面对对象，<a target="_blank" rel="noopener" href="https://my.oschina.net/u/4403720/blog/4707431">但可以实现面对对象</a>；</td>
+</tr>
+</tbody></table>
+<h1 id="可调用对象"><a href="#可调用对象" class="headerlink" title="可调用对象"></a>可调用对象</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a><code>lambda</code>表达式</h2><p>C++也支持<code>lambda</code>表达式<code>[capture list] (parameter list) -&gt; return type &#123; function body&#125;</code>，但是形式上的限制比较多：</p>
+<ul>
+<li>捕获列表和函数体不可省略，言下之意，其他可以省略</li>
+<li><code>capture list</code>指定了函数体可以使用的局部变量。但是<code>function body</code>可以使用全局变量 <code>+</code> <code>lambda</code>表达式所在函数的变量 + 静态变量。</li>
+</ul>
+<p>另外， 如果无<code>return type</code>，C++会进行类型推导。</p>
+<blockquote>
+<p>在我看来，<code>capture list</code>的出现正是为了弥补<code>parameter list</code>的缺陷，因为需求的存在，参数列表不能总是把所有参数传入，而且也无法获取所需外部变量的值。</p>
+</blockquote>
+<p>C++创建<code>lambda</code>表达式实际上是把<code>lambda</code>表达式编译成未命名类，并创建出一个类的实例。</p>
+<p>与之前<code>python</code>的机制不同，该方式在创建时就把捕获变量进行值拷贝或者引用，而与调用时机无关。引用的要求限制了在调用<code>lambda</code>表达式时，必须保证被引用的对象的<strong>存在</strong>。</p>
+<blockquote>
+<p>存在值捕获的变量，编译器会为lambda类保存变量，创建构造函数并初始化变量。如果存在引用变量，编译器会直接使用而存储下来。s [san]</p>
+</blockquote>
+<p><code>lambda</code>表达式为了方便书写<code>capture list</code>可以指定默认的捕获方式:</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">auto f &#x3D; [&amp;]() &#123;&#125;; &#x2F;&#x2F;默认为引用方式
+auto f &#x3D; [&#x3D;]() &#123;&#125;; &#x2F;&#x2F;默认为值方式
+&#x2F;&#x2F;混用：默认为值方式,但后续变量必须用不同的方式
+&#x2F;&#x2F; 第一个符号必须是&#96;&amp;&#96;和&#96;&#x3D;&#96;
+auto f &#x3D; [&#x3D;, &amp;c]() &#123;&#125;; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>可变<code>lambda</code>，如<code>[v1] () mutable &#123;v1++&#125;</code> ，是为了解决捕获变量被拷贝后无法改变的窘境。</p>
+<p>一般的<code>lambda</code>都是不可变的，其函数都是<code>const</code>，加了<code>mutalbe</code>都不是<code>const</code>的。</p>
+<h2 id="lambda的替代品-参数绑定"><a href="#lambda的替代品-参数绑定" class="headerlink" title="lambda的替代品-参数绑定"></a><code>lambda</code>的替代品-参数绑定</h2><p><code>lambda</code>优势在于编写在使用少，编写代码少的场景。如果想要已有的函数代码，活着更加复杂的功能，但是函数参数和谓词参数不同，参数绑定就非常重要了。</p>
+<p>参数绑定把一个可调用对象转化为另外一个可调用对象，并用占位符<code>placeholders</code>在其中标记，转化谓词参数的顺序，绑定剩下参数的值（使用值初始化，无法引用）。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">using namespace std:placeholders;
+for_each(words.begin(), words.end(), 
+         bind(print, ref(os), _1, &quot; &quot;, _2)); &#x2F;&#x2F; 实际上，_1 和 _2 位置互换就地传入bind参数交付给print函数的顺序，但是注意类型
+         
+ostream&amp; print(ostream&amp; os, const string &amp;s ,char c1, char c2)&#123;
+    os &lt;&lt; s &lt;&lt; c1 &lt;&lt; c1;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>bind</code>默认拷贝的参数初始化方式，无法使用输入输出流，只能使用<code>ref()</code>来获取保存了需要被引用的对象，间接获取引用！</p>
+<blockquote>
+<p><code>cref()</code>能获取<code>const reference</code>。 </p>
+</blockquote>
+<h2 id="重载-的类"><a href="#重载-的类" class="headerlink" title="重载()的类"></a>重载<code>()</code>的类</h2><h3 id="标准库函数对象"><a href="#标准库函数对象" class="headerlink" title="标准库函数对象"></a>标准库函数对象</h3><p>形如<code>sort(s.begin(), s.end(), less&lt;int&gt;()); </code>中<code>less&lt;int&gt;</code>模板类创建了一个函数对象实例，传给<code>sort</code>作为比较的对象。</p>
+<p>本质就是就是用重载比较类中元素的<code>()</code>符号。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Less&#123;
+    bool operator()(const string &amp;a , const string &amp;b)&#123;
+        return a &lt; b;
+    &#125;
+&#125;
+sort(s.begin(), s.end(), less&lt;int&gt;()); 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="统一调用对象"><a href="#统一调用对象" class="headerlink" title="统一调用对象"></a>统一调用对象</h2><p>在综合应用多种对象里之时，将对象存储起来，但是对象的类型不同一成了问题。C++引入了包装类<code>function&lt;T&gt;</code>标准类来存储<strong>函数类型为T</strong>的调用对象。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int add(int a, int b) &#123;retur a  + b;&#125;
+function&lt;int(int, int)&gt; f1 &#x3D; add;
+function&lt;int(int, int)&gt; f2 &#x3D; [](a, b) &#123;return a + b;&#125;;
+class ADD&#123;
+    int operator()(const int a, const int b)&#123;return a + b;&#125;
+&#125;
+function&lt;int(int, int)&gt; f1 &#x3D; ADD();
+
+&#x2F;&#x2F;统一起来
+map&lt;string, decltype(f1)&gt; binops &#x3D; &#123;&quot;+&quot;, f1&#125;;
+&#x2F;&#x2F;或者使用function&lt;T&gt; 的隐式转化
+map&lt;string, decltype(f1)&gt; binops &#x3D; &#123;&#123;&quot;+&quot;, add&#125;,&#123;&quot;+2&quot;, ADD()&#125;&#125;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有时候还会遇到同名问题，使用<code>lambda</code>或者函数指针即可解决。</p>
+<h1 id="函数匹配"><a href="#函数匹配" class="headerlink" title="函数匹配"></a>函数匹配</h1><p>亘古谜题</p>
+<p>函数匹配思想非常简单，选择所有可行方案，并从其中选择最好的，不然报二义性错误：</p>
+<ul>
+<li><p>从被调用的同名函数且在可见域的调用中收集到重载函数集——候选函数；</p>
+</li>
+<li><p>从候选函数中选择选择可行函数：参数数量相同（默认实参可以作为缓冲区域），实参可以转化为形参类型。编译器通过匹配等级选择最好的函数：</p>
+<ol>
+<li><p>精准匹配：类型相同，也允许顶层<code>const</code>添加或删除，允许数组和函数转化为对应指针类型</p>
+</li>
+<li><p>通过<code>const</code>转化</p>
+</li>
+<li><p>类型提升，比如<code>char</code>转化为<code>int</code></p>
+</li>
+<li><p>算术类型转换</p>
+</li>
+<li><p>类类型转换</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="编译问题"><a href="#编译问题" class="headerlink" title="编译问题"></a>编译问题</h1><h2 id="如何避免嵌套引用"><a href="#如何避免嵌套引用" class="headerlink" title="如何避免嵌套引用"></a>如何避免嵌套引用</h2><p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20210220150825501.png" alt="image-20210220150825501"></p>
+<h2 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h2><p><a target="_blank" rel="noopener" href="https://www.hahack.com/codes/cmake/">CMake入门实战</a></p>
+<h2 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h2><p>-std=c++11，支<a target="_blank" rel="noopener" href="https://gcc.gnu.org/projects/cxx-status.html">持C++11标准；</a></p>
+<p>-std=gnu++11，支持C++11标准和GNU扩展特性；</p>
+<h1 id="字节对齐"><a href="#字节对齐" class="headerlink" title="字节对齐"></a>字节对齐</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>如果一个变量的地址正好位于它长度的整数倍，它就被称作自然对齐</strong>。比如在32位cpu下，假设一个整型变量的地址为0x0004，那它就是自然对齐的。</p>
+<p>这种对齐限制简化了形成处理器和存储器系统之间的接口的硬件设计。对齐跟数据在内存中的位置有关。</p>
+<h2 id="为什么要字节对齐"><a href="#为什么要字节对齐" class="headerlink" title="为什么要字节对齐"></a>为什么要字节对齐</h2><ul>
+<li><p>平台原因（移植原因）：不是所有的硬件平台都能访问任意地址上的任意数据的；某些硬件平台只能在某些地址处取某些特定类型的数据，否则抛出硬件异常。</p>
+</li>
+<li><p>性能原因：数据结构（尤其是栈）应该尽可能地在自然边界上对齐。原因在于，为了访问未对齐的内存，处理器需要做两次内存访问；而对齐的内存访问仅需要一次访问。</p>
+<blockquote>
+<p>现在考虑一个double类型的数组(double类型为8字节对齐)， 其在内存中所处的位置如下：</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20201128194522308.png" alt="image-20201128194522308"></p>
+<p>数组的首地址为2，根据原则1数组未对齐。若CPU每次从内存中为8字节整数倍的地址开始读入8字节的数据，则每次从未对齐的数组中读取一个成员都要进行两次读取操作，而从对齐的数组中读取则只需要一次读取操作，数组对齐时读取效率有较大提升（虽然现在也有很多处理器支持非对齐的读取，但是还是推荐对齐)。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="如何处理字节对齐"><a href="#如何处理字节对齐" class="headerlink" title="如何处理字节对齐"></a>如何处理字节对齐</h2><p>内置数据类型按其长度有默认对齐值，按地址能够被对齐值整数而放置地址。 结构体则采用其成员内部地址最大的对齐值为默认对齐值。</p>
+<blockquote>
+<p><strong>数组</strong>：按照基本数据类型对齐，第一个对齐了后面的自然也就对齐了。</p>
+<p><strong>联合</strong>：按其包含的<strong>长度最大</strong>的数据类型对齐。</p>
+</blockquote>
+<p>结构体中数据成员的对齐要求仍然不变，按声明顺序排列，如果需要空间则插入字节来保持对齐。</p>
+<p>数组各个元素同理。</p>
+<blockquote>
+<p><strong>指定对齐值</strong>：**#pragma pack (value)**时的指定对齐值value。可以修改所有默认对齐值为<code>value</code>。<code>#pragma pack()</code>可以取消对齐值修改。</p>
+</blockquote>
+<p><strong>Linux的对齐策略</strong></p>
+<p>Linux下要么2字节对齐，要么4字节对齐，没有其他格式的对齐。</p>
+<p><strong>Microsoft Windows的对齐策略</strong></p>
+<p> 任何K字节基本对象的地址都必须是K的倍数，K=2，4，或者8。 。 </p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#pragma pack(2)
+struct AA &#123;
+	int a;	&#x2F;&#x2F;长度 4 &gt; 2 按 2 对齐；偏移量为 0；存放位置区间[0,3]
+	char b;	&#x2F;&#x2F;长度 1 &lt; 2 按 1 对齐；偏移量为 4；存放位置区间[4]
+	short c;	&#x2F;&#x2F;长度 2 &#x3D; 2 按 2 对齐；偏移量要提升到 2 的倍数 6；存放位置区间[6,7]
+	char d;	&#x2F;&#x2F;长度 1 &lt; 2 按 1 对齐；偏移量为 7；存放位置区间[8]；共九个字节
+&#125;;
+&#x2F;&#x2F;此时算上填充字节，结构体占用的总字节为9字节，又有结构体大小需要为4的整数倍，因此需要在第四个成员d后填充3个字节，可以算得结构体的总大小为12
+#pragma pack()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="C-程序编译"><a href="#C-程序编译" class="headerlink" title="C++程序编译"></a>C++程序编译</h1><p>　</p>
+<h2 id="从代码到执行"><a href="#从代码到执行" class="headerlink" title="从代码到执行"></a>从代码到执行</h2><p>对于 C++源文件，从文本到可执行文件一般需要四个过程： </p>
+<ol>
+<li><strong>预处理阶段</strong>：对源代码文件中文件包含关系（头文件）、预编译语句（宏定义）进行分析和替换，去掉注释，生成<strong>预编译文件</strong>（<code>.i</code>或<code>.ii</code>文件）</li>
+<li><strong>编译阶段</strong>：生成符号，将经过预处理后的预编译文件转换成特定汇编代码，生成<strong>汇编文件</strong>（<code>.s</code>文件） </li>
+<li><strong>汇编阶段</strong>：将编译阶段生成的汇编文件转化成机器码，生成<strong>可重定位目标文件</strong>（<code>.o</code>文件）</li>
+<li><strong>链接阶段</strong>：将多个目标文件及所需要的库连接成最终的<strong>可执行目标文件</strong>（.out文件）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>可执行文件</th>
+<th>目标文件</th>
+<th>动态库/共享对象</th>
+<th>静态库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows</td>
+<td>exe</td>
+<td>obj</td>
+<td>dll</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>Unix/Linux</td>
+<td>ELF、out</td>
+<td>o</td>
+<td>so</td>
+<td>a</td>
+</tr>
+<tr>
+<td>Mac</td>
+<td>Mach-O</td>
+<td>o</td>
+<td>dylib、tbd、framework</td>
+<td>a、framework</td>
+</tr>
+</tbody></table>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>编译程序把一个源程序翻译成目标程序的工作过程分为五个阶段：词法分析；语法分析；中间代码生成；代码优化；目标代码生成。主要是进行词法分析和语法分析，又称为源程序分析，分析过程中发现有语法错误，给出提示信息。<br>　　（1） 词法分析<br>　　词法分析的任务是对由字符组成的单词进行处理，从左至右逐个字符地对源程序进行扫描，产生一个个的单词符号，把作为字符串的源程序改造成为单词符号串的中间程序。执行词法分析的程序称为词法分析程序或扫描器。<br>　　源程序中的单词符号经扫描器分析，一般产生二元式：单词种别；单词自身的值。单词种别通常用整数编码，如果一个种别只含一个单词符号，那么对这个单词符号，种别编码就完全代表它自身的值了。若一个种别含有许多个单词符号，那么，对于它的每个单词符号，除了给出种别编码以外，还应给出自身的值。<br>　　词法分析器一般来说有两种方法构造：手工构造和自动生成。手工构造可使用状态图进行工作，自动生成使用确定的有限自动机来实现。<br>　　（2） 语法分析<br>　　编译程序的语法分析器以单词符号作为输入，分析单词符号串是否形成符合语法规则的语法单位，如表达式、赋值、循环等，最后看是否构成一个符合要求的程序，按该语言使用的语法规则分析检查每条语句是否有正确的逻辑结构，程序是最终的一个语法单位。编译程序的语法规则可用上下文无关文法来刻画。<br>　　语法分析的方法分为两种：自上而下分析法和自下而上分析法。自上而下就是从文法的开始符号出发，向下推导，推出句子。而自下而上分析法采用的是移进归约法，基本思想是：用一个寄存符号的先进后出栈，把输入符号一个一个地移进栈里，当栈顶形成某个产生式的一个候选式时，即把栈顶的这一部分归约成该产生式的左邻符号。<br>　　（3） 中间代码生成<br>　　中间代码是源程序的一种内部表示，或称中间语言。中间代码的作用是可使编译程序的结构在逻辑上更为简单明确，特别是可使目标代码的优化比较容易实现。中间代码即为中间语言程序，中间语言的复杂性介于源程序语言和机器语言之间。中间语言有多种形式，常见的有逆波兰记号、四元式、三元式和树。<br>　　（4） 代码优化<br>　　代码优化是指对程序进行多种等价变换，使得从变换后的程序出发，能生成更有效的目标代码。所谓等价，是指不改变程序的运行结果。所谓有效，主要指目标代码运行时间较短，以及占用的存储空间较小。这种变换称为优化。<br>　　有两类优化：一类是对语法分析后的中间代码进行优化，它不依赖于具体的计算机；另一类是在生成目标代码时进行的，它在很大程度上依赖于具体的计算机。对于前一类优化，根据它所涉及的程序范围可分为局部优化、循环优化和全局优化三个不同的级别。<br>　　（5） 目标代码生成<br>　　目标代码生成是编译的最后一个阶段。目标代码生成器把语法分析后或优化后的中间代码变换成目标代码。目标代码有三种形式：<br>　　① 可以立即执行的机器语言代码，所有地址都重定位；<br>　　② 待装配的机器语言模块，当需要执行时，由连接装入程序把它们和某些运行程序连接起来，转换成能执行的机器语言代码；<br>　　③ 汇编语言代码，须经过汇编程序汇编后，成为可执行的机器语言代码。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mr_H9527/article/details/81156112">以下内容参考</a></p>
+</blockquote>
+<p>编译在生成符号的过程把把静态变量记做<code>local</code>符号，把所有初始化了的非静态全局变量都会生成一个<code>global</code>（所有文件可见）的强符号，而未被初始化的非静态全局变量就会生成一个<code>global</code>的弱符号。弱符号是不确定的符号，不确定是否有其他文件中同名的变量会生成强符号，或者其他同名的变量虽然生成弱符号，但是所占的内存比该弱符号大。此时如果有在两个强符号，会产生编译错误。</p>
+<p>另外，未定义的符号在被标记为<code>UNDEFINE</code>，等待连接时的替换。</p>
+<blockquote>
+<p>弱符号存储在<code>comment</code>段。</p>
+</blockquote>
+<p>在连接过程中，软符号会被其他文件的同名强符号，或者同名但所占空间大的弱符号所替换。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><blockquote>
+<p>接上文</p>
+</blockquote>
+<p>把所有<code>.o</code>的代码段<code>.text</code>和数据段（包括<code>.data</code>、<code>.bss</code>）段合并到可执行文件中。调整段偏移，汇总所有符号，进行符号解析，完成符号的重定位。</p>
+<h2 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h2><blockquote>
+<p>静态链接就是静态编译</p>
+<p>动态链接就是动态编译</p>
+</blockquote>
+<p>静态连接把调用以及间接调用所有函数所在的文件，以及我们的程序文件<code>.o</code>链接一起。</p>
+<blockquote>
+<p>如下，静态库每个<code>.o</code>包含了一个函数，避免了链接时的浪费。</p>
+</blockquote>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\20180505235327609.png" alt="20180505235327609"></p>
+<h3 id="静态链接的优缺点"><a href="#静态链接的优缺点" class="headerlink" title="静态链接的优缺点"></a>静态链接的优缺点</h3><p><strong>优点：</strong></p>
+<p>在可执行程序中已经具备了所有执行程序所需要的任何东西，在执行的时候运行速度快。</p>
+<p><strong>缺点：</strong></p>
+<ol>
+<li><p>浪费空间</p>
+<p>因为每个可执行程序中对所有需要的<strong>目标文件都要有一份副本</strong>，所以如果多个程序对同一个目标文件都有依赖，如多个程序中都调用了printf()函数，则这多个程序中都含有printf.o，所以同一个目标文件都在内存存在多个副本。</p>
+</li>
+<li><p>更新比较困难</p>
+<p>因为每当库函数的代码修改了，这个时候就需要重新进行编译链接形成可执行程序。</p>
+</li>
+</ol>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>动态链接的基本思想是把程序按照模块拆分成各个相对独立部分，在程序运行时才将它们链接在一起形成一个完整的程序，而不是像静态链接一样把所有程序模块都链接成一个单独的可执行文件。系统在运行程序是发现需要调用新库的时候，就把该库加载进来，并进行连接。</p>
+<h3 id="动态链接的优缺点"><a href="#动态链接的优缺点" class="headerlink" title="动态链接的优缺点"></a>动态链接的优缺点</h3><p><strong>优点：</strong></p>
+<ol>
+<li><p>节省空间</p>
+<p>即使需要每个程序都依赖同一个库，但是该库不会像静态链接那样在内存中存在多份副本，而是这多个程序在执行时共享同一份副本。</p>
+</li>
+<li><p>更新方便</p>
+<p>更新时只需要替换原来的目标文件，而无需将所有的程序再重新链接一遍。当程序下一次运行时，新版本的目标文件会被自动加载到内存并且链接起来，程序就完成了升级的目标。</p>
+</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<p>因为把链接推迟到了程序运行时，所以每次执行程序都需要进行链接，所以性能会有一定损失。</p>
+<h3 id="动态链接地址是如何重定位的呢？"><a href="#动态链接地址是如何重定位的呢？" class="headerlink" title="动态链接地址是如何重定位的呢？"></a>动态链接地址是如何重定位的呢？</h3><p>前面我们讲过静态链接时地址的重定位，那我们现在就在想动态链接的地址又是如何重定位的呢？</p>
+<p>虽然动态链接把链接过程推迟到了程序运行时，但是在形成可执行文件时（注意形成可执行文件和执行程序是两个概念），还是需要用到动态链接库。比如我们在形成可执行程序时，发现引用了一个外部的函数，此时会检查动态链接库，发现这个函数名是一个动态链接符号，此时可执行程序就不对这个符号进行重定位，而把这个过程留到装载时再进行。</p>
+<h2 id="静态链接库和动态链接库的区别"><a href="#静态链接库和动态链接库的区别" class="headerlink" title="静态链接库和动态链接库的区别"></a>静态链接库和动态链接库的区别</h2><p>静态连接库就是把(lib)文件中用到的函数代码直接链接进目标程序，程序运行的时候不再需要其它的库文件。</p>
+<p>动态链接就是把调用的函数所在文件模块（DLL）和调用函数在文件中的位置等信息链接进目标程序，程序运行的时候再从DLL中寻找相应函数代码，因此需要相应DLL文件的支持。</p>
+<p>静态库和动态库的区别</p>
+<ol>
+<li>静态链接库的后缀名为lib，动态链接库的导入库的后缀名也为lib。不同的是，静态库中包含了函数的实际执行代码，而对于导入库而言，其实际的执行代码位于动态库中，导入库只包含了地址符号表等，确保程序找到对应函数的一些基本地址信息；</li>
+<li>由于静态库是在编译期间直接将代码合到可执行程序中，而动态库是在执行期时调用DLL中的函数体，所以执行速度比动态库要快一点；</li>
+<li> 静态库链接生成的可执行文件体积较大，且包含相同的公共代码，造成内存浪费；</li>
+<li>使用动态链接库的应用程序不是自完备的，它依赖的DLL模块也要存在，如果使用载入时动态链接，程序启动时发现DLL不存在，系统将终止程序并给出错误信息。而使用运行时动态链接，系统不会终止，但由于DLL中的导出函数不可用，程序会加载失败；</li>
+<li>DLL文件与EXE文件独立，只要输出接口不变（即名称、参数、返回值类型和调用约定不变），更换DLL文件不会对EXE文件造成任何影响，因而极大地提高了可维护性和可扩展性，适用于大规模的软件开发，使开发过程独立、耦合度小，便于不同开发者和开发组织之间进行开发和测试。</li>
+</ol>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/hhhuang1991/article/details/80056071">静态链接库和动态链接库的区别</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/king-lps/p/7757919.html">GCC编译过程与动态链接库和静态链接库</a></p>
+<h2 id="静态联编和动态联编"><a href="#静态联编和动态联编" class="headerlink" title="静态联编和动态联编"></a>静态联编和动态联编</h2><p>联编是指一个计算机程序自身彼此关联的过程，在这个联编过程中，需要确定程序中的操作调用(函数调用)与执行该操作(函数)的代码段之间的映射关系。</p>
+<p>按照联编所进行的阶段不同，可分为静态联编和动态联编。 </p>
+<ul>
+<li>静态联编是指在编译阶段就将函数实现和函数调用关联起来。在编译阶段就必须了解所有的函数或模块执行所需要检测的信息，它对函数的选择是基于指向对象的指针（或者引用）的类型，C语言中，所有的联编都是静态联编，并且任何一种编译器都支持静态联编。</li>
+<li>动态联编是指在程序执行的时候才将函数实现和函数调用关联。动态联编对函数的选择不是基于指针或者引用，而是基于对象类型，不同的对象类型将做出不同的编译结果。C++中一般情况下联编也是静态联编，但是一旦涉及到多态和虚拟函数就必须要使用动态联编了。</li>
+</ul>
+<h2 id="编译期确定和运行期确定"><a href="#编译期确定和运行期确定" class="headerlink" title="编译期确定和运行期确定"></a>编译期确定和运行期确定</h2><p>编译期是编译器将代码和资源文件链接编译成可执行文件的过程。</p>
+<p>运行期是运行前面编译期生成可执行的过程。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>编译器</th>
+<th>运行期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数值确定</td>
+<td>常量</td>
+<td>变量</td>
+</tr>
+<tr>
+<td>相对于栈基址的偏移</td>
+<td>局部变量</td>
+<td>非静态变量</td>
+</tr>
+<tr>
+<td>函数执行</td>
+<td>非虚函数和直接调用的虚函数</td>
+<td>通过函数指针和对象指针指向的虚函数</td>
+</tr>
+</tbody></table>
+<h2 id="编译优化"><a href="#编译优化" class="headerlink" title="编译优化"></a>编译优化</h2><p><strong>循环展开</strong>（Loop unwinding或loop unrolling），是一种牺牲程序的尺寸来加快程序的执行速度的优化方法。可以由程序员完成，也可由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%AF%91%E5%99%A8">编译器</a>自动优化完成。</p>
+<p>循环展开最常用来降低循环开销，为具有多个功能单元的处理器提供<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8C%87%E4%BB%A4%E7%BA%A7%E5%B9%B6%E8%A1%8C">指令级并行</a>。也有利于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF">指令流水线</a>的调度。</p>
+<h3 id="调用约定"><a href="#调用约定" class="headerlink" title="调用约定"></a>调用约定</h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/297654/what-is-stdcall"><code>__stdcall</code></a></p>
+<ul>
+<li>在windows平台上的C++编程中经常会看到一些__stdcall, __cdecl, WINAPI, CALLBACK等等关键字在函数前面，在.NET中还有__clrcall, __thiscall等关键字，有时加不加它们都可以，但是有时必须加上，不然编译不过。本文要讨论的就是这些关键字：调用约定（Calling Convention），有时也叫做“函数调用约定”或者“调用规范”。本文采用MSDN的官方翻译：“调用约定”。</li>
+<li>那什么是调用约定呢？首先让我们看看一个函数调用到底需要经历哪几个过程，编译器到底为我们做了些什么。<br>①把函数的参数压栈或者储存到寄存器<br>②跳转到函数<br>③把函数使用到的一些寄存器压栈<br>④执行函数<br>⑤处理函数返回值<br>⑥对于第3步中压栈的那些寄存器，恢复它们原来的值<br>⑦根据不同的调用约定，清除第1步中压栈的参数，然后返回，或者先返回然后清除。 </li>
+<li>可以看到第6步是第3步的逆操作，而第7步是第1，2步的逆操作，调用约定主要是定义了第1，7步骤中的规则：怎么去传递参数，谁负责去清除栈上的参数。</li>
+</ul>
+<h2 id="Assembly-实战"><a href="#Assembly-实战" class="headerlink" title="Assembly 实战"></a>Assembly 实战</h2><h3 id="i-和-i"><a href="#i-和-i" class="headerlink" title="++i 和 i++"></a><code>++i</code> 和 <code>i++</code></h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+
+int main()&#123;
+    int i &#x3D; 0;
+    i++;
+    &#x2F;&#x2F; printf(&quot;%d\n&quot;, i);
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>经过<code>gcc -S main.cpp -o main.s</code> </p>
+<blockquote>
+<p><code>-S</code> 编译到汇编语言就停止</p>
+</blockquote>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">.cfi_startproc
+endbr64
+pushq	%rbp  &#x2F;&#x2F; 保护地址
+.cfi_def_cfa_offset 16
+.cfi_offset 6, -16
+movq	%rsp, %rbp
+.cfi_def_cfa_register 6
+movl	$0, -4(%rbp) ; int i &#x3D; 0;
+			   ;  movx source, destination 
+              ;间接寻址： -4(%rbp): rbp指向内存空间的后面4个字节地址
+addl	$1, -4(%rbp) ; ++i
+		; 可以看到 对于++i，整形数字只有一条语句
+movl	$0, %eax ; return 0;
+popq	%rbp
+.cfi_def_cfa 7, 8
+ret
+.cfi_endproc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>如果给<code>i</code>加上 <code>volatile</code>限定，就变成了：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">; 取消了编译器的优化，强制变量存储到寄存器中
+	movl	-4(%rbp), %eax 
+	addl	$1, %eax
+	movl	%eax, -4(%rbp)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>把上面两个例子里的<code>i++</code>替换成<code>++i</code>，其<code>Assembly</code>代码没有差别。</p>
+<p>实践证明，简单的<code>++i</code>和<code>i++</code>在编译层面没有差别。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="大小端"><a href="#大小端" class="headerlink" title="大小端"></a>大小端</h3><p>大端模式，是指数据的低位保存在内存的高地址中，而数据的高位，保存在内存的低地址中；小端模式相反</p>
+<blockquote>
+<p>人类正常阅读模式就是大端小端模式。</p>
+</blockquote>
+<p>Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ARM%E8%8A%AF%E7%89%87/2242237">ARM芯片</a>默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换。另外，对于大小端的处理也和编译器的实现有关，在C语言中，默认是小端（但在一些对于单片机的实现中却是基于大端，比如Keil 51C），Java是平台无关的，默认是大端。在网络上传输数据普遍采用的都是大端。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">
+void IsBigEndian()
+&#123;
+	short int a &#x3D; 0x1122;&#x2F;&#x2F;十六进制，一个数值占4位
+	char b &#x3D;  *(char *)&amp;a;  &#x2F;&#x2F;通过将short(2字节)强制类型转换成char单字节，b指向a的起始字节（低字节）
+	if( b &#x3D;&#x3D; 0x11)&#x2F;&#x2F;低字节存的是数据的高字节数据
+	&#123;
+		&#x2F;&#x2F;是大端模式
+	&#125;
+	else
+	&#123;
+		&#x2F;&#x2F;是小端模式
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="C-调试"><a href="#C-调试" class="headerlink" title="C++ 调试"></a>C++ 调试</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nellson/article/details/5293623">如何调试C++程序</a></p>
+<h1 id="RTTI"><a href="#RTTI" class="headerlink" title="RTTI"></a>RTTI</h1><p>RTTI是运行阶段类型识别（Runtime Type Identification）的简称。RTTI机制下，C++可以把基类指针或者引用转化为派生类指针或引用，同样的，反过来同理。</p>
+<p>RTTI能够在运行过程中识别出对象的类型，用来弥补多态下的不足——无法使用非虚函数。当然也可以用作的调试和追踪。</p>
+<p>运行时类型检查，在 C++层面主要体现在 dynamic_cast 和 typeid，VS 中虚函数表的-1 位置存放了指向 type_info 的指针。对于存在虚函数的类型，typeid 和 dynamic_cast 都会去查询 type_info。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 指针
+if(Drived * p &#x3D; dynamic_cast&lt;base*&gt; bp)&#123; &#x2F;&#x2F; 进行类型检查和动态转化的工作，同时保护p不被外部代码接触
+    &#x2F;&#x2F; 对 p 进行操作    
+&#125;
+else&#123; &#x2F;&#x2F; 转化错误，返回空指针
+    &#x2F;&#x2F; 对 bp 进行操作
+&#125;
+
+&#x2F;&#x2F; 引用
+try&#123;
+    const Derived &amp;d &#x3D; dynamic_cast&lt;const &amp;Derived&gt;(b);
+   
+&#125;catch (bad_cast)&#123; &#x2F;&#x2F; 引用无法为空，直接报错
+    &#x2F;&#x2F; 对于
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Base b;
+Devried *p &#x3D; &amp;b;
+
+if(typeid(*p) &#x3D;&#x3D; typeid(b))&#123; &#x2F;&#x2F;判断动态类型是否相等
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<p>RTTI的工作原理</p>
+<ul>
+<li><p>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则，该运算符返回0——空指针。</p>
+</li>
+<li><p>typeid运算符返回一个指出对象的类型的值，typeid运算符返回一个对type_info对象的引用。</p>
+</li>
+<li><p>type_info结构存储了有关特定类型的信息。type_info是在头文件typeinfo（以前为typeinfo.h）中定义的一个类。type_info类重载了= =和!=运算符，以便可以使用这些运算符来对类型进行比较。</p>
+<p><code>typeid(Magnificent)==typeid(*pg)</code></p>
+</li>
+</ul>
+<p>只能将RTTI用于包含虚函数的类层次结构，原因在于只有对于这种类层次结构，才应该将派生对象的地址赋给基类指针。</p>
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><p>命名空间的存在就是为了防止重名冲突。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std; &#x2F;&#x2F;后续代码使用std空间的名称
+using std::cout; &#x2F;&#x2F; 也可以使用部分名称
+&#x2F;&#x2F; 第一个命名空间
+&#x2F;&#x2F; 可以看做为first_space 添加名称，
+&#x2F;&#x2F; 此类空间可以重复添加
+namespace first_space&#123; 
+    
+   void func()&#123;
+      cout &lt;&lt; &quot;Inside first_space&quot; &lt;&lt; endl;
+   &#125;
+   &#x2F;&#x2F; 空间也可以嵌套
+    namespace inner_space &#123;
+        int pos;
+    &#125;
+&#125;
+&#x2F;&#x2F;访问嵌套空间
+using namespace first_space::inner_space; 
+int main ()
+&#123;
+   &#x2F;&#x2F; 调用第一个命名空间中的函数
+   first_space::func();
+   return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>using</strong> 指令引入的名称遵循正常的范围规则。名称从使用 <strong>using</strong> 指令开始是可见的，直到该范围结束。此时，在范围以外定义的同名实体是隐藏的。</p>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="双引号“-”和尖括号-lt-gt-的区别"><a href="#双引号“-”和尖括号-lt-gt-的区别" class="headerlink" title="双引号“ ”和尖括号&lt; &gt;的区别"></a>双引号“ ”和尖括号&lt; &gt;的区别</h2><p>编译器预处理阶段查找头文件的路径不一样。</p>
+<p>对于使用双引号包含的头文件，查找头文件路径的顺序为： </p>
+<ol>
+<li>当前头文件目录 </li>
+<li>编译器设置的头文件路径（编译器可使用-I 显式指定搜索路径） </li>
+<li>系统变量 CPLUS_INCLUDE_PATH/C_INCLUDE_PATH 指定的头文件路径</li>
+</ol>
+<p>对于使用尖括号包含的头文件，查找头文件的路径顺序为：</p>
+<ol>
+<li>编译器设置的头文件路径（编译器可使用-I 显式指定搜索路径）</li>
+<li>系统变量 CPLUS_INCLUDE_PATH/C_INCLUDE_PATH 指定的头文件路径</li>
+</ol>
+<h1 id="C-异常机制概述"><a href="#C-异常机制概述" class="headerlink" title="C++异常机制概述"></a>C++异常机制概述</h1><p>异常处理是C++的一项语言机制，用于在程序中处理异常事件。异常事件在C++中表示为<strong>异常对象</strong>。异常事件发生时，程序使用throw关键字抛出异常表达式，抛出点称为异常出现点，由操作系统为程序设置当前异常对象，然后执行程序的当前异常处理代码块，在包含了异常出现点的最内层的<strong>try</strong>块，依次匹配catch语句中的异常对象（只进行类型匹配，catch参数有时在catch语句中并不会使用到）。</p>
+<p>若匹配成功，则执行catch块内的异常处理语句，然后接着执行<code>try...catch...</code>块之后的代码。如果在当前的<code>try...catch...</code>块内找不到匹配该异常对象的catch语句,则由更外层的<code>try...catch...</code>块来处理该异常；如果当前函数内所有的<code>try...catch...</code>块都不能匹配该异常，则递归回退到调用栈的上一层去处理该异常。如果一直退到主函数main()都不能处理该异常，则调用系统函数terminate()终止程序。</p>
+<h1 id="C-对象模型"><a href="#C-对象模型" class="headerlink" title="C++对象模型"></a>C++对象模型</h1><p>在C++中有两种类的数据成员：static和nonstatic，以及三种类的成员函数：static、nonstatic和virtual。在C++对象模型中，非静态数据成员被配置于每一个类的对象之中，静态数据成员则被存放在所有的类对象之外；静态及非静态成员函数也呗放在类对象之外，虚函数则通过以下两个步骤支持：</p>
+<ol>
+<li>每一个类产生出一堆指向虚函数的指针，放在表格之中，这个表格被称为虚函数表（virtual table, vtbl）。</li>
+<li>每一个类对象被添加了一个指针，指向相关的虚函数表，通常这个指针被称为vptr。vptr的设定和重置都由每一个类的构造函数、析构函数和拷贝赋值运算符自动完成。另外，虚函数表地址的前面设置了一个指向type_info的指针，RTTI（Run Time Type Identification）运行时类型识别是由编译器在编译器生成的特殊类型信息，包括对象继承关系，对象本身的描述，RTTI是为多态而生成的信息，所以只有具有虚函数的对象在会生成。</li>
+</ol>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\53611-3e1bd4a79f08a9bf.png" alt="img"></p>
+<h1 id="C-内存管理"><a href="#C-内存管理" class="headerlink" title="C++内存管理"></a>C++内存管理</h1><h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p>32bitCPU 可寻址 4G 线性空间，每个进程都有各自独立的 4G 逻辑地址，其中 0<del>3G 是用户态空间，3</del>4G 是内核空间，不同进程相同的逻辑地址会映射到不同的物理地址中。其逻辑地址其划分如下：</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20201126093555791.png" alt=" "></p>
+<p>在 C++中，虚拟内存分为代码段、数据段、BSS 段、堆区、文件映射区以及栈区六部分。 </p>
+<p>静态区域：</p>
+<ul>
+<li>代码段<code>text</code>：包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码。 </li>
+<li>bss 段：存储未初始化的或者被初始化为 0全局变量和静态变量（局部+全局）。对于未初始化的全局变量和静态变量，程序运行 main 之前时会统一清 零。即未初始化的全局变量编译器会初始化为 0。</li>
+<li><code>data</code>段：保存了那些初始化过（非零）的非const的全局变量和静态变量。</li>
+<li><code>rodata</code>段(这里没画)，常量段，存放常量，字符常量，const常量。</li>
+</ul>
+<blockquote>
+<p>重复的字符串会被优化为一串；有些简单的立即数会被直接优化到指令。</p>
+</blockquote>
+<ul>
+<li><code>text</code>段一般用来保存代码文件，只读</li>
+</ul>
+<p>动态区域：</p>
+<ul>
+<li>堆区： 调用 new/malloc 函数时在堆区动态分配内存，同时需要调用 delete/free 来手动释放申请的内存。 当进程未调用 malloc 时是没有堆段的，只有调用 malloc 时采用分配一个堆， 并且在程序运行过程中可以动态增加堆大小(移动 break 指针)，从低地址向高地址增长。分配小 内存时使用该区域。 堆的起始地址由 mm_struct 结构体中的 start_brk 标识，结束地址由 brk 标识。</li>
+<li>映射区：存储动态链接库以及调用 mmap 函数进行的文件映射。存储动态链接库等文件映射、申请大内存（malloc 时调用 mmap 函数）。</li>
+<li>栈：使用栈空间存储函数的返回地址、参数、局部变量、返回值，从高地址向低地址增长。在创建进程时会有一个最大栈大小，Linux 可以通过 ulimit 命令指定。</li>
+</ul>
+<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><h3 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h3><p>内存泄漏(memory leak)是指由于疏忽或错误造成了<strong>程序未能释放掉不再使用的内存</strong>的情况。内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，<strong>失去了对该段内存的控制</strong>，因而造成了内存的浪费。 </p>
+<p>内存泄漏的分类： </p>
+<ol>
+<li><strong>堆内存泄漏（Heap leak）</strong>。对内存指的是程序运行中根据需要分配通过 malloc,realloc new 等从堆中分配的一块内存，再是完成后必须通过调用对应的 free 或者 delete 删掉。如果程序的设计的错误导致这部分内存没有被释放，那么此后这块内存将不会被使用，就会产生 Heap Leak. </li>
+<li><strong>系统资源泄露（Resource Leak）</strong>。主要指程序使用系统分配的资源比如 Bitmap、handle、SOCKET 等没有使用相应的函数释放掉，导致系统资源的浪费，严重可导致系统效能降低，系统运行不稳定。 </li>
+<li><strong>没有将基类的析构函数定义为虚函数</strong>。当基类指针指向子类对象时，如果基类的析构函数不是 virtual，那么子类的析构函数将不会被调用，子类的资源没有正确是释放，因此造成内存泄露。</li>
+</ol>
+<blockquote>
+<p>内存溢出：简单地说内存溢出就是指<strong>程序运行过程中申请的内存大于系统能够提供的内存，导致无法申请到足够的内存</strong>，于是就发生了内存溢出。</p>
+</blockquote>
+<h3 id="怎么判断内存泄漏"><a href="#怎么判断内存泄漏" class="headerlink" title="怎么判断内存泄漏"></a>怎么判断内存泄漏</h3><p>内存泄漏通常是由于调用了 malloc/new 等内存申请的操作，但是缺少了对应的 free/delete。 为了判断内存是否泄露，我们一方面可以使用 linux 环境下的<strong>内存泄漏检查工具 Valgrind、mtrace</strong>,另一方面我们在写代码时可以<strong>添加内存申请和释放的统计功能</strong>，统计当前申请和释放的内存是否一致， 以此来判断内存是否泄露。</p>
+<h3 id="如何寻找内存泄漏"><a href="#如何寻找内存泄漏" class="headerlink" title="如何寻找内存泄漏"></a>如何寻找内存泄漏</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/skynet/archive/2011/02/20/1959162.html">参考</a></p>
+<h2 id="什么时候会发生段错误"><a href="#什么时候会发生段错误" class="headerlink" title="什么时候会发生段错误"></a>什么时候会发生段错误</h2><p>段错误通常发生在访问非法内存地址的时候，具体来说分为以下几种情况： </p>
+<ul>
+<li>使用野指针</li>
+<li>试图修改字符串常量的内容</li>
+</ul>
+<h2 id="函数栈"><a href="#函数栈" class="headerlink" title="函数栈"></a>函数栈</h2><p><strong>栈帧</strong>也叫过程活动记录，是编译器用来实现过程/函数调用的一种数据结构。</p>
+<p>首先应该明白，栈是从高地址向低地址延伸的。每一次函数的调用，都会在<code>调用栈</code>（call stack）上维护一个独立的<code>栈帧</code>（stack frame）。</p>
+<p>这个栈帧中维持着所需要的各种信息，一般包括：函数的返回地址和参数、临时变量（包括函数的非静态局部变量以及编译器自动生成的其他临时变量）和函数的上下文。寄存器ebp指向当前的栈帧的底部（高地址），我们称为栈底指针，寄存器esp指向当前的栈帧的顶部（低地址），我们称为栈顶指针。</p>
+<p><strong>栈帧</strong>就是利用<code>EBP</code>（栈帧指针，<strong>请注意不是ESP</strong>）寄存器访问局部变量、参数、函数返回地址等的手段。</p>
+<p>寄存器：</p>
+<p>EAX：累加(Accumulator)寄存器，常用于函数返回值</p>
+<p>EBX：基址(Base)寄存器，以它为基址访问内存</p>
+<p>ECX：计数器(Counter)寄存器，常用作字符串和循环操作中的计数器</p>
+<p>EDX：数据(Data)寄存器，常用于乘除法和I/O指针</p>
+<p>ESI：源变址寄存器</p>
+<p>DSI：目的变址寄存器</p>
+<p>ESP：堆栈(Stack)指针寄存器，指向堆栈顶部</p>
+<p>EBP：基址指针寄存器，指向当前堆栈底部</p>
+<p>EIP：指令寄存器，指向下一条指令的地址</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">;栈帧结构
+PUSH EBP			;函数开始（使用EBP前先把已有值保存到栈中）
+MOV EBP, ESP		;保存当前ESP到EBP中
+
+...					;函数体
+					;无论ESP值如何变化，EBP都保持不变，可以安全访问函数的局部变量、参数
+					
+MOV ESP, EBP		;将函数的起始地址返回到ESP中
+POP EBP				;函数返回前弹出保存在栈中的值
+RETN				;函数终止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一个很常见的栈帧：</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\20190812082727781.png" alt="20190812082727781"></p>
+<h3 id="入栈过程"><a href="#入栈过程" class="headerlink" title="入栈过程"></a>入栈过程</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://paper.seebug.org/271/">参考</a></p>
+</blockquote>
+<p>栈顶函数状态以及上述寄存器的变化。变化的核心任务是将调用函数（caller）的状态保存起来，同时创建被调用函数（callee）的状态。</p>
+<p>esp 用来存储函数调用栈的栈顶地址，在压栈和退栈时发生变化。ebp 用来存储当前函数状态的基地址，在函数运行时不变，可以用来索引确定函数参数或局部变量的位置。eip 用来存储即将执行的程序指令的地址，cpu 依照 eip 的存储内容读取指令并执行，eip 随之指向相邻的下一条指令，如此反复，程序就得以连续执行指令。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-9125ba203edd2bab1308ad88db2ae197_b.png-w331s" alt="img">函数状态主要涉及三个寄存器－－esp，ebp，eip。esp 用来存储函数调用栈的栈顶地址，在压栈和退栈时发生变化。ebp 用来存储当前函数状态的基地址，在函数运行时不变，可以用来索引确定函数参数或局部变量的位置。eip 用来存储即将执行的程序指令的地址，cpu 依照 eip 的存储内容读取指令并执行，eip 随之指向相邻的下一条指令，如此反复，程序就得以连续执行指令。</p>
+<p>下面让我们来看看发生函数调用时，栈顶函数状态以及上述寄存器的变化。变化的核心任务是将调用函数（caller）的状态保存起来，同时创建被调用函数（callee）的状态。</p>
+<p>首先将被调用函数（callee）的参数按照逆序依次压入栈内。如果被调用函数（callee）不需要参数，则没有这一步骤。这些参数仍会保存在调用函数（caller）的函数状态内，之后压入栈内的数据都会作为被调用函数（callee）的函数状态来保存。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-9125ba203edd2bab1308ad88db2ae197_b.png-w331s" alt="img"></p>
+<p>Fig 3. 将被调用函数的参数压入栈内</p>
+<p>然后将调用函数（caller）进行调用之后的下一条指令地址作为返回地址压入栈内。这样调用函数（caller）的 eip（指令）信息得以保存。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-9ae4f530296d4a8ec7d44443e3e6d37f_b.png-w331s" alt="img"></p>
+<p>Fig 4. 将被调用函数的返回地址压入栈内</p>
+<p>再将当前的ebp 寄存器的值（也就是调用函数的基地址）压入栈内，并将 ebp 寄存器的值更新为当前栈顶的地址。这样调用函数（caller）的 ebp（基地址）信息得以保存。同时，ebp 被更新为被调用函数（callee）的基地址。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-c350a4c5e9f5bbe839606486f3100185_b.png-w331s" alt="img"></p>
+<p>Fig 5. 将调用函数的基地址（ebp）压入栈内，并将当前栈顶地址传到 ebp 寄存器内</p>
+<p>再之后是将被调用函数（callee）的局部变量等数据压入栈内。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-63f07378642e6f38197ddfb817567f6c_b.png-w331s" alt="img"></p>
+<p>Fig 6. 将被调用函数的局部变量压入栈内</p>
+<p>在压栈的过程中，esp 寄存器的值不断减小（对应于栈从内存高地址向低地址生长）。压入栈内的数据包括调用参数、返回地址、调用函数的基地址，以及局部变量，其中调用参数以外的数据共同构成了被调用函数（callee）的状态。在发生调用时，程序还会将被调用函数（callee）的指令地址存到 eip 寄存器内，这样程序就可以依次执行被调用函数的指令了。</p>
+<p>看过了函数调用发生时的情况，就不难理解函数调用结束时的变化。变化的核心任务是丢弃被调用函数（callee）的状态，并将栈顶恢复为调用函数（caller）的状态。</p>
+<p>首先被调用函数的局部变量会从栈内直接弹出，栈顶会指向被调用函数（callee）的基地址。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-4340d6c750f59519f4f87dffca03a86a_b.png-w331s" alt="img"></p>
+<p>Fig 7. 将被调用函数的局部变量弹出栈外</p>
+<p>然后将基地址内存储的调用函数（caller）的基地址从栈内弹出，并存到 ebp 寄存器内。这样调用函数（caller）的 ebp（基地址）信息得以恢复。此时栈顶会指向返回地址。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-cd8d0fef17eecfff68f29022660a1c85_b.png-w331s" alt="img"></p>
+<p>Fig 8. 将调用函数（caller）的基地址（ebp）弹出栈外，并存到 ebp 寄存器内</p>
+<p>再将返回地址从栈内弹出，并存到 eip 寄存器内。这样调用函数（caller）的 eip（指令）信息得以恢复。</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\v2-3e7a4c71117d43ac59bcb3bd186a8e9f_b.png-w331s" alt="img"></p>
+<p>Fig 9. 将被调用函数的返回地址弹出栈外，并存到 eip 寄存器内</p>
+<p>至此调用函数（caller）的函数状态就全部恢复了，之后就是继续执行调用函数的指令了。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenqiang1208/article/details/74353303?utm_medium=distribute.pc_relevant.none-task-blog-title-6&spm=1001.2101.3001.4242">【C语言】函数运行过程—–栈帧调用_菜鸟成长记-CSDN博客</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;stdio.h&gt;
+
+int foo(int x, int y)
+&#123;
+    int z;
+    z &#x3D; x + y;
+    return z;
+&#125;
+
+int main(int argc, char* argv[])
+&#123;
+    int a;
+    a &#x3D; foo(5, 6);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>汇编代码：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">push	6
+push	5	#参数从右到左入栈
+call	foo	#call指令的调用，先将call指令下一条指令地址压栈保存，然后跳转到foo函数的地方
+
+push	ebp #ebp压栈，保存指向main()函数栈帧底部的地址，方便之后恢复现场
+mov		ebp,esp #将esp的值赋给ebp
+sub		esp,0CCh#抬高栈顶，为add()函数预开辟空间
+push	ebx	#基址寄存器压栈
+push	esi	#目的变址寄存器压栈
+push	edi	#EDI压栈
+lea		edi,[ebp-0CCh]  #取偏移地址给EDI
+mov		ecx,33h	#计数寄存器为33h
+mov		eax,0CCCCCCCCh	#累加寄存器为0xcccccccc
+rep stos	dword ptr es:[edi]	#将栈上从ebp-0xcc开始的位置向高地址方向的内存赋值0xCCCCCCCC,次数重复0x33(51)次. 注意0xCCCCCCCC代表着未被初始化.
+mov		ecx,offset _88DDAB50_test@cpp (010C003h)  
+call	@__CheckForDebuggerJustMyCode@4 (010121Ch)  
+...
+mov		eax,dword ptr [x]	#x给累加寄存器
+add		eax,dword ptr [y]	#EAX和y相加结果存储在EAX中
+mov		dword ptr [z],eax	#将EAX的值给z
+mov		eax,dword ptr [z]	#将结果存在EAX中，通过EAX返回函数值
+pop		edi	#EDI出栈
+pop		esi	#ESI出栈
+pop		ebx	#EBX出栈
+mov		esp,ebp	#esp指向ebp指向的地方
+pop		ebp	#main-ebp出栈，回到main函数的栈帧
+ret	#pop返回地址，jmp返回地址，返回到call foo的下一条指令继续执行
+
+add		esp,8  #esp向下，即恢复到5和6入栈之前的样子
+mov		dword ptr [a],eax  #把返回值给a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\23dc52309585d6404517e6d8a76fd581.png" alt="23dc52309585d6404517e6d8a76fd581"></p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\e84ee7ee886306ebfb4282cb315445cf.png" alt="e84ee7ee886306ebfb4282cb315445cf"></p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\6b5539e80380aae9c246445ed7f829f3.png" alt="6b5539e80380aae9c246445ed7f829f3"></p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\image-20201207161412474.png" alt="image-20201207161412474"></p>
+<h2 id="线程栈"><a href="#线程栈" class="headerlink" title="线程栈"></a>线程栈</h2><p>线程栈不过是系统或者用户动态申请一块内存空间，如果是用户进程，理论上应该在堆上。</p>
+<h2 id="堆和栈的比较"><a href="#堆和栈的比较" class="headerlink" title="堆和栈的比较"></a>堆和栈的比较</h2><ul>
+<li>堆比栈低效：栈的内存管理都是自动释放的，无需手动管理，操作系统只需要移动栈顶指针即可销毁对象；计算机提供了<code>ESP</code>、<code>EBP</code>等寄存器支持。</li>
+<li>堆的访问速度比栈慢：栈的内容一般不容易被置换出去，容易被寄存器所缓存；访问堆需要获取堆的指针和访问堆的内容，栈由于有寄存器的支持，只需要访问一次内存；栈的局部性更强；</li>
+<li>栈的空间存储效率更高；</li>
+<li>栈在编译时就给变量分配好了空间；堆是运行时分配空间。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35516146">read more</a></p>
+<h2 id="堆和自由存储区的区别"><a href="#堆和自由存储区的区别" class="headerlink" title="堆和自由存储区的区别"></a>堆和自由存储区的区别</h2><ul>
+<li>自由存储是C++中通过new与delete动态分配和释放对象的<strong>抽象概念</strong>，而堆（heap）是C语言和操作系统的术语，是操作系统维护的一块动态分配内存。</li>
+<li>new所申请的内存区域在C++中称为自由存储区。藉由堆实现的自由存储，可以说new所申请的内存区域在堆上。</li>
+<li>堆与自由存储区还是有区别的，它们并非等价。自由存储区不仅可以是堆，还可以是静态存储区，这都看operator new在哪里为对象分配内存。</li>
+</ul>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/QG-whz/p/5060894.html">read more</a></p>
+</blockquote>
+<h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>垃圾判断算法是问你是不是垃圾。</p>
+<p>垃圾回收算法是问你怎么回收垃圾。</p>
+<h3 id="垃圾判断算法"><a href="#垃圾判断算法" class="headerlink" title="垃圾判断算法"></a>垃圾判断算法</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a><strong>引用计数法</strong></h4><p>给每个对象添加一个计数器，当有地方引用该对象时计数器加1，当引用失效时计数器减1。用对象计数器是否为0来判断对象是否可被回收。缺点：<strong>无法解决循环引用的问题</strong>。</p>
+<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>通过<code>GC ROOT</code>的对象作为搜索起始点，通过引用向下搜索，所走过的路径称为引用链。通过对象是否有到达引用链的路径来判断对象是否可被回收（可作为<code>GC ROOT</code>的对象：虚拟机栈中引用的对象，方法区中类静态属性引用的对象，方法区中常量引用的对象，本地方法栈中<code>JNI</code>引用的对象）</p>
+<p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2269232-97bf646f648d6ff7.webp" alt="2269232-97bf646f648d6ff7"></p>
+<p>通过可达性算法，成功解决了引用计数所无法解决的循环依赖问题，只要你无法与<code>GC Root</code>建立直接或间接的连接，系统就会判定你为可回收对象。那这样就引申出了另一个问题，哪些属于GC Root。</p>
+<p>Java内存区域中可以作为<code>GC ROOT</code>的对象：</p>
+<ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中引用的对象</li>
+</ul>
+<h3 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h3><h4 id="标记-清除法"><a href="#标记-清除法" class="headerlink" title="标记-清除法"></a>标记-清除法</h4><p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2269232-5b023b00f7bf8f1b.webp" alt="2269232-5b023b00f7bf8f1b"></p>
+<p>标记清除算法（Mark-Sweep）是最基础的一种垃圾回收算法，它分为2部分，先把内存区域中的这些对象进行标记，哪些属于可回收标记出来，然后把这些垃圾拎出来清理掉。就像上图一样，清理掉的垃圾就变成未使用的内存区域，等待被再次使用。但它存在一个很大的问题，那就是<strong>内存碎片</strong>。</p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2269232-46c30f2ffb8c18af.webp" alt="2269232-46c30f2ffb8c18af"></p>
+<p>复制算法（Copying）是在标记清除算法基础上演化而来，解决标记清除算法的内存碎片问题。它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。保证了内存的连续可用，内存分配时也就不用考虑内存碎片等复杂情况。复制算法暴露了另一个问题，例如硬盘本来有500G，但却只能用200G，代价实在太高。</p>
+<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p><img src="D:\个人文件\重要文件\闲书与笔记\MD暂存文件\2269232-d7cb73cb0e50c060.webp" alt="2269232-d7cb73cb0e50c060"></p>
+<p>标记-整理算法标记过程仍然与标记-清除算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，再清理掉端边界以外的内存区域。</p>
+<p>标记整理算法解决了内存碎片的问题，也规避了复制算法只能利用一半内存区域的弊端。标记整理算法对内存变动更频繁，需要整理所有存活对象的引用地址，在效率上比复制算法要差很多。一般是把Java堆分为<strong>新生代</strong>和<strong>老年代</strong>，这样就可以根据各个年代的特点采用最适当的收集算法。</p>
+<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>分代收集算法分代收集算法严格来说并不是一种思想或理论，而是融合上述3种基础的算法思想，而产生的针对不同情况所采用不同算法的一套组合拳，根据对象存活周期的不同将内存划分为几块。</p>
+<ul>
+<li>在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用<strong>复制算法</strong>，只需要付出少量存活对象的复制成本就可以完成收集。</li>
+<li>在老年代中，因为对象存活率高、没有额外空间对它进行分配担保，就必须使用<strong>标记-清理算法</strong>或者<strong>标记-整理算法</strong>来进行回收。</li>
+</ul>
+<h3 id="为什么C-没有垃圾回收机制"><a href="#为什么C-没有垃圾回收机制" class="headerlink" title="为什么C++没有垃圾回收机制"></a>为什么C++没有垃圾回收机制</h3><ol>
+<li><p>没有共同基类</p>
+<p>C++是从C发展而成，同意直接操作指针，同意将一个类型转换为还有一个类型，对于一个指针无法知道它真正指向的类型；而Java或C#都有一个共同基类。</p>
+</li>
+<li><p>系统开销</p>
+<p>垃圾回收所带来的系统开销，不符合C++高效的特性，使得不适合做底层工作。</p>
+</li>
+<li><p>耗内存</p>
+<p>C++产生的年代内存非常少，垃圾回收机制须要占用很多其它的内存。</p>
+</li>
+<li><p>替代方法</p>
+<p>C++有析构函数、智能指针、引用计数去管理资源的释放，对GC的需求不迫切。</p>
+</li>
+<li><p>跨平台</p>
+<p>Bjarne也不喜欢由于实现和移植垃圾回收系统而带来的复杂性</p>
+</li>
+</ol>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/03/14/language/c/c-lei-xing-md-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">C++类型</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/03/14/language/c/c-mo-ban-he-fan-xing-bian-cheng-md-1/"><span class="level-item">C++模板和泛型编程</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "2379ea766cd197f9688d6ddec11f4257",
+            repo: "Some-of-Your-GitHub-Repo",
+            owner: "2019-nNewG+C",
+            clientID: "68309e2465123e9ed5fb",
+            clientSecret: "1a622945bd15a7219dd02e477cb2b6b8f2a40697",
+            admin: ["2019-nNewG+C"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="http://static.come2rss.xyz/%E9%93%81%E7%94%B2%E5%9F%8Elogo.png" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">262</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">52</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="706. Design HashMap"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-15T03:13:45.000Z">2021-03-15</time></p><p class="title"><a href="/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/">706. Design HashMap</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">复杂数据结构</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="面经 题目C++list"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:42.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/">面经 题目C++list</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++标准库"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-biao-zhun-ku-md-1/">C++标准库</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-lei-xing-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++类型"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-lei-xing-md-1/">C++类型</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="C++深入基础"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-03-14T08:01:40.000Z">2021-03-14</time></p><p class="title"><a href="/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/">C++深入基础</a></p><p class="categories"><a href="/categories/Language/">Language</a> / <a href="/categories/Language/C/">C++</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#C-深入基础"><span class="level-left"><span class="level-item">1</span><span class="level-item">C++深入基础</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#特性"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">特性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#C-三大特性"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item">C++三大特性</span></span></a></li><li><a class="level is-mobile" href="#多态的两种类型"><span class="level-left"><span class="level-item">1.1.2</span><span class="level-item">多态的两种类型</span></span></a></li><li><a class="level is-mobile" href="#重载、重写和隐藏"><span class="level-left"><span class="level-item">1.1.3</span><span class="level-item">重载、重写和隐藏</span></span></a></li></ul></li><li><a class="level is-mobile" href="#基本类型"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">基本类型</span></span></a></li><li><a class="level is-mobile" href="#C-vs-Python"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">C++ vs Python</span></span></a></li><li><a class="level is-mobile" href="#C-vs-C"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">C++ vs C</span></span></a></li></ul></li><li><a class="level is-mobile" href="#可调用对象"><span class="level-left"><span class="level-item">2</span><span class="level-item">可调用对象</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#lambda表达式"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">lambda表达式</span></span></a></li><li><a class="level is-mobile" href="#lambda的替代品-参数绑定"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">lambda的替代品-参数绑定</span></span></a></li><li><a class="level is-mobile" href="#重载-的类"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">重载()的类</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#标准库函数对象"><span class="level-left"><span class="level-item">2.3.1</span><span class="level-item">标准库函数对象</span></span></a></li></ul></li><li><a class="level is-mobile" href="#统一调用对象"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">统一调用对象</span></span></a></li></ul></li><li><a class="level is-mobile" href="#函数匹配"><span class="level-left"><span class="level-item">3</span><span class="level-item">函数匹配</span></span></a></li><li><a class="level is-mobile" href="#编译问题"><span class="level-left"><span class="level-item">4</span><span class="level-item">编译问题</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#如何避免嵌套引用"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">如何避免嵌套引用</span></span></a></li><li><a class="level is-mobile" href="#CMake"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">CMake</span></span></a></li><li><a class="level is-mobile" href="#C-版本"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">C++版本</span></span></a></li></ul></li><li><a class="level is-mobile" href="#字节对齐"><span class="level-left"><span class="level-item">5</span><span class="level-item">字节对齐</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基本概念"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">基本概念</span></span></a></li><li><a class="level is-mobile" href="#为什么要字节对齐"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">为什么要字节对齐</span></span></a></li><li><a class="level is-mobile" href="#如何处理字节对齐"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">如何处理字节对齐</span></span></a></li><li><a class="level is-mobile" href="#举例"><span class="level-left"><span class="level-item">5.4</span><span class="level-item">举例</span></span></a></li></ul></li><li><a class="level is-mobile" href="#C-程序编译"><span class="level-left"><span class="level-item">6</span><span class="level-item">C++程序编译</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#从代码到执行"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">从代码到执行</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#编译"><span class="level-left"><span class="level-item">6.1.1</span><span class="level-item">编译</span></span></a></li><li><a class="level is-mobile" href="#链接"><span class="level-left"><span class="level-item">6.1.2</span><span class="level-item">链接</span></span></a></li></ul></li><li><a class="level is-mobile" href="#静态链接"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">静态链接</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#静态链接的优缺点"><span class="level-left"><span class="level-item">6.2.1</span><span class="level-item">静态链接的优缺点</span></span></a></li></ul></li><li><a class="level is-mobile" href="#动态链接"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">动态链接</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#"><span class="level-left"><span class="level-item">6.3.1</span><span class="level-item"> </span></span></a></li><li><a class="level is-mobile" href="#动态链接的优缺点"><span class="level-left"><span class="level-item">6.3.2</span><span class="level-item">动态链接的优缺点</span></span></a></li><li><a class="level is-mobile" href="#动态链接地址是如何重定位的呢？"><span class="level-left"><span class="level-item">6.3.3</span><span class="level-item">动态链接地址是如何重定位的呢？</span></span></a></li></ul></li><li><a class="level is-mobile" href="#静态链接库和动态链接库的区别"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">静态链接库和动态链接库的区别</span></span></a></li><li><a class="level is-mobile" href="#静态联编和动态联编"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">静态联编和动态联编</span></span></a></li><li><a class="level is-mobile" href="#编译期确定和运行期确定"><span class="level-left"><span class="level-item">6.6</span><span class="level-item">编译期确定和运行期确定</span></span></a></li><li><a class="level is-mobile" href="#编译优化"><span class="level-left"><span class="level-item">6.7</span><span class="level-item">编译优化</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#调用约定"><span class="level-left"><span class="level-item">6.7.1</span><span class="level-item">调用约定</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Assembly-实战"><span class="level-left"><span class="level-item">6.8</span><span class="level-item">Assembly 实战</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#i-和-i"><span class="level-left"><span class="level-item">6.8.1</span><span class="level-item">++i 和 i++</span></span></a></li></ul></li><li><a class="level is-mobile" href="#其他"><span class="level-left"><span class="level-item">6.9</span><span class="level-item">其他</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#大小端"><span class="level-left"><span class="level-item">6.9.1</span><span class="level-item">大小端</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#C-调试"><span class="level-left"><span class="level-item">7</span><span class="level-item">C++ 调试</span></span></a></li><li><a class="level is-mobile" href="#RTTI"><span class="level-left"><span class="level-item">8</span><span class="level-item">RTTI</span></span></a></li><li><a class="level is-mobile" href="#命名空间"><span class="level-left"><span class="level-item">9</span><span class="level-item">命名空间</span></span></a></li><li><a class="level is-mobile" href="#头文件"><span class="level-left"><span class="level-item">10</span><span class="level-item">头文件</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#双引号“-”和尖括号-lt-gt-的区别"><span class="level-left"><span class="level-item">10.1</span><span class="level-item">双引号“ ”和尖括号&lt; &gt;的区别</span></span></a></li></ul></li><li><a class="level is-mobile" href="#C-异常机制概述"><span class="level-left"><span class="level-item">11</span><span class="level-item">C++异常机制概述</span></span></a></li><li><a class="level is-mobile" href="#C-对象模型"><span class="level-left"><span class="level-item">12</span><span class="level-item">C++对象模型</span></span></a></li><li><a class="level is-mobile" href="#C-内存管理"><span class="level-left"><span class="level-item">13</span><span class="level-item">C++内存管理</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#内存模型"><span class="level-left"><span class="level-item">13.1</span><span class="level-item">内存模型</span></span></a></li><li><a class="level is-mobile" href="#内存泄漏"><span class="level-left"><span class="level-item">13.2</span><span class="level-item">内存泄漏</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#什么是内存泄漏"><span class="level-left"><span class="level-item">13.2.1</span><span class="level-item">什么是内存泄漏</span></span></a></li><li><a class="level is-mobile" href="#怎么判断内存泄漏"><span class="level-left"><span class="level-item">13.2.2</span><span class="level-item">怎么判断内存泄漏</span></span></a></li><li><a class="level is-mobile" href="#如何寻找内存泄漏"><span class="level-left"><span class="level-item">13.2.3</span><span class="level-item">如何寻找内存泄漏</span></span></a></li></ul></li><li><a class="level is-mobile" href="#什么时候会发生段错误"><span class="level-left"><span class="level-item">13.3</span><span class="level-item">什么时候会发生段错误</span></span></a></li><li><a class="level is-mobile" href="#函数栈"><span class="level-left"><span class="level-item">13.4</span><span class="level-item">函数栈</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#入栈过程"><span class="level-left"><span class="level-item">13.4.1</span><span class="level-item">入栈过程</span></span></a></li></ul></li><li><a class="level is-mobile" href="#线程栈"><span class="level-left"><span class="level-item">13.5</span><span class="level-item">线程栈</span></span></a></li><li><a class="level is-mobile" href="#堆和栈的比较"><span class="level-left"><span class="level-item">13.6</span><span class="level-item">堆和栈的比较</span></span></a></li><li><a class="level is-mobile" href="#堆和自由存储区的区别"><span class="level-left"><span class="level-item">13.7</span><span class="level-item">堆和自由存储区的区别</span></span></a></li><li><a class="level is-mobile" href="#垃圾回收机制"><span class="level-left"><span class="level-item">13.8</span><span class="level-item">垃圾回收机制</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#原理"><span class="level-left"><span class="level-item">13.8.1</span><span class="level-item">原理</span></span></a></li><li><a class="level is-mobile" href="#垃圾判断算法"><span class="level-left"><span class="level-item">13.8.2</span><span class="level-item">垃圾判断算法</span></span></a></li><li><a class="level is-mobile" href="#垃圾回收算法"><span class="level-left"><span class="level-item">13.8.3</span><span class="level-item">垃圾回收算法</span></span></a></li><li><a class="level is-mobile" href="#为什么C-没有垃圾回收机制"><span class="level-left"><span class="level-item">13.8.4</span><span class="level-item">为什么C++没有垃圾回收机制</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">20</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">194</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">26</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">35</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="http://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

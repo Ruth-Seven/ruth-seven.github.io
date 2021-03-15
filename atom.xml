@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-03-12T07:40:09.030Z</updated>
+  <updated>2021-03-15T03:14:57.317Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,248 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>706. Design HashMap</title>
+    <link href="https://blog.come2rss.xyz/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/"/>
+    <id>https://blog.come2rss.xyz/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/</id>
+    <published>2021-03-15T03:13:45.000Z</published>
+    <updated>2021-03-15T03:14:57.317Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路思路：&quot;&gt;&lt;a href=&quot;#思路思路：&quot; class=&quot;headerlink&quot; title=&quot;思路思路：&quot;&gt;&lt;/a&gt;思路思路：&lt;/h2&gt;&lt;p&gt; &lt;code&gt;hash table&lt;/code&gt; 配置 STL强大的API包装完成了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="复杂数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面经 题目C++list</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/mian-jing-ti-mu-c-list-md-1/</id>
+    <published>2021-03-14T08:01:42.000Z</published>
+    <updated>2021-03-14T08:12:21.110Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+
+
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;面经-题目C-list&quot;&gt;&lt;a href=&quot;#面经-题目C-list&quot; class=&quot;headerlink&quot; title=&quot;面经 题目C++list&quot;&gt;&lt;/a&gt;面经</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++标准库</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-biao-zhun-ku-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-biao-zhun-ku-md-1/</id>
+    <published>2021-03-14T08:01:40.000Z</published>
+    <updated>2021-03-14T08:15:29.570Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h1 id=&quot;C-标准库&quot;&gt;&lt;a href=&quot;#C-标准库&quot; class=&quot;headerlink&quot; title=&quot;C++标准库&quot;&gt;&lt;/a&gt;C++标准库&lt;/h1&gt;&lt;h1 id=&quot;IO库&quot;&gt;&lt;a href=&quot;#IO库&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++类型</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-xing-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-xing-md-1/</id>
+    <published>2021-03-14T08:01:40.000Z</published>
+    <updated>2021-03-14T08:16:31.230Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h1 id=&quot;C-类型&quot;&gt;&lt;a href=&quot;#C-类型&quot; class=&quot;headerlink&quot; title=&quot;C++类型&quot;&gt;&lt;/a&gt;C++类型&lt;/h1&gt;&lt;h1 id=&quot;const-常量修饰符&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++深入基础</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-shen-ru-ji-chu-md-1/</id>
+    <published>2021-03-14T08:01:40.000Z</published>
+    <updated>2021-03-14T08:14:05.770Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+
+
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;C-深入基础&quot;&gt;&lt;a href=&quot;#C-深入基础&quot; class=&quot;headerlink&quot; title=&quot;C++深入基础&quot;&gt;&lt;/a&gt;C++深入基础&lt;/h1&gt;&lt;h2 id=&quot;特性&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++模板和泛型编程</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-mo-ban-he-fan-xing-bian-cheng-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-mo-ban-he-fan-xing-bian-cheng-md-1/</id>
+    <published>2021-03-14T08:01:39.000Z</published>
+    <updated>2021-03-14T08:11:17.290Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;C-模板和泛型编程&quot;&gt;&lt;a href=&quot;#C-模板和泛型编程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++并发</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-bing-fa-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-bing-fa-md-1/</id>
+    <published>2021-03-14T08:01:34.000Z</published>
+    <updated>2021-03-14T08:07:49.050Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C-并发&quot;&gt;&lt;a href=&quot;#C-并发&quot; class=&quot;headerlink&quot; title=&quot;C++并发&quot;&gt;&lt;/a&gt;C++并发&lt;/h1&gt;&lt;p&gt;&lt;code&gt;volatile&lt;/code&gt;类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素更改，比如：操作系统、硬件或者其它线程等。遇到这个关键字声明的变量，编译器对访问该变量的代码就不再进行优化，从而可以提供对特殊地址的稳定访问。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++指针</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-zhi-zhen-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-zhi-zhen-md-1/</id>
+    <published>2021-03-14T08:01:34.000Z</published>
+    <updated>2021-03-14T08:07:52.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;C-指针&quot;&gt;&lt;a href=&quot;#C-指针&quot; class=&quot;headerlink&quot; title=&quot;C++指针&quot;&gt;&lt;/a&gt;C++指针&lt;/h1&gt;&lt;h2 id=&quot;指针和数组&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++ 类笔记</title>
+    <link href="https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-bi-ji-md-1/"/>
+    <id>https://blog.come2rss.xyz/2021/03/14/language/c/c-lei-bi-ji-md-1/</id>
+    <published>2021-03-14T08:01:34.000Z</published>
+    <updated>2021-03-14T08:08:12.460Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C-类笔记&quot;&gt;&lt;a href=&quot;#C-类笔记&quot; class=&quot;headerlink&quot; title=&quot;C++ 类笔记&quot;&gt;&lt;/a&gt;C++ 类笔记&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;个人非常喜欢对知识进行概括性的总结，减少记忆负担，舍去无用的语法细节，保留C++设计思路。这是C++系列笔记存在意义。&lt;/p&gt;
+&lt;p&gt;所以这类笔记不适用第一次学习的同学，只适合用作第二份参考资料，即学习基础知识之中或者之后进行总结。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Language" scheme="https://blog.come2rss.xyz/categories/Language/"/>
+    
+    <category term="C++" scheme="https://blog.come2rss.xyz/categories/Language/C/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>331. Verify Preorder Serialization of a Binary Tree</title>
@@ -271,217 +513,6 @@
     
     <category term="模拟
 " scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>210. Course Schedule II (Medium)</title>
-    <link href="https://blog.come2rss.xyz/2021/02/27/shua-ti-shu-ju-jie-gou-tu-210-course-schedule-ii-medium/"/>
-    <id>https://blog.come2rss.xyz/2021/02/27/shua-ti-shu-ju-jie-gou-tu-210-course-schedule-ii-medium/</id>
-    <published>2021-02-27T01:19:16.000Z</published>
-    <updated>2021-02-27T01:19:29.863Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;210-Course-Schedule-II&quot;&gt;&lt;a href=&quot;#210-Course-Schedule-II&quot; class=&quot;headerlink&quot; title=&quot;210. Course Schedule II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/course-schedule-ii/&quot;&gt;210. Course Schedule II&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;dfs + 判环 + 回溯 &lt;/li&gt;
-&lt;li&gt;入度&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="图
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>785. Is Graph Bipartite?</title>
-    <link href="https://blog.come2rss.xyz/2021/02/24/shua-ti-shu-ju-jie-gou-tu-785-is-graph-bipartite/"/>
-    <id>https://blog.come2rss.xyz/2021/02/24/shua-ti-shu-ju-jie-gou-tu-785-is-graph-bipartite/</id>
-    <published>2021-02-24T04:17:57.000Z</published>
-    <updated>2021-02-24T04:19:28.113Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;785-Is-Graph-Bipartite&quot;&gt;&lt;a href=&quot;#785-Is-Graph-Bipartite&quot; class=&quot;headerlink&quot; title=&quot;785. Is Graph Bipartite?&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/is-graph-bipartite/&quot;&gt;785. Is Graph Bipartite?&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;二分图染色问题，实际是就是判断任意一条边的形式是否有矛盾。&lt;/p&gt;
-&lt;p&gt;$O(E +N )$&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="图
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>3. Longest Substring Without Repeating Characters</title>
-    <link href="https://blog.come2rss.xyz/2021/02/18/shua-ti/zi-fu-chuan/3-longest-substring-without-repeating-characters/"/>
-    <id>https://blog.come2rss.xyz/2021/02/18/shua-ti/zi-fu-chuan/3-longest-substring-without-repeating-characters/</id>
-    <published>2021-02-18T05:25:07.000Z</published>
-    <updated>2021-02-18T05:33:20.100Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;3-Longest-Substring-Without-Repeating-Characters&quot;&gt;&lt;a href=&quot;#3-Longest-Substring-Without-Repeating-Characters&quot; class=&quot;headerlink&quot; title=&quot;3. Longest Substring Without Repeating Characters&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/&quot;&gt;3. Longest Substring Without Repeating Characters&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;暴力&lt;/li&gt;
-&lt;li&gt;双指针&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以观察到，符合题意的子串在按左端下标从小到大排序时，右端下标也是非严格递增的。&lt;/p&gt;
-&lt;p&gt;惊喜的是，双指针便可以派上用场了，&lt;code&gt;i&lt;/code&gt;，&lt;code&gt;j&lt;/code&gt;分别指向子串两端，并维护不重复的性质即可。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>28. Implement strStr()</title>
-    <link href="https://blog.come2rss.xyz/2021/02/15/shua-ti/zi-fu-chuan/28-implement-strstr/"/>
-    <id>https://blog.come2rss.xyz/2021/02/15/shua-ti/zi-fu-chuan/28-implement-strstr/</id>
-    <published>2021-02-15T02:18:48.000Z</published>
-    <updated>2021-02-17T12:53:55.143Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;经典的字符子串匹配问题：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;暴力匹配，$O(mn)$&lt;/li&gt;
-&lt;li&gt;Rabin Karp $O(n)$&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode/&quot;&gt;KMP算法&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>647. Palindromic Substrings</title>
-    <link href="https://blog.come2rss.xyz/2021/02/14/shua-ti/zi-fu-chuan/647-palindromic-substrings/"/>
-    <id>https://blog.come2rss.xyz/2021/02/14/shua-ti/zi-fu-chuan/647-palindromic-substrings/</id>
-    <published>2021-02-14T13:02:17.000Z</published>
-    <updated>2021-02-14T13:11:16.069Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;647-Palindromic-Substrings1&quot;&gt;&lt;a href=&quot;#647-Palindromic-Substrings1&quot; class=&quot;headerlink&quot; title=&quot;647. Palindromic Substrings1&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/palindromic-substrings/&quot;&gt;647. Palindromic Substrings&lt;/a&gt;1&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Manacher&lt;/code&gt;算法：&lt;/p&gt;
-&lt;p&gt;回文字符串的判断方式方式会从中心点从发向外不断扩展，&lt;code&gt;Manacher&lt;/code&gt;算法给出了缩减了字符串判断回文的重复步骤。其核心思想在于，一段回文&lt;code&gt;s&lt;/code&gt;上的呈对称状的左右&lt;code&gt;A&lt;/code&gt;和&lt;code&gt;B&lt;/code&gt;两点，&lt;code&gt;B&lt;/code&gt;点的最小回文长度可以通过&lt;code&gt;A&lt;/code&gt;点的回文长度和&lt;code&gt;B&lt;/code&gt;到&lt;code&gt;s&lt;/code&gt;边右边界的长度最小值决定。另外，为了改变回文串长度为偶数和奇数的不同，在每个字符前和后都插入一个&lt;code&gt;#&lt;/code&gt;，如此插入后的&lt;code&gt;T&lt;/code&gt;的最长回文串&lt;strong&gt;半径&lt;/strong&gt;&lt;code&gt;d&lt;/code&gt;，与&lt;code&gt;S&lt;/code&gt;最长回文串&lt;strong&gt;半径&lt;/strong&gt;的&lt;code&gt;k&lt;/code&gt;有， &lt;code&gt;k = [d / 2]&lt;/code&gt; 。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;[]&lt;/code&gt;向下取整。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>227. Basic Calculator II</title>
-    <link href="https://blog.come2rss.xyz/2021/02/12/shua-ti/zi-fu-chuan/227-basic-calculator-ii/"/>
-    <id>https://blog.come2rss.xyz/2021/02/12/shua-ti/zi-fu-chuan/227-basic-calculator-ii/</id>
-    <published>2021-02-12T12:22:37.000Z</published>
-    <updated>2021-02-12T12:29:13.610Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;227-Basic-Calculator-II&quot;&gt;&lt;a href=&quot;#227-Basic-Calculator-II&quot; class=&quot;headerlink&quot; title=&quot;227. Basic Calculator II&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="字符串" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>5674. Largest Merge Of Two Strings</title>
-    <link href="https://blog.come2rss.xyz/2021/02/07/shua-ti-tan-xin-5674-largest-merge-of-two-strings/"/>
-    <id>https://blog.come2rss.xyz/2021/02/07/shua-ti-tan-xin-5674-largest-merge-of-two-strings/</id>
-    <published>2021-02-07T05:46:28.000Z</published>
-    <updated>2021-02-07T05:54:55.725Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;周赛的题目3&lt;/p&gt;
-&lt;h2 id=&quot;算法：&quot;&gt;&lt;a href=&quot;#算法：&quot; class=&quot;headerlink&quot; title=&quot;算法：&quot;&gt;&lt;/a&gt;算法：&lt;/h2&gt;&lt;p&gt;明显是贪心，但我贪错了！&lt;/p&gt;
-&lt;p&gt;一开始想着比较两个字符创的开头字符，选择字典序大的字符加入。如果两个字符相等就放着比较下一个，直到有不同的就可以全部加入。然后wa了4发。&lt;/p&gt;
-&lt;p&gt;正确的思路是：比较剩下的字符串，选择字典序大的字符创的的首个字符加入即可。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="贪心
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>307. Range Sum Query - Mutable</title>
-    <link href="https://blog.come2rss.xyz/2021/02/05/shua-ti/shu-ju-jie-gou/shu/307-range-sum-query-mutable/"/>
-    <id>https://blog.come2rss.xyz/2021/02/05/shua-ti/shu-ju-jie-gou/shu/307-range-sum-query-mutable/</id>
-    <published>2021-02-05T12:38:24.000Z</published>
-    <updated>2021-02-05T12:39:56.426Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;307-Range-Sum-Query-Mutable&quot;&gt;&lt;a href=&quot;#307-Range-Sum-Query-Mutable&quot; class=&quot;headerlink&quot; title=&quot;307. Range Sum Query - Mutable&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/range-sum-query-mutable/&quot;&gt;307. Range Sum Query - Mutable&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;线段树 + lazy操作&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>870. Advantage Shuffle</title>
-    <link href="https://blog.come2rss.xyz/2021/02/05/shua-ti-tan-xin-870-advantage-shuffle/"/>
-    <id>https://blog.come2rss.xyz/2021/02/05/shua-ti-tan-xin-870-advantage-shuffle/</id>
-    <published>2021-02-05T12:38:14.000Z</published>
-    <updated>2021-02-05T12:39:48.976Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;870-Advantage-Shuffle&quot;&gt;&lt;a href=&quot;#870-Advantage-Shuffle&quot; class=&quot;headerlink&quot; title=&quot;870. Advantage Shuffle&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/advantage-shuffle/&quot;&gt;870. Advantage Shuffle&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;一看就是贪心&lt;/p&gt;
-&lt;p&gt;从小到大逐个寻找B的牌&lt;code&gt;b&lt;/code&gt;，找出一个刚刚好比&lt;code&gt;b&lt;/code&gt;大的在A中的牌&lt;code&gt;a&lt;/code&gt;。因为&lt;code&gt;a&lt;/code&gt;刚刚比&lt;code&gt;b&lt;/code&gt;大，所以最优。找出后，加入映射，最后重构数组即可。</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="贪心
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"/>
     
     
   </entry>
