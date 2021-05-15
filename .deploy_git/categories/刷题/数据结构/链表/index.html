@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: 链表
+ - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://blog.come2rss.xyz/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.come2rss.xyz/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz"},"headline":"Hexo","image":["https://blog.come2rss.xyz/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"description":""}</script><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></li><li><a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="is-active"><a href="#" aria-current="page">链表
+</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-31T02:46:40.000Z" title="3/31/2021, 10:46:40 AM">2021-03-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-04-01T08:30:07.540Z" title="4/1/2021, 4:30:07 PM">2021-04-01</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/">链表
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/31/shua-ti-shu-ju-jie-gou-lian-biao-148-pai-xu-lian-biao/">148. 排序链表</a></h1><div class="content"><h1 id="148-排序链表"><a href="#148-排序链表" class="headerlink" title="148. 排序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-list/">148. 排序链表</a></h1><p>我写过最累最烦的链表题，循环归并排序思路比较好想，但是容易错，非常容易错，哈哈。</p></div><a class="article-more button is-small is-size-7" href="/2021/03/31/shua-ti-shu-ju-jie-gou-lian-biao-148-pai-xu-lian-biao/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:32:38.000Z" title="8/7/2020, 1:32:38 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-20T10:32:03.052Z" title="2/20/2021, 6:32:03 PM">2021-02-20</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/">链表
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-shu-ju-jie-gou-lian-biao-mian-shi-ti-lian-biao-xiang-guan/">面试题 链表相关</a></h1><div class="content"><span id="more"></span>
+
+<p>所有关于链表的题目都会总结在这里。假设这些题目的链表的头结点都是带有效值的</p>
+<h2 id="定义链表"><a href="#定义链表" class="headerlink" title="定义链表"></a>定义链表</h2><pre class="line-numbers language-none"><code class="language-none">struct ListNode&#123;
+    int Value;
+    ListNode* pNext;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="尾插入节点"><a href="#尾插入节点" class="headerlink" title="尾插入节点"></a>尾插入节点</h2><p>注意第一个参数是指针的指针，因为有可能需要修改第一个链表节点。</p>
+<pre class="line-numbers language-none"><code class="language-none">void AddToTail(ListNode **pHead, int value)&#123;
+    if(pHead &#x3D;&#x3D; null) return;
+	ListNode *pNew &#x3D; new ListNode();
+    pNew-&gt;Value &#x3D; value;
+    pNew-&gt;pNext &#x3D; nullptr;
+    if(*pHead &#x3D;&#x3D; null)&#123;
+        *pHead &#x3D; pNew;
+    &#125;else&#123;
+        ListNode* pNode &#x3D; *pHead;
+        while(pNode-&gt;pNext !&#x3D; null)&#123;
+            pNode &#x3D; pNode-&gt;pNext;
+        &#125;
+        *pNode-&gt;pNext &#x3D; pNew;        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="删除第一个对应值的链表"><a href="#删除第一个对应值的链表" class="headerlink" title="删除第一个对应值的链表"></a>删除第一个对应值的链表</h2><pre class="line-numbers language-none"><code class="language-none">viod RemoveNode(ListNode** pHead, int value)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || *pHead &#x3D;&#x3D; nullptr) return;
+    ListNode *pToDeleted &#x3D; nullptr;
+    if((*pHead)-&gt;value &#x3D;&#x3D; value)&#123;
+        pToDeleted &#x3D; *pHead;
+        *pHead &#x3D; (*pHead)-&gt;pNext;
+    &#125;else&#123;
+        ListNode *pNode &#x3D; *pHead;
+        &#x2F;&#x2F;pNode指向检查节点的前一个节点
+        while((*pNode)-&gt;pNext !&#x3D; null &amp;&amp; (*pNode)-&gt;pNext-&gt;value !&#x3D; value)&#123;
+            pNode &#x3D; pNode-&gt;pNext;
+        &#125;
+        if((*pNode)-&gt;pNext !&#x3D; null &amp;&amp; (*pNode)-&gt;pNext-&gt;value &#x3D;&#x3D; value)&#123;
+			pToDeleted &#x3D; (*pNode)-&gt;pNext;
+        &#125;
+    &#125;
+	if(pToDeleted !&#x3D; nullptr)&#123;
+        delte pToDelted;
+        pToDelted &#x3D; nullptr; &#x2F;&#x2F;释放内存后，即使是不需要使用的指针，也要做好清除工作，不然不容易维护            
+    &#125;
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>pToDeleted = *pNode-&gt;pNext;</code>上面遍历链表中代码不应该用<code>pToDeleted</code>来记录链表值，否然容易出现代码指针值意义混乱，造成不该删的指针却删掉了。</p>
+</blockquote>
+<h2 id="面试题6-从尾到头打印链表"><a href="#面试题6-从尾到头打印链表" class="headerlink" title="面试题6 从尾到头打印链表"></a>面试题6 从尾到头打印链表</h2><p>假如对空间复杂度在O(N)O(N)之上，那么可以使用栈或者递归。</p>
+<p><strong>栈代码如下</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">void PrintListReversingly_Iteratively(ListNode* pHead)&#123;
+    &#x2F;&#x2F;使用指针类型的STACK更省内存？
+    std::stack&lt;ListNode*&gt; nodes;
+    ListNode* pNode &#x3D; pHead;
+    while(pNode !&#x3D; nullptr)&#123;
+        nodes.push(pNode);
+        pNode &#x3D; pNode-&gt;pNext;
+    &#125;
+    while(!nodes.empty())&#123;
+        pNode &#x3D; nodes.top();
+        printf(&quot;%d\n&quot;, pNode-&gt;value);
+        nodes.pop();
+    &#125;   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>递</strong></p>
+<p><strong>归代码</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">void PrintListReversingly_Recursively(ListNode* pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+    PrintListReversingly_Recursively(pHead-&gt;pNext);
+    printf(&quot;%d\n&quot;, pHead-&gt;pNext);
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面试18：删除一个链表节点"><a href="#面试18：删除一个链表节点" class="headerlink" title="面试18：删除一个链表节点"></a>面试18：删除一个链表节点</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>给定一个单向链表的头结点指针和一个指向待删除的节点的指针，要求用O(N)O(N)时间删除节点。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>教科书上的链表删除都是遍历得到上一个待删除的节点的指针，时间复杂度O(N)O(N)。显然不行，也可以直接把待删除的节点<code>K</code>的下一个节点<code>J</code>的内容复制到<code>K</code>上，再删除<code>J</code>，就可以快速删除。考虑边界上，如果没有下一个节点则需要从头遍历；如果只有一个头结点且删除的是头结点，那么只能把头结点置<code>nullptr</code>。</p>
+<p>其时间复杂度为(n−1)∗O(1)+O(N)(n−1)∗O(1)+O(N)。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void DeleteNode(ListNode **pHead, ListNode *pToBeDeleted)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || (*phead) &#x3D;&#x3D; nullptr || (*pToBeDeleted) &#x3D;&#x3D; nullptr ) return;
+    ListNode *pFree &#x3D; nullptr;
+    
+    if(pToBeDeleted-&gt;pNext)&#123;
+        pFree &#x3D; ToBeDeleted-&gt;pNext;
+        pToBeDeleted-&gt;value &#x3D; pToBeDeleted-&gt;pNext-&gt;value;   
+        pToBeDeleted-&gt;pNext &#x3D; pToBeDeleted-&gt;pNext-&gt;pNext;   
+        
+    &#125;
+    &#x2F;&#x2F;删除节点无后继节点，且是头结点
+    else if( *pHead &#x3D;&#x3D; pToBeDeleted)&#123;
+		pFree &#x3D; *pHead;
+        *pHead &#x3D; nullptr;
+    &#125;
+    &#x2F;&#x2F; 链表中多个节点，且删除节点在末尾
+    else&#123;
+		ListNode *pCur &#x3D; *pHead
+        for(; pCur-&gt;pNext-&gt;pNext !&#x3D; nullptr; pCur &#x3D; pCur-&gt;pNext);
+        pFree &#x3D; pCur-&gt;pNext;
+        pCur-&gt;pNext &#x3D; nullptr;
+    &#125;
+    Delete pFree;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>错误点：</p>
+<ul>
+<li>the properiry of “*” &gt; the properity of “==”</li>
+<li>链表插入和删除后没有设置指针</li>
+</ul>
+<p>注意点：</p>
+<p>这个函数假设了待删除的节点一定在链表中；</p>
+<p>头结点可能删除掉，所以设置了头结点为指针的指针。</p>
+</blockquote>
+<h2 id="面18（题目二）：删除重复值的链表节点"><a href="#面18（题目二）：删除重复值的链表节点" class="headerlink" title="面18（题目二）：删除重复值的链表节点"></a>面18（题目二）：删除重复值的链表节点</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>删除一条已排序的链表中的所有的其值重复出现的节点。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>在上面学习的基础上，连续删除就行，应该是比较简单的。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void DeleteDuplication(ListNode **pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || *pHead &#x3D;&#x3D; nullptr) return;
+    
+    ListNode *pCur &#x3D; *pHead, *pPre &#x3D; nullptr, *pFree &#x3D; nullptr;
+    &#x2F;&#x2F;定义一个头结点，避免不同情况的删除
+    ListNode *pKid &#x3D; new ListNode();
+    pKid-&gt;pNext &#x3D; *pHead;
+    pPre &#x3D; pKid;
+    
+    while(pCur !&#x3D; nullptr)&#123;
+		int value &#x3D; pCur-&gt;value,  isDuplication &#x3D; 0;
+        &#x2F;&#x2F;删除后面的重复节点
+        while(pCur-&gt;pNext &amp;&amp; pCur-&gt;pNext-&gt;value &#x3D;&#x3D; value)&#123;
+            pFree &#x3D; pCur-&gt;pNext;
+            pCur-&gt;pNext &#x3D; pFree-&gt;pNext;
+            delete pFree;
+            isDuplication &#x3D; 1;
+        &#125;
+        
+        &#x2F;&#x2F;若重复，则删除第一个重复节点
+		if(isDuplication)&#123;
+			pFree &#x3D; pCur;			
+			pCur &#x3D; pCur-&gt;pNext;			
+			pPre-&gt;pNext &#x3D; pCur;
+            delete pFree;
+			&#x2F;&#x2F; if(pFree) printf(&quot;@&quot;);
+        &#125;
+        &#x2F;&#x2F;不重复则下移
+        else&#123;
+            pPre &#x3D; pPre-&gt;pNext;
+            pCur &#x3D; pCur-&gt;pNext;
+        &#125;
+    &#125;
+	*pHead &#x3D; pKid-&gt;pNext;
+    delete pKid;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><p><a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/ListTest.cpp">参见</a></p>
+<h2 id="面22：倒数第K个节点"><a href="#面22：倒数第K个节点" class="headerlink" title="面22：倒数第K个节点"></a>面22：倒数第K个节点</h2><h3 id="题面：-2"><a href="#题面：-2" class="headerlink" title="题面："></a>题面：</h3><p>给出一个链表，返回倒数第K个节点。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>最直观的思路是遍历到终点，反向遍历<code>K-1</code>次，但是对单链表无可奈何，而且效率不高。</p>
+<p>第二种思路可以遍历一次求链表的长度<code>L</code>，第二次遍历<code>L - K + 1</code>个节点。但是需要遍历两次链表。</p>
+<p>三种思路更秒，采用双指针，第一个指针先遍历K个节点，随后两个节点一起遍历，直到第一个指针为空，第二个指针就指向了倒数第K个节点。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *FindKthToTail(ListNode *pHead, unsigned int K)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *p1 &#x3D; pHead, *p2 &#x3D; pHead;
+    
+    for(int i &#x3D; 0; i &lt; K; i++)&#123;
+        if(p1 &#x3D;&#x3D; nullptr) return nullptr;
+        p1 &#x3D; p1-&gt;pNext;
+    &#125;
+    while(p1!&#x3D;nullptr)&#123;
+        p1 &#x3D; p1-&gt;pNext;
+        p2 &#x3D; p2-&gt;pNext;
+    &#125;
+    return p2;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这代码写的比剑指offer代码写的优美多了</p>
+</blockquote>
+<h3 id="相关扩展："><a href="#相关扩展：" class="headerlink" title="相关扩展："></a>相关扩展：</h3><p>相关题目有找出链表的中间节点；判断一个链表是否有环；更难一点判断链表的环的入口节点！</p>
+<p><strong>其思路宗旨都是使用两个进度不一样的指针指向不同的节点来解决问题！</strong></p>
+<h2 id="面23：链表中的环的入口节点"><a href="#面23：链表中的环的入口节点" class="headerlink" title="面23：链表中的环的入口节点"></a>面23：链表中的环的入口节点</h2><h3 id="题面：-3"><a href="#题面：-3" class="headerlink" title="题面："></a>题面：</h3><p>给出一个链表，求出其成环的入口节点。</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>首先得判断有环，可以使用一个快一慢的两只指针（移动速度分别为2和1）指向链表头。如果链表有环，则快慢指针就一定会相遇。</p>
+<p>那么对于有环的链表如何确定其入口节点呢？假设环的中节点有<code>K</code>个，快指针从头先遍历<code>K</code>次之后，快慢指针同时开始遍历，正好两个指针会在入口节点上汇合！</p>
+<p>如何确定环中节点呢？这个！可以直接在确定有环后，记录下该节点的位置，再继续遍历直到重新到该节点同时统计经过的节点数量即可。</p>
+<blockquote>
+<p>amazing啊</p>
+</blockquote>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *FindCycleNode(ListNode* pHead)&#123;
+	if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *pSlow, *pQuick, *pRecord &#x3D; nullptr ;
+    &#x2F;&#x2F;判断有没有环
+    pSlow &#x3D; pQuick &#x3D; pHead;
+    while(pQuick !&#x3D; nullptr)&#123;
+	    pQuick &#x3D; pQuick-&gt;pNext;
+        if(pQuick) pQuick &#x3D; pQuick-&gt;pNext;
+        if(pSlow) pSlow &#x3D; pSlow-&gt;pNext;        
+        if(pSlow &#x3D;&#x3D; pQuick) break;
+    &#125;
+    if(pQuick &#x3D;&#x3D; nullptr) return nullptr;
+    &#x2F;&#x2F;确定环内数量
+    pRecord &#x3D; pSlow;
+    int numberOfCycle &#x3D; 0;
+    while(pRecord !&#x3D; pSlow)&#123;
+        numberOfCycle++;
+        pSlow &#x3D; pSlow-&gt;pNext;
+    &#125;
+    &#x2F;&#x2F;确定环的入口节点
+    pSlow &#x3D; pQuick &#x3D; pHead;
+    for(int i &#x3D; 0; i &lt; numberOfCycle; i++)&#123;
+        pQuick &#x3D; pQuick-&gt;pNext;
+    &#125;
+    while(pSlow !&#x3D; pQuick)&#123;
+        pQuick &#x3D; pQuick-&gt;pNext;
+        pSlow &#x3D; pSlow-&gt;pNext;                
+    &#125;
+    return pSlow;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面24：反转链表"><a href="#面24：反转链表" class="headerlink" title="面24：反转链表"></a>面24：反转链表</h2><h3 id="题面：-4"><a href="#题面：-4" class="headerlink" title="题面："></a>题面：</h3><p>输入一个链表的头结点，反转该链表并输出反转后的链表的头结点。</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>在反转过程中，假设有三个顺序排列的待反转的链表<code>i</code>，<code>j</code>，<code>k</code>，其中<code>j</code>是待反转的链表。初始化，<code>i</code>为空指针，<code>j</code>为头节点，<code>k</code>为头结点的下一个指针指向的内容（可能为空），并把<code>i</code>的指针指空。在链表反转过程如下：<code>j</code>的指针指向<code>i</code>，然后把<code>i</code>，<code>j</code>，<code>k</code>分别按次序向后移动。重复执行上述步骤直到<code>j</code>为空。</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *ReverseList(ListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *p1 &#x3D; nullptr, *p2 &#x3D; pHead, *p3 &#x3D; pHead-&gt;pNext;
+    while(p2 !&#x3D; nullptr)&#123;
+        p2-&gt;pNext &#x3D; p1;
+        p1 &#x3D; p2;
+        p2 &#x3D; p3;
+        if(p3) p3 &#x3D; p3-&gt;next;        
+    &#125;
+    return p2;    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面25：合并链表"><a href="#面25：合并链表" class="headerlink" title="面25：合并链表"></a>面25：合并链表</h2><h3 id="题面：-5"><a href="#题面：-5" class="headerlink" title="题面："></a>题面：</h3><p>将两个链表增序合并成一条链表。</p>
+<h3 id="思路：-5"><a href="#思路：-5" class="headerlink" title="思路："></a>思路：</h3><p>用两个指针指向两条链表的头结点，用合并数组的思路合并即可。注意一条链表为空后，另一条不为空的链表可以直接连上去。</p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *Merge(ListNode *pHead1, ListNode *pHead2)&#123;
+    if( pHead1 &#x3D;&#x3D; nullptr &amp;&amp; pHead2 &#x3D;&#x3D; nullptr)&#123;
+        return nullptr;
+    &#125;else if(pHead1 &#x3D;&#x3D; nullptr) return pHead2;
+    else if(pHead2 &#x3D;&#x3D; nullpr) return pHead1;
+    
+    ListNode *p1 &#x3D; pHead1, *p2 &#x3D; pHead2, *pHead3 &#x3D; new ListNode(), *p3 &#x3D; pHead3;
+    
+    while(p1 &amp;&amp; p2)&#123;
+        if(p1-&gt;value &lt;&#x3D; p2-&gt;value)&#123;
+            p3-&gt;pNext &#x3D; p1;
+            p3 &#x3D; p1;            
+            p1 &#x3D; p1-&gt;pNext;
+
+        &#125;else&#123;
+            p3-&gt;pNext &#x3D; p2;
+            p3 &#x3D; p2;
+            p2 &#x3D; p2-&gt;pNext;
+        &#125;                 
+    &#125;
+    p3-&gt;pNext &#x3D; nullptr;       
+    if(p1)&#123;
+        p3-&gt;pNext &#x3D; p1;
+    &#125;else if(p2)&#123;
+        p3-&gt;pNext &#x3D; p2;
+    &#125;
+    ListNode *pFree &#x3D; pHead3;
+    pHead3 &#x3D; pHead-&gt;pNext;
+    delete pFree;
+	return pHead3;        
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><p><a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/ListTest.cpp">参见</a></p>
+<h2 id="面35：复杂链表的分解"><a href="#面35：复杂链表的分解" class="headerlink" title="面35：复杂链表的分解"></a>面35：复杂链表的分解</h2><h3 id="题面：-6"><a href="#题面：-6" class="headerlink" title="题面："></a>题面：</h3><p>给出一个有两个指针的链表数据结构，一个指针1指向下一个节点，另一个指针2可指向任意一个节点，或者为空。将给出的链表复制并返回头结点。</p>
+<h3 id="思路：-6"><a href="#思路：-6" class="headerlink" title="思路："></a>思路：</h3><p>这题目还是挺不错的！属于比较复杂的题目，而且有思考空间。</p>
+<p>将复制的过程分解为两个部分，第一步先不管指针2，复制整个链表；第二步再设置指针2。第一步需要的复杂度为O(N)O(N)。第二步再复制的过程中需要确定复制链表中指针2指向的节点的的位置。</p>
+<p>第一种确定位置的思路：就是从原链表遍历寻找原指针指向的节点位置，同样的在复制链表上一起遍历。复杂度为O(N2)O(N2)。</p>
+<p>第二种确定位置的思路：直接用hash表记录下原链表中节点和复制链表中对应节点的映射关系。复杂度为O(N)O(N)。是用了空间换时间的思路。</p>
+<blockquote>
+<p>害怕碰撞。</p>
+</blockquote>
+<p>脱离上面的方案的限制，更巧妙的方法来了。链表的顺序遍历远远比随机遍历方便很多，而且指针指向的节点的位置不随链表节点而变化。可以考虑把复制节点直接插入到被复制节点的后面。全部复制完成后，由于原节点的指针2指向的节点的后一个节点就是复制节点的指针2指向的节点，所以可以直接指向。复杂度为O(N)O(N)，空间复杂度为O(1)O(1)。</p>
+<h3 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">struct ComplexListNode&#123;
+    int value;
+    ComplexListNode *pNext;
+    ComplexListNode *pSibling;    
+&#125;
+
+void CopyNode(ComplexListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return null;
+    ComplexListNode *pNode &#x3D; pHead;
+    while(pNode)&#123;
+        ComplexListNode *pNew &#x3D; new ComplexListNode();
+        pNew-&gt;value &#x3D; pNode-&gt;value;
+        pNew-&gt;pNext &#x3D; pNode-&gt;pNext;
+        pNew-&gt;pSibling &#x3D; nullptr;
+        
+        pNode-&gt;pNext &#x3D; pNew;
+    	pNode &#x3D; pNew-&gt;pNext;
+    &#125;    
+&#125;
+
+void SetSiblingLink(ComplexListNode * pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr )return nullptr;
+    ComplexListNode *pNode  &#x3D; pHead;
+    while(pNode)&#123;
+		ComplexListNode *pNext &#x3D; pNode-&gt;pNext;
+        pNext-&gt;pSibling &#x3D; pNode-&gt;pSibliing-&gt;pNext;
+        pNode &#x3D; pNext-&gt;pNext;
+    &#125;    
+&#125;
+
+ComplexListNode *GetComplexList(ComplexListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+	ComplexListNode *pNode &#x3D; pHead;
+    ComplexListNode *pClonedHead &#x3D; pNode-&gt;pNext;
+    ComplexListNode *pClonedNode &#x3D; pNode-&gt;pNext;
+    pNode-&gt;next &#x3D; pClonedNode-&gt;next;
+    pNode &#x3D; pClneNode-&gt;next;
+    while(pNode)&#123;
+        pClonedNode-&gt;pNext &#x3D; pNode-&gt;pNext;        
+        pNode-&gt;pNext &#x3D; pNode-&gt;pNext-&gt;pNext;
+        pClonedNode &#x3D; pNode-&gt;pNext;
+        pNode &#x3D; pClonedNode-&gt;pNext;   
+        &#x2F;*
+        &#x2F;&#x2F;we can write in this way.
+        pClonedNode-&gt;pNext &#x3D; pNode-&gt;pNext;        
+        pClonedNode &#x3D; pClonedNode-&gt;pNext;
+		pNode-&gt;pNext &#x3D; pClonedNode-&gt;pNext;
+        pNode &#x3D; pNode-&gt;pNext;                  
+        *&#x2F;
+    &#125;
+    return pClonedHead;      
+&#125;
+ComplexListNode *Clone(ComplexListNode* pHead)&#123;
+    CopyNode(pHead);
+    SetSiblingLink(pHead);
+    return GetComplexList(pHead);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面36：把二叉搜索树转化为双向链表"><a href="#面36：把二叉搜索树转化为双向链表" class="headerlink" title="面36：把二叉搜索树转化为双向链表"></a>面36：把二叉搜索树转化为双向链表</h2><h3 id="题面：-7"><a href="#题面：-7" class="headerlink" title="题面："></a>题面：</h3><p>如题，要求不创建任何新节点，只能调整树中节点的指向。输出调整后的排序链表。</p>
+<h3 id="思路：-7"><a href="#思路：-7" class="headerlink" title="思路："></a>思路：</h3><p>可以从递归的角度入手。对于一个节点<code>A</code>，中序遍历到<code>A</code>，则<code>A</code>的左子树已经转化为了链表，连接好<code>A</code>和<code>A</code>的左子树的最大节点（前一个指针）的指针则连接完成。</p>
+<p>那对于<code>A</code>的右子树的最小节点<code>B</code>与<code>A</code>之间的连接，也可以看成<code>B</code>与前一个节点的指针相互链接。那么我们只需要在中序遍历的过程中改变前一个指针的内容即可。</p>
+<p>注意一下整棵树的最大的右指针和最小节点的左指针，发现都应该是空，无需额外修改。</p>
+<blockquote>
+<p>对于一个节点<code>A</code>的左右指针，分别指向按顺序排列的旁边两个节点。可以用中序遍历来获取该节点的前一个节点<code>B</code>的指针，并设置好<code>B</code>的右指针和<code>A</code>的左指针。如此就可以在中序遍历的后设置除了最后一个节点的右指针，但是右指针本来就应该是<code>NULL</code>，所以无需修改。</p>
+</blockquote>
+<h3 id="代码：-7"><a href="#代码：-7" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void AdjustLinkCore(BinaryTreeNode* pRoot, BinaryTreeNode *&amp;preNode, BinaryTreeNode *&amp;pHead)&#123;
+    if(pRoot &#x3D;&#x3D; nullptr) return;
+  	AdjustLinkCore(pRoot-&gt;pLeft, preNode, pHead);
+
+    if(pHead &#x3D;&#x3D; nullptr) pHead &#x3D; pRoot;
+    pRoot-&gt;pLeft &#x3D; preNode;
+    if(preNode) preNode-&gt;pRight &#x3D; pRoot;
+    preNode &#x3D; pRoot;
+    
+    AdjustLinkCore(pRoot-&gt;pRight, preNode, pHead);
+&#125;
+BinaryTreeNode* AdjustLink(BinaryTreeNode* pRoot)&#123;
+    BinaryTreeNode *preNode &#x3D; nullptr;
+    BinaryTreeNode *pHead &#x3D; nullptr;
+    AdjustLinkCore(pRoot, preNode, pHead);
+    return pHead;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面52：两个链表的第一个公共节点"><a href="#面52：两个链表的第一个公共节点" class="headerlink" title="面52：两个链表的第一个公共节点"></a>面52：两个链表的第一个公共节点</h2><h3 id="题面：-8"><a href="#题面：-8" class="headerlink" title="题面："></a>题面：</h3><p>如题。</p>
+<h3 id="思路：-8"><a href="#思路：-8" class="headerlink" title="思路："></a>思路：</h3><p>明显地，可以用栈来存储两个链表遍历过程。空间复杂度和时间复杂度都是O(N)O(N)。</p>
+<p>换一种想法，能不能直接遍历就使两个链表同时遍历到第一个公共节点。定义两个指针来遍历两条链表。只要让一个指向长链表的节点的指针多走多出的节点，就可以让两个节点同时同序的遍历到公共节点。时间复杂度为O(N+M)O(N+M)，空间复杂度O(1)O(1)。</p>
+<h3 id="代码：-8"><a href="#代码：-8" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int GetLenOfList(ListNode *pHead)&#123;
+    int len &#x3D; 0;
+    ListNode *pNode &#x3D; pHead;
+    while(pNode)&#123;
+        pNode &#x3D; pNode-&gt;pNext;
+        len++;
+    &#125;
+    return len;
+&#125;
+ListNode *FindFirstCommonNode(ListNode *pHead1, ListNode *pHead2)&#123;
+    if(pHead1 &#x3D;&#x3D; nullptr || pHead2 &#x3D;&#x3D; nullptr) return nullptr;
+    int len1 &#x3D; GetLenOfList(pHead1);
+    int len2 &#x3D; GetLenOfList(pHead2);
+    if(len1 &lt; len2)&#123;
+        swap(pHead1, pHead2);
+        swap(len1, len2);
+    &#125;
+    int step &#x3D; len1 - len2;
+	ListNode *pNode1 &#x3D; pHead1;
+    ListNode *pNode2 &#x3D; pHead2;
+    while(step)&#123;
+        pNode1 &#x3D; pNode-&gt;pNext;
+        step--;
+    &#125;
+    while(pNode1 !&#x3D; pNode2)&#123;
+        pNode1 &#x3D; pNode1-&gt;pNext;
+        pNode2 &#x3D; pNode1-&gt;pNext;
+    &#125;
+    &#x2F;&#x2F;two pNodes maybe refer to null or the first common node.
+    return pNode1;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/submissions/">更简单的解法：</a> </p>
+<p>双指针遍历两条链表，遍历到结尾则跳到另一条链表上。路径长度的相等一定会有两个指针相遇。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) &#123;
+        ListNode *p1 &#x3D; headA,  *p2 &#x3D; headB;
+        while(p1 !&#x3D; p2)&#123;
+            p1 &#x3D; p1 &#x3D;&#x3D; nullptr ? headB : p1-&gt;next;
+            p2 &#x3D; p2 &#x3D;&#x3D; nullptr ? headA : p2-&gt;next;
+        &#125;
+        return p1;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="链表回文判断"><a href="#链表回文判断" class="headerlink" title="链表回文判断"></a><a href="">链表回文判断</a></h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-linked-list/">234. Palindrome Linked List</a></p>
+<p><code>O(n)</code>时间，<code>O(1)</code>空间</p>
+<h3 id="思路：-9"><a href="#思路：-9" class="headerlink" title="思路："></a>思路：</h3><p>朴素的思路：先用快慢指针找到链表中间节点，之后翻转后半部分链表。判断两个链表是否相同。</p>
+<p>其中奇数个节点链表需要考虑一下。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    bool isPalindrome(ListNode* head) &#123;
+        ListNode *slow ,*quick;
+        slow &#x3D; quick &#x3D; head;
+        while(quick &amp;&amp; quick-&gt;next)&#123;
+            slow &#x3D; slow-&gt;next;
+            quick &#x3D; quick-&gt;next-&gt;next;
+        &#125;
+        ListNode *p2 &#x3D; reverseList(slow), *p1 &#x3D; head;
+        while(p1 &amp;&amp; p2)&#123;
+            if(p1-&gt;val !&#x3D; p2-&gt;val) return false;
+            p1 &#x3D; p1-&gt;next;
+            p2 &#x3D; p2-&gt;next;
+        &#125;
+        return true;
+        
+    &#125;
+
+    ListNode *reverseList(ListNode* head)&#123;
+        if(head &#x3D;&#x3D; nullptr) return head;
+        ListNode *per &#x3D; nullptr, *cur &#x3D; head, *next &#x3D; head-&gt;next;
+        while(cur)&#123;
+            cur-&gt;next &#x3D; per;
+            per &#x3D; cur;
+            cur &#x3D; next;
+            if(next) next &#x3D; next-&gt;next;
+        &#125;
+        return per;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="奇偶链表节点分解"><a href="#奇偶链表节点分解" class="headerlink" title="奇偶链表节点分解"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/odd-even-linked-list/">奇偶链表节点分解</a></h2><p>非常容易写复杂的题目。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode* oddEvenList(ListNode* head) &#123;
+        if(!(head &amp;&amp; head-&gt;next)) return head;
+        &#x2F;&#x2F; ListNode *p1 &#x3D; head, *p2 &#x3D; new ListNode(), *evenHead &#x3D; p2, *pre &#x3D; nullptr;
+        &#x2F;&#x2F; while(p1 &amp;&amp; p1-&gt;next)&#123;
+        &#x2F;&#x2F;     p2-&gt;next &#x3D; p1-&gt;next;
+        &#x2F;&#x2F;     p2 &#x3D; p2-&gt;next;
+        &#x2F;&#x2F;     p1-&gt;next &#x3D; p2-&gt;next;
+        &#x2F;&#x2F;     pre &#x3D; p1;
+        &#x2F;&#x2F;     p1 &#x3D; p2-&gt;next;
+        &#x2F;&#x2F; &#125;
+        &#x2F;&#x2F; p2-&gt;next &#x3D; nullptr;    
+        &#x2F;&#x2F; p1 &#x3D; p1 ? p1 : pre;
+        &#x2F;&#x2F; p1-&gt;next &#x3D; evenHead-&gt;next;
+        &#x2F;&#x2F; delete evenHead;
+        &#x2F;&#x2F; return head;
+        ListNode *evenHead &#x3D; head-&gt;next, *odd &#x3D; head, *even &#x3D; head-&gt;next;
+        while(even &amp;&amp; even-&gt;next)&#123;
+            odd-&gt;next &#x3D; even-&gt;next;
+            odd &#x3D; odd-&gt;next;
+            even-&gt;next &#x3D; odd-&gt;next;
+            even &#x3D; even-&gt;next;
+        &#125;
+        odd-&gt;next &#x3D; evenHead;
+        return head;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="删除倒数第N个节点"><a href="#删除倒数第N个节点" class="headerlink" title="删除倒数第N个节点"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/submissions/">删除倒数第N个节点</a></h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) &#123;
+        ListNode node, *pre &#x3D; &amp;node;
+        pre-&gt;next &#x3D; head;
+        ListNode *quick, *slow;
+        quick &#x3D; slow &#x3D; pre;
+        for(int i &#x3D; 0; i &lt; n; ++i) quick &#x3D; quick-&gt;next;
+        while(quick-&gt;next)&#123;
+            quick &#x3D; quick-&gt;next;
+            slow &#x3D; slow-&gt;next;
+        &#125;
+        ListNode *fordel &#x3D; slow-&gt;next;
+        slow-&gt;next &#x3D; fordel-&gt;next;
+        if(fordel &#x3D;&#x3D; head)&#123; &#x2F;&#x2F;删除节点 务必小心：1.删了头结点，需要重置头结点 2.考虑后续节点
+            head &#x3D; fordel-&gt;next;
+        &#125;
+        delete fordel;            
+        return head; 
+
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">213</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/05/shua-ti/dp/312-burst-balloons/"><img src="http://static.come2rss.xyz/simptab-wallpaper-20201026154850.png" alt="312. Burst Balloons"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-05T06:50:56.000Z">2021-05-05</time></p><p class="title"><a href="/2021/05/05/shua-ti/dp/312-burst-balloons/">312. Burst Balloons</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">51</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">210</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

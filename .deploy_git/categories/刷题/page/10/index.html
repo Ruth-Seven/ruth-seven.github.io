@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: 刷题 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://blog.come2rss.xyz/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.come2rss.xyz/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz"},"headline":"Hexo","image":["https://blog.come2rss.xyz/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"description":""}</script><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">刷题</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:14:08.000Z" title="8/7/2020, 2:14:08 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.799Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/dp/mian-shi-ti-dp-tan-xin/">面试题 DP 贪心</a></h1><div class="content"><span id="more"></span>
+
+<p>收集贪心、DP面试题</p>
+<h2 id="面14：剪绳子"><a href="#面14：剪绳子" class="headerlink" title="面14：剪绳子"></a>面14：剪绳子</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>将一串长为<code>K</code>的绳子剪成<code>m</code>（<code>m&gt;=2</code>，各段长度取整数值）段，各段的长度大于<code>0</code>，求出最大的各段绳子长度之积。</p>
+<h3 id="思路1："><a href="#思路1：" class="headerlink" title="思路1："></a>思路1：</h3><p>由乘法交换律可知绳子的乘积可以分解，提取出来。所以有<code>f(m+n)=f(n)*f(m)</code>，其中<code>f(n)</code>是长度<code>n</code>的绳子的最大乘积。分析具体问题可以了解到初始条件比较特殊，它对于小数字来说，分解还不如其本身大，所以定义边界条件<code>f(1) = 1, f(2) = 2, f(3) = 3</code>。同时在DP表示式为：</p>
+<p>f(n)=maxif(n−i)∗f(i)f(n)=maxif(n−i)∗f(i)</p>
+<p>所以时间复杂度为O(N2)O(N2)，空间复杂度为O(N)O(N)。</p>
+<h3 id="思路2："><a href="#思路2：" class="headerlink" title="思路2："></a>思路2：</h3><p>另一种就是贪心，对于长度<code>m</code>大于5的绳子尽可能的剪成长度为3的绳子，同时如果<code>m%3==1</code>，那么就少剪一段绳子，剪成两段长为2的绳子。证明如下:<br>$$<br>if \ n \geq 5<br><br>3*(n-3) \geq n<br><br>2*(n-2) \geq n<br><br>3*(n -3 ) \geq 2*(n-2)<br>$$</p>
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><pre class="line-numbers language-none"><code class="language-none">2
+2
+,
+3
+2
+,
+5
+6
+,
+6
+9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p><strong>DP</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_DP(int length)&#123;
+    if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int* products &#x3D; new int[length + 1];
+    &#x2F;&#x2F;初试条件比较特殊，小于4的大于1的数的分段乘积不如其本身大
+    products[0] &#x3D; 0;
+    products[1] &#x3D; 1;
+    products[2] &#x3D; 2;
+    products[3] &#x3D; 3;
+    for(int i &#x3D; 4; i &lt;&#x3D; length; i++)&#123;
+        int mavV &#x3D; 0;
+        for(int j &#x3D; 1; j &lt;&#x3D; i &#x2F; 2; j++)&#123;
+            maxV &#x3D; max(maxV, products[i - j] * products[j]);
+        &#125;
+        products[i] &#x3D; maxv;
+    &#125;
+    int res &#x3D; products[length];
+    &#x2F;&#x2F;防止内存泄漏
+    del[] products;
+    return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>贪心</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_greedy(int length)&#123;
+ if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int timesOf3 &#x3D; length &#x2F; 3;
+    if(legnth % 3 &#x3D;&#x3D; 1) timesOf3 -&#x3D; 1;
+    int timesOf2 &#x3D; (length - timesOf3 * 3) &#x2F; 2;
+    return (int)pow(3, timeOf3) * (int)pow(2, timesOf2);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面42：最大子数组和"><a href="#面42：最大子数组和" class="headerlink" title="面42：最大子数组和"></a>面42：最大子数组和</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>如题</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>DP思想。数组之间的选择与历史无关，可以采取DP的方法。记<code>f(i)</code>为以<code>A[i]</code>为结尾的最大数组和。转移方程为：</p>
+<p>f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0</p>
+<p>当然也可以直接从数据的角度理解，代码都是相同的。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSumOfSubArray(int A[], int length)&#123;
+    int dp[] &#x3D; new int(length);
+	int maxSum &#x3D; A[0];
+    dp[0] &#x3D; A[0];   
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+        dp[i] &#x3D; max(A[i], A[i] + dp[i-1]);
+        maxSum &#x3D; max(dp[i], maxSum);
+    &#125;
+    delete[] dp;
+    return maxSum;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>当然这里的dp数组也可以不要。</p>
+</blockquote>
+<h2 id="面45：把数字排成最小的数字"><a href="#面45：把数字排成最小的数字" class="headerlink" title="面45：把数字排成最小的数字"></a>面45：把数字排成最小的数字</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>给定一串数字，组合成的一个数字。求出组合后最小数字的</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>可以直接贪心+反证。按字典序排序数字即可。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><p>就不写了，直接string排序输出即可。</p>
+<h2 id="面46：数字翻译成字符串"><a href="#面46：数字翻译成字符串" class="headerlink" title="面46：数字翻译成字符串"></a>面46：数字翻译成字符串</h2><h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><p>把一串数字翻译成数字对应的字母，并按原顺序组成字符串。由于数字分裂的不同，翻译方法有许多，求出翻译的方法的个数。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>第一种就是直接递归分割字符串。显然有子问题重叠的现象，可以考虑使用DP。</p>
+<p>第二种用DP思想，考虑<code>dp[i]</code>为从<code>0</code>到<code>i</code>的字符串翻译方法。状态转移方程为：</p>
+<p>dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else </p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int GetTranslateCount(int A[], int length)&#123;
+    if(A &#x3D;&#x3D; nullptr || length &lt;&#x3D; 0) return 0;
+    int dp[] &#x3D; new int(length);
+    dp[0] &#x3D; 1;
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+		int add &#x3D; A[i - 1] * 10 + A[i];
+        if( add &gt; 9 &amp;&amp; add &lt; 26)&#123;
+            if(i &lt; 2) dp &#x3D; dp[i - 1] + 1;
+            else dp[i] &#x3D; dp[i - 1] + dp[i - 2];
+        &#125; 
+        else dp[i] &#x3D; dp[i - 1];
+    &#125;
+    delete[] dp;
+    return dp[length - 1];    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面47：礼物的最大价值"><a href="#面47：礼物的最大价值" class="headerlink" title="面47：礼物的最大价值"></a>面47：礼物的最大价值</h2><h3 id="题目：-2"><a href="#题目：-2" class="headerlink" title="题目："></a>题目：</h3><p>从一在格子上装满礼物的<code>m*n</code>的矩形棋盘上，从左上角向下或者向右移动一格到右下角，求出路径上礼物价值的最大值。</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>明显就是DP</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><p>不写了。</p>
+<h2 id="面48：最长不含重复字符的子字符串"><a href="#面48：最长不含重复字符的子字符串" class="headerlink" title="面48：最长不含重复字符的子字符串"></a>面48：最长不含重复字符的子字符串</h2><h3 id="题目：-3"><a href="#题目：-3" class="headerlink" title="题目："></a>题目：</h3><p>如题</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>暴力不可取。</p>
+<p>采用用DP思想，考虑<code>dp[i]</code>为以<code>S[i]</code>为结尾的最长不重复字符串。一个不含重复字符的字符串可以在由另一个不同的字符组成另一个不含重复字符的字符串。可以在dp过程中，记录下最新的字符的位置POS，判断<code>S[i]</code>的前一个相同字符是否在上一个<code>S[i-1]</code>为结尾的最长不重复字符串之内。记上一个字符与<code>S[i-1]</code>的长度<code>d</code>为<code>i - POS</code>。</p>
+<p>状态转移方程为：</p>
+<p>dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else </p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSubStr(String s)&#123;
+    int dp[] &#x3D; new int(s.length());
+    int pos[26];
+    for(int i &#x3D; 0; i &lt; 26; i++) pos[[i] &#x3D; -1;
+	
+	int maxL &#x3D; 1;
+	dp[0] &#x3D; 1;
+	for(int i &#x3D; 1; i &lt; s.length(); i++)&#123;
+		int d &#x3D; i - pos[s[i] - &#39;a&#39;];
+        if(dp[i - 1] &lt; d)&#123;
+            dp[i] &#x3D; dp[i - 1] + 1;
+        &#125;else dp[i] &#x3D; d;
+        maxL &#x3D; max(maxL, dp[i]);
+        pos[s[i] - &#39;a&#39;] &#x3D; i;
+    &#125;
+	delete[] dp;    
+   return maxL;            
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:14:08.000Z" title="8/7/2020, 2:14:08 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-tan-xin-mian-shi-ti-dp-tan-xin/">面试题 DP 贪心</a></h1><div class="content"><span id="more"></span>
+
+<p>收集贪心、DP面试题</p>
+<h2 id="面14：剪绳子"><a href="#面14：剪绳子" class="headerlink" title="面14：剪绳子"></a>面14：剪绳子</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>将一串长为<code>K</code>的绳子剪成<code>m</code>（<code>m&gt;=2</code>，各段长度取整数值）段，各段的长度大于<code>0</code>，求出最大的各段绳子长度之积。</p>
+<h3 id="思路1："><a href="#思路1：" class="headerlink" title="思路1："></a>思路1：</h3><p>由乘法交换律可知绳子的乘积可以分解，提取出来。所以有<code>f(m+n)=f(n)*f(m)</code>，其中<code>f(n)</code>是长度<code>n</code>的绳子的最大乘积。分析具体问题可以了解到初始条件比较特殊，它对于小数字来说，分解还不如其本身大，所以定义边界条件<code>f(1) = 1, f(2) = 2, f(3) = 3</code>。同时在DP表示式为：</p>
+<p>f(n)=maxif(n−i)∗f(i)f(n)=maxif(n−i)∗f(i)</p>
+<p>所以时间复杂度为O(N2)O(N2)，空间复杂度为O(N)O(N)。</p>
+<h3 id="思路2："><a href="#思路2：" class="headerlink" title="思路2："></a>思路2：</h3><p>另一种就是贪心，对于长度<code>m</code>大于5的绳子尽可能的剪成长度为3的绳子，同时如果<code>m%3==1</code>，那么就少剪一段绳子，剪成两段长为2的绳子。证明如下:<br>$$<br>if \ n \geq 5<br><br>3*(n-3) \geq n<br><br>2*(n-2) \geq n<br><br>3*(n -3 ) \geq 2*(n-2)<br>$$</p>
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><pre class="line-numbers language-none"><code class="language-none">2
+2
+,
+3
+2
+,
+5
+6
+,
+6
+9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p><strong>DP</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_DP(int length)&#123;
+    if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int* products &#x3D; new int[length + 1];
+    &#x2F;&#x2F;初试条件比较特殊，小于4的大于1的数的分段乘积不如其本身大
+    products[0] &#x3D; 0;
+    products[1] &#x3D; 1;
+    products[2] &#x3D; 2;
+    products[3] &#x3D; 3;
+    for(int i &#x3D; 4; i &lt;&#x3D; length; i++)&#123;
+        int mavV &#x3D; 0;
+        for(int j &#x3D; 1; j &lt;&#x3D; i &#x2F; 2; j++)&#123;
+            maxV &#x3D; max(maxV, products[i - j] * products[j]);
+        &#125;
+        products[i] &#x3D; maxv;
+    &#125;
+    int res &#x3D; products[length];
+    &#x2F;&#x2F;防止内存泄漏
+    del[] products;
+    return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>贪心</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_greedy(int length)&#123;
+ if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int timesOf3 &#x3D; length &#x2F; 3;
+    if(legnth % 3 &#x3D;&#x3D; 1) timesOf3 -&#x3D; 1;
+    int timesOf2 &#x3D; (length - timesOf3 * 3) &#x2F; 2;
+    return (int)pow(3, timeOf3) * (int)pow(2, timesOf2);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面42：最大子数组和"><a href="#面42：最大子数组和" class="headerlink" title="面42：最大子数组和"></a>面42：最大子数组和</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>如题</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>DP思想。数组之间的选择与历史无关，可以采取DP的方法。记<code>f(i)</code>为以<code>A[i]</code>为结尾的最大数组和。转移方程为：</p>
+<p>f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0</p>
+<p>当然也可以直接从数据的角度理解，代码都是相同的。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSumOfSubArray(int A[], int length)&#123;
+    int dp[] &#x3D; new int(length);
+	int maxSum &#x3D; A[0];
+    dp[0] &#x3D; A[0];   
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+        dp[i] &#x3D; max(A[i], A[i] + dp[i-1]);
+        maxSum &#x3D; max(dp[i], maxSum);
+    &#125;
+    delete[] dp;
+    return maxSum;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>当然这里的dp数组也可以不要。</p>
+</blockquote>
+<h2 id="面45：把数字排成最小的数字"><a href="#面45：把数字排成最小的数字" class="headerlink" title="面45：把数字排成最小的数字"></a>面45：把数字排成最小的数字</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>给定一串数字，组合成的一个数字。求出组合后最小数字的</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>可以直接贪心+反证。按字典序排序数字即可。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><p>就不写了，直接string排序输出即可。</p>
+<h2 id="面46：数字翻译成字符串"><a href="#面46：数字翻译成字符串" class="headerlink" title="面46：数字翻译成字符串"></a>面46：数字翻译成字符串</h2><h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><p>把一串数字翻译成数字对应的字母，并按原顺序组成字符串。由于数字分裂的不同，翻译方法有许多，求出翻译的方法的个数。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>第一种就是直接递归分割字符串。显然有子问题重叠的现象，可以考虑使用DP。</p>
+<p>第二种用DP思想，考虑<code>dp[i]</code>为从<code>0</code>到<code>i</code>的字符串翻译方法。状态转移方程为：</p>
+<p>dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else </p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int GetTranslateCount(int A[], int length)&#123;
+    if(A &#x3D;&#x3D; nullptr || length &lt;&#x3D; 0) return 0;
+    int dp[] &#x3D; new int(length);
+    dp[0] &#x3D; 1;
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+		int add &#x3D; A[i - 1] * 10 + A[i];
+        if( add &gt; 9 &amp;&amp; add &lt; 26)&#123;
+            if(i &lt; 2) dp &#x3D; dp[i - 1] + 1;
+            else dp[i] &#x3D; dp[i - 1] + dp[i - 2];
+        &#125; 
+        else dp[i] &#x3D; dp[i - 1];
+    &#125;
+    delete[] dp;
+    return dp[length - 1];    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面47：礼物的最大价值"><a href="#面47：礼物的最大价值" class="headerlink" title="面47：礼物的最大价值"></a>面47：礼物的最大价值</h2><h3 id="题目：-2"><a href="#题目：-2" class="headerlink" title="题目："></a>题目：</h3><p>从一在格子上装满礼物的<code>m*n</code>的矩形棋盘上，从左上角向下或者向右移动一格到右下角，求出路径上礼物价值的最大值。</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>明显就是DP</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><p>不写了。</p>
+<h2 id="面48：最长不含重复字符的子字符串"><a href="#面48：最长不含重复字符的子字符串" class="headerlink" title="面48：最长不含重复字符的子字符串"></a>面48：最长不含重复字符的子字符串</h2><h3 id="题目：-3"><a href="#题目：-3" class="headerlink" title="题目："></a>题目：</h3><p>如题</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>暴力不可取。</p>
+<p>采用用DP思想，考虑<code>dp[i]</code>为以<code>S[i]</code>为结尾的最长不重复字符串。一个不含重复字符的字符串可以在由另一个不同的字符组成另一个不含重复字符的字符串。可以在dp过程中，记录下最新的字符的位置POS，判断<code>S[i]</code>的前一个相同字符是否在上一个<code>S[i-1]</code>为结尾的最长不重复字符串之内。记上一个字符与<code>S[i-1]</code>的长度<code>d</code>为<code>i - POS</code>。</p>
+<p>状态转移方程为：</p>
+<p>dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else </p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSubStr(String s)&#123;
+    int dp[] &#x3D; new int(s.length());
+    int pos[26];
+    for(int i &#x3D; 0; i &lt; 26; i++) pos[[i] &#x3D; -1;
+	
+	int maxL &#x3D; 1;
+	dp[0] &#x3D; 1;
+	for(int i &#x3D; 1; i &lt; s.length(); i++)&#123;
+		int d &#x3D; i - pos[s[i] - &#39;a&#39;];
+        if(dp[i - 1] &lt; d)&#123;
+            dp[i] &#x3D; dp[i - 1] + 1;
+        &#125;else dp[i] &#x3D; d;
+        maxL &#x3D; max(maxL, dp[i]);
+        pos[s[i] - &#39;a&#39;] &#x3D; i;
+    &#125;
+	delete[] dp;    
+   return maxL;            
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:13:32.000Z" title="8/7/2020, 2:13:32 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.819Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/786-di-k-ge-zui-xiao-de-su-shu-fen-shu/">786. 第 K 个最小的素数分数</a></h1><div class="content"><span id="more"></span>
+
+<h2 id="786-第-K-个最小的素数分数"><a href="#786-第-K-个最小的素数分数" class="headerlink" title="786. 第 K 个最小的素数分数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/k-th-smallest-prime-fraction/">786. 第 K 个最小的素数分数</a></h2><p>难度hard</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>明显的有<code>A[i] &lt; A[j]</code>，能够推出<code>A[i]/A[j] &gt; A[i]/A[j+1]</code>，但是不能推出<code>A[i+1]/A[j]</code>和<code>A[i]/A[j+1]</code>的关系，毫无用处。</p>
+<p>自然可以想到要用堆来维护第K小的数，而然超时。</p>
+<p>评论里提出一种二分的方法，</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p>堆维护数组</p>
+<pre class="line-numbers language-none"><code class="language-none">struct cmp&#123;
+    bool operator () (pair&lt;int, int&gt; x, pair&lt;int, int&gt; y)&#123;
+        return x.first * 1.0 &#x2F; x.second  &lt; y.first * 1.0 &#x2F; y.second;        
+    &#125;
+&#125;;
+
+class Solution &#123;
+public:
+    vector&lt;int&gt; kthSmallestPrimeFraction(vector&lt;int&gt;&amp; A, int K) &#123;
+        priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt; &gt;, cmp&gt; pq;
+        for(int i &#x3D; 0; i &lt; A.size() - 1; i++)&#123;
+            for(int j &#x3D; i + 1; j &lt; A.size(); j++)&#123;
+                double temp &#x3D; A[i] * 1.0 &#x2F;  A[j];
+                if(pq.size() &lt; K)&#123;
+                    pq.push(make_pair(A[i], A[j]));
+                &#125;else if(pq.top().first * 1.0 &#x2F; pq.top().second &gt; temp)&#123;
+                    pq.pop();
+                    pq.push(make_pair(A[i], A[j]));
+                &#125;
+            &#125;
+        &#125;
+        vector&lt;int&gt; res &#x3D; vector(2, 0);
+        res[0] &#x3D; pq.top().first, res[1] &#x3D; pq.top().second;
+        return res;
+
+    &#125;    
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:13:01.000Z" title="8/7/2020, 2:13:01 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:17:01.689Z" title="1/28/2021, 10:17:01 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/1025-chu-shu-bo-yi/">1025 除数博弈</a></h1><div class="content"><span id="more"></span>
+
+
+
+<h2 id="1025-除数博弈"><a href="#1025-除数博弈" class="headerlink" title="1025. 除数博弈"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/divisor-game/">1025. 除数博弈</a></h2><p>难度简单</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>可以从简单的例子入手发现，爱丽丝拿<code>1</code>输，拿<code>2</code>赢，拿<code>3</code>输。对于Bob则相反，如果我们可以找出小于数字<code>N</code>的数字<code>x</code>，且<code>N-x</code>可以整除于<code>N</code>，<code>x</code>对于bob是必输态，那么爱丽丝必胜。</p>
+<p>也可以从另一个角度出发：从多个例子可以大胆推测，偶数必胜，奇数必输。<br>可以用归纳法证明。那么代码就简单很多。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p>堆维护数组</p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+public:
+    bool divisorGame(int N) &#123;
+        if(N &lt; 1 || N &gt; 1000) return false;
+
+        int* dp &#x3D; new int[1005];
+        dp[1] &#x3D; 0;
+        dp[2] &#x3D; 1;
+        for(int i &#x3D; 3; i &lt; 1001; i++)&#123;        
+            dp[i] &#x3D; 0;
+            for(int j &#x3D; 1; j &lt; i; j++)&#123;
+                if(i % (i - j) &#x3D;&#x3D; 0 &amp;&amp; dp[j] &#x3D;&#x3D; 0)&#123;
+                    dp[i] &#x3D; 1;
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        return dp[N];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:12:36.000Z" title="8/7/2020, 2:12:36 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.819Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/1027-zui-chang-deng-chai-shu-lie/">1027 最长等差数列</a></h1><div class="content"><span id="more"></span>
+
+
+
+<h2 id="1027-最长等差数列"><a href="#1027-最长等差数列" class="headerlink" title="1027. 最长等差数列"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-arithmetic-sequence//">1027. 最长等差数列</a></h2><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>求最长等差序列的长度，可以看出序列可以分解为多个序列，而且序列的选择不具有历史影响。可以可以考虑用DP做。用一个状态无法表示数列的等差量和数列的端点两个状态。所以至少得有两个状态，且可以用两个状态分别表示一个等差序列的最后两个元素下标。</p>
+<p>DP方程可以这么写：</p>
+<p>dp[i][j]={dp[k][i]+1,if k is element of the array 2,elsedp[i][j]={dp[k][i]+1,if k is element of the array 2,else</p>
+<blockquote>
+<p>为啥是最后两个？因为为最后两个元素组成的最长等差序列，可以给后续DP方程计算。而两个元素作为开头无法递推！</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+public:
+
+    int longestArithSeqLength(vector&lt;int&gt;&amp; A) &#123;        
+        int n &#x3D; A.size();
+        &#x2F;&#x2F;优秀的初始化方法
+        &#x2F;&#x2F; vector&lt;int&gt;(n, 2)动态生成了一个长度为n，每个元素为2的vector对象
+        vector&lt;vector&lt;int&gt; &gt; dp(n, vector&lt;int&gt;(n, 2));
+        map&lt;int, int&gt; idx;
+        int maxRes &#x3D; 2;
+        for(int i &#x3D; 0; i &lt; (int)A.size() - 1; i++)&#123;
+            for(int j &#x3D; i + 1; j &lt; A.size(); j++)&#123;
+                int target &#x3D; A[i] * 2 - A[j];
+                if( idx.count( target )) dp[i][j] &#x3D; dp[idx[target]][i] + 1;
+                maxRes &#x3D; max(maxRes, dp[i][j]);
+            &#125;
+            idx[A[i]] &#x3D; i;
+        &#125;
+        return maxRes;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:11:56.000Z" title="8/7/2020, 2:11:56 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.819Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/1254-number-of-closed-islands/">1254. Number of Closed Islands</a></h1><div class="content"><span id="more"></span>
+
+
+
+<h4 id="1254-Number-of-Closed-Islands"><a href="#1254-Number-of-Closed-Islands" class="headerlink" title="1254. Number of Closed Islands"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-closed-islands/">1254. Number of Closed Islands</a></h4><p>难度MD</p>
+<p><strong>思路</strong>：DFS或者并查集</p>
+<ol>
+<li>排除法：将所有接触过边界的0块排除掉，接下来统计所有的0块数量就是岛屿的数量啦~</li>
+<li>直接法：考虑成为岛屿的条件——岛屿上所有0块都不与边界相交。</li>
+</ol>
+<p>接下来只需要写DFS或者BFS就👌。</p>
+<ol>
+<li>考虑使用并查集</li>
+</ol>
+<p><strong>排除法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+public:
+	&#x2F;&#x2F;保持和第二种写法一致，add参数实际上是多余的
+    void findBlockOf0(int x, int y,int N, int M, vector&lt; vector&lt;int&gt; &gt; &amp;grid, int &amp;add)&#123;
+        if(x &lt; 0 || x &gt;&#x3D; N || y &lt; 0 || y &gt;&#x3D; M || grid[x][y] &#x3D;&#x3D; 1) return;
+        &#x2F;&#x2F;if(grid[x][y] &#x3D;&#x3D; 1) add &#x3D; 1;
+        grid[x][y] &#x3D; 1;
+        findBlockOf0(x, y+1, N, M, grid, add);
+        findBlockOf0(x, y-1, N, M, grid, add);
+        findBlockOf0(x+1, y, N, M, grid, add);
+        findBlockOf0(x-1, y, N, M, grid, add);
+        return;
+    &#125;
+
+    int closedIsland(vector&lt;vector&lt;int&gt;&gt;&amp; grid) &#123;
+        int N &#x3D; grid.size(), M &#x3D; grid[0].size(), counts, add;
+        &#x2F;&#x2F;排除掉那些不是island的blocks of 0
+        for(int i&#x3D;0;i &lt; M; i++)&#123;
+            findBlockOf0(0,i, N, M, grid, counts);
+            findBlockOf0(N-1,i, N, M, grid, counts);
+        &#125;
+        for(int i&#x3D;0;i &lt; N;i++)&#123;
+            findBlockOf0(i,0,N,M, grid, counts);
+            findBlockOf0(i,M-1, N, M, grid, counts);
+        &#125;
+        &#x2F;&#x2F;接下来所有的0块都可以算作island
+        counts &#x3D; 0;
+        for(int x &#x3D; 0 ;x &lt; N;x++)&#123;
+            for(int y&#x3D;0; y &lt; M; y++ )&#123;
+                if(grid[x][y] !&#x3D; 0) continue;
+                findBlockOf0(x, y, N, M, grid, add);
+                counts +&#x3D; 1;
+            &#125;                                         
+        &#125;
+        return counts;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>直接法</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+    public:
+	&#x2F;&#x2F; 注意遍历的时候不能剪枝，否则就会就会出现岛屿断裂成多个“单独”岛屿而计数过多
+    void findBlockOf0(int x, int y,int N, int M, vector&lt; vector&lt;int&gt; &gt; &amp;grid, int &amp;add)&#123;
+        if(x &lt; 0 || x &gt;&#x3D; N || y &lt; 0 || y &gt;&#x3D; M || grid[x][y] &#x3D;&#x3D; 1) return;
+        if(x &#x3D;&#x3D; 0 || x &#x3D;&#x3D; N-1|| y &#x3D;&#x3D; 0 || y &#x3D;&#x3D; M-1 ) add &#x3D; 0;
+        grid[x][y] &#x3D; 1;
+        &#x2F;&#x2F; 这里的四个方向其实可以用FOR写的更优雅一些
+        findBlockOf0(x, y+1, N, M, grid, add);
+        findBlockOf0(x, y-1, N, M, grid, add);
+        findBlockOf0(x+1, y, N, M, grid, add);
+        findBlockOf0(x-1, y, N, M, grid, add);
+        return;
+    &#125;
+
+    int closedIsland(vector&lt;vector&lt;int&gt;&gt;&amp; grid) &#123;
+        int N &#x3D; grid.size(), M &#x3D; grid[0].size(), counts;
+        counts &#x3D; 0;
+        for(int x &#x3D; 0 ;x &lt; N;x++)&#123;
+            for(int y&#x3D;0; y &lt; M; y++ )&#123;
+                if(grid[x][y] !&#x3D; 0) continue;
+                int add &#x3D; 1;
+                findBlockOf0(x, y, N, M, grid, add);
+                counts +&#x3D; add;
+            &#125;                                         
+        &#125;
+        return counts;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>尝试使用BFS写第二种写法~</p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+public:
+	&#x2F;&#x2F; BFS
+    int findBlockOf0(int x, int y,int N, int M, vector&lt; vector&lt;int&gt; &gt; &amp;grid)&#123;
+        int dX[4] &#x3D; &#123;0, 0, -1, 1&#125;, dY[4] &#x3D; &#123;1, -1, 0, 0&#125;, nX, nY;
+        int flag &#x3D; 1;
+        queue&lt; vector&lt;int&gt; &gt; que;
+        que.push( &#123;x, y&#125;);
+        grid[x][y] &#x3D; 1;
+        while( !que.empty() )&#123;
+            vector&lt;int&gt; point &#x3D; que.front();
+            que.pop();
+            int x &#x3D; point[0], y &#x3D; point[1];
+            &#x2F;&#x2F;注意 所有的点都需要判断是否在边界上
+            if(x  &#x3D;&#x3D; 0 || x &#x3D;&#x3D; N - 1 ||y &#x3D;&#x3D; 0 || y &#x3D;&#x3D; M - 1) flag &#x3D; 0;
+            for(int i&#x3D;0;i &lt; 4; i++)&#123;
+                nX &#x3D; x + dX[i];
+                nY &#x3D; y + dY[i];
+                if(nY &gt;&#x3D; 0 &amp;&amp; nY &lt; M &amp;&amp; nX &gt;&#x3D;0 &amp;&amp; nX &lt; N &amp;&amp; grid[nX][nY] &#x3D;&#x3D; 0)&#123;                
+                    grid[nX][nY] &#x3D; 1;
+                    que.push(&#123;nX, nY&#125;);
+                    
+                &#125;
+            &#125;
+        &#125;
+        return flag;
+    &#125;
+
+    int closedIsland(vector&lt;vector&lt;int&gt;&gt;&amp; grid) &#123;
+        int N &#x3D; grid.size(), M &#x3D; grid[0].size(), counts;
+        counts &#x3D; 0;
+        for(int x &#x3D; 0 ;x &lt; N;x++)&#123;
+            for(int y&#x3D;0; y &lt; M; y++ )&#123;
+                if(grid[x][y] !&#x3D; 0) continue;
+                counts +&#x3D;  findBlockOf0(x, y, N, M, grid);
+            &#125;                                         
+        &#125;
+        return counts;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>并查集</p>
+<p>改日再战</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:11:15.000Z" title="8/7/2020, 2:11:15 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.799Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/833-zi-fu-chuan-zhong-de-cha-zhao-yu-ti-huan/">833.字符串中的查找与替换</a></h1><div class="content"><span id="more"></span>
+
+<p>中等题</p>
+<p>这题坑还是很多的，如输入数据非有序，考虑在同一字符串插入时多个字符串替换时原字符串的下标维持或是可插入性。</p>
+<p><strong>思路1:</strong></p>
+<p>将indexes所标记出的下标映射为输入数据的次序，在排序indexes来有序遍历S。之后就是判断哪些S的字母可以替换并替换。</p>
+<p><strong>思路2（官方）：</strong></p>
+<p>为了顺序地构造目标字符串，先标记出S中所有可替换的位置，并顺序遍历（逆序或者正序都可以，构造方法不同罢了）。</p>
+<p>依据题意，可以推出从后向前替换，可以避免下标变换的问题。</p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution &#123;
+public:
+    &#x2F;&#x2F;题目没看清,多写了一个转化大小写函数
+    string lowercase(string S)&#123;
+        &#x2F;&#x2F; return A iterator;
+        std::transform(S.begin(), S.end(), S.begin(), [](unsigned char c)&#123;return std::tolower(c);&#125; );
+        return S;
+    &#125;
+    &#x2F;&#x2F;思路1 
+    string findReplaceString(string S, vector&lt;int&gt;&amp; indexes, vector&lt;string&gt;&amp; sources, vector&lt;string&gt;&amp; targets) &#123;
+        int idx2 &#x3D; indexes.size() - 1;
+        vector&lt;int&gt; repl( indexes.size() );
+        &#x2F;&#x2F;将排序后的字符串下标映射回原来的下标
+            &#x2F;&#x2F;同时不能 把排序后的index下标映射或者被映射;
+        map&lt;int, int&gt; match;        
+        for(int i&#x3D;0;i&lt;indexes.size();i++) 
+            match[ indexes[i] ] &#x3D; i;
+        sort(indexes.begin(), indexes.end());
+        &#x2F;&#x2F;判断逆序判断能否替换，若可以则逆序替换；  
+        &#x2F;&#x2F;逆序替换不影响之前的可替换性判断
+        for(int i&#x3D;S.size()-1;i&gt;&#x3D;0 &amp;&amp; idx2 &gt;&#x3D;0 ;i--)&#123;
+            if(i &#x3D;&#x3D; indexes[idx2])&#123;
+                if(lowercase( S.substr(i, sources[match[i]].size())) &#x3D;&#x3D; sources[match[i]] )                
+                    S.replace(i, sources[match[i]].size(), targets[match[i]]);    
+                idx2 --;                
+            &#125;
+        &#125;
+
+        return S;
+    &#125;
+    
+    &#x2F;&#x2F; 思路2：官方解的实现，也是空间换时间
+    string findReplaceString(string S, vector&lt;int&gt;&amp; indexes, vector&lt;string&gt;&amp; sources, vector&lt;string&gt;&amp; targets) &#123;
+        &#x2F;&#x2F;对S每个字母对有效替换的判断, 并记录下标
+        vector&lt;int&gt; match(S.size(), -1);
+        for(int i&#x3D;0 ;i&lt;indexes.size();i++)&#123;
+            if( S.substr(indexes[i], sources[i].size()) &#x3D;&#x3D; sources[i])
+                match[ indexes[i] ] &#x3D; i;
+        &#125;
+
+        &#x2F;&#x2F;判断逆序判断能否替换，若可以则逆序替换；          
+        for(int i&#x3D;S.size()-1;i&gt;&#x3D;0 ;i--)&#123;
+            if(match[i] !&#x3D; -1)&#123;
+                S.replace(i, sources[match[i]].size(), targets[match[i]] );
+            &#125;
+            cout&lt;&lt; S &lt;&lt; endl;
+        &#125;
+
+        return S;
+    &#125;
+    
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:10:15.000Z" title="8/7/2020, 2:10:15 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/">搜索</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/">二分
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-sou-suo-er-fen-mian-shi-ti-53-ii-0-n-1-zhong-que-shi-de-shu-zi/">面试题53 - II. 0～n-1中缺失的数字</a></h1><div class="content"><span id="more"></span>
+
+
+
+<p>好菜啊，二分都不会了写了出了三个bug，还好检查的快。 Leecode的无调试debug还是相当锻炼人的。</p>
+<p>简单思路：hash一下每个数据，找出空白值即可。</p>
+<p>二分思路：依据前半部分有<code>nums[i] == i</code>的性质，和后半部分<code>nums[i] ！= i</code>的不同可以二分数据，从而找出错位的第一个数据。但是错位的数据不一定是缺少的数据，如果<code>i==len(nums)</code>就可能有缺失数据n−1n−1的可能性。</p>
+<pre class="line-numbers language-none"><code class="language-none">cpp
+class Solution &#123;
+public:
+&#x2F;&#x2F;     int missingNumber(vector&lt;int&gt;&amp; nums) &#123;
+&#x2F;&#x2F;         int len &#x3D; nums.size();
+&#x2F;&#x2F;         int *hs &#x3D; new int[len + 1];
+&#x2F;&#x2F;         &#x2F;&#x2F;未初始化，或者说函数中new的数组初始状态非零
+&#x2F;&#x2F;         memset(hs,0, sizeof(int) * (len + 1) );
+&#x2F;&#x2F;         for(int i &#x3D; 0;i &lt; len ; ++i) hs[nums[i]] &#x3D; 1;
+&#x2F;&#x2F;         for(int i &#x3D; 0;i &lt; len + 1; ++i)
+&#x2F;&#x2F;             if( hs[i] &#x3D;&#x3D; 0) 
+&#x2F;&#x2F;                 return i; 
+&#x2F;&#x2F;         return 0;
+&#x2F;&#x2F;     &#125;
+&#x2F;&#x2F; &#125;;
+
+    int missingNumber(vector&lt;int&gt;&amp; nums) &#123;
+        int right &#x3D; nums.size() - 1, left &#x3D; 0, mid &#x3D; right;
+        &#x2F;&#x2F;bug1 边界情况
+        if(nums[right] &#x3D;&#x3D; right) return right + 1;
+        while(left &lt; right)&#123;
+            mid &#x3D; (left + right) &#x2F; 2;
+         &#x2F;&#x2F;bug2 二分错误
+            if( nums[mid] &#x3D;&#x3D; mid )
+                left &#x3D; mid + 1;
+            else if( nums[mid] !&#x3D; mid)
+                right &#x3D; mid;
+        &#125;
+        &#x2F;&#x2F;bug3 mid值没被更新, 而 left 和 right 都可以
+        return left;
+  w
+    &#125;
+&#125;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:09:42.000Z" title="8/7/2020, 2:09:42 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.859Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/">树</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/shu-ju-jie-gou/shu/654-zui-da-er-cha-shu/">654. 最大二叉树</a></h1><div class="content"><span id="more"></span>
+
+
+
+<p>一个基础的递归建树就可以解决。</p>
+<p>以递归的思想处理每一个新数组，先找出最大值所在并以此值一分数组为2个数组，同时递归建树即可。</p>
+<p>Note：注意边界错误，如right到底没有没值</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ * Definition for a binary tree node.
+ * struct TreeNode &#123;
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) &#123;
+        return constructBT(nums, 0, nums.size() - 1);
+        
+    &#125;
+    TreeNode* constructBT(vector&lt;int&gt;&amp; nums, int left, int right)&#123;
+        if(left &gt; right)
+            return NULL;
+        
+        int index &#x3D; left, nmax &#x3D; nums[left];
+        for(int i &#x3D; left + 1; i &lt;&#x3D; right; i++)&#123;
+            if(nmax &lt; nums[i])&#123;
+                nmax &#x3D; nums[i];
+                index &#x3D; i;
+            &#125;
+        &#125;
+        TreeNode* root &#x3D; new TreeNode(nmax);
+        root-&gt;left &#x3D; constructBT(nums, left, index - 1);
+        root-&gt;right  &#x3D; constructBT(nums, index + 1, right);
+        return root;
+    &#125;
+    
+    
+
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:33:19.000Z" title="8/7/2020, 1:33:19 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-14T13:13:57.219Z" title="2/14/2021, 9:13:57 PM">2021-02-14</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/">模拟
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-mo-ni-mian-5-he-bing-shu-zu/">面5：合并数组</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>将一个字符串在不新建字符串的基础上将源字符串的空格替换为<code>%20</code>。输入字符串和总空间长度。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>明显就是遍历一次统计空格，计算出多余的字符数，并从后向前复制字符并替换字符。</p></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti-mo-ni-mian-5-he-bing-shu-zu/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:32:38.000Z" title="8/7/2020, 1:32:38 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-20T10:32:03.052Z" title="2/20/2021, 6:32:03 PM">2021-02-20</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/">链表
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-shu-ju-jie-gou-lian-biao-mian-shi-ti-lian-biao-xiang-guan/">面试题 链表相关</a></h1><div class="content"><span id="more"></span>
+
+<p>所有关于链表的题目都会总结在这里。假设这些题目的链表的头结点都是带有效值的</p>
+<h2 id="定义链表"><a href="#定义链表" class="headerlink" title="定义链表"></a>定义链表</h2><pre class="line-numbers language-none"><code class="language-none">struct ListNode&#123;
+    int Value;
+    ListNode* pNext;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="尾插入节点"><a href="#尾插入节点" class="headerlink" title="尾插入节点"></a>尾插入节点</h2><p>注意第一个参数是指针的指针，因为有可能需要修改第一个链表节点。</p>
+<pre class="line-numbers language-none"><code class="language-none">void AddToTail(ListNode **pHead, int value)&#123;
+    if(pHead &#x3D;&#x3D; null) return;
+	ListNode *pNew &#x3D; new ListNode();
+    pNew-&gt;Value &#x3D; value;
+    pNew-&gt;pNext &#x3D; nullptr;
+    if(*pHead &#x3D;&#x3D; null)&#123;
+        *pHead &#x3D; pNew;
+    &#125;else&#123;
+        ListNode* pNode &#x3D; *pHead;
+        while(pNode-&gt;pNext !&#x3D; null)&#123;
+            pNode &#x3D; pNode-&gt;pNext;
+        &#125;
+        *pNode-&gt;pNext &#x3D; pNew;        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="删除第一个对应值的链表"><a href="#删除第一个对应值的链表" class="headerlink" title="删除第一个对应值的链表"></a>删除第一个对应值的链表</h2><pre class="line-numbers language-none"><code class="language-none">viod RemoveNode(ListNode** pHead, int value)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || *pHead &#x3D;&#x3D; nullptr) return;
+    ListNode *pToDeleted &#x3D; nullptr;
+    if((*pHead)-&gt;value &#x3D;&#x3D; value)&#123;
+        pToDeleted &#x3D; *pHead;
+        *pHead &#x3D; (*pHead)-&gt;pNext;
+    &#125;else&#123;
+        ListNode *pNode &#x3D; *pHead;
+        &#x2F;&#x2F;pNode指向检查节点的前一个节点
+        while((*pNode)-&gt;pNext !&#x3D; null &amp;&amp; (*pNode)-&gt;pNext-&gt;value !&#x3D; value)&#123;
+            pNode &#x3D; pNode-&gt;pNext;
+        &#125;
+        if((*pNode)-&gt;pNext !&#x3D; null &amp;&amp; (*pNode)-&gt;pNext-&gt;value &#x3D;&#x3D; value)&#123;
+			pToDeleted &#x3D; (*pNode)-&gt;pNext;
+        &#125;
+    &#125;
+	if(pToDeleted !&#x3D; nullptr)&#123;
+        delte pToDelted;
+        pToDelted &#x3D; nullptr; &#x2F;&#x2F;释放内存后，即使是不需要使用的指针，也要做好清除工作，不然不容易维护            
+    &#125;
+	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>pToDeleted = *pNode-&gt;pNext;</code>上面遍历链表中代码不应该用<code>pToDeleted</code>来记录链表值，否然容易出现代码指针值意义混乱，造成不该删的指针却删掉了。</p>
+</blockquote>
+<h2 id="面试题6-从尾到头打印链表"><a href="#面试题6-从尾到头打印链表" class="headerlink" title="面试题6 从尾到头打印链表"></a>面试题6 从尾到头打印链表</h2><p>假如对空间复杂度在O(N)O(N)之上，那么可以使用栈或者递归。</p>
+<p><strong>栈代码如下</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">void PrintListReversingly_Iteratively(ListNode* pHead)&#123;
+    &#x2F;&#x2F;使用指针类型的STACK更省内存？
+    std::stack&lt;ListNode*&gt; nodes;
+    ListNode* pNode &#x3D; pHead;
+    while(pNode !&#x3D; nullptr)&#123;
+        nodes.push(pNode);
+        pNode &#x3D; pNode-&gt;pNext;
+    &#125;
+    while(!nodes.empty())&#123;
+        pNode &#x3D; nodes.top();
+        printf(&quot;%d\n&quot;, pNode-&gt;value);
+        nodes.pop();
+    &#125;   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>递</strong></p>
+<p><strong>归代码</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">void PrintListReversingly_Recursively(ListNode* pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+    PrintListReversingly_Recursively(pHead-&gt;pNext);
+    printf(&quot;%d\n&quot;, pHead-&gt;pNext);
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面试18：删除一个链表节点"><a href="#面试18：删除一个链表节点" class="headerlink" title="面试18：删除一个链表节点"></a>面试18：删除一个链表节点</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>给定一个单向链表的头结点指针和一个指向待删除的节点的指针，要求用O(N)O(N)时间删除节点。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>教科书上的链表删除都是遍历得到上一个待删除的节点的指针，时间复杂度O(N)O(N)。显然不行，也可以直接把待删除的节点<code>K</code>的下一个节点<code>J</code>的内容复制到<code>K</code>上，再删除<code>J</code>，就可以快速删除。考虑边界上，如果没有下一个节点则需要从头遍历；如果只有一个头结点且删除的是头结点，那么只能把头结点置<code>nullptr</code>。</p>
+<p>其时间复杂度为(n−1)∗O(1)+O(N)(n−1)∗O(1)+O(N)。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void DeleteNode(ListNode **pHead, ListNode *pToBeDeleted)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || (*phead) &#x3D;&#x3D; nullptr || (*pToBeDeleted) &#x3D;&#x3D; nullptr ) return;
+    ListNode *pFree &#x3D; nullptr;
+    
+    if(pToBeDeleted-&gt;pNext)&#123;
+        pFree &#x3D; ToBeDeleted-&gt;pNext;
+        pToBeDeleted-&gt;value &#x3D; pToBeDeleted-&gt;pNext-&gt;value;   
+        pToBeDeleted-&gt;pNext &#x3D; pToBeDeleted-&gt;pNext-&gt;pNext;   
+        
+    &#125;
+    &#x2F;&#x2F;删除节点无后继节点，且是头结点
+    else if( *pHead &#x3D;&#x3D; pToBeDeleted)&#123;
+		pFree &#x3D; *pHead;
+        *pHead &#x3D; nullptr;
+    &#125;
+    &#x2F;&#x2F; 链表中多个节点，且删除节点在末尾
+    else&#123;
+		ListNode *pCur &#x3D; *pHead
+        for(; pCur-&gt;pNext-&gt;pNext !&#x3D; nullptr; pCur &#x3D; pCur-&gt;pNext);
+        pFree &#x3D; pCur-&gt;pNext;
+        pCur-&gt;pNext &#x3D; nullptr;
+    &#125;
+    Delete pFree;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>错误点：</p>
+<ul>
+<li>the properiry of “*” &gt; the properity of “==”</li>
+<li>链表插入和删除后没有设置指针</li>
+</ul>
+<p>注意点：</p>
+<p>这个函数假设了待删除的节点一定在链表中；</p>
+<p>头结点可能删除掉，所以设置了头结点为指针的指针。</p>
+</blockquote>
+<h2 id="面18（题目二）：删除重复值的链表节点"><a href="#面18（题目二）：删除重复值的链表节点" class="headerlink" title="面18（题目二）：删除重复值的链表节点"></a>面18（题目二）：删除重复值的链表节点</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>删除一条已排序的链表中的所有的其值重复出现的节点。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>在上面学习的基础上，连续删除就行，应该是比较简单的。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void DeleteDuplication(ListNode **pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr || *pHead &#x3D;&#x3D; nullptr) return;
+    
+    ListNode *pCur &#x3D; *pHead, *pPre &#x3D; nullptr, *pFree &#x3D; nullptr;
+    &#x2F;&#x2F;定义一个头结点，避免不同情况的删除
+    ListNode *pKid &#x3D; new ListNode();
+    pKid-&gt;pNext &#x3D; *pHead;
+    pPre &#x3D; pKid;
+    
+    while(pCur !&#x3D; nullptr)&#123;
+		int value &#x3D; pCur-&gt;value,  isDuplication &#x3D; 0;
+        &#x2F;&#x2F;删除后面的重复节点
+        while(pCur-&gt;pNext &amp;&amp; pCur-&gt;pNext-&gt;value &#x3D;&#x3D; value)&#123;
+            pFree &#x3D; pCur-&gt;pNext;
+            pCur-&gt;pNext &#x3D; pFree-&gt;pNext;
+            delete pFree;
+            isDuplication &#x3D; 1;
+        &#125;
+        
+        &#x2F;&#x2F;若重复，则删除第一个重复节点
+		if(isDuplication)&#123;
+			pFree &#x3D; pCur;			
+			pCur &#x3D; pCur-&gt;pNext;			
+			pPre-&gt;pNext &#x3D; pCur;
+            delete pFree;
+			&#x2F;&#x2F; if(pFree) printf(&quot;@&quot;);
+        &#125;
+        &#x2F;&#x2F;不重复则下移
+        else&#123;
+            pPre &#x3D; pPre-&gt;pNext;
+            pCur &#x3D; pCur-&gt;pNext;
+        &#125;
+    &#125;
+	*pHead &#x3D; pKid-&gt;pNext;
+    delete pKid;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><p><a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/ListTest.cpp">参见</a></p>
+<h2 id="面22：倒数第K个节点"><a href="#面22：倒数第K个节点" class="headerlink" title="面22：倒数第K个节点"></a>面22：倒数第K个节点</h2><h3 id="题面：-2"><a href="#题面：-2" class="headerlink" title="题面："></a>题面：</h3><p>给出一个链表，返回倒数第K个节点。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>最直观的思路是遍历到终点，反向遍历<code>K-1</code>次，但是对单链表无可奈何，而且效率不高。</p>
+<p>第二种思路可以遍历一次求链表的长度<code>L</code>，第二次遍历<code>L - K + 1</code>个节点。但是需要遍历两次链表。</p>
+<p>三种思路更秒，采用双指针，第一个指针先遍历K个节点，随后两个节点一起遍历，直到第一个指针为空，第二个指针就指向了倒数第K个节点。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *FindKthToTail(ListNode *pHead, unsigned int K)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *p1 &#x3D; pHead, *p2 &#x3D; pHead;
+    
+    for(int i &#x3D; 0; i &lt; K; i++)&#123;
+        if(p1 &#x3D;&#x3D; nullptr) return nullptr;
+        p1 &#x3D; p1-&gt;pNext;
+    &#125;
+    while(p1!&#x3D;nullptr)&#123;
+        p1 &#x3D; p1-&gt;pNext;
+        p2 &#x3D; p2-&gt;pNext;
+    &#125;
+    return p2;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这代码写的比剑指offer代码写的优美多了</p>
+</blockquote>
+<h3 id="相关扩展："><a href="#相关扩展：" class="headerlink" title="相关扩展："></a>相关扩展：</h3><p>相关题目有找出链表的中间节点；判断一个链表是否有环；更难一点判断链表的环的入口节点！</p>
+<p><strong>其思路宗旨都是使用两个进度不一样的指针指向不同的节点来解决问题！</strong></p>
+<h2 id="面23：链表中的环的入口节点"><a href="#面23：链表中的环的入口节点" class="headerlink" title="面23：链表中的环的入口节点"></a>面23：链表中的环的入口节点</h2><h3 id="题面：-3"><a href="#题面：-3" class="headerlink" title="题面："></a>题面：</h3><p>给出一个链表，求出其成环的入口节点。</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>首先得判断有环，可以使用一个快一慢的两只指针（移动速度分别为2和1）指向链表头。如果链表有环，则快慢指针就一定会相遇。</p>
+<p>那么对于有环的链表如何确定其入口节点呢？假设环的中节点有<code>K</code>个，快指针从头先遍历<code>K</code>次之后，快慢指针同时开始遍历，正好两个指针会在入口节点上汇合！</p>
+<p>如何确定环中节点呢？这个！可以直接在确定有环后，记录下该节点的位置，再继续遍历直到重新到该节点同时统计经过的节点数量即可。</p>
+<blockquote>
+<p>amazing啊</p>
+</blockquote>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *FindCycleNode(ListNode* pHead)&#123;
+	if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *pSlow, *pQuick, *pRecord &#x3D; nullptr ;
+    &#x2F;&#x2F;判断有没有环
+    pSlow &#x3D; pQuick &#x3D; pHead;
+    while(pQuick !&#x3D; nullptr)&#123;
+	    pQuick &#x3D; pQuick-&gt;pNext;
+        if(pQuick) pQuick &#x3D; pQuick-&gt;pNext;
+        if(pSlow) pSlow &#x3D; pSlow-&gt;pNext;        
+        if(pSlow &#x3D;&#x3D; pQuick) break;
+    &#125;
+    if(pQuick &#x3D;&#x3D; nullptr) return nullptr;
+    &#x2F;&#x2F;确定环内数量
+    pRecord &#x3D; pSlow;
+    int numberOfCycle &#x3D; 0;
+    while(pRecord !&#x3D; pSlow)&#123;
+        numberOfCycle++;
+        pSlow &#x3D; pSlow-&gt;pNext;
+    &#125;
+    &#x2F;&#x2F;确定环的入口节点
+    pSlow &#x3D; pQuick &#x3D; pHead;
+    for(int i &#x3D; 0; i &lt; numberOfCycle; i++)&#123;
+        pQuick &#x3D; pQuick-&gt;pNext;
+    &#125;
+    while(pSlow !&#x3D; pQuick)&#123;
+        pQuick &#x3D; pQuick-&gt;pNext;
+        pSlow &#x3D; pSlow-&gt;pNext;                
+    &#125;
+    return pSlow;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面24：反转链表"><a href="#面24：反转链表" class="headerlink" title="面24：反转链表"></a>面24：反转链表</h2><h3 id="题面：-4"><a href="#题面：-4" class="headerlink" title="题面："></a>题面：</h3><p>输入一个链表的头结点，反转该链表并输出反转后的链表的头结点。</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>在反转过程中，假设有三个顺序排列的待反转的链表<code>i</code>，<code>j</code>，<code>k</code>，其中<code>j</code>是待反转的链表。初始化，<code>i</code>为空指针，<code>j</code>为头节点，<code>k</code>为头结点的下一个指针指向的内容（可能为空），并把<code>i</code>的指针指空。在链表反转过程如下：<code>j</code>的指针指向<code>i</code>，然后把<code>i</code>，<code>j</code>，<code>k</code>分别按次序向后移动。重复执行上述步骤直到<code>j</code>为空。</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *ReverseList(ListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+    ListNode *p1 &#x3D; nullptr, *p2 &#x3D; pHead, *p3 &#x3D; pHead-&gt;pNext;
+    while(p2 !&#x3D; nullptr)&#123;
+        p2-&gt;pNext &#x3D; p1;
+        p1 &#x3D; p2;
+        p2 &#x3D; p3;
+        if(p3) p3 &#x3D; p3-&gt;next;        
+    &#125;
+    return p2;    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面25：合并链表"><a href="#面25：合并链表" class="headerlink" title="面25：合并链表"></a>面25：合并链表</h2><h3 id="题面：-5"><a href="#题面：-5" class="headerlink" title="题面："></a>题面：</h3><p>将两个链表增序合并成一条链表。</p>
+<h3 id="思路：-5"><a href="#思路：-5" class="headerlink" title="思路："></a>思路：</h3><p>用两个指针指向两条链表的头结点，用合并数组的思路合并即可。注意一条链表为空后，另一条不为空的链表可以直接连上去。</p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">ListNode *Merge(ListNode *pHead1, ListNode *pHead2)&#123;
+    if( pHead1 &#x3D;&#x3D; nullptr &amp;&amp; pHead2 &#x3D;&#x3D; nullptr)&#123;
+        return nullptr;
+    &#125;else if(pHead1 &#x3D;&#x3D; nullptr) return pHead2;
+    else if(pHead2 &#x3D;&#x3D; nullpr) return pHead1;
+    
+    ListNode *p1 &#x3D; pHead1, *p2 &#x3D; pHead2, *pHead3 &#x3D; new ListNode(), *p3 &#x3D; pHead3;
+    
+    while(p1 &amp;&amp; p2)&#123;
+        if(p1-&gt;value &lt;&#x3D; p2-&gt;value)&#123;
+            p3-&gt;pNext &#x3D; p1;
+            p3 &#x3D; p1;            
+            p1 &#x3D; p1-&gt;pNext;
+
+        &#125;else&#123;
+            p3-&gt;pNext &#x3D; p2;
+            p3 &#x3D; p2;
+            p2 &#x3D; p2-&gt;pNext;
+        &#125;                 
+    &#125;
+    p3-&gt;pNext &#x3D; nullptr;       
+    if(p1)&#123;
+        p3-&gt;pNext &#x3D; p1;
+    &#125;else if(p2)&#123;
+        p3-&gt;pNext &#x3D; p2;
+    &#125;
+    ListNode *pFree &#x3D; pHead3;
+    pHead3 &#x3D; pHead-&gt;pNext;
+    delete pFree;
+	return pHead3;        
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><p><a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/ListTest.cpp">参见</a></p>
+<h2 id="面35：复杂链表的分解"><a href="#面35：复杂链表的分解" class="headerlink" title="面35：复杂链表的分解"></a>面35：复杂链表的分解</h2><h3 id="题面：-6"><a href="#题面：-6" class="headerlink" title="题面："></a>题面：</h3><p>给出一个有两个指针的链表数据结构，一个指针1指向下一个节点，另一个指针2可指向任意一个节点，或者为空。将给出的链表复制并返回头结点。</p>
+<h3 id="思路：-6"><a href="#思路：-6" class="headerlink" title="思路："></a>思路：</h3><p>这题目还是挺不错的！属于比较复杂的题目，而且有思考空间。</p>
+<p>将复制的过程分解为两个部分，第一步先不管指针2，复制整个链表；第二步再设置指针2。第一步需要的复杂度为O(N)O(N)。第二步再复制的过程中需要确定复制链表中指针2指向的节点的的位置。</p>
+<p>第一种确定位置的思路：就是从原链表遍历寻找原指针指向的节点位置，同样的在复制链表上一起遍历。复杂度为O(N2)O(N2)。</p>
+<p>第二种确定位置的思路：直接用hash表记录下原链表中节点和复制链表中对应节点的映射关系。复杂度为O(N)O(N)。是用了空间换时间的思路。</p>
+<blockquote>
+<p>害怕碰撞。</p>
+</blockquote>
+<p>脱离上面的方案的限制，更巧妙的方法来了。链表的顺序遍历远远比随机遍历方便很多，而且指针指向的节点的位置不随链表节点而变化。可以考虑把复制节点直接插入到被复制节点的后面。全部复制完成后，由于原节点的指针2指向的节点的后一个节点就是复制节点的指针2指向的节点，所以可以直接指向。复杂度为O(N)O(N)，空间复杂度为O(1)O(1)。</p>
+<h3 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">struct ComplexListNode&#123;
+    int value;
+    ComplexListNode *pNext;
+    ComplexListNode *pSibling;    
+&#125;
+
+void CopyNode(ComplexListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return null;
+    ComplexListNode *pNode &#x3D; pHead;
+    while(pNode)&#123;
+        ComplexListNode *pNew &#x3D; new ComplexListNode();
+        pNew-&gt;value &#x3D; pNode-&gt;value;
+        pNew-&gt;pNext &#x3D; pNode-&gt;pNext;
+        pNew-&gt;pSibling &#x3D; nullptr;
+        
+        pNode-&gt;pNext &#x3D; pNew;
+    	pNode &#x3D; pNew-&gt;pNext;
+    &#125;    
+&#125;
+
+void SetSiblingLink(ComplexListNode * pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr )return nullptr;
+    ComplexListNode *pNode  &#x3D; pHead;
+    while(pNode)&#123;
+		ComplexListNode *pNext &#x3D; pNode-&gt;pNext;
+        pNext-&gt;pSibling &#x3D; pNode-&gt;pSibliing-&gt;pNext;
+        pNode &#x3D; pNext-&gt;pNext;
+    &#125;    
+&#125;
+
+ComplexListNode *GetComplexList(ComplexListNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return nullptr;
+	ComplexListNode *pNode &#x3D; pHead;
+    ComplexListNode *pClonedHead &#x3D; pNode-&gt;pNext;
+    ComplexListNode *pClonedNode &#x3D; pNode-&gt;pNext;
+    pNode-&gt;next &#x3D; pClonedNode-&gt;next;
+    pNode &#x3D; pClneNode-&gt;next;
+    while(pNode)&#123;
+        pClonedNode-&gt;pNext &#x3D; pNode-&gt;pNext;        
+        pNode-&gt;pNext &#x3D; pNode-&gt;pNext-&gt;pNext;
+        pClonedNode &#x3D; pNode-&gt;pNext;
+        pNode &#x3D; pClonedNode-&gt;pNext;   
+        &#x2F;*
+        &#x2F;&#x2F;we can write in this way.
+        pClonedNode-&gt;pNext &#x3D; pNode-&gt;pNext;        
+        pClonedNode &#x3D; pClonedNode-&gt;pNext;
+		pNode-&gt;pNext &#x3D; pClonedNode-&gt;pNext;
+        pNode &#x3D; pNode-&gt;pNext;                  
+        *&#x2F;
+    &#125;
+    return pClonedHead;      
+&#125;
+ComplexListNode *Clone(ComplexListNode* pHead)&#123;
+    CopyNode(pHead);
+    SetSiblingLink(pHead);
+    return GetComplexList(pHead);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面36：把二叉搜索树转化为双向链表"><a href="#面36：把二叉搜索树转化为双向链表" class="headerlink" title="面36：把二叉搜索树转化为双向链表"></a>面36：把二叉搜索树转化为双向链表</h2><h3 id="题面：-7"><a href="#题面：-7" class="headerlink" title="题面："></a>题面：</h3><p>如题，要求不创建任何新节点，只能调整树中节点的指向。输出调整后的排序链表。</p>
+<h3 id="思路：-7"><a href="#思路：-7" class="headerlink" title="思路："></a>思路：</h3><p>可以从递归的角度入手。对于一个节点<code>A</code>，中序遍历到<code>A</code>，则<code>A</code>的左子树已经转化为了链表，连接好<code>A</code>和<code>A</code>的左子树的最大节点（前一个指针）的指针则连接完成。</p>
+<p>那对于<code>A</code>的右子树的最小节点<code>B</code>与<code>A</code>之间的连接，也可以看成<code>B</code>与前一个节点的指针相互链接。那么我们只需要在中序遍历的过程中改变前一个指针的内容即可。</p>
+<p>注意一下整棵树的最大的右指针和最小节点的左指针，发现都应该是空，无需额外修改。</p>
+<blockquote>
+<p>对于一个节点<code>A</code>的左右指针，分别指向按顺序排列的旁边两个节点。可以用中序遍历来获取该节点的前一个节点<code>B</code>的指针，并设置好<code>B</code>的右指针和<code>A</code>的左指针。如此就可以在中序遍历的后设置除了最后一个节点的右指针，但是右指针本来就应该是<code>NULL</code>，所以无需修改。</p>
+</blockquote>
+<h3 id="代码：-7"><a href="#代码：-7" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void AdjustLinkCore(BinaryTreeNode* pRoot, BinaryTreeNode *&amp;preNode, BinaryTreeNode *&amp;pHead)&#123;
+    if(pRoot &#x3D;&#x3D; nullptr) return;
+  	AdjustLinkCore(pRoot-&gt;pLeft, preNode, pHead);
+
+    if(pHead &#x3D;&#x3D; nullptr) pHead &#x3D; pRoot;
+    pRoot-&gt;pLeft &#x3D; preNode;
+    if(preNode) preNode-&gt;pRight &#x3D; pRoot;
+    preNode &#x3D; pRoot;
+    
+    AdjustLinkCore(pRoot-&gt;pRight, preNode, pHead);
+&#125;
+BinaryTreeNode* AdjustLink(BinaryTreeNode* pRoot)&#123;
+    BinaryTreeNode *preNode &#x3D; nullptr;
+    BinaryTreeNode *pHead &#x3D; nullptr;
+    AdjustLinkCore(pRoot, preNode, pHead);
+    return pHead;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面52：两个链表的第一个公共节点"><a href="#面52：两个链表的第一个公共节点" class="headerlink" title="面52：两个链表的第一个公共节点"></a>面52：两个链表的第一个公共节点</h2><h3 id="题面：-8"><a href="#题面：-8" class="headerlink" title="题面："></a>题面：</h3><p>如题。</p>
+<h3 id="思路：-8"><a href="#思路：-8" class="headerlink" title="思路："></a>思路：</h3><p>明显地，可以用栈来存储两个链表遍历过程。空间复杂度和时间复杂度都是O(N)O(N)。</p>
+<p>换一种想法，能不能直接遍历就使两个链表同时遍历到第一个公共节点。定义两个指针来遍历两条链表。只要让一个指向长链表的节点的指针多走多出的节点，就可以让两个节点同时同序的遍历到公共节点。时间复杂度为O(N+M)O(N+M)，空间复杂度O(1)O(1)。</p>
+<h3 id="代码：-8"><a href="#代码：-8" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int GetLenOfList(ListNode *pHead)&#123;
+    int len &#x3D; 0;
+    ListNode *pNode &#x3D; pHead;
+    while(pNode)&#123;
+        pNode &#x3D; pNode-&gt;pNext;
+        len++;
+    &#125;
+    return len;
+&#125;
+ListNode *FindFirstCommonNode(ListNode *pHead1, ListNode *pHead2)&#123;
+    if(pHead1 &#x3D;&#x3D; nullptr || pHead2 &#x3D;&#x3D; nullptr) return nullptr;
+    int len1 &#x3D; GetLenOfList(pHead1);
+    int len2 &#x3D; GetLenOfList(pHead2);
+    if(len1 &lt; len2)&#123;
+        swap(pHead1, pHead2);
+        swap(len1, len2);
+    &#125;
+    int step &#x3D; len1 - len2;
+	ListNode *pNode1 &#x3D; pHead1;
+    ListNode *pNode2 &#x3D; pHead2;
+    while(step)&#123;
+        pNode1 &#x3D; pNode-&gt;pNext;
+        step--;
+    &#125;
+    while(pNode1 !&#x3D; pNode2)&#123;
+        pNode1 &#x3D; pNode1-&gt;pNext;
+        pNode2 &#x3D; pNode1-&gt;pNext;
+    &#125;
+    &#x2F;&#x2F;two pNodes maybe refer to null or the first common node.
+    return pNode1;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/submissions/">更简单的解法：</a> </p>
+<p>双指针遍历两条链表，遍历到结尾则跳到另一条链表上。路径长度的相等一定会有两个指针相遇。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) &#123;
+        ListNode *p1 &#x3D; headA,  *p2 &#x3D; headB;
+        while(p1 !&#x3D; p2)&#123;
+            p1 &#x3D; p1 &#x3D;&#x3D; nullptr ? headB : p1-&gt;next;
+            p2 &#x3D; p2 &#x3D;&#x3D; nullptr ? headA : p2-&gt;next;
+        &#125;
+        return p1;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="链表回文判断"><a href="#链表回文判断" class="headerlink" title="链表回文判断"></a><a href="">链表回文判断</a></h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-linked-list/">234. Palindrome Linked List</a></p>
+<p><code>O(n)</code>时间，<code>O(1)</code>空间</p>
+<h3 id="思路：-9"><a href="#思路：-9" class="headerlink" title="思路："></a>思路：</h3><p>朴素的思路：先用快慢指针找到链表中间节点，之后翻转后半部分链表。判断两个链表是否相同。</p>
+<p>其中奇数个节点链表需要考虑一下。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    bool isPalindrome(ListNode* head) &#123;
+        ListNode *slow ,*quick;
+        slow &#x3D; quick &#x3D; head;
+        while(quick &amp;&amp; quick-&gt;next)&#123;
+            slow &#x3D; slow-&gt;next;
+            quick &#x3D; quick-&gt;next-&gt;next;
+        &#125;
+        ListNode *p2 &#x3D; reverseList(slow), *p1 &#x3D; head;
+        while(p1 &amp;&amp; p2)&#123;
+            if(p1-&gt;val !&#x3D; p2-&gt;val) return false;
+            p1 &#x3D; p1-&gt;next;
+            p2 &#x3D; p2-&gt;next;
+        &#125;
+        return true;
+        
+    &#125;
+
+    ListNode *reverseList(ListNode* head)&#123;
+        if(head &#x3D;&#x3D; nullptr) return head;
+        ListNode *per &#x3D; nullptr, *cur &#x3D; head, *next &#x3D; head-&gt;next;
+        while(cur)&#123;
+            cur-&gt;next &#x3D; per;
+            per &#x3D; cur;
+            cur &#x3D; next;
+            if(next) next &#x3D; next-&gt;next;
+        &#125;
+        return per;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="奇偶链表节点分解"><a href="#奇偶链表节点分解" class="headerlink" title="奇偶链表节点分解"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/odd-even-linked-list/">奇偶链表节点分解</a></h2><p>非常容易写复杂的题目。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode* oddEvenList(ListNode* head) &#123;
+        if(!(head &amp;&amp; head-&gt;next)) return head;
+        &#x2F;&#x2F; ListNode *p1 &#x3D; head, *p2 &#x3D; new ListNode(), *evenHead &#x3D; p2, *pre &#x3D; nullptr;
+        &#x2F;&#x2F; while(p1 &amp;&amp; p1-&gt;next)&#123;
+        &#x2F;&#x2F;     p2-&gt;next &#x3D; p1-&gt;next;
+        &#x2F;&#x2F;     p2 &#x3D; p2-&gt;next;
+        &#x2F;&#x2F;     p1-&gt;next &#x3D; p2-&gt;next;
+        &#x2F;&#x2F;     pre &#x3D; p1;
+        &#x2F;&#x2F;     p1 &#x3D; p2-&gt;next;
+        &#x2F;&#x2F; &#125;
+        &#x2F;&#x2F; p2-&gt;next &#x3D; nullptr;    
+        &#x2F;&#x2F; p1 &#x3D; p1 ? p1 : pre;
+        &#x2F;&#x2F; p1-&gt;next &#x3D; evenHead-&gt;next;
+        &#x2F;&#x2F; delete evenHead;
+        &#x2F;&#x2F; return head;
+        ListNode *evenHead &#x3D; head-&gt;next, *odd &#x3D; head, *even &#x3D; head-&gt;next;
+        while(even &amp;&amp; even-&gt;next)&#123;
+            odd-&gt;next &#x3D; even-&gt;next;
+            odd &#x3D; odd-&gt;next;
+            even-&gt;next &#x3D; odd-&gt;next;
+            even &#x3D; even-&gt;next;
+        &#125;
+        odd-&gt;next &#x3D; evenHead;
+        return head;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="删除倒数第N个节点"><a href="#删除倒数第N个节点" class="headerlink" title="删除倒数第N个节点"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/submissions/">删除倒数第N个节点</a></h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) &#123;
+        ListNode node, *pre &#x3D; &amp;node;
+        pre-&gt;next &#x3D; head;
+        ListNode *quick, *slow;
+        quick &#x3D; slow &#x3D; pre;
+        for(int i &#x3D; 0; i &lt; n; ++i) quick &#x3D; quick-&gt;next;
+        while(quick-&gt;next)&#123;
+            quick &#x3D; quick-&gt;next;
+            slow &#x3D; slow-&gt;next;
+        &#125;
+        ListNode *fordel &#x3D; slow-&gt;next;
+        slow-&gt;next &#x3D; fordel-&gt;next;
+        if(fordel &#x3D;&#x3D; head)&#123; &#x2F;&#x2F;删除节点 务必小心：1.删了头结点，需要重置头结点 2.考虑后续节点
+            head &#x3D; fordel-&gt;next;
+        &#125;
+        delete fordel;            
+        return head; 
+
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:32:06.000Z" title="8/7/2020, 1:32:06 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/mian-shi-ti-zhan-he-dui-lie/">面试题-栈和队列</a></h1><div class="content"><p>收集了栈和队列相关题目。</p>
+<h2 id="面试9：两个栈实现队列"><a href="#面试9：两个栈实现队列" class="headerlink" title="面试9：两个栈实现队列"></a>面试9：两个栈实现队列</h2></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/mian-shi-ti-zhan-he-dui-lie/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:31:32.000Z" title="8/7/2020, 1:31:32 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.799Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/mian-shi-ti-di-gui-die-dai/">面试题-递归迭代</a></h1><div class="content"><p>收集一些经典的题目</p>
+<h2 id="斐波那契数列计算"><a href="#斐波那契数列计算" class="headerlink" title="斐波那契数列计算"></a>斐波那契数列计算</h2></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti/qi-ta/mian-shi-ti-di-gui-die-dai/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:30:40.000Z" title="8/7/2020, 1:30:40 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/">搜索</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/">二分
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-sou-suo-er-fen-mian-shi-ti-er-fen/">面试题-二分</a></h1><div class="content"><p>收集查找二分查找相关题目</p>
+<h2 id="面11：旋转数组"><a href="#面11：旋转数组" class="headerlink" title="面11：旋转数组"></a>面11：旋转数组</h2></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti-sou-suo-er-fen-mian-shi-ti-er-fen/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:29:35.000Z" title="8/7/2020, 1:29:35 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/">搜索</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/">回溯
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-sou-suo-hui-su-mian-shi-ti-hui-su-dfs/">面试题-回溯DFs</a></h1><div class="content"><span id="more"></span>
+
+<p>收集回溯相关题目</p>
+<h2 id="面13"><a href="#面13" class="headerlink" title="面13"></a>面13</h2><blockquote>
+<p>面12和13很相似，不重复写了。</p>
+</blockquote>
+<h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>在一个字符矩阵中寻找一条路径，路径上的字符从头到尾排列起来是给定的字符串<code>s</code>。判断有无这么一条路径。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>DFS或者说和回朔直接暴力搜。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">bool hasPathCore(char *matrix, int rows, int cols, int row, int col, char *str, int strIdx, int &amp;isFound)&#123;
+    if(strIdx &lt; 0)&#123;
+        isFound &#x3D; 1;
+        return true;
+    &#125;
+    if(isFound) return true;
+    
+    visited[row * cols + col] &#x3D; 1;
+    int dX[] &#x3D; &#123;0, 0, -1, 1&#125;, dY[] &#x3D; &#123;-1, 1, 0, 0&#125;;
+    for(int i &#x3D; 0; i &lt; 4; ++i)&#123;
+		int nX &#x3D; dX[i] + row, nY &#x3D; dY[i] + col, p &#x3D; row * cols + col;
+        if( nX &gt;&#x3D; 0 &amp;&amp; nY &gt;&#x3D; 0 &amp;&amp; nX &lt; rows &amp;&amp; nY &lt; cols &amp;&amp; !visited[p] &amp;&amp; str[strIdx] &#x3D;&#x3D;  matrix[p])
+            hashPathCore(matrix, rows, cols, row, col, str, strIdx - 1);        
+    &#125;
+&#125;
+
+bool hasPath(char *matrix, int rows, int cols, char *str, int length)&#123;
+	if(str &#x3D;&#x3D; nullptr || matrix &#x3D;&#x3D; nullptr)
+        throw new std::exception(&quot;Invalid parameters.&quot;);
+    int visited &#x3D; new int[rows * cols], isFound &#x3D; 0;
+    memset(visited, 0, sizeof(visited));
+    for(int i &#x3D; 0; i &lt; rows; ++i)
+        for(int j &#x3D; 0; j &lt; cols; ++j)
+            if( hasPathCore(matrix, rows, cols, i, j, str, length - 1, isFound))&#123;&#x2F;&#x2F;倒着搜    
+            	del[] visited;            
+                return true;    
+            &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:29:07.000Z" title="8/7/2020, 1:29:07 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.879Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-wei-yun-suan-mian-shi-ti-wei-yun-suan/">面试题-位运算</a></h1><div class="content"><p>收集位运算相关的题目。</p>
+<h2 id="判断1的个数"><a href="#判断1的个数" class="headerlink" title="判断1的个数"></a>判断1的个数</h2></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti-wei-yun-suan-mian-shi-ti-wei-yun-suan/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:28:10.000Z" title="8/7/2020, 1:28:10 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.879Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/">~其他code能力</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">代码规范
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-qi-ta-code-neng-li-dai-ma-gui-fan-bian-cheng-wan-zheng-xing/">编程完整性</a></h1><div class="content"><span id="more"></span>
+
+<h2 id="编程完整性"><a href="#编程完整性" class="headerlink" title="编程完整性"></a>编程完整性</h2><p>编程完整性是指代码对各种输入，条件的考虑，避免出现各种各样的程序漏洞，完成对编码的需求。可以从三个测试角度考虑，功能测试、边界测试和负面测试。功能测试就是指对代码本身需要完成的功能进行编码。边界测试就是对边界数据进行测试。负面测试就是对不符合要求的输入数据进行测试。</p>
+<h2 id="3中错误处理方法"><a href="#3中错误处理方法" class="headerlink" title="3中错误处理方法"></a>3中错误处理方法</h2><p>错误处理方法就是为了把程序出现的错误转告给函数调用者。大概有三种方法，一是定义特定函数返回值为函数运行状态，但是增加了函数调用的不便，不能直接赋值给另一个函数的参数。二是定义一个全局变量，若函数调用中出现错误就改变全局变量，相比第一种方法方便很多，但是存在函数调用不检查全局变量的安全隐患。三是抛出异常，或者使用<code>try.....catch</code>语句定义不同状态的运行程序，可自定义异常类型，逻辑清晰，但是某些语言可能不支持。</p>
+<h2 id="代码鲁邦性"><a href="#代码鲁邦性" class="headerlink" title="代码鲁邦性"></a>代码鲁邦性</h2><p>代码鲁棒性就是指代码对异常输入，运行错误的处理的能力。因为用户和环境的错误是可能不规范的，为了让程序正确运行，养成防御性编程习惯有利于提高代码质量。最简单最实用例子就是在函数入口检查参数。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:27:41.000Z" title="8/7/2020, 1:27:41 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.829Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/">数学
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-shu-xue-mian-shi-ti-da-shu/">面试题-大数</a></h1><div class="content"><span id="more"></span>
+
+
+
+<p>大数相关</p>
+<h2 id="面17：打印从1到最大的n位数"><a href="#面17：打印从1到最大的n位数" class="headerlink" title="面17：打印从1到最大的n位数"></a>面17：打印从1到最大的n位数</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>如题</p>
+<h3 id="思路1："><a href="#思路1：" class="headerlink" title="思路1："></a>思路1：</h3><p>明显的太简单了。坑还是在数据范围上，考虑使用大数加法模拟计算。</p>
+<h3 id="思路2："><a href="#思路2：" class="headerlink" title="思路2："></a>思路2：</h3><p>也可以使用全排列的思路，思考除了开头为0的n个<code>0~9</code>数字的排列组合就是题目所要求的的数据。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p><strong>大数</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;string&gt;
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;map&gt;
+#include&lt;cstring&gt;
+using namespace std;
+
+bool isIncreaseDigit(int *numbers, char* n)&#123;
+    for(int i &#x3D; 0; n[i] !&#x3D; &#39;\0&#39;; i++)
+        if(numbers[i] !&#x3D; n[i] - &#39;0&#39;) return true;
+	return false;
+&#125;
+
+void PrintNumber(int *numbers, int MAXLEN)&#123;
+    int idx &#x3D; MAXLEN - 1;
+    while(idx &gt;&#x3D; 0 &amp;&amp; numbers[idx] &#x3D;&#x3D; 0) idx --;
+    for(int i &#x3D; idx; i &gt;&#x3D; 0; --i)
+        putchar(numbers[i] + &#39;0&#39;);
+    putchar(&#39;\n&#39;);
+&#125;
+
+void Print1ToMaxDigits(char *n)&#123;
+    const int MAXLEN &#x3D; 1000;
+	if(n &#x3D;&#x3D; nullptr || strlen(n) &lt;&#x3D; 0 || strlen(n) &gt;&#x3D; MAXLEN) return;
+    char test0[2] &#x3D; &quot;0&quot;;
+	if(strcmp(test0, n) &#x3D;&#x3D; 0)&#123;
+        printf(&quot;0\n&quot;);
+        return;
+    &#125;
+    
+	&#x2F;&#x2F;reverse the input string
+	char *newN &#x3D; new char(MAXLEN);
+	int lenN &#x3D; strlen(n);
+	for(int i &#x3D; 0; i &lt; lenN; i++)
+		newN[lenN - i - 1] &#x3D; n[i];
+    
+	&#x2F;&#x2F;big data.
+    int *numbers &#x3D; new int[MAXLEN];
+    memset(numbers, 0, sizeof(numbers));
+    
+	&#x2F;&#x2F;Calculate the numbers.
+    while(isIncreaseDigit(numbers, newN))&#123;
+        numbers[0]++;
+		int idx &#x3D; 0;
+        while(numbers[idx] &#x3D;&#x3D; 10)&#123;
+            numbers[idx] &#x3D; 0;
+            ++idx;
+            numbers[idx]++;
+        	
+        &#125;
+		PrintNumber(numbers, MAXLEN);
+    &#125;
+    delete  []numbers;
+    
+&#125;
+int main()&#123;
+    &#x2F;&#x2F;freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
+	char a[5] &#x3D; &#123;&quot;1239&quot;&#125;;
+	Print1ToMaxDigits(a);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>全排列组合</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;string&gt;
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;map&gt;
+#include&lt;cstring&gt;
+using namespace std;
+
+bool isIncreaseDigit(int *numbers, char* n)&#123;
+    for(int i &#x3D; 0; n[i] !&#x3D; &#39;\0&#39;; i++)
+        if(numbers[i] !&#x3D; n[i] - &#39;0&#39;) return true;
+	return false;
+&#125;
+
+void PrintNumber(int *numbers, int MAXLEN)&#123;
+    int idx &#x3D; MAXLEN - 1;
+	&#x2F;&#x2F;不输出前置零和全零
+    while(idx &gt;&#x3D; 0 &amp;&amp; numbers[idx] &#x3D;&#x3D; 0) idx --;
+	if(idx &#x3D;&#x3D; -1) return;
+	for(int i &#x3D; idx; i &gt;&#x3D; 0; --i)
+        putchar(numbers[i] + &#39;0&#39;);
+    putchar(&#39;\n&#39;);
+&#125;
+
+void Print1ToMaxDigitsRecursively(int *numbers, int pos, char *newN, int lenOfN, int &amp;flag)&#123;
+	if(flag) return;
+	if(pos &#x3D;&#x3D; -1) &#123;
+		&#x2F;&#x2F;直接用flag剪枝
+		if(!isIncreaseDigit(numbers, newN)) flag  &#x3D; 1;
+        PrintNumber(numbers, lenOfN);
+        return;
+    &#125;
+
+	if(!isIncreaseDigit(numbers, newN)) return;
+    for(int i &#x3D; 0; i &lt;&#x3D; 9; i++)&#123;
+        numbers[pos] &#x3D; i;        
+        Print1ToMaxDigitsRecursively(numbers, pos - 1, newN, lenOfN, flag);		
+	&#125;
+&#125;
+    
+void Print1ToMaxDigits(char *n)&#123;
+	if(n &#x3D;&#x3D; nullptr || strlen(n) &lt;&#x3D; 0) return;
+    char test0[2] &#x3D; &quot;0&quot;;
+	if(strcmp(test0, n) &#x3D;&#x3D; 0)&#123;
+        printf(&quot;0\n&quot;);
+        return;
+    &#125;
+    
+	&#x2F;&#x2F;reverse the input string
+	int lenOfN &#x3D; strlen(n);
+	char *newN &#x3D; new char(lenOfN);
+	
+	for(int i &#x3D; 0; i &lt; lenOfN; i++)
+		newN[lenOfN - i - 1] &#x3D; n[i];
+    newN[lenOfN] &#x3D; &#39;\0&#39;;
+
+	&#x2F;&#x2F;big data.
+    int *numbers &#x3D; new int[lenOfN];
+    memset(numbers, 0, sizeof(numbers));
+    
+	&#x2F;&#x2F;Calculate the numbers.
+	int flag &#x3D; 0;
+    Print1ToMaxDigitsRecursively(numbers, lenOfN - 1, newN, lenOfN, flag);
+    delete  []numbers;
+    
+&#125;
+int main()&#123;
+    &#x2F;&#x2F;freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);
+	&#x2F;&#x2F; char a[5] &#x3D; &#123;&quot;1239&quot;&#125;;
+	&#x2F;&#x2F; char a[5] &#x3D; &#123;&quot;0&quot;&#125;;
+	char a[50] &#x3D; &#123;&quot;100&quot;&#125;;
+	Print1ToMaxDigits(a);
+	&#x2F;&#x2F; int t1[5] &#x3D; &#123;1, 2&#125;;
+	&#x2F;&#x2F; printf(&quot;%d&quot;, isIncreaseDigit(t1, a));
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>把自己写懵逼了，调试了好久，原来发现自己剪枝错了。</p>
+<p>由于判断条件在变化，而剪枝条件是不变的，所以不能在更变条件后剪枝</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:26:33.000Z" title="8/7/2020, 1:26:33 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.799Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/">其他</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti/qi-ta/mian-16-shu-zhi-de-n-ci-fang/">面16-数值的N次方</a></h1><div class="content"><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>给一个浮点数，求出其数值的整数次方。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>主要考点还是在异常处理这方面。由于幂为整数，在效率上可以考虑快速幂。</p></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti/qi-ta/mian-16-shu-zhi-de-n-ci-fang/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:26:33.000Z" title="8/7/2020, 1:26:33 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.819Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/">数学
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-shu-xue-mian-16-shu-zhi-de-n-ci-fang/">面16-数值的N次方</a></h1><div class="content"><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>给一个浮点数，求出其数值的整数次方。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>主要考点还是在异常处理这方面。由于幂为整数，在效率上可以考虑快速幂。</p></div><a class="article-more button is-small is-size-7" href="/2020/08/07/shua-ti-shu-xue-mian-16-shu-zhi-de-n-ci-fang/#more">Read more</a></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/%E5%88%B7%E9%A2%98/page/9/">Previous</a></div><div class="pagination-next"><a href="/categories/%E5%88%B7%E9%A2%98/page/11/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/%E5%88%B7%E9%A2%98/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/categories/%E5%88%B7%E9%A2%98/page/9/">9</a></li><li><a class="pagination-link is-current" href="/categories/%E5%88%B7%E9%A2%98/page/10/">10</a></li><li><a class="pagination-link" href="/categories/%E5%88%B7%E9%A2%98/page/11/">11</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">213</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/05/shua-ti/dp/312-burst-balloons/"><img src="http://static.come2rss.xyz/simptab-wallpaper-20201026154850.png" alt="312. Burst Balloons"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-05T06:50:56.000Z">2021-05-05</time></p><p class="title"><a href="/2021/05/05/shua-ti/dp/312-burst-balloons/">312. Burst Balloons</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">51</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">210</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

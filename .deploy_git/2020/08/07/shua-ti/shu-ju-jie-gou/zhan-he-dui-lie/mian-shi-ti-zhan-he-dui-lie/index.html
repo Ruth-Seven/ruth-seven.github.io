@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>面试题-栈和队列 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="收集了栈和队列相关题目。 面试9：两个栈实现队列"><meta property="og:type" content="blog"><meta property="og:title" content="面试题-栈和队列"><meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/mian-shi-ti-zhan-he-dui-lie/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="收集了栈和队列相关题目。 面试9：两个栈实现队列"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-07T05:32:06.000Z"><meta property="article:modified_time" content="2021-01-28T14:04:37.839Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/mian-shi-ti-zhan-he-dui-lie/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-07T05:32:06.000Z","dateModified":"2021-01-28T14:04:37.839Z","author":{"@type":"Person","name":"John Doe"},"description":"收集了栈和队列相关题目。 面试9：两个栈实现队列"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/mian-shi-ti-zhan-he-dui-lie/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:32:06.000Z" title="8/7/2020, 1:32:06 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">栈和队列</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">面试题-栈和队列</h1><div class="content"><p>收集了栈和队列相关题目。</p>
+<h2 id="面试9：两个栈实现队列"><a href="#面试9：两个栈实现队列" class="headerlink" title="面试9：两个栈实现队列"></a>面试9：两个栈实现队列</h2><span id="more"></span>
+
+
+
+<h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>如题</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>栈是FILO结构，将两个栈的结合起来就可以达到FIFO的效果。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">template &lt;typename T&gt; class CQueue
+&#123;
+    public:
+    	CQueue(void);
+    	~CQueue(void);
+    void appendTail(const T&amp; node)&#123;
+        stack2.push(node);
+    &#125;
+   	T deleteHead()&#123;
+        if(stack1.empty())&#123;
+            while(!stack2.empty())&#123;
+                stack1.push(stack2.top());
+                stack2.pop();
+            &#125;
+        &#125;
+        &#x2F;&#x2F;弹空栈应抛出异常
+        if(stack1.empty()) 
+            throw new exception(&quot;queue is empty.&quot;);
+
+        T topValue &#x3D; stack1.top();
+        stack1.pop();
+        return topValue;        
+    &#125;
+    private:
+    	stack&lt;T&gt; stack1, stack2;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面试题9相关题：两个队列实现栈"><a href="#面试题9相关题：两个队列实现栈" class="headerlink" title="面试题9相关题：两个队列实现栈"></a>面试题9相关题：两个队列实现栈</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;思考了一下只能用一个队列循序存储数据，在插入操作时直接插入。删除时把一个队列的除了最后一个其他数据顺序放到临时存储队列，最后删除最后一个数据。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="包含min函数的栈"><a href="#包含min函数的栈" class="headerlink" title="包含min函数的栈"></a>包含min函数的栈</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>给定栈的数据结构，要求实现对栈的操作min，push，pop，并且复杂度为O(1)O(1)。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>这题的难度不在于思维，而在于一种思想。为了保持栈FILO的特性，必须有一个栈负责存储原数据。但是如何实现min？一开始的想法是维护一个递增的栈，但是明显的复杂度高，且不易维护。简单如我没有想到可以直接维护一个<strong>每一个元素都代表着当前被压入栈时的栈的最小值</strong>的<strong>状态栈</strong>。也就是说在数据压入栈的时候求出之前记录的最小值和被压入元素的最小值，然后压入状态栈。pop的时候也很简单，直接两个栈都pop就ok。</p>
+<p>可以这么做的理由，是栈的min值是与将来无关的，仅与过去有关，换句话说就是状态值仅与当前栈的内容有关。</p>
+<p>好优雅。</p>
+<pre class="line-numbers language-none"><code class="language-none">class StackMin&#123;
+    private:
+    	stack&lt;int&gt; s, sMin;
+    public:
+    void push(int x)&#123;
+        if(sMin.size() &gt; 0)
+            sMin.push(min(x, sMin.top()));
+        else sMin.push(x);
+        s.push(x);
+    &#125;
+    void pop()&#123;
+        if(sMin.size() &#x3D;&#x3D; 0) return;
+        sMin.pop();
+        s.pop();
+    &#125;
+    int min()&#123;
+        if(sMin.size() &gt; 0) 
+	        return sMin.top();
+        else 
+            throw new exception();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>错误：没有检查栈的元素数量。</p>
+</blockquote>
+<h2 id="面31：合法的栈的弹出序列"><a href="#面31：合法的栈的弹出序列" class="headerlink" title="面31：合法的栈的弹出序列"></a>面31：合法的栈的弹出序列</h2><h3 id="题面：-2"><a href="#题面：-2" class="headerlink" title="题面："></a>题面：</h3><p>给出一个按增序的数字序列<code>1，2，3，4……</code>压入栈的序列， 同时给出一个对应数字的弹出序列，判断弹出序列是否是压入序列的弹出序列。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>不考虑数据的错误输入的话。一个简单而自然的思路就是模拟，建立一个辅助栈。对于弹出序列的当前数据，如果比栈顶数据大或者栈没有数据，则压入数据，直到栈顶和当前弹出序列的值一样大。如果等于栈顶数据，弹出栈顶。如果比栈顶数据小，则序列错误。如果正常运行结束则序列正确。</p>
+<blockquote>
+<p>不太容易讲清楚，最好举个例子。</p>
+<p>想了一丢丢，终于讲清楚了。重点在于判断模拟过程的条件需要缕清。</p>
+</blockquote>
+<h3 id="样例："><a href="#样例：" class="headerlink" title="样例："></a>样例：</h3><pre class="line-numbers language-none"><code class="language-none">true:
+1,2,3
+1,2,3
+
+1,2,3
+3,2,1
+
+1,2,3
+3,1,2
+
+1,2,3,4,5,6
+3,4,2,5,1,6
+
+1,2,3,4,5,6
+3,4,2,6,1,5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">bool isPopSerial(int aPush[], int lenPush, int aPop[], int lenPop)&#123;
+    stack&lt;int&gt; s;
+    int pushMax &#x3D; 0;
+    if(lenPush !&#x3D; lenPop) return false;
+    for(int i &#x3D; 0; i &lt; lenPush; i++)&#123;
+        if(s.empty() || aPush[i] &gt; s.top())&#123;
+            int k &#x3D; pushMax + 1;
+            while(k &lt;&#x3D; aPush[i])&#123;
+                s.push(k);
+                k++;
+            &#125;
+            pushMax &#x3D; k - 1;
+        &#125;
+        if(s.top() &#x3D;&#x3D; aPush[i])&#123;
+            s.pop();                       
+        &#125;else&#123;
+            return false;
+        &#125;
+        
+    &#125;
+    return true;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="面59-题二：队列的最大值"><a href="#面59-题二：队列的最大值" class="headerlink" title="面59 题二：队列的最大值"></a>面59 题二：队列的最大值</h2><h3 id="题面：-3"><a href="#题面：-3" class="headerlink" title="题面："></a>题面：</h3><p>请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都是O(1)。</p>
+<p>若队列为空，pop_front 和 max_value 需要返回 -1</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>第一种肯定会想到把一个队列拆成两个栈来做；第二种比较巧妙，通过分析滑动窗口内元素最大值的变化，可以写出类似的如下代码。<br>具体思路，是用双头队列维护队列最大值。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class MaxQueue &#123;
+public:
+    deque&lt;int&gt; value;
+    deque&lt;int&gt; maxValue;
+
+    MaxQueue() &#123;
+        value.clear();
+        maxValue.clear();
+    &#125;
+    
+    int max_value() &#123;
+        if(value.size() &gt; 0)&#123;
+            return maxValue.front();
+        &#125;
+        else 
+           &#x2F;&#x2F; throw new exception;
+           return -1;
+    &#125;
+    
+    void push_back(int number) &#123;
+        value.push_back(number);
+        
+        while(maxValue.size() &gt; 0 &amp;&amp; maxValue.back() &lt; number)&#123;
+            maxValue.pop_back();
+        &#125;        
+        maxValue.push_back(number);     
+    &#125;
+    
+    int pop_front() &#123;
+        if(value.size() &gt; 0)&#123;
+            int popValue &#x3D; value.front();
+            if(maxValue.front() &#x3D;&#x3D; popValue)&#123;
+                maxValue.pop_front();
+            &#125;
+            value.pop_front();
+            return popValue;
+        &#125;else
+          &#x2F;&#x2F;  throw new exception;
+          return -1;
+    &#125;
+&#125;;
+
+&#x2F;**
+ * Your MaxQueue object will be instantiated and called as such:
+ * MaxQueue* obj &#x3D; new MaxQueue();
+ * int param_1 &#x3D; obj-&gt;max_value();
+ * obj-&gt;push_back(value);
+ * int param_3 &#x3D; obj-&gt;pop_front();
+ *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/07/shua-ti-shu-ju-jie-gou-lian-biao-mian-shi-ti-lian-biao-xiang-guan/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">面试题 链表相关</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/08/07/shua-ti/qi-ta/mian-shi-ti-di-gui-die-dai/"><span class="level-item">面试题-递归迭代</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "0f76137a469ee23b963c724b4813bad3",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">213</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/05/shua-ti/dp/312-burst-balloons/"><img src="http://static.come2rss.xyz/simptab-wallpaper-20201026154850.png" alt="312. Burst Balloons"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-05T06:50:56.000Z">2021-05-05</time></p><p class="title"><a href="/2021/05/05/shua-ti/dp/312-burst-balloons/">312. Burst Balloons</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">51</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#面试9：两个栈实现队列"><span class="level-left"><span class="level-item">1</span><span class="level-item">面试9：两个栈实现队列</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面："><span class="level-left"><span class="level-item">1.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路："><span class="level-left"><span class="level-item">1.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码："><span class="level-left"><span class="level-item">1.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面试题9相关题：两个队列实现栈"><span class="level-left"><span class="level-item">2</span><span class="level-item">面试题9相关题：两个队列实现栈</span></span></a></li><li><a class="level is-mobile" href="#包含min函数的栈"><span class="level-left"><span class="level-item">3</span><span class="level-item">包含min函数的栈</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-1"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-1"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">思路：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面31：合法的栈的弹出序列"><span class="level-left"><span class="level-item">4</span><span class="level-item">面31：合法的栈的弹出序列</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-2"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-2"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#样例："><span class="level-left"><span class="level-item">4.3</span><span class="level-item">样例：</span></span></a></li><li><a class="level is-mobile" href="#代码：-1"><span class="level-left"><span class="level-item">4.4</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面59-题二：队列的最大值"><span class="level-left"><span class="level-item">5</span><span class="level-item">面59 题二：队列的最大值</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-3"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-3"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-2"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">代码：</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">210</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

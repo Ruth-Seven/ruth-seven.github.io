@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>面试题 二叉树 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="收集二叉树相关题目，相关测试代码见此。"><meta property="og:type" content="blog"><meta property="og:title" content="面试题 二叉树"><meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-er-cha-shu/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="收集二叉树相关题目，相关测试代码见此。"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-07T05:25:51.000Z"><meta property="article:modified_time" content="2021-04-01T08:29:08.210Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-er-cha-shu/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-07T05:25:51.000Z","dateModified":"2021-04-01T08:29:08.210Z","author":{"@type":"Person","name":"John Doe"},"description":"收集二叉树相关题目，相关测试代码见此。"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-er-cha-shu/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T05:25:51.000Z" title="8/7/2020, 1:25:51 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-04-01T08:29:08.210Z" title="4/1/2021, 4:29:08 PM">2021-04-01</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/">树</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">面试题 二叉树</h1><div class="content"><p>收集二叉树相关题目，相关测试代码见<a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/BinaryTreeTest.cpp">此</a>。</p>
+<span id="more"></span>
+
+<p>sCmd = ‘C:; cd C:\Users\xusx\Sumo\SUMO\bin; duarouter -n xsxlankershim.net.xml –route-files xsx.flow.xml -o rou.rou.xml’<br>os.system(sCmd)</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><pre class="line-numbers language-none"><code class="language-none">struct BinaryTreeNode&#123;
+    double dbValue;
+    BinaryTreeNode *pLeft;
+    BinaryTreeNode *pRight;   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面7：中序遍历和前序遍历序列来重建二叉树"><a href="#面7：中序遍历和前序遍历序列来重建二叉树" class="headerlink" title="面7：中序遍历和前序遍历序列来重建二叉树"></a>面7：中序遍历和前序遍历序列来重建二叉树</h2><pre class="line-numbers language-none"><code class="language-none">BinaryTreeNode* ConstructNode(int *startPreorder,  int *endPreordrer, 
+                              int *startInorder, int *endInorder)&#123;
+    &#x2F;&#x2F;这个代码健壮性就很好！对空值和非法输出进行了区分。
+	if(startPreorder &gt; endPreorder  || startInorder &gt; endInorder )&#123;	
+        if(startPreorder &#x3D;&#x3D; endPreorder - 1  &amp;&amp; startInorder &#x3D;&#x3D;  endInorder - 1) 
+        	return nullptr;
+        else 
+            throw std::exception(&quot;Invalid Input.\n&quot;);
+    &#125; 
+    &#x2F;&#x2F;寻找中序遍历中的根节点值坐标
+    int nodeValue &#x3D; startPreordre[0];
+	int *rootInorder &#x3D; startInorder;
+    for(; rootInorder &lt;&#x3D; enInorder &amp;&amp; *rootInordre !&#x3D; nodevalue; rootInorder++);
+	&#x2F;&#x2F;健壮一下
+    if(enInorder &lt; rootInorder)&#123;
+        throw std::exception(&quot;Invalid input!\n&quot;);
+    &#125;
+    &#x2F;&#x2F;构建左右子树
+    BinaryTreeNode* pNode &#x3D; new BinaryTreeNode();
+    int lNodeNum &#x3D; rootInorder - startInorder;
+    pNode-&gt;pLeft &#x3D; 
+        ConstructNode(startPreorder + 1, startPreorder + lNodeNum, startInorder, rootInorder - 1);
+    pNode-&gt;pRight &#x3D; 
+        ConstructNode(startPreorder + lNodeNum + 1, endPreorder, rootInorder + 1, endInorder);
+    pNode-&gt;value &#x3D; nodeValue;
+    return pNode;
+	
+&#125;
+
+BinaryTreeNode* ConstructTree(int *preorder, int *inorder, int length)&#123;
+    &#x2F;&#x2F;length &#x3D;&#x3D; 0的代码的健壮性显然不如 length &lt;&#x3D; 0
+    if(preorder &#x3D;&#x3D; null || inorder &#x3D;&#x3D; null || length &lt;&#x3D; 0) return nullptr;
+	return ConstructNode(preorder, preorder + length - 1 , inorder, inorde + length - 1);
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面8：二叉树的下一个节点"><a href="#面8：二叉树的下一个节点" class="headerlink" title="面8：二叉树的下一个节点"></a>面8：二叉树的下一个节点</h2><p>第一次考虑的时候居然还想错了，分析不够全面。从二叉树中序遍历来看，若一个节点有右子树，则下一个节点就是其右子树的最左节点。倘若没有，则必然是考虑父亲节点。如果该节点是父亲节点的左子节点，那么下一个节点就是父亲节点，不然可以溯源查找其父辈节点是左子树的祖父节点。这个过程可以使用父亲节点和迭代完成。</p>
+<pre class="line-numbers language-none"><code class="language-none">BinaryTreeNode *GetNext(BinaryTreeNode *pNode)&#123;
+    if(pNode &#x3D;&#x3D; nullptr) return;
+    if(pNode-&gt;pRight)&#123;
+        BinaryTreeNode* pChild &#x3D; pNode-&gt;pRight;
+        while(pChild-&gt;pLeft !&#x3D; nullptr) pChild &#x3D; pChild-&gt;pRight;
+        return pChild;
+    &#125;else&#123;
+        BinaryTreeNode* pParent &#x3D; pNode-&gt;pParent, *pCurrent &#x3D; pNode;
+		&#x2F;&#x2F;循环控制条件有点像哨兵，没有找到的话pParent自然就是unllptr,代码更加简洁了
+        while(pParent !&#x3D; nullptr &amp;&amp; pParent-&gt;pRight !&#x3D; pCurrent)&#123;
+            pCurrent &#x3D; pParent;
+            pParent &#x3D; pParent-&gt;pParent;
+        &#125;
+        return pParent;       
+    &#125;
+    return nullptr;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>相比之前的代码这个写法差一点点</p>
+<pre class="line-numbers language-none"><code class="language-none">while(pParent-&gt;pParent !&#x3D; nullptr &amp;&amp; pParent-&gt;pRight !&#x3D; pCurrent)&#123;
+            pCurrent &#x3D; pParent;
+            pParent &#x3D; pParent-&gt;pParent;
+        &#125;
+        if(pParent-&gt;pRight &#x3D;&#x3D; pCurrent)&#123;
+            return pParent;
+        &#125;
+       <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h2 id="面26：树的子结构"><a href="#面26：树的子结构" class="headerlink" title="面26：树的子结构"></a>面26：树的子结构</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>输入两棵树<code>A</code>和<code>B</code>，判断<code>B</code>是否是<code>A</code>的子结构。<code>B</code>是<code>A</code>的子结构子结构定义为<code>A</code>的一部分和<code>B</code>完全相同。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>递归的判断对<code>A</code>的每一个节点判断该节点下的是否有<code>B</code>的结构。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">bool judgeSameTree(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2)&#123;
+	if(pRoot2 &#x3D;&#x3D; nullptr) return true;
+    else if(pRoot1 &#x3D;&#x3D; nullptr) return false;
+    
+    if(equal(pRoot1-&gt;dbValue, pRoot2-&gt;dbValue))&#123;
+        if(pRoot2-&gt;pRight &#x3D;&#x3D; nullptr &amp;&amp; pRoot2-&gt;pLeft &#x3D;&#x3D; nullptr) return true;
+	    return judgeSameTree(pRoot1-&gt;pLeft, pRoot2-&gt;pLeft)
+            &amp;&amp; judgeSameTree(pRoot2-&gt;pRight, pRoot2-&gt;pRight);
+    &#125;
+    return false;
+&#125;
+
+bool HasSubtreeCore(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2)&#123;
+	if(pRoot1)&#123;
+        if(judgeSameTree(pRoot1, pRoot2)) return true;
+        else return HasSubtreeCore(pRoot1-&gt;pLeft, pRoot2) 
+            	|| HasSubtreeCore(pRoot1-&gt;pRight, pRight);
+    &#125;
+    return false;
+&#125;
+bool HasSubtree(BinaryTreeNode *pRoot1, BinaryTreeNode *pRoot2)&#123;
+    if(pRoot2 &#x3D;&#x3D; nullptr) return true;
+    if(pRoot1 &#x3D;&#x3D; nullptr) return false;
+    return HasSubtreeCore(pRoot1, pRoot2);   	    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><p><a target="_blank" rel="noopener" href="https://github.com/Ruth-Seven/CodeInterviewWithC-/blob/master/BinaryTreeTest.cpp">参见</a></p>
+<h2 id="面27：翻转二叉树"><a href="#面27：翻转二叉树" class="headerlink" title="面27：翻转二叉树"></a>面27：翻转二叉树</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>给出一棵二叉树并返回其镜像二叉树。</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>直接交换节点的左右指针节点即可。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">BinaryTreeNode *MirrorRecursively(BinaryTreeNode* pNode)&#123;
+    if(pNode &#x3D;&#x3D; nullptr) return nullptr;
+    BinaryTreeNode *pTemp &#x3D; pNode-&gt;pRight;
+    pNode-&gt;pRight &#x3D; pNode-&gt;pLeft;
+    pNode-&gt;pLeft &#x3D; pTemp;
+	MirrorRecursively(pNode-&gt;pLeft);
+    MirrorRecursively(pNode-&gt;pRight);
+    return pNode;    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面28：对称二叉树"><a href="#面28：对称二叉树" class="headerlink" title="面28：对称二叉树"></a>面28：对称二叉树</h2><h3 id="题面：-2"><a href="#题面：-2" class="headerlink" title="题面："></a>题面：</h3><p>判断一棵树是否对称。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>从第一个节点左子树开始递归的判断，其右子树的节点是否完全相同。只需要一边对另一边镜像操作就ok。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">bool isSymmetrical(BinaryTreeNode* pHead)&#123;
+	if(pHead &#x3D;&#x3D; nullptr) return true;
+    return isSymmetricalCore(pHead-&gt;pLeft, pHead-&gt;pRight);
+&#125;
+bool isSemmetricalCore(BinaryTreeNode *p1, BinaryTreeNode *p2)&#123;
+    if(p1 &#x3D;&#x3D; nullptr &amp;&amp; p2 &#x3D;&#x3D; nullptr) return true;
+    if(p1 &#x3D;&#x3D; nullptr &amp;&amp; p2 !&#x3D; nullptr 
+       || p2 &#x3D;&#x3D; nullptr &amp;&amp; p1 !&#x3D; nullptr
+      || p1-&gt;value !&#x3D; p2-&gt;value) 
+    	return false;
+    return isSemmetricalCore(p1-&gt;left, p2-&gt;right) 
+    	&amp;&amp;  isSemmetricalCore(p1-&gt;right, p2-&gt;left);    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>有趣的是，我这种写法也可以看成前序遍历序列和对称前序遍历序列的比较。</p>
+</blockquote>
+<h2 id="面32：层序遍历二叉树"><a href="#面32：层序遍历二叉树" class="headerlink" title="面32：层序遍历二叉树"></a>面32：层序遍历二叉树</h2><h3 id="题面：-3"><a href="#题面：-3" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>层序遍历</p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void PrintByLayer(BinaryTreeNode* pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+    queue&lt;BinaryTreeNode*&gt; que;
+    que.push(pHead);
+    while(que.size())&#123;
+        BinaryTreeNode *pNode &#x3D; que.front();
+        que.pop();
+        printf(&quot;%.2f &quot;, pNode-&gt;dbValue);
+        if(pNode-&gt;pLeft) que.push(pNode-&gt;pLeft);
+        if(pNode-&gt;pRight) que.push(pNode-&gt;pRight);        
+    &#125;
+    printf(&quot;\n&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面32相关题：分行打印层序遍历二叉树"><a href="#面32相关题：分行打印层序遍历二叉树" class="headerlink" title="面32相关题：分行打印层序遍历二叉树"></a>面32相关题：分行打印层序遍历二叉树</h2><h3 id="题面：-4"><a href="#题面：-4" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>在层序遍历的基础上，有两种解题思路：一是记录当前层未打印的节点数量和下一层的需要打印的节点数量，二是在队列中添加一个一层的节点末端的标志符、</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void PrintByLayerSparate(BinaryTreeNode* pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+    queue&lt;BinaryTreeNode*&gt; que;
+    que.push(pHead);
+	int printValue &#x3D; 1, nextValue &#x3D; 0;
+    while(que.size())&#123;
+        BinaryTreeNode *pNode &#x3D; que.front();
+        que.pop();
+        printValue--;
+        printf(&quot;%.2f &quot;, pNode-&gt;dbValue);
+        if(pNode-&gt;pLeft)&#123;
+          	que.push(pNode-&gt;pLeft);
+            nextValue++;
+        &#125; 
+        if(pNode-&gt;pRight)&#123;
+            que.push(pNode-&gt;pRight);          
+            nextValue++;
+        &#125;
+        
+        if(printValue &#x3D;&#x3D; 0)&#123;
+            printValue &#x3D; nextValue;
+            nextValue &#x3D; 0;
+            printf(&quot;\n&quot;);
+        &#125;
+    &#125;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面32相关题：之字形打印二叉树"><a href="#面32相关题：之字形打印二叉树" class="headerlink" title="面32相关题：之字形打印二叉树"></a>面32相关题：之字形打印二叉树</h2><h3 id="题面：-5"><a href="#题面：-5" class="headerlink" title="题面："></a>题面：</h3><p>如标题</p>
+<h3 id="思路：-5"><a href="#思路：-5" class="headerlink" title="思路："></a>思路：</h3><p>一种方法就是分层层序遍历+栈逆序存储并输出。</p>
+<p>第二种方法就用栈把一层的节点逆序输出，并将下一层的节点记录在另一个栈中，如此循环，输出所有的层。</p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void PirntZhi(BinaryTreeNode *pHead)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+    stack&lt;BinaryTreeNode*&gt; s[2];
+    int cur &#x3D; 0;
+    s[cur].push(pHead);
+    BinaryTreeNode *pNode &#x3D; nullptr;
+    while(s[cur].size())&#123;
+        while(s[cur].size())&#123;
+		   pNode &#x3D; s[cur].top();
+            s[cur].pop();
+            printf(&quot;%.2 &quot;, pNode-&gt;dbValue);
+            if(cur &#x3D;&#x3D; 0)&#123;
+                if(pNode-&gt;pLeft) s[1 - cur].push(pNode-&gt;pLeft);
+                if(pNode-&gt;pRight) s[1 - cur].push(pNode-&gt;pRight);                
+            &#125;else&#123;
+                if(pNode-&gt;pRight) s[1 - cur].push(pNode-&gt;pRight);                
+            	if(pNode-&gt;pLeft) s[1 - cur].push(pNode-&gt;pLeft);                
+            &#125;
+        &#125;
+       	printf(&quot;\n&quot;);
+        cur &#x3D; 1- cur;
+    &#125;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="103-Binary-Tree-Zigzag-Level-Order-Traversal"><a href="#103-Binary-Tree-Zigzag-Level-Order-Traversal" class="headerlink" title="103. Binary Tree Zigzag Level Order Traversal"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/">103. Binary Tree Zigzag Level Order Traversal</a></h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for a binary tree node.
+ * struct TreeNode &#123;
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode* root) &#123;
+        if(!root) return &#123;&#125;;
+        stack&lt;TreeNode*&gt; cur1, cur2;
+        cur1.push(root);
+        vector&lt;vector&lt;int&gt;&gt; zigarr;
+        int flag &#x3D; 1;
+        while(cur1.size() || cur2.size())&#123;
+            if(flag) zigview(cur1, cur2, zigarr, flag), flag &#x3D; 1 - flag ;
+            else  zigview(cur2, cur1, zigarr, flag), flag &#x3D; 1 - flag;
+        &#125;
+        return zigarr;
+    &#125;
+
+    void zigview(stack&lt;TreeNode*&gt;&amp; now, stack&lt;TreeNode*&gt;&amp; next, vector&lt;vector&lt;int&gt;&gt; &amp;zigarr, int flag)&#123;
+        vector&lt;int&gt; arr;
+        while(!now.empty())&#123;
+            arr.push_back(now.top()-&gt;val);
+            if(flag)&#123;
+                if(now.top()-&gt;left) next.push(now.top()-&gt;left);
+                if(now.top()-&gt;right) next.push(now.top()-&gt;right);
+                now.pop();
+            &#125;else&#123;
+                if(now.top()-&gt;right) next.push(now.top()-&gt;right);
+                if(now.top()-&gt;left) next.push(now.top()-&gt;left);
+                now.pop();
+            &#125;            
+        &#125;
+        zigarr.push_back(arr);
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="面33-判断后序遍历序列有效性"><a href="#面33-判断后序遍历序列有效性" class="headerlink" title="面33:判断后序遍历序列有效性"></a>面33:判断后序遍历序列有效性</h2><h3 id="题面：-6"><a href="#题面：-6" class="headerlink" title="题面："></a>题面：</h3><p>给定一颗二叉搜索树的后续遍历序列，判断该后序遍历序列是否合法。</p>
+<h3 id="思路：-6"><a href="#思路：-6" class="headerlink" title="思路："></a>思路：</h3><p>依据后续遍历的定义，可以把序列依据最后一个元素<code>K</code>分成两半，且满足前一部分全部小于<code>K</code>的值，后一部分全部大于<code>K</code>的值，若不符合这个结论，则该后序遍历不可能存在一颗二叉树与之对应。递归的判断这两部分是否符合这些定义。</p>
+<h3 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">bool isPostSequenceCore(int sequence[], int start, int end)&#123;
+    if(start &gt;&#x3D; end) return true;
+    int key &#x3D; sequence[end - 1];
+    int split &#x3D; start;
+    while(sequence[split] &lt; key) split++;
+    for(int i &#x3D; split; i &lt; end; i++)&#123;
+        if(sequence[i] &lt; key) return false;
+    &#125;
+    return isPostSequenceCore(sequence, start, split) 
+        &amp;&amp; isPostSequenceCore(sequence, split, end - 1);
+&#125;
+
+bool isPostSequence(int sequence[], int len)&#123;
+    if(sequence &#x3D;&#x3D; nullptr || len &lt;&#x3D; 0) return false;
+    return isPostSequenceCore(sequence, 0, len);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>如果是c++的话，也可以直接用指针代替start。</p>
+</blockquote>
+<h2 id="面34：树的路径的元素之和"><a href="#面34：树的路径的元素之和" class="headerlink" title="面34：树的路径的元素之和"></a>面34：树的路径的元素之和</h2><h3 id="题面：-7"><a href="#题面：-7" class="headerlink" title="题面："></a>题面：</h3><p>打印出树的路径上的值之和与给定数字相同的所有路径。路径从根到叶子。</p>
+<h3 id="思路：-7"><a href="#思路：-7" class="headerlink" title="思路："></a>思路：</h3><p>dfs遍历 + 记录路径即可。</p>
+<h3 id="代码：-7"><a href="#代码：-7" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void PrintPathCore(BinaryTreeNode* pNode, stack&lt;int&gt; &amp;s, int add, int expectedSum)&#123;
+    s.push((int)pNode-&gt;dbValue);
+    add +&#x3D; (int)(pNode-&gt;dbValue);
+    if(pNode-&gt;pLeft &#x3D;&#x3D; nullptr &amp;&amp; pNode-&gt;pRight &#x3D;&#x3D; nullptr)&#123;
+        if(add &#x3D;&#x3D; expectedSum)&#123;
+            stack&lt;int&gt; sTemp;
+            while(s.size())&#123;
+               
+                sTemp.push(s.top());
+                s.pop();                
+            &#125;
+            while(sTemp.size())&#123;
+                printf(&quot;%d-&gt;&quot;, sTemp.top());
+                s.push(sTemp.top());
+                sTemp.pop();
+            &#125;
+            printf(&quot;\n&quot;);
+        &#125;
+        &#x2F;&#x2F; printf(&quot;%d, %d, %d\n&quot;, expectedSum, add, s.size());
+        s.pop();
+        return;
+    &#125;
+    if(pNode-&gt;pLeft) PrintPathCore(pNode-&gt;pLeft, s, add, expectedSum);    
+    if(pNode-&gt;pRight) PrintPathCore(pNode-&gt;pRight, s, add, expectedSum);
+    s.pop();
+&#125;
+
+
+void PrintPath(BinaryTreeNode* pHead, int expectedSum)&#123;
+    if(pHead &#x3D;&#x3D; nullptr) return;
+	stack&lt;int&gt; s;
+    PrintPathCore(pHead, s, 0, expectedSum);
+    printf(&quot;\n&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>中午时间不要打代码，太困了</p>
+</blockquote>
+<h2 id="437-Path-Sum-III-路径之和"><a href="#437-Path-Sum-III-路径之和" class="headerlink" title="437. Path Sum III 路径之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-iii/">437. Path Sum III</a> 路径之和</h2><p>类似，但不相同。</p>
+<p>前缀和 + 递归</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for a binary tree node.
+ * struct TreeNode &#123;
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    int count &#x3D; 0;
+    int pathSum(TreeNode* root, int sum) &#123;
+        add(root, 0);    
+        findNode(root, sum, 0);
+        return count;
+    &#125;
+    void findNode(TreeNode* root, int num, int presum)&#123;
+        if(!root) return;
+        cal(root, num, presum);
+        findNode(root-&gt;left, num, root-&gt;val);
+        findNode(root-&gt;right, num, root-&gt;val);
+    &#125;
+    void cal(TreeNode* root, int target, int presum)&#123;
+        if(!root) return;
+        if(root-&gt;val - presum &#x3D;&#x3D; target) count++;
+        cal(root-&gt;left, target, presum);
+        cal(root-&gt;right, target, presum);
+    &#125;
+    void add(TreeNode* root, int presum)&#123;
+        if(!root) return;
+        root-&gt;val +&#x3D; presum;
+        add(root-&gt;left, root-&gt;val);
+        add(root-&gt;right, root-&gt;val);
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>写法二：提供一种递归的小小思路</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    int count &#x3D; 0;
+    int pathSum(TreeNode* root, int sum) &#123;
+        if(!root) return 0;
+        return cal(root, sum) + pathSum(root-&gt;left, sum) + pathSum(root-&gt;right, sum);
+    &#125;
+    int cal(TreeNode* root, int sum)&#123;
+        if(!root) return 0;
+        sum -&#x3D; root-&gt;val;
+        return (sum &#x3D;&#x3D; 0) + cal(root-&gt;left, sum) + cal(root-&gt;right, sum);
+    &#125;
+    
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>最优解法：前缀和 + 回溯 + 维护前缀和出现的次数：<code>times[presum]</code></p>
+<blockquote>
+<p>突然想到3数之和。</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;**
+ * Definition for a binary tree node.
+ * struct TreeNode &#123;
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;
+ * &#125;;
+ *&#x2F;
+class Solution &#123;
+public:
+    unordered_map&lt;int, int&gt; ct &#x3D; &#123;&#123;0,1&#125;&#125;;
+    int pathSum(TreeNode* root, int sum) &#123;
+        int amount &#x3D; 0;
+        dfs(root, 0, sum, amount);
+        return amount;
+    &#125;
+    void dfs(TreeNode *root, int presum, int sum, int &amp;amount)&#123;
+        if(!root) return;
+        root-&gt;val +&#x3D; presum;
+        amount +&#x3D; ct[root-&gt;val - sum];
+
+        ++ct[root-&gt;val];
+        dfs(root-&gt;left, root-&gt;val, sum, amount);
+        dfs(root-&gt;right, root-&gt;val, sum, amount);
+        --ct[root-&gt;val];
+
+    &#125;
+    
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="面36：把二叉搜索树转化为双向链表（同链表中的内容）"><a href="#面36：把二叉搜索树转化为双向链表（同链表中的内容）" class="headerlink" title="面36：把二叉搜索树转化为双向链表（同链表中的内容）"></a>面36：把二叉搜索树转化为双向链表（同链表中的内容）</h2><h3 id="题面：-8"><a href="#题面：-8" class="headerlink" title="题面："></a>题面：</h3><p>如题，要求不创建任何新节点，只能调整树中节点的指向。输出调整后的排序链表。</p>
+<h3 id="思路：-8"><a href="#思路：-8" class="headerlink" title="思路："></a>思路：</h3><p>可以从递归的角度入手。对于一个节点<code>A</code>，中序遍历到<code>A</code>，则<code>A</code>的左子树已经转化为了链表，连接好<code>A</code>和<code>A</code>的左子树的最大节点（前一个指针）的指针则连接完成。</p>
+<p>那对于<code>A</code>的右子树的最小节点<code>B</code>与<code>A</code>之间的连接，也可以看成<code>B</code>与前一个节点的指针相互链接。那么我们只需要在中序遍历的过程中改变前一个指针的内容即可。</p>
+<p>注意一下整棵树的最大的右指针和最小节点的左指针，发现都应该是空，无需额外修改。</p>
+<blockquote>
+<p>对于一个节点<code>A</code>的左右指针，分别指向按顺序排列的旁边两个节点。可以用中序遍历来获取该节点的前一个节点<code>B</code>的指针，并设置好<code>B</code>的右指针和<code>A</code>的左指针。如此就可以在中序遍历的后设置除了最后一个节点的右指针，但是右指针本来就应该是<code>NULL</code>，所以无需修改。</p>
+</blockquote>
+<h3 id="代码：-8"><a href="#代码：-8" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void AdjustLinkCore(BinaryTreeNode* pRoot, BinaryTreeNode *&amp;preNode, BinaryTreeNode *&amp;pHead)&#123;
+    if(pRoot &#x3D;&#x3D; nullptr) return;
+  	AdjustLinkCore(pRoot-&gt;pLeft, preNode, pHead);
+
+    if(pHead &#x3D;&#x3D; nullptr) pHead &#x3D; pRoot;
+    pRoot-&gt;pLeft &#x3D; preNode;
+    if(preNode) preNode-&gt;pRight &#x3D; pRoot;
+    preNode &#x3D; pRoot;
+    
+    AdjustLinkCore(pRoot-&gt;pRight, preNode, pHead);
+&#125;
+BinaryTreeNode* AdjustLink(BinaryTreeNode* pRoot)&#123;
+    BinaryTreeNode *preNode &#x3D; nullptr;
+    BinaryTreeNode *pHead &#x3D; nullptr;
+    AdjustLinkCore(pRoot, preNode, pHead);
+    return pHead;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面36：序列化和反序列化二叉树"><a href="#面36：序列化和反序列化二叉树" class="headerlink" title="面36：序列化和反序列化二叉树"></a>面36：序列化和反序列化二叉树</h2><h3 id="题面：-9"><a href="#题面：-9" class="headerlink" title="题面："></a>题面：</h3><p>序列化定义：</p>
+<blockquote>
+<p>序列化 (Serialization)是将对象的状态信息转换为可以存储或传输的形式的过程。在序列化期间，对象将其当前状态写入到临时或持久性存储区。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。</p>
+</blockquote>
+<p>二叉树的序列化可以把非空节点的值序列化，把空节点序列化为<code>$</code>。</p>
+<h3 id="思路：-9"><a href="#思路：-9" class="headerlink" title="思路："></a>思路：</h3><p>由于序列化把空节点的信息也包含进来了，所以无需添加更多序列。</p>
+<blockquote>
+<p>这题更像流的应用题</p>
+</blockquote>
+<h3 id="代码：-9"><a href="#代码：-9" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">void Serialize(BinaryTreeNode *pRoot, ostream&amp; stream)&#123;
+    if(pRoot &#x3D;&#x3D; nullptr)&#123;
+        stream &lt;&lt; &#39;$&#39;;
+        return;
+    &#125; 
+    stream &lt;&lt; pRoot-&gt;value &lt;&lt; &#39;,&#39;;
+    Serialize(pRoot-&gt;pLeft);
+    Serialize(pRoot-&gt;pRight);    
+&#125;
+
+void Deserialize(BinaryTreeNode *&amp;pRoot, istream&amp; stream)&#123;
+	int number;
+    if(ReadSteam(stream, &amp;number))&#123;
+        pRoot &#x3D; new BinaryTreeNode();
+        pNew-&gt;pLeft &#x3D; nullptr;
+        pNew-&gt;pRight &#x3D; nullptr;
+        pNew-&gt;value &#x3D; number;
+    &#125;
+    Deserialize(pRoot-&gt;pLeft, stream);
+	Deserialize(pRoot-&gt;pRight, steam);    
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/07/shua-ti-shu-xue-mian-16-shu-zhi-de-n-ci-fang/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">面16-数值的N次方</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/08/07/shua-ti/qi-ta/mian-shi-ti-44-1-chu-xian-de-ge-shu/"><span class="level-item">面试题44：1出现的个数</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "642a134a03ccfa9d63bfe75df4f0643e",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">213</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/05/shua-ti/dp/312-burst-balloons/"><img src="http://static.come2rss.xyz/simptab-wallpaper-20201026154850.png" alt="312. Burst Balloons"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-05T06:50:56.000Z">2021-05-05</time></p><p class="title"><a href="/2021/05/05/shua-ti/dp/312-burst-balloons/">312. Burst Balloons</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">51</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#结构"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">结构</span></span></a></li></ul><li><a class="level is-mobile" href="#面7：中序遍历和前序遍历序列来重建二叉树"><span class="level-left"><span class="level-item">2</span><span class="level-item">面7：中序遍历和前序遍历序列来重建二叉树</span></span></a></li><li><a class="level is-mobile" href="#面8：二叉树的下一个节点"><span class="level-left"><span class="level-item">3</span><span class="level-item">面8：二叉树的下一个节点</span></span></a></li><li><a class="level is-mobile" href="#面26：树的子结构"><span class="level-left"><span class="level-item">4</span><span class="level-item">面26：树的子结构</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面："><span class="level-left"><span class="level-item">4.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路："><span class="level-left"><span class="level-item">4.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码："><span class="level-left"><span class="level-item">4.3</span><span class="level-item">代码：</span></span></a></li><li><a class="level is-mobile" href="#测试："><span class="level-left"><span class="level-item">4.4</span><span class="level-item">测试：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面27：翻转二叉树"><span class="level-left"><span class="level-item">5</span><span class="level-item">面27：翻转二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-1"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-1"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-1"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面28：对称二叉树"><span class="level-left"><span class="level-item">6</span><span class="level-item">面28：对称二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-2"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-2"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-2"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面32：层序遍历二叉树"><span class="level-left"><span class="level-item">7</span><span class="level-item">面32：层序遍历二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-3"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-3"><span class="level-left"><span class="level-item">7.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-3"><span class="level-left"><span class="level-item">7.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面32相关题：分行打印层序遍历二叉树"><span class="level-left"><span class="level-item">8</span><span class="level-item">面32相关题：分行打印层序遍历二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-4"><span class="level-left"><span class="level-item">8.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-4"><span class="level-left"><span class="level-item">8.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-4"><span class="level-left"><span class="level-item">8.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面32相关题：之字形打印二叉树"><span class="level-left"><span class="level-item">9</span><span class="level-item">面32相关题：之字形打印二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-5"><span class="level-left"><span class="level-item">9.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-5"><span class="level-left"><span class="level-item">9.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-5"><span class="level-left"><span class="level-item">9.3</span><span class="level-item">代码：</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#103-Binary-Tree-Zigzag-Level-Order-Traversal"><span class="level-left"><span class="level-item">9.3.1</span><span class="level-item">103. Binary Tree Zigzag Level Order Traversal</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#面33-判断后序遍历序列有效性"><span class="level-left"><span class="level-item">10</span><span class="level-item">面33:判断后序遍历序列有效性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-6"><span class="level-left"><span class="level-item">10.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-6"><span class="level-left"><span class="level-item">10.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-6"><span class="level-left"><span class="level-item">10.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面34：树的路径的元素之和"><span class="level-left"><span class="level-item">11</span><span class="level-item">面34：树的路径的元素之和</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-7"><span class="level-left"><span class="level-item">11.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-7"><span class="level-left"><span class="level-item">11.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-7"><span class="level-left"><span class="level-item">11.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#437-Path-Sum-III-路径之和"><span class="level-left"><span class="level-item">12</span><span class="level-item">437. Path Sum III 路径之和</span></span></a></li><li><a class="level is-mobile" href="#面36：把二叉搜索树转化为双向链表（同链表中的内容）"><span class="level-left"><span class="level-item">13</span><span class="level-item">面36：把二叉搜索树转化为双向链表（同链表中的内容）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-8"><span class="level-left"><span class="level-item">13.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-8"><span class="level-left"><span class="level-item">13.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-8"><span class="level-left"><span class="level-item">13.3</span><span class="level-item">代码：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#面36：序列化和反序列化二叉树"><span class="level-left"><span class="level-item">14</span><span class="level-item">面36：序列化和反序列化二叉树</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#题面：-9"><span class="level-left"><span class="level-item">14.1</span><span class="level-item">题面：</span></span></a></li><li><a class="level is-mobile" href="#思路：-9"><span class="level-left"><span class="level-item">14.2</span><span class="level-item">思路：</span></span></a></li><li><a class="level is-mobile" href="#代码：-9"><span class="level-left"><span class="level-item">14.3</span><span class="level-item">代码：</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">210</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
