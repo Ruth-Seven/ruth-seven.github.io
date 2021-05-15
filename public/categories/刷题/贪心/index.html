@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: 贪心
+ - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://blog.come2rss.xyz/"><meta property="og:site_name" content="Hexo"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.come2rss.xyz/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz"},"headline":"Hexo","image":["https://blog.come2rss.xyz/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"description":""}</script><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a></li><li class="is-active"><a href="#" aria-current="page">贪心
+</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-07T05:46:28.000Z" title="2/7/2021, 1:46:28 PM">2021-02-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-07T05:54:55.725Z" title="2/7/2021, 1:54:55 PM">2021-02-07</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/07/shua-ti-tan-xin-5674-largest-merge-of-two-strings/">5674. Largest Merge Of Two Strings</a></h1><div class="content"><p>周赛的题目3</p>
+<h2 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h2><p>明显是贪心，但我贪错了！</p>
+<p>一开始想着比较两个字符创的开头字符，选择字典序大的字符加入。如果两个字符相等就放着比较下一个，直到有不同的就可以全部加入。然后wa了4发。</p>
+<p>正确的思路是：比较剩下的字符串，选择字典序大的字符创的的首个字符加入即可。</p></div><a class="article-more button is-small is-size-7" href="/2021/02/07/shua-ti-tan-xin-5674-largest-merge-of-two-strings/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-05T12:38:14.000Z" title="2/5/2021, 8:38:14 PM">2021-02-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-05T12:39:48.976Z" title="2/5/2021, 8:39:48 PM">2021-02-05</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/05/shua-ti-tan-xin-870-advantage-shuffle/">870. Advantage Shuffle</a></h1><div class="content"><h1 id="870-Advantage-Shuffle"><a href="#870-Advantage-Shuffle" class="headerlink" title="870. Advantage Shuffle"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/advantage-shuffle/">870. Advantage Shuffle</a></h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一看就是贪心</p>
+<p>从小到大逐个寻找B的牌<code>b</code>，找出一个刚刚好比<code>b</code>大的在A中的牌<code>a</code>。因为<code>a</code>刚刚比<code>b</code>大，所以最优。找出后，加入映射，最后重构数组即可。</div><a class="article-more button is-small is-size-7" href="/2021/02/05/shua-ti-tan-xin-870-advantage-shuffle/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-16T05:47:28.000Z" title="10/16/2020, 1:47:28 PM">2020-10-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.829Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/10/16/shua-ti-tan-xin-665-non-decreasing-array/">665. Non-decreasing Array</a></h1><div class="content"><span id="more"></span>
+
+
+
+<h4 id="665-Non-decreasing-Array"><a href="#665-Non-decreasing-Array" class="headerlink" title="665. Non-decreasing Array"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/non-decreasing-array/">665. Non-decreasing Array</a></h4><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>对于任意一个$A[i]&gt;A[i+1]$，$A[i]$和$A[i+1]$分别代表两个non-decreasing array，而合并两个的方法只有：<code>A[i] = A[i - 1]</code>和<code>A[i +1 ] = A[i + 2]</code>。</p>
+<p>接下来只需要讨论边界条件和合并次数即可。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">
+class Solution &#123;
+public:
+    bool checkPossibility(vector&lt;int&gt;&amp; nums) &#123;
+        int ansnum &#x3D; 0;
+        int n &#x3D; nums.size();
+        for(int i &#x3D; 0; i &lt; n - 1; ++i)&#123;
+            if(nums[i] &gt; nums[i + 1])&#123;
+                if(i &#x3D;&#x3D;0 || nums[i - 1] &lt;&#x3D; nums[i + 1] || i &#x3D;&#x3D; n - 2 || nums[i] &lt;&#x3D; nums[i + 2])&#123;
+                    ansnum++;
+                    if(ansnum &gt; 1) return false;
+                &#125;   
+                else return false;
+                    
+            &#125;
+        &#125;
+        return true;;;;;;;;;;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-14T00:26:06.000Z" title="10/14/2020, 8:26:06 AM">2020-10-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/10/14/shua-ti-tan-xin-763-partition-labels/">763. Partition Labels</a></h1><div class="content"><span id="more"></span>
+
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>题目不错，贪心到最晚出现的字符就行了。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">
+class Solution &#123;
+public:
+    vector&lt;int&gt; partitionLabels(string S) &#123;
+        int vis[26] &#x3D; &#123;0&#125;, num[26] &#x3D; &#123;0&#125;;
+        vector&lt;int&gt; par;
+        int k &#x3D; 0, n &#x3D; S.size(), last &#x3D; -1;
+        
+        for(int i &#x3D; 0; i &lt; n; ++i)
+            num[S[i] - &#39;a&#39;]++;
+
+        while(k &lt; n)&#123;
+            memset(vis, 0, sizeof(vis));
+            for(k; k &lt; n; ++k)&#123;                
+                int idx &#x3D; S[k] - &#39;a&#39;;
+                vis[idx]++;
+                int flag &#x3D; 0;
+                if(vis[idx] &#x3D;&#x3D; num[idx] )&#123;
+                    for(int j &#x3D; 0; j &lt; 26; ++j)&#123;                        
+                        if(vis[j] &amp;&amp; vis[j] !&#x3D; num[j])&#123;
+                            flag &#x3D; 1;
+                            break;
+                        &#125;
+                    &#125;
+                    if(!flag)&#123;
+                        break;
+                    &#125;
+                &#125;
+            &#125;
+            par.push_back(k - last);
+            last &#x3D; k;
+            k++;
+        &#125;
+        return par;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p>py版：实现更优雅</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+class Solution(object):
+    def partitionLabels(self, S):
+        last &#x3D; &#123;c: i for i, c in enumerate(S)&#125;
+        j &#x3D; anchor &#x3D; 0
+        ans &#x3D; []
+        for i, c in enumerate(S):
+            j &#x3D; max(j, last[c])
+            if i &#x3D;&#x3D; j:
+                ans.append(i - anchor + 1)
+                anchor &#x3D; i + 1
+            
+        return ans
+
+作者：LeetCode
+链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;partition-labels&#x2F;solution&#x2F;hua-fen-zi-mu-qu-jian-by-leetcode&#x2F;
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-13T00:26:09.000Z" title="10/13/2020, 8:26:09 AM">2020-10-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.829Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/10/13/shua-ti-tan-xin-452-minimum-number-of-arrows-to-burst-balloons/">452. Minimum Number of Arrows to Burst Balloons</a></h1><div class="content"><h4 id="452-Minimum-Number-of-Arrows-to-Burst-Balloons"><a href="#452-Minimum-Number-of-Arrows-to-Burst-Balloons" class="headerlink" title="452. Minimum Number of Arrows to Burst Balloons"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/">452. Minimum Number of Arrows to Burst Balloons</a></h4><p>类似于leetcode435贪心题</p></div><a class="article-more button is-small is-size-7" href="/2020/10/13/shua-ti-tan-xin-452-minimum-number-of-arrows-to-burst-balloons/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-12T01:19:14.000Z" title="10/12/2020, 9:19:14 AM">2020-10-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/10/12/shua-ti-tan-xin-435-non-overlapping-intervals/">435. Non-overlapping Intervals</a></h1><div class="content"><p>还是蛮经典的题，想了想就出来了。</p></div><a class="article-more button is-small is-size-7" href="/2020/10/12/shua-ti-tan-xin-435-non-overlapping-intervals/#more">Read more</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-09T00:14:33.000Z" title="10/9/2020, 8:14:33 AM">2020-10-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/10/09/shua-ti-tan-xin-455-assign-cookies/">455. Assign Cookies</a></h1><div class="content"><span id="more"></span>
+
+<h4 id="455-Assign-Cookies"><a href="#455-Assign-Cookies" class="headerlink" title="455. Assign Cookies"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/assign-cookies/">455. Assign Cookies</a></h4><p>贪心 + 二分</p>
+<!--more-->
+
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>贪心</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    int findContentChildren(vector&lt;int&gt;&amp; g, vector&lt;int&gt;&amp; s) &#123;
+            sort(g.begin(), g.end(), less&lt;int&gt;());
+            sort(s.begin(), s.end(), less&lt;int&gt;());
+            vector&lt;bool&gt; vis(s.size(), 0);
+            int ans &#x3D; 0;
+            for(int i &#x3D; 0; i &lt; g.size(); ++i)&#123;
+                int l &#x3D; 0, r &#x3D; s.size(), mid;
+                while(l &lt; r)&#123;
+                    mid &#x3D; (l + r) &#x2F; 2;
+                    if(s[mid] &gt;&#x3D; g[i]) r &#x3D; mid;
+                    else l &#x3D; mid + 1;
+                    
+                &#125;
+                mid &#x3D; r;
+                while(mid &lt; s.size() &amp;&amp; vis[mid]) ++mid;
+                if(mid &lt; s.size())&#123;
+                    vis[mid] &#x3D; 1;
+                    ++ans;
+
+                &#125;
+                
+            &#125;        
+            return ans;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>错误之处：</p>
+<ul>
+<li>sort的默认按升序拍戏，使用<code>greater</code>按降序排序</li>
+<li>二分后mid为暂存值，lr才是最后目的地。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T06:14:08.000Z" title="8/7/2020, 2:14:08 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:04:37.839Z" title="1/28/2021, 10:04:37 PM">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span> / </span><a class="link-muted" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/">贪心
+</a></span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2020/08/07/shua-ti-tan-xin-mian-shi-ti-dp-tan-xin/">面试题 DP 贪心</a></h1><div class="content"><span id="more"></span>
+
+<p>收集贪心、DP面试题</p>
+<h2 id="面14：剪绳子"><a href="#面14：剪绳子" class="headerlink" title="面14：剪绳子"></a>面14：剪绳子</h2><h3 id="题面："><a href="#题面：" class="headerlink" title="题面："></a>题面：</h3><p>将一串长为<code>K</code>的绳子剪成<code>m</code>（<code>m&gt;=2</code>，各段长度取整数值）段，各段的长度大于<code>0</code>，求出最大的各段绳子长度之积。</p>
+<h3 id="思路1："><a href="#思路1：" class="headerlink" title="思路1："></a>思路1：</h3><p>由乘法交换律可知绳子的乘积可以分解，提取出来。所以有<code>f(m+n)=f(n)*f(m)</code>，其中<code>f(n)</code>是长度<code>n</code>的绳子的最大乘积。分析具体问题可以了解到初始条件比较特殊，它对于小数字来说，分解还不如其本身大，所以定义边界条件<code>f(1) = 1, f(2) = 2, f(3) = 3</code>。同时在DP表示式为：</p>
+<p>f(n)=maxif(n−i)∗f(i)f(n)=maxif(n−i)∗f(i)</p>
+<p>所以时间复杂度为O(N2)O(N2)，空间复杂度为O(N)O(N)。</p>
+<h3 id="思路2："><a href="#思路2：" class="headerlink" title="思路2："></a>思路2：</h3><p>另一种就是贪心，对于长度<code>m</code>大于5的绳子尽可能的剪成长度为3的绳子，同时如果<code>m%3==1</code>，那么就少剪一段绳子，剪成两段长为2的绳子。证明如下:<br>$$<br>if \ n \geq 5<br><br>3*(n-3) \geq n<br><br>2*(n-2) \geq n<br><br>3*(n -3 ) \geq 2*(n-2)<br>$$</p>
+<h3 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h3><pre class="line-numbers language-none"><code class="language-none">2
+2
+,
+3
+2
+,
+5
+6
+,
+6
+9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><p><strong>DP</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_DP(int length)&#123;
+    if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int* products &#x3D; new int[length + 1];
+    &#x2F;&#x2F;初试条件比较特殊，小于4的大于1的数的分段乘积不如其本身大
+    products[0] &#x3D; 0;
+    products[1] &#x3D; 1;
+    products[2] &#x3D; 2;
+    products[3] &#x3D; 3;
+    for(int i &#x3D; 4; i &lt;&#x3D; length; i++)&#123;
+        int mavV &#x3D; 0;
+        for(int j &#x3D; 1; j &lt;&#x3D; i &#x2F; 2; j++)&#123;
+            maxV &#x3D; max(maxV, products[i - j] * products[j]);
+        &#125;
+        products[i] &#x3D; maxv;
+    &#125;
+    int res &#x3D; products[length];
+    &#x2F;&#x2F;防止内存泄漏
+    del[] products;
+    return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>贪心</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">int maxProduct_greedy(int length)&#123;
+ if(length &lt; 2) return 0;
+	if(length &#x3D;&#x3D; 2) return 1;
+    if(length &#x3D;&#x3D; 3) return 2;
+    int timesOf3 &#x3D; length &#x2F; 3;
+    if(legnth % 3 &#x3D;&#x3D; 1) timesOf3 -&#x3D; 1;
+    int timesOf2 &#x3D; (length - timesOf3 * 3) &#x2F; 2;
+    return (int)pow(3, timeOf3) * (int)pow(2, timesOf2);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面42：最大子数组和"><a href="#面42：最大子数组和" class="headerlink" title="面42：最大子数组和"></a>面42：最大子数组和</h2><h3 id="题面：-1"><a href="#题面：-1" class="headerlink" title="题面："></a>题面：</h3><p>如题</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>DP思想。数组之间的选择与历史无关，可以采取DP的方法。记<code>f(i)</code>为以<code>A[i]</code>为结尾的最大数组和。转移方程为：</p>
+<p>f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0f(i)={A[i],if f(i-1)&lt;0 A[i]+f(i−1),if f(i-1)&gt;0</p>
+<p>当然也可以直接从数据的角度理解，代码都是相同的。</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSumOfSubArray(int A[], int length)&#123;
+    int dp[] &#x3D; new int(length);
+	int maxSum &#x3D; A[0];
+    dp[0] &#x3D; A[0];   
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+        dp[i] &#x3D; max(A[i], A[i] + dp[i-1]);
+        maxSum &#x3D; max(dp[i], maxSum);
+    &#125;
+    delete[] dp;
+    return maxSum;
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>当然这里的dp数组也可以不要。</p>
+</blockquote>
+<h2 id="面45：把数字排成最小的数字"><a href="#面45：把数字排成最小的数字" class="headerlink" title="面45：把数字排成最小的数字"></a>面45：把数字排成最小的数字</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>给定一串数字，组合成的一个数字。求出组合后最小数字的</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>可以直接贪心+反证。按字典序排序数字即可。</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><p>就不写了，直接string排序输出即可。</p>
+<h2 id="面46：数字翻译成字符串"><a href="#面46：数字翻译成字符串" class="headerlink" title="面46：数字翻译成字符串"></a>面46：数字翻译成字符串</h2><h3 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h3><p>把一串数字翻译成数字对应的字母，并按原顺序组成字符串。由于数字分裂的不同，翻译方法有许多，求出翻译的方法的个数。</p>
+<h3 id="思路：-2"><a href="#思路：-2" class="headerlink" title="思路："></a>思路：</h3><p>第一种就是直接递归分割字符串。显然有子问题重叠的现象，可以考虑使用DP。</p>
+<p>第二种用DP思想，考虑<code>dp[i]</code>为从<code>0</code>到<code>i</code>的字符串翻译方法。状态转移方程为：</p>
+<p>dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else dp[i]={dp[i−1],if 10&lt;=S[i-1] *10 + S[i] &lt;26 dp[i−1]+dp[i−2],else </p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int GetTranslateCount(int A[], int length)&#123;
+    if(A &#x3D;&#x3D; nullptr || length &lt;&#x3D; 0) return 0;
+    int dp[] &#x3D; new int(length);
+    dp[0] &#x3D; 1;
+    for(int i &#x3D; 1; i &lt; length; i++)&#123;
+		int add &#x3D; A[i - 1] * 10 + A[i];
+        if( add &gt; 9 &amp;&amp; add &lt; 26)&#123;
+            if(i &lt; 2) dp &#x3D; dp[i - 1] + 1;
+            else dp[i] &#x3D; dp[i - 1] + dp[i - 2];
+        &#125; 
+        else dp[i] &#x3D; dp[i - 1];
+    &#125;
+    delete[] dp;
+    return dp[length - 1];    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="面47：礼物的最大价值"><a href="#面47：礼物的最大价值" class="headerlink" title="面47：礼物的最大价值"></a>面47：礼物的最大价值</h2><h3 id="题目：-2"><a href="#题目：-2" class="headerlink" title="题目："></a>题目：</h3><p>从一在格子上装满礼物的<code>m*n</code>的矩形棋盘上，从左上角向下或者向右移动一格到右下角，求出路径上礼物价值的最大值。</p>
+<h3 id="思路：-3"><a href="#思路：-3" class="headerlink" title="思路："></a>思路：</h3><p>明显就是DP</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><p>不写了。</p>
+<h2 id="面48：最长不含重复字符的子字符串"><a href="#面48：最长不含重复字符的子字符串" class="headerlink" title="面48：最长不含重复字符的子字符串"></a>面48：最长不含重复字符的子字符串</h2><h3 id="题目：-3"><a href="#题目：-3" class="headerlink" title="题目："></a>题目：</h3><p>如题</p>
+<h3 id="思路：-4"><a href="#思路：-4" class="headerlink" title="思路："></a>思路：</h3><p>暴力不可取。</p>
+<p>采用用DP思想，考虑<code>dp[i]</code>为以<code>S[i]</code>为结尾的最长不重复字符串。一个不含重复字符的字符串可以在由另一个不同的字符组成另一个不含重复字符的字符串。可以在dp过程中，记录下最新的字符的位置POS，判断<code>S[i]</code>的前一个相同字符是否在上一个<code>S[i-1]</code>为结尾的最长不重复字符串之内。记上一个字符与<code>S[i-1]</code>的长度<code>d</code>为<code>i - POS</code>。</p>
+<p>状态转移方程为：</p>
+<p>dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else dp[i]={dp[i−1]+1,if d &gt; dp[i - 1] d,else </p>
+<h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><pre class="line-numbers language-none"><code class="language-none">int MaxSubStr(String s)&#123;
+    int dp[] &#x3D; new int(s.length());
+    int pos[26];
+    for(int i &#x3D; 0; i &lt; 26; i++) pos[[i] &#x3D; -1;
+	
+	int maxL &#x3D; 1;
+	dp[0] &#x3D; 1;
+	for(int i &#x3D; 1; i &lt; s.length(); i++)&#123;
+		int d &#x3D; i - pos[s[i] - &#39;a&#39;];
+        if(dp[i - 1] &lt; d)&#123;
+            dp[i] &#x3D; dp[i - 1] + 1;
+        &#125;else dp[i] &#x3D; d;
+        maxL &#x3D; max(maxL, dp[i]);
+        pos[s[i] - &#39;a&#39;] &#x3D; i;
+    &#125;
+	delete[] dp;    
+   return maxL;            
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">213</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/05/shua-ti/dp/312-burst-balloons/"><img src="http://static.come2rss.xyz/simptab-wallpaper-20201026154850.png" alt="312. Burst Balloons"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-05T06:50:56.000Z">2021-05-05</time></p><p class="title"><a href="/2021/05/05/shua-ti/dp/312-burst-balloons/">312. Burst Balloons</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">51</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">25</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li></ul></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">210</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
