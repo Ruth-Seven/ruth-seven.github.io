@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>数据库管理复习梗概 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="参考书籍：《数据库系统教程》3Ed. 施伯乐 基本概念概览 数据库（DateBase，DB）：长期存储在计算机内的数据集合  数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。  数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。  实体联系（Entity Relationship，"><meta property="og:type" content="blog"><meta property="og:title" content="数据库管理复习梗概"><meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="参考书籍：《数据库系统教程》3Ed. 施伯乐 基本概念概览 数据库（DateBase，DB）：长期存储在计算机内的数据集合  数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。  数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。  实体联系（Entity Relationship，"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-07T04:22:24.000Z"><meta property="article:modified_time" content="2021-05-26T01:21:56.000Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-07T04:22:24.000Z","dateModified":"2021-05-26T01:21:56.000Z","author":{"@type":"Person","name":"John Doe"},"description":"参考书籍：《数据库系统教程》3Ed. 施伯乐 基本概念概览 数据库（DateBase，DB）：长期存储在计算机内的数据集合  数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。  数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。  实体联系（Entity Relationship，"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/cs/db/shu-ju-ku-guan-li-fu-xi-geng-gai/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T04:22:24.000Z" title="8/7/2020, 12:22:24 PM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-05-26T01:21:56.000Z" title="5/26/2021, 9:21:56 AM">2021-05-26</time></span><span class="level-item"><a class="link-muted" href="/categories/CS/">CS</a><span> / </span><a class="link-muted" href="/categories/CS/DB/">DB</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">数据库管理复习梗概</h1><div class="content"><p>参考书籍：《数据库系统教程》3Ed. 施伯乐</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><ul>
+<li><p>数据库（DateBase，DB）：长期存储在计算机内的数据集合</p>
+</li>
+<li><p>数据库管理系统（DataBase Mangement System, DBMS）：管理数据库的软件，其操作包括CRUD。</p>
+</li>
+<li><p>数据库系统（DataBase System，DBS）：由计算机软硬件和数据资源组成的计算机系统。</p>
+</li>
+<li><p>实体联系（Entity Relationship，ER）模型：对实体和实体之间关系的抽象。</p>
+</li>
+<li><p>概念模型：对用户需要的建模，往往建立出了ER模型。</p>
+</li>
+<li><p>逻辑模型：表达了数据库整体逻辑的模型。最重要的是关系模型，对象模型，还包括层次模型、网状模型。</p>
+</li>
+<li><p>逻辑独立性：应用程序与数据库的逻辑结构保持独立，即数据库的逻辑结构由DBMS即使变化了，应用程序也无需变化。</p>
+</li>
+<li><p>物理独立性：应用程序与数据库的物理结构保持独立，即数据库在磁盘的保存格式有数据库管理系统设置，应用程序无需关注数据库的物理结构。</p>
+<blockquote>
+<p>两种独立性都是将数据在磁盘中的定义和存储格式独立分离出去，因而简化应用程序编程，减少了程序维护和修改。</p>
+</blockquote>
+<h3 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h3></li>
+<li><p>关系模型：简单理解为一个二维表格</p>
+</li>
+<li><p>子模式：用户需要用到数据的描述（？）</p>
+<ul>
+<li>记录\元祖：表格中的一行数据</li>
+<li>关系\实例：元祖的集合</li>
+<li>字段\属性：表的一列的<strong>列本身</strong></li>
+<li>元数：属性的个数</li>
+<li>基数：元祖个数</li>
+</ul>
+</li>
+<li><p>关键码\key\键：字段或者字段的集合</p>
+<ul>
+<li>超键（super key）：可以唯一标识元祖的键</li>
+<li>候选键（Candidate key）：不含多余属性的超键</li>
+<li>主键（Primary key）：用户选择的候选键</li>
+<li>外键（Foreign key）：其他关系模型的主键</li>
+</ul>
+</li>
+<li><p>完全性规则（*表示省略相同成分）：</p>
+<ul>
+<li>实体：主键不可缺</li>
+<li>参照：外键指向的元祖不可空</li>
+<li>用户：用户可自己定义完整性</li>
+</ul>
+</li>
+<li><p>关系代数</p>
+<ul>
+<li>并：两个关系模型的去重合并</li>
+<li>差：关系模型AB相减</li>
+<li>笛卡尔积：两个关系模型的全排列</li>
+<li>投影：选择一个关系模型若干列</li>
+<li>选择：选择一个关系模型的若干行</li>
+<li>————</li>
+<li>交：求两个关系模型的公共元祖</li>
+<li>连接：筛选出符合条件的两个模型的笛卡尔积</li>
+<li>自然连接：条件是公共字段相同的连接，并去除公共字段</li>
+<li>除法：A/B即尽可能 包含了所有B字段的且除了B字段A字段值相同的元祖集合。（简要的记忆为寻找公因数）</li>
+<li>————</li>
+<li>改名</li>
+<li>广义投影：允许投影中使用算术运算</li>
+<li>外连接：就是把自然连接过程中丢失的元祖加以填充空值（NULL）并加入自然连接的结果</li>
+<li>左（右）外连接：类似于外连接，就是把单单是左（右）边的模型丢弃掉的元祖加入</li>
+<li>半连接：自然连接后投影到一个关系模型（不残缺的那边）上</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><ul>
+<li>基本表：关系模式<ul>
+<li>表的三种类型：<ul>
+<li>基本表：实际存储在数据库中的表</li>
+<li>视图：若干表和其他视图组成的表的定义，在用户面前都是一样的</li>
+<li>导出表：查询导出的表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储文件：存储模式（文件存储的方式）</li>
+<li>视图：子模式</li>
+<li>行：元祖</li>
+<li>列：属性</li>
+<li>SQL模式（schema）：<strong>表</strong>和<strong>约束</strong>的<strong>集合</strong>（可能有多个表）</li>
+</ul>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p><strong>模式创建</strong>：<code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
+<p><strong>模式撤销</strong>：<code>DROP SCHEMA &lt;模式名&gt; [CASCADE | RESTRICT]</code> ; <code>CASCADE</code>即级联式，撤销下属的模式中所有的基本表、视图、索引；<code>RESTRICT</code>即约束式，仅当模式不存在任何下属元素才允许撤销；（<code>SCHEMA</code>可以替换为<code>DATABASE</code>）</p>
+<p><strong>添加自定义类型</strong>：<code>CREATE DOMAIN &lt;YOUR_DOMAIN&gt; CHAR(8)</code>这里把<code>CHAR(8)</code>定义成了自定义的domain名，可直接使用</p>
+<p><strong>创建基本表</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE &lt;基本表名&gt;
+	(
+      --列表类型
+      T#  CHAR(4) NOT NULL, --默认允许空值（与主键定义冗余）
+	 TITLE CHAR(10), 
+     -- 完整性约束
+	 PRIMARY KEY(T#)    -- 定义主键
+     FOREIGN KEY(C#) REFERENCES S(C#) --定义外键为C#，且对应S表的主键C#
+    
+	);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>插入数据：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">INSRET<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>修改基本表：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">--增加表的列
+ALTER TABLE &lt;基本表名&gt; ADD  &lt;列名&gt; &lt;类型&gt;
+--删除表的列
+ALTER TABLE &lt;基本表名&gt; DROP &lt;列名&gt; [CASCADE | RESTRICT ]
+	-- CASCADE表明删除列的同时删除所有使用该列约束和视图
+--修改列形状
+ALTER TABLE &lt;基本表名&gt; MODIFY   &lt;列名&gt; &lt;类型&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>撤销基本表：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">DROP TABLE &lt;基本表名&gt; [ CASCADE| RESTRICT] --同理<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>索引：？？</p>
+<p><strong>数据查询：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">--- 基本sql查询语句
+SELECT 属性1,属性2.....属性n 
+FROM 表1,表2......表N
+WHERE 关系表达式
+
+---sql语句之间可以使用UNION（并） \ INTERSECT（交） \ EXCEPT（差）
+
+
+----嵌套查询，括号中的子查询优先进行
+SELECT 属性1,属性2.....属性n 
+FROM 表1,表2......表N
+WHERE 关系表达式 IN (
+	SQL查询语句
+	)
+	---嵌套查询的速度往往比笛卡尔积的运算速度快<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>待补充：更复杂的还有相关子查询（。。）、where使用的运算符,以及（P85~P101）</strong></p>
+<hr>
+<h2 id="关系数据库的规范设计"><a href="#关系数据库的规范设计" class="headerlink" title="关系数据库的规范设计"></a>关系数据库的规范设计</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>函数依赖（FD，Functional Dependency）：</strong>当一个基本表中的属性集Y是属性集X的”函数值”(即X的值可以确定出唯一的Y)，就说明了X-&gt;Y,或者说Y依赖于X，这个基本表存在函数依赖。</p>
+<p>（函数蕴涵P120）</p>
+<p><strong>逻辑蕴涵：</strong>若函数依赖集合F中存在的FD X→YX→Y和Y→ZY→Z，存在X→ZX→Z成立，则可称为F逻辑蕴涵X→ZX→Z 。</p>
+<p><strong>闭包：</strong> 就是函数依赖集上FF所有函数依赖和逻辑蕴涵推出来的依赖关系的完整集合，即为F+F+ 闭包。</p>
+<p><strong>FD推理规则：</strong> A→BA→B</p>
+<ul>
+<li>自反性：AA自身能确定出自身的子集，这样推导出来的FD也称<strong>平凡的FD</strong></li>
+<li>增广性：依赖两边可以同时增加变量</li>
+<li>传递性：可传递（逻辑蕴涵）</li>
+<li>————</li>
+<li>合并性：同时能推导出两个结果BCBC，就能推导出两个结果的和B,CB,C</li>
+<li>分解性：与合并性相反，是将结果BCBC拆分成两个B,CB,C</li>
+<li>伪传递性：传递过程中需要添加一个因素，X→Y,YZ→WX→Y,YZ→W 等价于XZ→WXZ→W</li>
+<li>复合型：两个FD可以两边组成成一个FD</li>
+<li>————</li>
+<li>可以使用FD的定义来定义超键和候选键</li>
+</ul>
+<p>当函数依赖集的闭包相等时，函数依赖集<strong>等价</strong>。可定义最难小函数依赖集：</p>
+<ul>
+<li>FD右边都是单属性；</li>
+<li>无冗余FD</li>
+<li>FD的左边的属性集不是冗余的（子集无法代替集</li>
+</ul>
+<p><strong>求出R的最小依赖集算法</strong></p>
+<ol>
+<li>分解FD的右边属性集，并去重</li>
+<li>消除左边冗余的FD</li>
+<li>消除R中冗余FD</li>
+</ol>
+<p>模式分解特性</p>
+<p><strong>无损分解：</strong>把数据库模式分解为多个模式，并将分解的模式全部自然连接发现多出了元祖（<strong>寄生元祖</strong>）（也就是有损分解，实际上是信息的丢失，信息论！不确定性越大，信息量越小）。反之如果元祖不多不少就是无损分解。</p>
+<blockquote>
+<p>上述讨论中假设模式存在一个“范关系”rr，可以分解为多个子关系rkrk。</p>
+<p>当然也存在不存在范关系的rr，在连接过程中某个riri子关系的元祖会被丢失掉，这个被称为破环范关系的<strong>悬挂元祖</strong></p>
+</blockquote>
+<p><strong>依赖保持：</strong>就是分解的模式中的依赖的并与原模式的依赖等价。</p>
+<p>无损分解的测试方法：略（p128）</p>
+<p>保持函数依赖的分解：略（p129）</p>
+<h3 id="关系模式的范式"><a href="#关系模式的范式" class="headerlink" title="关系模式的范式"></a>关系模式的范式</h3><p><strong>第一范式：</strong>关系模式的R的关系r的属性值都是不可分的单一的（反例“AB”）</p>
+<p><strong>第二范式：</strong>每个非主属性完全依赖于候选键（挺严格的）。不完全依赖也就是局部依赖意味着A→BA→B 这个条件存在BB依赖于AA的一个子集，（注意这个FD推理规则A1不一样）</p>
+<blockquote>
+<p>主属性：关系模式中R的候选键中的属性</p>
+<p>化解成第二范式的算法：将一个局部依赖X→YX→Y的属性XYXY提出来形成一个关系，同时在原有属性集UU形成一个新的关系U−YU−Y；重复上述动作直到没有局部依赖。</p>
+</blockquote>
+<p><strong>第三范式：</strong>每个非主属性都不传递依赖与候选键，即为第三范式</p>
+<blockquote>
+<p>传递依赖就是：X→Y,Y→ZX→Y,Y→Z 且X不依赖与Y，Z不是Y的子集</p>
+</blockquote>
+<p><strong>BC范式：</strong> 每个主属性不都传递依赖于候选键，则为BC范式。（相比于第三范式排除了主属性对候选键的传递依赖）</p>
+<p>分解方法：略（p134）</p>
+<hr>
+<h2 id="数据库设计和ER模式"><a href="#数据库设计和ER模式" class="headerlink" title="数据库设计和ER模式"></a>数据库设计和ER模式</h2><h3 id="数据库设计过程："><a href="#数据库设计过程：" class="headerlink" title="数据库设计过程："></a>数据库设计过程：</h3><ol>
+<li>规划：调查、可行性分析等</li>
+<li>需求分析：分析用户活动，系统范围，分数用户数据，数据流图；数据字典(描述数据)</li>
+<li>概念设计：数据抽象设计局部概念模型和全局概念模型（比如ER）</li>
+<li>逻辑设计：把上一步概念模型转化符合具体DBMS的逻辑模型，比如关系模型；设计外模型（api接口）；评价模型；修正模型</li>
+<li>物理设计：存储记录结构设计；确定存储位置；完全性和安全性考虑；</li>
+</ol>
+<h3 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h3><p><strong>组成结构：</strong></p>
+<ul>
+<li>实体：数据对象</li>
+<li>联系：实体之间的关系<ul>
+<li>元数\度数（degree）：联系所涉及的实体个数</li>
+<li>数值约束：<ul>
+<li>（x,y）表示该实体的联系的<strong>另一方</strong>的数量限制</li>
+<li>N或者：表示对实体在联系中的<strong>映射数量关系</strong></li>
+</ul>
+</li>
+<li>参与约束：<ul>
+<li>双直线：完全参数该联系</li>
+<li>单直线：部分参与该联系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性：实体的特征<ul>
+<li>简单属性和复合属性：在于可不可分</li>
+<li>单值和多值属性：在于可不可同时取多个值<ul>
+<li>替换：<ul>
+<li>多值属性替换为一个新的实体类型</li>
+<li>用多个单值属性代替</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>ER转关系模型的算法：</strong></p>
+<ol>
+<li>实体直接转化为一个关系</li>
+<li>关系的转化方法<ol>
+<li>一元关系直接转化属性</li>
+<li>1：1关系转化为一个实体的外键和属性</li>
+<li>1：N关系转化”N处”实体的外键和属性</li>
+<li>N:M关系转化为两个实体的主键和一个属性</li>
+<li>————</li>
+<li>三元关系可类比二元关系的转化方法（太无聊了不看了）</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="数据库存储结构"><a href="#数据库存储结构" class="headerlink" title="数据库存储结构"></a>数据库存储结构</h2><h4 id="文件组织"><a href="#文件组织" class="headerlink" title="文件组织"></a>文件组织</h4><p>定长存储：连接方法和顺序方法</p>
+<p>不定长存储解决方案：</p>
+<ul>
+<li><p>字符串表示形式：分槽式页结构（定长的首部顺序排列并记录剩余数据的其实起始地址，不定长的二进制数据从低端生长）</p>
+</li>
+<li><p>变长记录的定长表现形式：预留空间、固定块的溢出块相补充、定长块的连接形式（p187）</p>
+<p>(不想看了555)</p>
+</li>
+</ul>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/07/cs/ds/er-cha-shu-ji-he/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">二叉树集合</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/08/07/cs/csapp/csapp-bi-ji-2/"><span class="level-item">CSAPP笔记2</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "b6bcee8c3710a4dc79f3d8862dbd9b1e",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">274</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/26/zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-26T00:40:43.000Z">2021-05-26</time></p><p class="title"><a href="/2021/05/26/zui-da-zi-ju-zhen/">最大子矩阵</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#基本概念"><span class="level-left"><span class="level-item">1</span><span class="level-item">基本概念</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#概览"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">概览</span></span></a></li><li><a class="level is-mobile" href="#关系模型"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">关系模型</span></span></a></li></ul></li><li><a class="level is-mobile" href="#SQL语句"><span class="level-left"><span class="level-item">2</span><span class="level-item">SQL语句</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#术语"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">术语</span></span></a></li><li><a class="level is-mobile" href="#操作"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">操作</span></span></a></li></ul></li><li><a class="level is-mobile" href="#关系数据库的规范设计"><span class="level-left"><span class="level-item">3</span><span class="level-item">关系数据库的规范设计</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基本概念-1"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">基本概念</span></span></a></li><li><a class="level is-mobile" href="#关系模式的范式"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">关系模式的范式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#数据库设计和ER模式"><span class="level-left"><span class="level-item">4</span><span class="level-item">数据库设计和ER模式</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#数据库设计过程："><span class="level-left"><span class="level-item">4.1</span><span class="level-item">数据库设计过程：</span></span></a></li><li><a class="level is-mobile" href="#ER图"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">ER图</span></span></a></li></ul></li><li><a class="level is-mobile" href="#数据库存储结构"><span class="level-left"><span class="level-item">5</span><span class="level-item">数据库存储结构</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#文件组织"><span class="level-left"><span class="level-item">5.1.1</span><span class="level-item">文件组织</span></span></a></li></ul></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">211</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
+  
+  <link href="https://blog.come2rss.xyz/"/>
+  <updated>2021-05-26T01:21:56.010Z</updated>
+  <id>https://blog.come2rss.xyz/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最大子矩阵</title>
+    <link href="https://blog.come2rss.xyz/2021/05/26/zui-da-zi-ju-zhen/"/>
+    <id>https://blog.come2rss.xyz/2021/05/26/zui-da-zi-ju-zhen/</id>
+    <published>2021-05-26T00:40:43.000Z</published>
+    <updated>2021-05-26T01:21:56.010Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;类似于面试题17.24；&lt;/p&gt;
+&lt;p&gt;不过是每个单元的元素只是一，可以把问题转化为求取面积。&lt;/p&gt;
+&lt;p&gt;直接用单调栈求取从一个柱子可扩展的的最大面积即可。&lt;/p&gt;
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试题 17.24. 最大子矩阵</title>
+    <link href="https://blog.come2rss.xyz/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"/>
+    <id>https://blog.come2rss.xyz/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/</id>
+    <published>2021-05-10T01:36:53.000Z</published>
+    <updated>2021-05-26T01:21:56.010Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;面试题-17-24-最大子矩阵&quot;&gt;&lt;a href=&quot;#面试题-17-24-最大子矩阵&quot; class=&quot;headerlink&quot; title=&quot;面试题 17.24. 最大子矩阵&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/max-submatrix-lcci/&quot;&gt;面试题 17.24. 最大子矩阵&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;本题是最大连续子数组的二维follow up.&lt;/p&gt;
+&lt;p&gt;一维情况下，可以直接使用多种算法求解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;累加数组+二维搜索左右边界， $O(N^2)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;二维搜索左右边界同时累加数字，$O(N^2)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;分治算法，把问题&lt;code&gt;maxarr(i, j)&lt;/code&gt;分解为&lt;code&gt;maxarr(i, mid)&lt;/code&gt;和&lt;code&gt;maxarr(mid + 1, j)&lt;/code&gt;。其中子数组可能在左右两端数组中或者横跨两个段，所以从中间向两边搜索最大连续数组和&lt;code&gt;Sum1&lt;/code&gt;，如此解决了一个基本问题，并且递归的将小问题解决，获取总的问题的解。$O(NLogN)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;线段树做法，同样也是分治的思想，但是考虑的更多。&lt;code&gt;maxarr(i, j)&lt;/code&gt;分解为&lt;code&gt;maxarr(i, mid)&lt;/code&gt;和&lt;code&gt;maxarr(mid + 1, j)&lt;/code&gt;。基本问题是&lt;code&gt;arr(i, j)&lt;/code&gt;中的&lt;code&gt;suml&lt;/code&gt;，&lt;code&gt;sumr&lt;/code&gt;, &lt;code&gt;sumi&lt;/code&gt;和&lt;code&gt;summ&lt;/code&gt;，分别代表从左边开始的子数组的和，从右边开始的子数组的和，在中间扩展的子数组的和，和整个数组的和。而我们要大问题的&lt;code&gt;sumi&lt;/code&gt;就是所要求的值，巧妙的地方在于问题的分解，&lt;code&gt;sumi&lt;/code&gt;可以就是子数组的&lt;code&gt;sumi&lt;/code&gt;和左子段的&lt;code&gt;sumr&lt;/code&gt;与右子段的&lt;code&gt;suml&lt;/code&gt;之和最大值。其他同理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DP做法，以&lt;code&gt;dp[i]&lt;/code&gt;为&lt;code&gt;arr[i]&lt;/code&gt;为结尾的和最大的连续子数组的和。状态更新方程为&lt;br&gt;$$&lt;br&gt;dp[i] = max(dp[i - 1] + arr[i], arr[i])&lt;br&gt;$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这很有趣，实际上就是舍弃掉可能为负数的&lt;code&gt;dp[i - 1]&lt;/code&gt;， 另外在舍弃时也可以记录下数组起点。更进一步的观察，空间可以优化到&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;二维情况下，虽然非常相似，但是解法一时想不到直接扩展到二维。但是问题可以化解为一维。&lt;/p&gt;
+&lt;p&gt;在确定了矩阵行数据，或者首先遍历矩阵的上下界后，顺道求出该矩阵的在各各列的和。之后便可以用一维的做法求出连续列的最大和。&lt;/p&gt;
+&lt;p&gt;复杂$O(N^3)$。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>二分图匹配</title>
+    <link href="https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"/>
+    <id>https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/</id>
+    <published>2021-05-09T05:03:11.000Z</published>
+    <updated>2021-05-09T06:03:00.086Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;二分图匹配&quot;&gt;&lt;a href=&quot;#二分图匹配&quot; class=&quot;headerlink&quot; title=&quot;二分图匹配&quot;&gt;&lt;/a&gt;二分图匹配&lt;/h1&gt;&lt;p&gt;二分图匹配是个经典问题——两组节点在图上尽可能的匹配。&lt;/p&gt;
+&lt;p&gt;匈牙利算法以不断寻找增光路的方式，寻找更多的匹配;&lt;/p&gt;
+&lt;p&gt;思想如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从未匹配的点&lt;code&gt;c&lt;/code&gt;开始寻找链接的点&lt;code&gt;v&lt;/code&gt;，如果&lt;code&gt;v&lt;/code&gt;也是未匹配，则匹配成功。如果该点已经匹配了&lt;code&gt;u&lt;/code&gt;，则递归尝试让&lt;code&gt;u&lt;/code&gt;匹配其他节点。&lt;/li&gt;
+&lt;li&gt;如果&lt;code&gt;v&lt;/code&gt;匹配失败，那就找找&lt;code&gt;c&lt;/code&gt;的其他点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/circle/article/SCLpQf/&quot;&gt;题解参考&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="图
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>割点算法</title>
+    <link href="https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"/>
+    <id>https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/</id>
+    <published>2021-05-09T03:34:08.000Z</published>
+    <updated>2021-05-09T03:37:46.240Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;割点算法Tarjan&quot;&gt;&lt;a href=&quot;#割点算法Tarjan&quot; class=&quot;headerlink&quot; title=&quot;割点算法Tarjan&quot;&gt;&lt;/a&gt;割点算法Tarjan&lt;/h2&gt;&lt;p&gt;割点算法 引入了建立在DFS生成树的遍历节点的时间戳概念，如果一个节点&lt;code&gt;u&lt;/code&gt;的子节点&lt;code&gt;v&lt;/code&gt;可以找到一条不经过&lt;code&gt;u&lt;/code&gt;以外的路径到达&lt;code&gt;u&lt;/code&gt;的祖先，那么显然有一条通路可以回到&lt;code&gt;u&lt;/code&gt;的祖先。反之，如果存在&lt;code&gt;v&lt;/code&gt;找不到这么一条路径回到&lt;code&gt;u&lt;/code&gt;的祖先，那么显然&lt;code&gt;u&lt;/code&gt;是一个割点，他分割了&lt;code&gt;v&lt;/code&gt;所在的子树和其他子树（如果&lt;code&gt;u&lt;/code&gt;不是根的话，包括祖先所在子树）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://static.come2rss.xyz/image-20210509113600747.png&quot; alt=&quot;image-20210509113600747&quot;&gt;&lt;/p&gt;
+&lt;p&gt;那么一个割点有多少子树呢？&lt;br&gt;首先，一个割点的对应的&lt;code&gt;v&lt;/code&gt;是独立在各个子树的吗？是的，如果存在&lt;code&gt;v1&lt;/code&gt;和&lt;code&gt;v2&lt;/code&gt;都找到路径，且在一个子树中，那么必然有&lt;code&gt;v1&lt;/code&gt;可以通过&lt;code&gt;v2&lt;/code&gt;找到&lt;code&gt;u&lt;/code&gt;，那么在DFS搜索的时候，必定会一次遍历&lt;code&gt;v1&lt;/code&gt;和&lt;code&gt;v2&lt;/code&gt;。所以每个割点对应的子树只会搜索到一个&lt;code&gt;v&lt;/code&gt;。&lt;br&gt;扩展一下， 那么经过去掉割点的图最多有几个连通块？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="图
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>847. 访问所有节点的最短路径</title>
+    <link href="https://blog.come2rss.xyz/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"/>
+    <id>https://blog.come2rss.xyz/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/</id>
+    <published>2021-05-08T09:02:09.000Z</published>
+    <updated>2021-05-08T09:04:58.030Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;847-访问所有节点的最短路径&quot;&gt;&lt;a href=&quot;#847-访问所有节点的最短路径&quot; class=&quot;headerlink&quot; title=&quot;847. 访问所有节点的最短路径&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes/&quot;&gt;847. 访问所有节点的最短路径&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;旅行商问题~真难！&lt;/p&gt;
+&lt;h3 id=&quot;DFS搜索&quot;&gt;&lt;a href=&quot;#DFS搜索&quot; class=&quot;headerlink&quot; title=&quot;DFS搜索&quot;&gt;&lt;/a&gt;DFS搜索&lt;/h3&gt;&lt;p&gt;dfs搜索回溯貌似可行，但是没有明确的停止条件&lt;/p&gt;
+&lt;h3 id=&quot;BFS搜索&quot;&gt;&lt;a href=&quot;#BFS搜索&quot; class=&quot;headerlink&quot; title=&quot;BFS搜索&quot;&gt;&lt;/a&gt;BFS搜索&lt;/h3&gt;&lt;p&gt;bfs搜索状态&lt;code&gt;state(cover, head)&lt;/code&gt;可行。其中&lt;code&gt;cover&lt;/code&gt;用位状态表示搜索过的节点的集合，&lt;code&gt;head&lt;/code&gt;表示当前遍历的头结点。搜索的更新的&lt;code&gt;new cover = cover | 1 &amp;lt;&amp;lt; newhead&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="图
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>312. Burst Balloons</title>
+    <link href="https://blog.come2rss.xyz/2021/05/05/shua-ti/dp/312-burst-balloons/"/>
+    <id>https://blog.come2rss.xyz/2021/05/05/shua-ti/dp/312-burst-balloons/</id>
+    <published>2021-05-05T06:50:56.000Z</published>
+    <updated>2021-05-05T07:44:31.960Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;312-Burst-Balloons&quot;&gt;&lt;a href=&quot;#312-Burst-Balloons&quot; class=&quot;headerlink&quot; title=&quot;312. Burst Balloons&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/burst-balloons/&quot;&gt;312. Burst Balloons&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt; &lt;code&gt;Hard&lt;/code&gt;题做了才有收获啊！&lt;code&gt;lc&lt;/code&gt;上题库里几道经典的具有锻炼思维和思考能力的题。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;拿到手，首先映入脑海里明显应该是贪心或者分治算法：仔细思考一下，贪心发现没有依据，也没有例子；分治算法把考虑把求取问题&lt;code&gt;dp(l, r)&lt;/code&gt;——开区间的&lt;code&gt;(l,r)&lt;/code&gt;一组气球全部戳爆以后，可以获取最大金币数量。如果第一选取&lt;code&gt;k&lt;/code&gt;个气球戳爆，则有子问题&lt;code&gt;(l,k)&lt;/code&gt;和&lt;code&gt;(k,r)&lt;/code&gt;，但是可以发现两个子问题是相互依赖的。也就是说一个问题解的选择会影响另一个问题的解的选择。所以这个思路也不行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Amazing&lt;/code&gt;的是，我们可以反过来考虑问题！我们把整个过程逆序，把戳爆存在的气球，变成从一个气球都不存在，添加一个个不存在的气球。&lt;code&gt;dp(l, r)&lt;/code&gt;问题就是在寻找，把&lt;code&gt;(l, r)&lt;/code&gt;中的所有位置填满气球，可以获得最大金币数量。思考一下如何分解为子问题：&lt;br&gt;$$&lt;br&gt;dp(l, r) = max_{i = l + 1}^{r - 1}[dp(l , i) + dp(i, r) + nums[i] * nums[l] * nums[r]]&lt;br&gt;$$&lt;br&gt;具体计算可以用记忆化搜索和DP计算。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看了下大神的解法，居然还有用启发式搜索的！太顶了！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cmake学习索引</title>
+    <link href="https://blog.come2rss.xyz/2021/05/04/code-tools/build/cmake-xue-xi-suo-yin/"/>
+    <id>https://blog.come2rss.xyz/2021/05/04/code-tools/build/cmake-xue-xi-suo-yin/</id>
+    <published>2021-05-03T16:09:43.000Z</published>
+    <updated>2021-05-03T16:16:41.760Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Cmake笔记&quot;&gt;&lt;a href=&quot;#Cmake笔记&quot; class=&quot;headerlink&quot; title=&quot;Cmake笔记&quot;&gt;&lt;/a&gt;Cmake笔记&lt;/h1&gt;&lt;p&gt;Cmake是跨系统，C++现行标准构建标准的build system of build system`.&lt;/p&gt;
+&lt;p&gt;比较好的学习资源如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://internalpointers.com/post/modern-cmake-beginner-introduction&quot;&gt;understand Cmake&lt;/a&gt; ✅: 一个简单的接受&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;cmake official web&lt;/a&gt; ： 对各个命令有最详细的解释，当字典用&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b&quot;&gt;Cmake Tutorial&lt;/a&gt;: 💖从零基础解释CMake基础概念，看完这个再看官方教程就很简单了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cmake.org/cmake/help/latest/guide/tutorial/index.html&quot;&gt;cmake tutorial&lt;/a&gt; ✅ ：跟着做比较有意思，可以多多尝试，就是有点花时间。后面部分内容可以看看&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cliutils.gitlab.io/modern-cmake/chapters/intro/newcmake.html&quot;&gt;Cmake Detailed tutorial&lt;/a&gt; ✅: 最详细，有很多项目经验&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看完了，直接上手项目或者看其他开源项目如何管理也是有点启发滴。当然对照着一个真实项目学习Cmake也有点帮助。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
+    
+    <category term="build" scheme="https://blog.come2rss.xyz/categories/Code-tools/build/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>438. Find All Anagrams in a String</title>
+    <link href="https://blog.come2rss.xyz/2021/04/30/shua-ti/shuang-zhi-zhen/438-find-all-anagrams-in-a-string/"/>
+    <id>https://blog.come2rss.xyz/2021/04/30/shua-ti/shuang-zhi-zhen/438-find-all-anagrams-in-a-string/</id>
+    <published>2021-04-30T05:15:01.000Z</published>
+    <updated>2021-04-30T06:24:07.457Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;双指针，指向模式串&lt;code&gt;str&lt;/code&gt;的子串首位&lt;code&gt;s&lt;/code&gt;和末尾+1&lt;code&gt;e&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;遍历思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不断添加&lt;code&gt;e&lt;/code&gt;位置上的字符&lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果&lt;code&gt;c&lt;/code&gt;不属于&lt;code&gt;p&lt;/code&gt;，则双指针跳过&lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果&lt;code&gt;c&lt;/code&gt;属于&lt;code&gt;p&lt;/code&gt;，则更新。&lt;ol&gt;
+&lt;li&gt;但是如果包括的&lt;code&gt;c&lt;/code&gt;字符太多了，则移动&lt;code&gt;s&lt;/code&gt;直至数量符合条件&lt;/li&gt;
+&lt;li&gt;如果所有字符数量都添加完全一致，则添加结果。移动&lt;code&gt;s&lt;/code&gt;一位，更新即可。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;看了其他题解，发现有一个条件我忽略了，指针之间的距离是相等的，也就是说这是一个滑动窗口问题~草了。&lt;/p&gt;
+&lt;p&gt;那这很简单，维护一下窗口值就行了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以说滑动窗口就是一个简单的双指针。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="双指针" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>337. House Robber III</title>
+    <link href="https://blog.come2rss.xyz/2021/04/30/shua-ti/dp/337-house-robber-iii/"/>
+    <id>https://blog.come2rss.xyz/2021/04/30/shua-ti/dp/337-house-robber-iii/</id>
+    <published>2021-04-30T04:28:23.000Z</published>
+    <updated>2021-04-30T04:29:55.597Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;337-House-Robber-III&quot;&gt;&lt;a href=&quot;#337-House-Robber-III&quot; class=&quot;headerlink&quot; title=&quot;337. House Robber III&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/house-robber-iii/&quot;&gt;337. House Robber III&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这里的dp推错了，尴尬啊。&lt;/p&gt;
+&lt;p&gt;一个简单的树上DP&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>84. Largest Rectangle in Histogram</title>
+    <link href="https://blog.come2rss.xyz/2021/04/30/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-84-largest-rectangle-in-histogram/"/>
+    <id>https://blog.come2rss.xyz/2021/04/30/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-84-largest-rectangle-in-histogram/</id>
+    <published>2021-04-30T03:24:11.000Z</published>
+    <updated>2021-04-30T04:30:04.127Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;84-Largest-Rectangle-in-Histogram&quot;&gt;&lt;a href=&quot;#84-Largest-Rectangle-in-Histogram&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
+    
+    <category term="单调栈
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>96. Unique Binary Search Trees</title>
+    <link href="https://blog.come2rss.xyz/2021/04/29/shua-ti/dp/96-unique-binary-search-trees/"/>
+    <id>https://blog.come2rss.xyz/2021/04/29/shua-ti/dp/96-unique-binary-search-trees/</id>
+    <published>2021-04-29T04:55:37.000Z</published>
+    <updated>2021-04-29T04:58:02.020Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;96-Unique-Binary-Search-Treess&quot;&gt;&lt;a href=&quot;#96-Unique-Binary-Search-Treess&quot; class=&quot;headerlink&quot; title=&quot;96. Unique Binary Search Treess&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees/&quot;&gt;96. Unique Binary Search Trees&lt;/a&gt;s&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;理解，只要数字不重复，子树的形状可能性就与数字具体大小无关。所以可以用DP算出长度为K的子树的可能形状。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>297. Serialize and Deserialize Binary Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/04/26/shua-ti/shu-ju-jie-gou/shu/297-serialize-and-deserialize-binary-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/04/26/shua-ti/shu-ju-jie-gou/shu/297-serialize-and-deserialize-binary-tree/</id>
+    <published>2021-04-26T00:27:55.000Z</published>
+    <updated>2021-04-26T00:34:59.990Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;297-Serialize-and-Deserialize-Binary-Tree&quot;&gt;&lt;a href=&quot;#297-Serialize-and-Deserialize-Binary-Tree&quot; class=&quot;headerlink&quot; title=&quot;297. Serialize and Deserialize Binary Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/&quot;&gt;297. Serialize and Deserialize Binary Tree&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;对于二叉树序列化，leetcode已经给出了很好的示范。思考一下，完整前缀遍历（包括空节点信息）能否构建二叉树？可以，从根到子节点前缀遍历的同时构建二叉树。同理后缀也可以。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>22. Generate Parentheses</title>
+    <link href="https://blog.come2rss.xyz/2021/04/26/shua-ti-sou-suo-bfs-22-generate-parentheses/"/>
+    <id>https://blog.come2rss.xyz/2021/04/26/shua-ti-sou-suo-bfs-22-generate-parentheses/</id>
+    <published>2021-04-25T23:41:25.000Z</published>
+    <updated>2021-04-26T00:38:09.150Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;正确的迭代方式是，从左到右的遍历中，每一个正确序列都有左括号的数量大于等于右括号的数量。而每一处符号要么是左括号，要么是右括号，后者符号都有选择的生成即可。&lt;/p&gt;
+&lt;p&gt;如何便可以递归生成所有符合题意的括号。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="搜索" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="bfs
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>32. Longest Valid Parentheses</title>
+    <link href="https://blog.come2rss.xyz/2021/04/25/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/32-longest-valid-parentheses/"/>
+    <id>https://blog.come2rss.xyz/2021/04/25/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/32-longest-valid-parentheses/</id>
+    <published>2021-04-25T08:25:41.000Z</published>
+    <updated>2021-04-25T08:32:09.630Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+
+
+&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>98. Validate Binary Search Tree</title>
+    <link href="https://blog.come2rss.xyz/2021/04/22/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/98-validate-binary-search-tree/"/>
+    <id>https://blog.come2rss.xyz/2021/04/22/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/98-validate-binary-search-tree/</id>
+    <published>2021-04-22T07:56:21.000Z</published>
+    <updated>2021-04-22T08:03:03.910Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;98-Validate-Binary-Search-Tree&quot;&gt;&lt;a href=&quot;#98-Validate-Binary-Search-Tree&quot; class=&quot;headerlink&quot; title=&quot;98. Validate Binary Search Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/validate-binary-search-tree/&quot;&gt;98. Validate Binary Search Tree&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;不要把二叉树的性质搞错了，是任一个节点的值大于其&lt;strong&gt;所有&lt;/strong&gt;左节点的值，小于等于&lt;strong&gt;所有&lt;/strong&gt;右节点的值，而非左节点。&lt;/p&gt;
+&lt;p&gt;如此直接验证所有节点的是否大于左子树的最大值，小于右子树的最小值即可。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>124. Binary Tree Maximum Path Sum</title>
+    <link href="https://blog.come2rss.xyz/2021/04/19/shua-ti/dp/124-binary-tree-maximum-path-sum/"/>
+    <id>https://blog.come2rss.xyz/2021/04/19/shua-ti/dp/124-binary-tree-maximum-path-sum/</id>
+    <published>2021-04-19T01:01:33.000Z</published>
+    <updated>2021-04-19T01:08:03.839Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;124-Binary-Tree-Maximum-Path-Sum&quot;&gt;&lt;a href=&quot;#124-Binary-Tree-Maximum-Path-Sum&quot; class=&quot;headerlink&quot; title=&quot;124. Binary Tree Maximum Path Sum&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/&quot;&gt;124. Binary Tree Maximum Path Sum&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题有意思在DP。但算不上hard。&lt;/p&gt;
+&lt;p&gt;树上的最大路径之和可以转化为一个节点上的左右子树连起来的路径，而左右路径的最大长度分别可以通过左右子树的路径的一部分求得。考虑到子树路径之和小于0的情况，有当前节点和左右子树路径的最大长度为：&lt;code&gt;DP[i] = max(max(DP[i * 2],0), max(DP[i * 2 + 1],0) + val&lt;/code&gt; 。同时可以求出，当前节点最长路径，&lt;code&gt;pathsum = max(DP[i * 2],0) + max(DP[i * 2 + 1],0) + val&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>42. Trapping Rain Water</title>
+    <link href="https://blog.come2rss.xyz/2021/04/16/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-42-trapping-rain-water/"/>
+    <id>https://blog.come2rss.xyz/2021/04/16/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-42-trapping-rain-water/</id>
+    <published>2021-04-16T09:58:37.000Z</published>
+    <updated>2021-04-16T10:17:05.563Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;42-Trapping-Rain-Water&quot;&gt;&lt;a href=&quot;#42-Trapping-Rain-Water&quot; class=&quot;headerlink&quot; title=&quot;42. Trapping Rain Water&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/trapping-rain-water/&quot;&gt;42. Trapping Rain Water&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题蛮hard的，挺考验思路；&lt;/p&gt;
+&lt;p&gt;思考一下，下雨的过程，水往低处流，一点一点汇聚起来，逐渐逐渐升高水面。我们是否可以在先求出低水平面的水量，在此之上求出高水平面的水量。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;43234&lt;/code&gt;中就有两个水沟：&lt;code&gt;2&lt;/code&gt;上的&lt;code&gt;1*1&lt;/code&gt;的水沟，和&lt;code&gt;323&lt;/code&gt;上的&lt;code&gt;3*1&lt;/code&gt;水沟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用这种想法，我们只需要遍历得到一个水平面的右边界，记录该水平面的左边界，获取低水平面的高度，填充下新水平面的水量即可。&lt;/p&gt;
+&lt;p&gt;最小值单调栈&lt;code&gt;S&lt;/code&gt;可以帮助我们维持左边界的&lt;code&gt;pos&lt;/code&gt;，记&lt;code&gt;S&lt;/code&gt;的栈顶元素指向的高度为&lt;code&gt;a&lt;/code&gt;，&lt;code&gt;a&lt;/code&gt;之下的元素指向的高度为&lt;code&gt;b&lt;/code&gt;。其性质必然有&lt;code&gt;a &amp;gt; b&lt;/code&gt;。遍历到高度&lt;code&gt;c&lt;/code&gt;，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若&lt;code&gt;c &amp;lt; a&lt;/code&gt;，则对蓄水没有影响。&lt;/li&gt;
+&lt;li&gt;如果&lt;code&gt;c &amp;gt; b&lt;/code&gt;，则三者形成了一个水沟，计算🦁式子见代码，并且该水沟可能可以继续往上“看看”，在适当条件上看看单调栈，循环填充高水位水沟。&lt;/li&gt;
+&lt;li&gt;如果&lt;code&gt;c==a&lt;/code&gt;，则显然应该替换掉&lt;code&gt;a&lt;/code&gt;，因为单调栈维持的是等高水沟的最新端，试想&lt;code&gt;33323&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;经过上述填充过程，单调栈的性质也要维护一下，详细见代码。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
+    
+    <category term="单调栈
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试题 04.09. BST Sequences LCCI</title>
+    <link href="https://blog.come2rss.xyz/2021/04/01/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-04-09-bst-sequences-lcci/"/>
+    <id>https://blog.come2rss.xyz/2021/04/01/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-04-09-bst-sequences-lcci/</id>
+    <published>2021-04-01T08:08:51.000Z</published>
+    <updated>2021-04-01T08:28:54.820Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;面试题-04-09-BST-Sequences-LCCI&quot;&gt;&lt;a href=&quot;#面试题-04-09-BST-Sequences-LCCI&quot; class=&quot;headerlink&quot; title=&quot;面试题 04.09. BST Sequences LCCI&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/bst-sequences-lcci/&quot;&gt;面试题 04.09. BST Sequences LCCI&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;懵树下你和我，快乐刷刷题&lt;/p&gt;
+&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;二叉树的构建，是从根节点开始的，每构建的一个节点，就添加了一个可能两个新扩展节点，我们可以在其中任意选择一个节点新构建，如此递归下去，完成整棵树的构建。&lt;/p&gt;
+&lt;p&gt;那么，我们需要模拟整棵树的构建遍历过程，用&lt;code&gt;deque&lt;/code&gt;存储每次构建时可以选择的节点，递归构造。如果&lt;code&gt;deque&lt;/code&gt;为空，说明建构完成，把记录构建顺序的&lt;code&gt;path&lt;/code&gt;加入答案即可。建构完成后回溯进行下一个节点的构建。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>148. 排序链表</title>
+    <link href="https://blog.come2rss.xyz/2021/03/31/shua-ti-shu-ju-jie-gou-lian-biao-148-pai-xu-lian-biao/"/>
+    <id>https://blog.come2rss.xyz/2021/03/31/shua-ti-shu-ju-jie-gou-lian-biao-148-pai-xu-lian-biao/</id>
+    <published>2021-03-31T02:46:40.000Z</published>
+    <updated>2021-04-01T08:30:07.540Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;148-排序链表&quot;&gt;&lt;a href=&quot;#148-排序链表&quot; class=&quot;headerlink&quot; title=&quot;148. 排序链表&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/sort-list/&quot;&gt;148. 排序链表&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;我写过最累最烦的链表题，循环归并排序思路比较好想，但是容易错，非常容易错，哈哈。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>706. Design HashMap</title>
+    <link href="https://blog.come2rss.xyz/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/"/>
+    <id>https://blog.come2rss.xyz/2021/03/15/shua-ti/shu-ju-jie-gou/fu-za-shu-ju-jie-gou/706-design-hashmap/</id>
+    <published>2021-03-15T03:13:45.000Z</published>
+    <updated>2021-03-15T03:14:57.317Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路思路：&quot;&gt;&lt;a href=&quot;#思路思路：&quot; class=&quot;headerlink&quot; title=&quot;思路思路：&quot;&gt;&lt;/a&gt;思路思路：&lt;/h2&gt;&lt;p&gt; &lt;code&gt;hash table&lt;/code&gt; 配置 STL强大的API包装完成了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="复杂数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+  </entry>
+  
+</feed>
