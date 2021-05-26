@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo建站 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Hexo + Github Page 建站方案终于开始了建站之旅，之前都是采用信息源（知乎+B站+RSS）-&amp;gt;onenote笔记来记录知识点。随着时间的推移也发现更开源、令人兴奋的方法是写博客。一来是对自己要求提高了不少，写博客可不像自己随手摘的笔记, 要求严谨而逻辑清楚，二来便于分享知识和交往新胖友。 陆陆续续装了好久也踩了不少的坑，在今天2020.04.26写下这篇博文，记录博客的开端吧"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo建站"><meta property="og:url" content="https://blog.come2rss.xyz/2020/08/07/code-tools/blog/hexo-jian-zhan/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="Hexo + Github Page 建站方案终于开始了建站之旅，之前都是采用信息源（知乎+B站+RSS）-&amp;gt;onenote笔记来记录知识点。随着时间的推移也发现更开源、令人兴奋的方法是写博客。一来是对自己要求提高了不少，写博客可不像自己随手摘的笔记, 要求严谨而逻辑清楚，二来便于分享知识和交往新胖友。 陆陆续续装了好久也踩了不少的坑，在今天2020.04.26写下这篇博文，记录博客的开端吧"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-08-07T03:10:10.000Z"><meta property="article:modified_time" content="2021-05-26T01:21:56.000Z"><meta property="article:author" content="John Doe"><meta property="article:tag" content="折腾"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/08/07/code-tools/blog/hexo-jian-zhan/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-08-07T03:10:10.000Z","dateModified":"2021-05-26T01:21:56.000Z","author":{"@type":"Person","name":"John Doe"},"description":"Hexo + Github Page 建站方案终于开始了建站之旅，之前都是采用信息源（知乎+B站+RSS）-&gt;onenote笔记来记录知识点。随着时间的推移也发现更开源、令人兴奋的方法是写博客。一来是对自己要求提高了不少，写博客可不像自己随手摘的笔记, 要求严谨而逻辑清楚，二来便于分享知识和交往新胖友。 陆陆续续装了好久也踩了不少的坑，在今天2020.04.26写下这篇博文，记录博客的开端吧"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/08/07/code-tools/blog/hexo-jian-zhan/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-08-07T03:10:10.000Z" title="8/7/2020, 11:10:10 AM">2020-08-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-05-26T01:21:56.000Z" title="5/26/2021, 9:21:56 AM">2021-05-26</time></span><span class="level-item"><a class="link-muted" href="/categories/Code-tools/">Code tools</a><span> / </span><a class="link-muted" href="/categories/Code-tools/Blog/">Blog</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">Hexo建站</h1><div class="content"><h1 id="Hexo-Github-Page-建站方案"><a href="#Hexo-Github-Page-建站方案" class="headerlink" title="Hexo + Github Page 建站方案"></a>Hexo + Github Page 建站方案</h1><p>终于开始了建站之旅，之前都是采用信息源（知乎+B站+RSS）-&gt;onenote笔记来记录知识点。随着时间的推移也发现更开源、令人兴奋的方法是写博客。一来是对自己要求提高了不少，写博客可不像自己随手摘的笔记, 要求严谨而逻辑清楚，二来便于分享知识和交往新胖友。</p>
+<p>陆陆续续装了好久也踩了不少的坑，在今天2020.04.26写下这篇博文，记录博客的开端吧！</p>
+<span id="more"></span>
+
+<h1 id="必要工具安装"><a href="#必要工具安装" class="headerlink" title="必要工具安装"></a>必要工具安装</h1><p>首先有必要说明的是，Hexo建站不可避免的是Node等工具，不得不说Linux仍是建站初最好的环境，同时Window推出的WSL可以很好的提供Linux的包管理体验——真香。本蒻姬喜欢在用VSCODE + WSL来建站，同时使用原MD文件来渲染网页的Hexo还会保留MD文件，配合WSL文件可以被WINDOW访问的功能，可以直接使用VSCODE 和 Typora 写作——不要太方便。</p>
+<p>Node.js建议安装比较新的版本，可以看<a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">Github</a>上下载源码（linux）并按照指示操作。以下是我安装的软件版本。</p>
+<pre class="line-numbers language-none"><code class="language-none">➜  _posts node -v
+v10.20.1
+➜  _posts npm -v
+6.14.4
+➜  _posts hexo -v
+hexo: 4.2.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>npm作为强大的Node包管理工具可以使用以下命令安装。推荐阅读：<a target="_blank" rel="noopener" href="https://juejin.im/entry/583d425161ff4b007eda246d">npm简介</a>。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt update
+sudo apt install npm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>接下来安装hexo框架，hexo是静态页面博客框架，拥有丰富的主题资源和活跃的开发社区，很多Github Page的都是hexo搭建的，其中使用Next风格的网站尤其多~~~~~</p>
+<p>hexo可使用npm全局安装，如下。</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo install hexo-cli -g
+# -g：global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最会自行安装git并配置好ssh哦。</p>
+<h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><p>hexo的使用逻辑是一键生成文章、页面、渲染页面、部署。在你想要存放建站文件的目录下运行以下命令可以初始化hexo博客文件。</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo init [blog] #[$name]表name
+cd blog
+#局部安装hexo的指定本目录下的package.json的依赖包所指定的包
+npm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果一切顺利的话，可以执行以下命令启动本地hexo服务器来测试是否安装成功。</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo s #s: serve; 可选参数 -p 50100：指定监听端口<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>hexo可以通过以下命令来生成新文章——在source的_post文件下生成一个md文件。实际上hexo也会用这个md文件来渲染html页面，那就是后话了。在这里我非常推荐使用vscode自带的编辑器或者typero来编辑文件，尤其在文章的图片采取本地存储的情况下，typore支持直接插入图片并书写好合适的MD语句（typore扩展也支持图片上传服务器）。</p>
+<pre class="line-numbers language-none"><code class="language-none">#尽量避免 图片名、MD文件名出现空格，不然容易出BUG
+hexo new &quot;new-post&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>当当！如果一切就绪，新文章也写好了，可以把本地文件部署到Github Page上去了。在Github上新建一个<code>用户名.github.io</code>的仓库，可以尝试去访问你的网站<code>用户名.github.io</code>~</p>
+<p>deploy部署配置——在本地<code>bog</code>文件下的hexo配置文件<code>_config.yml</code>的部分内容，注意这里的配置连接最好使用SSH连接——免密输入的基操。</p>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+  type: git
+  repository: &#39;git@github.com:yourName&#x2F;yourName.github.io.git&#39;
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用以下命令可以把本地文件直接部署到GIthub上了,真方便啊。</p>
+<pre class="line-numbers language-none"><code class="language-none"># npm install hexo-deployer-git 如果不能直接d的话，装一下插件
+hexo d
+# 先生成再部署 更方便
+hexo g -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>找了两三个很Nice的博客主题<a target="_blank" rel="noopener" href="https://blog.zhangruipeng.me/hexo-theme-icarus/">icarus</a>，<a target="_blank" rel="noopener" href="https://yun.yunyoujun.cn/">yun</a> 和满大街的<a target="_blank" rel="noopener" href="https://theme-next.org/">Next</a>。其中安装教程详见官网。推荐阅读：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1520557">可能是最最完整的博客搭建教程</a></p>
+<h1 id="Post！"><a href="#Post！" class="headerlink" title="Post！"></a>Post！</h1><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>本地图片无法正常显示——本地图片引用网址多出了一个<code>.com/</code>，直到第二次重装工具和hexo这个问题曾经困扰才解决。图片在本地的放置方案如下：</p>
+<p>设置<code>_config.yml</code>中的<code>post_asset_folder: true</code> ，以便在新建文章的时候同时生成可以放置图片同名文件夹。在MD文章中的图片引用格式为<code>[](./fileName/picName.png)</code>（注意，这两个名字不要带空格，不然有非常多的BUG，可以使用<code>-</code>代替）， 配合<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3db6a61d3782">hexo-asset-image</a>插件可以让HTML渲染的地址符合变化。</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install https:&#x2F;&#x2F;github.com&#x2F;7ym0n&#x2F;hexo-asset-image --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>当然也有图床和OSS的解决方案，我这里暂时不去尝试，算是留一个坑。</p>
+<h2 id="个性化"><a href="#个性化" class="headerlink" title="个性化"></a>个性化</h2><h3 id="tags和categories"><a href="#tags和categories" class="headerlink" title="tags和categories"></a>tags和categories</h3><p>设置文章的<code>tags</code>和<code>categories</code>可以在文章的yaml语段中书写，具体如下，<a target="_blank" rel="noopener" href="https://theme-next.org/docs/theme-settings/custom-pages">官网介绍</a>。</p>
+<blockquote>
+<p>yaml 形如开头和结尾为三个横杠的键值对序列语段。</p>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: Hello World
+date: 2013&#x2F;7&#x2F;13 20:46:25
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">categories:
+#两层categories 
+- [Sports, Baseball]
+- [MLB, American League, Boston Red Sox]
+- [MLB, American League, New York Yankees]
+- Rivalries
+tags:
+- Injury
+- Fight
+- Shocking<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>设置博客页面<code>tags</code>和<code>categories</code></p>
+<pre class="line-numbers language-none"><code class="language-none">hexo new page tags
+hexo new page categories<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p><strong>强烈推荐</strong> 安装<code>hexo-auto-category</code>插件，使用目录自动化生成category，一劳永逸！下载</p>
+<h3 id="添加目录"><a href="#添加目录" class="headerlink" title="添加目录"></a>添加目录</h3><p>确保<code>themes/icarus/_config.yml</code>中有</p>
+<pre class="line-numbers language-none"><code class="language-none">widgets:
+    -
+        # Widget name
+        type: toc
+        # Where should the widget be placed, left or right
+        position: left<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后在文章头部添加标签</p>
+<pre class="line-numbers language-none"><code class="language-none">toc: true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="阅读统计"><a href="#阅读统计" class="headerlink" title="阅读统计"></a>阅读统计</h3><p><a target="_blank" rel="noopener" href="https://susreal.com/article/2019/hexo-theme-icarus-2/#%E4%BA%8C%E3%80%81%E6%B7%BB%E5%8A%A0%E9%98%85%E8%AF%BB%E7%BB%9F%E8%AE%A1">详见</a></p>
+<h3 id="文章置顶功能"><a href="#文章置顶功能" class="headerlink" title="文章置顶功能"></a>文章置顶功能</h3><p>在<code>themes/icarus/_config.yml</code>配置</p>
+<pre class="line-numbers language-none"><code class="language-none">index_generator:
+    path: &#39;&#39;
+    per_page: 10
+    order_by:
+        top: -1
+        date: -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改<code>/⁨node_modules⁩/hexo-generator-index⁩/lib⁩/generator.js</code></p>
+<pre class="line-numbers language-none"><code class="language-none">var paginationDir &#x3D; config.pagination_dir || &#39;page&#39;;
+
+&#x2F;&#x2F; added code
+posts.data &#x3D; posts.data.sort(function(a, b) &#123;
+if(a.top &amp;&amp; b.top) &#123;
+    if(a.top &#x3D;&#x3D; b.top) return b.date - a.date;
+    else return b.top - a.top;
+&#125;
+else if(a.top &amp;&amp; !b.top) &#123;
+    return -1;
+&#125;
+else if(!a.top &amp;&amp; b.top) &#123;
+    return 1;
+&#125;
+else return b.date - a.date;
+&#125;);
+&#x2F;&#x2F; end
+
+var path &#x3D; config.index_generator.path || &#39;&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改模板中的post.md，添加top属性并设置默认值为0</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;scaffolds&#x2F;post.md
+---
+title: &#123;&#123; title &#125;&#125;
+date: &#123;&#123; date &#125;&#125;
+tags:
+top: 0
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最后，根据大家自己的喜好在前端添加标签咯~</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;themes&#x2F;icarus&#x2F;layout&#x2F;common&#x2F;article.ejs
+
+&lt;% if (post.top&gt;0) &#123; %&gt;
+&lt;i class&#x3D;&quot;fas fa-arrow-alt-circle-up&quot; style&#x3D;&quot;color:#3273dc&quot;&gt;&lt;&#x2F;i&gt;
+&lt;span class&#x3D;&quot;level-item&quot; style&#x3D;&quot;color:#3273dc&quot;&gt;&amp;nbsp;置顶&lt;&#x2F;span&gt;
+&lt;% &#125; %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="更多阅读"><a href="#更多阅读" class="headerlink" title="更多阅读"></a>更多阅读</h3><p>现在已知最省事的还是直接在md文件中添加<code>&lt;!-- more --&gt;</code></p>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>在本地_post文件的新建文件<code>CNAME</code>(大小写一致)，写上需要绑定的域名,比如一个二级域名<code>blog.yourhost.xyz</code>。<br>在购买域名的服务商那添加CNAME解析，比如原域名为A,主记录为<code>blog</code>,那么博客访问的地址如<code>XXXXX.github.io</code>就多了一个<code>blog.yourhost.xyz</code>。</p>
+<blockquote>
+<p>这里注意，如果在github setting 添加域名绑定，要注意新的版本可能会移除掉<code>CNAME</code>文件。</p>
+</blockquote>
+<h3 id="添加缩略图到你的文章"><a href="#添加缩略图到你的文章" class="headerlink" title="添加缩略图到你的文章"></a>添加缩略图到你的文章</h3><p>你可以用两个步骤来添加缩略图到你的文章。首先，确保主题配置文件中已经开启缩略图的功能：</p>
+<pre class="line-numbers language-none"><code class="language-none">_config.yml
+article:
+	thumbnail: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>文章的front-matter中提供一个图像的链接或路径：</p>
+<pre class="line-numbers language-none"><code class="language-none">post.md
+thumbnail: &#x2F;gallery&#x2F;thumbnails&#x2F;desert.jpg
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="目录表（Table-of-Contents-Catalogue）"><a href="#目录表（Table-of-Contents-Catalogue）" class="headerlink" title="目录表（Table of Contents / Catalogue）"></a>目录表（Table of Contents / Catalogue）</h3><p>要在发布页显示目录表（toc）部件，请先在你文章markdown文件的front-matter中添加toc:true：</p>
+<pre class="line-numbers language-none"><code class="language-none">---
+post.md
+title: Table of Contents Example
+toc: true
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接着，在主题配置文件添加toc部件：</p>
+<pre class="line-numbers language-none"><code class="language-none">_config.yml
+widgets:
+    -
+        type: toc
+        position: left<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="front-matter模板"><a href="#front-matter模板" class="headerlink" title="front-matter模板"></a>front-matter模板</h4><p>在scaffolds/post.md中修改为</p>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: &#123;&#123; title &#125;&#125;
+date: &#123;&#123; date &#125;&#125;
+tags:
+-
+categories: []
+thumbnail: http:&#x2F;&#x2F;static.come2rss.xyz&#x2F;尼尔机械.jpg
+toc: true
+top: 10
+---
+
+
+
+&lt;!-- more --&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="添加自定义域名"><a href="#添加自定义域名" class="headerlink" title="添加自定义域名"></a>添加自定义域名</h4><p>在<code>public</code>文件下添加<code>CNAME</code>文件。内容仅为需要映射的自定义域名。</p>
+<h3 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h3><p>Matery主题自带Gittalk模块，只需要配置Gittalk参数即可。Gittalk利用GitHup的repo中ISSUE功能，实现了全部用前端代码的强大评论功能。那么需要我们创建一个<a target="_blank" rel="noopener" href="https://github.com/settings/installations">OAuth应用</a>来存储评论信息，并且添加对应信息。</p>
+<blockquote>
+<p>Homepage:博客地址</p>
+<p>Authorization callback URL:存储评论的库地址</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qing_gee/article/details/100133060">详细可以查看</a></p>
+</blockquote>
+<p>接下来在<code>hexo-theme-matery</code>文件下的配置文件<code>_config.yml</code>中配置相关关键词<code>repo</code>、<code>clientID</code>、<code>clientSecret</code>等等。</p>
+<p><img src="http://static.come2rss.xyz/image-20200917133230897.png" alt="image-20200917133230897"></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><p>至此，部署到GitHub的工作已经完成，之后如果我们希望对自己的博客进行修改或者需要发布新的文章时，可以按以下三步进行。</p>
+<pre class="line-numbers language-none"><code class="language-none">$ hexo clean # 删除已经生成的静态页面
+#下面两个命令可以简写为 hexo g -d
+$ hexo generate
+$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h2><h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="line-numbers language-none"><code class="language-none">hexo new &quot;postName&quot; #新建文章
+hexo generate #生成静态页面至public目录
+hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
+hexo deploy #将.deploy目录部署到GitHub
+hexo help  # 查看帮助
+hexo version  #查看Hexo的版本
+hexo clean; hexo g -d; #清理已生成的页面，重新生成并部署。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>启动本地服务器并监视文件变化，同时编译渲染。</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo s --watch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h2><pre class="line-numbers language-none"><code class="language-none">hexo n &#x3D;&#x3D; hexo new
+hexo g &#x3D;&#x3D; hexo generate
+hexo s &#x3D;&#x3D; hexo server
+hexo d &#x3D;&#x3D; hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="快速在新环境下搭建网站"><a href="#快速在新环境下搭建网站" class="headerlink" title="快速在新环境下搭建网站"></a>快速在新环境下搭建网站</h2><p>讲本地的源码上传到github的一个新分支hexocode中，与此同时，master保存着网页源代码，实现了快速下载hexo搭建配置的要求。<br>上传内容不多阐述，注意库中库问题就行。</p>
+<p>更多<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21193762/answer/489124966">参考知乎内容</a></p>
+<h3 id="下载分支搭建环境"><a href="#下载分支搭建环境" class="headerlink" title="下载分支搭建环境"></a>下载分支搭建环境</h3><p>更换电脑操作一样的，跟之前的环境搭建一样，安装gitsudo apt-get install git<br>设置git全局邮箱和用户名</p>
+<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;yourgithubname&quot;
+git config --global user.email &quot;yourgithubemail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>设置s</p>
+<pre class="line-numbers language-none"><code class="language-none">sh keyssh-keygen -t rsa -C &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>生成后填到github和coding上（有coding平台的话）<br>验证是否成功</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh -T git@github.com
+ssh -T git@git.coding.net #(有coding平台的话)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>安装nodejssudo </p>
+<pre class="line-numbers language-none"><code class="language-none">apt-get install nodejs
+sudo apt-get install npm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>安装hexo  </p>
+<pre class="line-numbers language-none"><code class="language-none">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>但是已经不需要初始化了，直接在任意文件夹下，</p>
+<pre class="line-numbers language-none"><code class="language-none">git clone git@………………<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后进入克隆到的文件夹：</p>
+<pre class="line-numbers language-none"><code class="language-none">cd xxx.github.io
+npm install
+npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>生成，部署：</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>然后就可以开始写你的新博客了hexo new newpage<br>Tips:不要忘了，每次写完最好都把源文件上传一下git add .</p>
+<pre class="line-numbers language-none"><code class="language-none">git commit –m &quot;xxxx&quot;
+git push <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果是在已经编辑过的电脑上，已经有clone文件夹了，那么，每次只要和远端同步一下就行了</p>
+<pre class="line-numbers language-none"><code class="language-none">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><p>可能可以使用githook，比如pre-commit完成hexo部署时自动化提交本地配置变化。现在不做过多研究。</p>
+<h2 id="更新2021年1月28日-22-22-06"><a href="#更新2021年1月28日-22-22-06" class="headerlink" title="更新2021年1月28日 22:22:06"></a>更新2021年1月28日 22:22:06</h2><h2 id="插件-hexo-enchancer-推荐"><a href="#插件-hexo-enchancer-推荐" class="headerlink" title="插件 hexo-enchancer 推荐"></a>插件 hexo-enchancer 推荐</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018402194">hexo-enhancer</a>是一个Hexo功能增强插件。完全可以取代之前的hexo-auto-categories插件。</p>
+<p>此插件支持的功能较多，并且未来会继续增加，可以理解为插件包。到目前为止，此插件支持的功能如下：</p>
+<p>自动生成title：根据文件名自动生成标题。<br>自动生成date：根据文件名自动生成日期，具体策略类似Jekyll。<br>自动生成abbrlink：根据标题进行base32和crc32生成短链接。<br>自动生成categories：根据文件的路径解析文章所属分类。<br>自动生成tags：根据配置在_config.yml中的可用tags和keywords自动扫描文章中出现的标签。</p>
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%8A%98%E8%85%BE/">折腾</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/08/07/code-tools/blog/bo-ke-nei-rong-shu-xie/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">博客内容书写</span></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "07dd4c3cfd13ec591dde628e6021b69a",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">274</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/26/zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-26T00:40:43.000Z">2021-05-26</time></p><p class="title"><a href="/2021/05/26/zui-da-zi-ju-zhen/">最大子矩阵</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Hexo-Github-Page-建站方案"><span class="level-left"><span class="level-item">1</span><span class="level-item">Hexo + Github Page 建站方案</span></span></a></li><li><a class="level is-mobile" href="#必要工具安装"><span class="level-left"><span class="level-item">2</span><span class="level-item">必要工具安装</span></span></a></li><li><a class="level is-mobile" href="#建站"><span class="level-left"><span class="level-item">3</span><span class="level-item">建站</span></span></a></li><li><a class="level is-mobile" href="#主题"><span class="level-left"><span class="level-item">4</span><span class="level-item">主题</span></span></a></li><li><a class="level is-mobile" href="#Post！"><span class="level-left"><span class="level-item">5</span><span class="level-item">Post！</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#图片"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">图片</span></span></a></li><li><a class="level is-mobile" href="#个性化"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">个性化</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#tags和categories"><span class="level-left"><span class="level-item">5.2.1</span><span class="level-item">tags和categories</span></span></a></li><li><a class="level is-mobile" href="#添加目录"><span class="level-left"><span class="level-item">5.2.2</span><span class="level-item">添加目录</span></span></a></li><li><a class="level is-mobile" href="#阅读统计"><span class="level-left"><span class="level-item">5.2.3</span><span class="level-item">阅读统计</span></span></a></li><li><a class="level is-mobile" href="#文章置顶功能"><span class="level-left"><span class="level-item">5.2.4</span><span class="level-item">文章置顶功能</span></span></a></li><li><a class="level is-mobile" href="#更多阅读"><span class="level-left"><span class="level-item">5.2.5</span><span class="level-item">更多阅读</span></span></a></li><li><a class="level is-mobile" href="#域名绑定"><span class="level-left"><span class="level-item">5.2.6</span><span class="level-item">域名绑定</span></span></a></li><li><a class="level is-mobile" href="#添加缩略图到你的文章"><span class="level-left"><span class="level-item">5.2.7</span><span class="level-item">添加缩略图到你的文章</span></span></a></li><li><a class="level is-mobile" href="#目录表（Table-of-Contents-Catalogue）"><span class="level-left"><span class="level-item">5.2.8</span><span class="level-item">目录表（Table of Contents / Catalogue）</span></span></a></li><li><a class="level is-mobile" href="#添加评论系统"><span class="level-left"><span class="level-item">5.2.9</span><span class="level-item">添加评论系统</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#常用命令"><span class="level-left"><span class="level-item">6</span><span class="level-item">常用命令</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#部署步骤"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">部署步骤</span></span></a></li><li><a class="level is-mobile" href="#命令总结"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">命令总结</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#常用命令-1"><span class="level-left"><span class="level-item">6.2.1</span><span class="level-item">常用命令</span></span></a></li></ul></li><li><a class="level is-mobile" href="#命令简写"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">命令简写</span></span></a></li><li><a class="level is-mobile" href="#快速在新环境下搭建网站"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">快速在新环境下搭建网站</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#下载分支搭建环境"><span class="level-left"><span class="level-item">6.4.1</span><span class="level-item">下载分支搭建环境</span></span></a></li><li><a class="level is-mobile" href="#改进"><span class="level-left"><span class="level-item">6.4.2</span><span class="level-item">改进</span></span></a></li></ul></li><li><a class="level is-mobile" href="#更新2021年1月28日-22-22-06"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">更新2021年1月28日 22:22:06</span></span></a></li><li><a class="level is-mobile" href="#插件-hexo-enchancer-推荐"><span class="level-left"><span class="level-item">6.6</span><span class="level-item">插件 hexo-enchancer 推荐</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">211</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

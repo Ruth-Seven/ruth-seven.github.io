@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>python decorators in detial - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="简单介绍一下python装饰器的写法，妙处和应用。原文英文链接"><meta property="og:type" content="blog"><meta property="og:title" content="python decorators in detial"><meta property="og:url" content="https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="简单介绍一下python装饰器的写法，妙处和应用。原文英文链接"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-10-21T05:42:12.000Z"><meta property="article:modified_time" content="2021-05-26T01:21:56.010Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-10-21T05:42:12.000Z","dateModified":"2021-05-26T01:21:56.010Z","author":{"@type":"Person","name":"John Doe"},"description":"简单介绍一下python装饰器的写法，妙处和应用。原文英文链接"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/10/21/language/python/python-decorators-in-detial/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-21T05:42:12.000Z" title="10/21/2020, 1:42:12 PM">2020-10-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-05-26T01:21:56.010Z" title="5/26/2021, 9:21:56 AM">2021-05-26</time></span><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Python/">Python</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">python decorators in detial</h1><div class="content"><p>简单介绍一下python装饰器的写法，妙处和应用。<a target="_blank" rel="noopener" href="https://realpython.com/primer-on-python-decorators/#stateful-decorators">原文英文链接</a></p>
+<span id="more"></span>
+
+
+<p>首先要知道：Python’s functions are first-class objects.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def be_awesome(name):
+    return f&quot;Yo &#123;name&#125;, together we are the awesomest!&quot;
+
+def greet_bob(greeter_func):
+    return greeter_func(&quot;Bob&quot;)
+
+&gt;&gt;&gt; greet_bob(be_awesome)
+&#39;Yo Bob, together we are the awesomest!&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Inner-Functions"><a href="#Inner-Functions" class="headerlink" title="Inner Functions"></a>Inner Functions</h3><p>It’s possible to <a target="_blank" rel="noopener" href="https://realpython.com/defining-your-own-python-function/">define functions</a> <em>inside other functions</em>. Such functions are called <a target="_blank" rel="noopener" href="https://realpython.com/inner-functions-what-are-they-good-for/">inner functions</a>.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def parent():
+    print(&quot;Printing from the parent() function&quot;)
+    def first_child():
+        print(&quot;Printing from the first_child() function&quot;)
+
+    first_child()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>inner function</code> 调用顺序如同 <code>parent()</code>所做的效果，同时<code>inner function</code>只有在<code>parent()</code>被调用之后才会被定义成一个local variable in parent local scope。</p>
+<h3 id="Returning-Functions-From-Functions"><a href="#Returning-Functions-From-Functions" class="headerlink" title="Returning Functions From Functions"></a>Returning Functions From Functions</h3><p>Python also allows you to use functions as return values.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 当然这里的 fisrt_child也可以被传入
+def parent():
+	def first_child():
+        return &quot;Hi, I am Emma&quot;
+    # return a reference to the function.
+    return first_child
+&gt;&gt;&gt; first &#x3D; parent()
+&gt;&gt;&gt; first
+&lt;function parent.&lt;locals&gt;.first_child at 0x7f599f1e2e18&gt;
+&gt;&gt;&gt;first()
+&#39;Hi, I am Emma&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Introspection"><a href="#Introspection" class="headerlink" title="Introspection"></a>Introspection</h3><p>一个好的函数需要有know  about its own attributes at runtime.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">&gt;&gt;&gt; print
+&lt;built-in function print&gt;
+
+&gt;&gt;&gt; print.__name__
+&#39;print&#39;
+
+&gt;&gt;&gt; help(print)
+Help on built-in function print in module builtins:
+
+print(...)
+    &lt;full help message&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="decorator"><a href="#decorator" class="headerlink" title="decorator"></a>decorator</h2><blockquote>
+<p>本质上还是一种 syntactic sugar</p>
+</blockquote>
+<p>Simply, decorator wrap a function, modifying its behavior.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def my_decorator(func):
+    def wrapper_do_twice(*args, **kwargs):
+        func(*args, **kwargs)
+		return func(*args, **kwargs)
+    return wrapper_do_twice
+
+@my_decorator
+def say_whee(args):
+    print(&quot;whell!&quot;)
+  	return f&quot;This is My &#123;args&#125;&quot;
+
+&gt;&gt;&gt; say_whee(&quot;Adam&quot;)
+whell
+whell
+This is My Adam<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这种<strong>等价</strong>的声明方式，代替了：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">say_wapper &#x3D; my_decorator(say_whee)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这种说明方式虽然方便，但是减少了一定程度的代码灵活性。同时，<code>import</code>对于该语法糖定义的函数也是有效的。</p>
+<blockquote>
+<p>这就是语法糖吗？</p>
+</blockquote>
+<p>注意<code>say_whee</code>函数接受参数的情况下同样需要<code>wrapper_do_twice</code>传递参数。</p>
+<h3 id="Introspection-1"><a href="#Introspection-1" class="headerlink" title="Introspection"></a>Introspection</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import functools
+
+# 显示消耗时间
+def timer(func):
+    &quot;&quot;&quot;Print the runtime of the decorated function&quot;&quot;&quot;
+    @functools.wraps(func)
+    def wrapper_timer(*args, **kwargs):
+        start_time &#x3D; time.perf_counter()    # 1
+        value &#x3D; func(*args, **kwargs)
+        end_time &#x3D; time.perf_counter()      # 2
+        run_time &#x3D; end_time - start_time    # 3
+        print(f&quot;Finished &#123;func.__name__!r&#125; in &#123;run_time:.4f&#125; secs&quot;)
+        return value
+    return wrapper_timer
+
+
+# 显示输入输出信息
+def debug(func):
+    &quot;&quot;&quot;Print the function signature and return value&quot;&quot;&quot;
+    @functools.wraps(func)
+    def wrapper_debug(*args, **kwargs):
+        args_repr &#x3D; [repr(a) for a in args]                      # 1
+        kwargs_repr &#x3D; [f&quot;&#123;k&#125;&#x3D;&#123;v!r&#125;&quot; for k, v in kwargs.items()]  # 2
+        signature &#x3D; &quot;, &quot;.join(args_repr + kwargs_repr)           # 3
+        print(f&quot;Calling &#123;func.__name__&#125;(&#123;signature&#125;)&quot;)
+        value &#x3D; func(*args, **kwargs)
+        print(f&quot;&#123;func.__name__!r&#125; returned &#123;value!r&#125;&quot;)           # 4
+        return value
+    return wrapper_debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 经过装饰的函数，的help信息显示的是装饰函数的inner function
+&gt;&gt;&gt; say_whee
+&lt;function do_twice.&lt;locals&gt;.wrapper_do_twice at 0x7f43700e52f0&gt;
+
+&gt;&gt;&gt; say_whee.__name__
+&#39;wrapper_do_twice&#39;
+
+
+
+&gt;&gt;&gt; help(say_whee)
+Help on function wrapper_do_twice in module decorators:
+
+wrapper_do_twice()
+
+# decorators 采用functools.wraps decorator 保存关于原来函数的信息
+
+import functools
+
+def do_twice(func):
+    @functools.wraps(func)
+    def wrapper_do_twice(*args, **kwargs):
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice
+
+&gt;&gt;&gt; say_whee
+&lt;function say_whee at 0x7ff79a60f2f0&gt;
+
+&gt;&gt;&gt; say_whee.__name__
+&#39;say_whee&#39;
+
+&gt;&gt;&gt; help(say_whee)
+Help on function say_whee in module whee:
+
+say_whee()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Technical Detail:</strong> The <code>@functools.wraps</code> decorator <a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/5d4cb54800966947db2e86f65fb109c5067076be/Lib/functools.py#L34">uses</a> the function <code>functools.update_wrapper()</code> to update special attributes like <code>__name__</code> and <code>__doc__</code> that are used in the introspection.</p>
+<h3 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h3><p>倒计时</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import functools
+import time
+
+def slow_down(func):
+    &quot;&quot;&quot;Sleep 1 second before calling the function&quot;&quot;&quot;
+    @functools.wraps(func)
+    def wrapper_slow_down(*args, **kwargs):
+        time.sleep(1)
+        return func(*args, **kwargs)
+    return wrapper_slow_down
+
+@slow_down
+def countdown(from_number):
+    if from_number &lt; 1:
+        print(&quot;Liftoff!&quot;)
+    else:
+        print(from_number)
+        countdown(from_number - 1)
+        
+
+&gt;&gt;&gt; countdown(3)
+3
+2
+1
+Liftoff!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>注册者</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import random
+PLUGINS &#x3D; dict()
+
+def register(func):
+    &quot;&quot;&quot;Register a function as a plug-in&quot;&quot;&quot;
+    PLUGINS[func.__name__] &#x3D; func
+    return func
+
+@register
+def say_hello(name):
+    return f&quot;Hello &#123;name&#125;&quot;
+
+@register
+def be_awesome(name):
+    return f&quot;Yo &#123;name&#125;, together we are the awesomest!&quot;
+
+def randomly_greet(name):
+    greeter, greeter_func &#x3D; random.choice(list(PLUGINS.items()))
+    print(f&quot;Using &#123;greeter!r&#125;&quot;)
+    return greeter_func(name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>用户登录</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from flask import Flask, g, request, redirect, url_for
+import functools
+app &#x3D; Flask(__name__)
+
+def login_required(func):
+    &quot;&quot;&quot;Make sure user is logged in before proceeding&quot;&quot;&quot;
+    @functools.wraps(func)
+    def wrapper_login_required(*args, **kwargs):
+        if g.user is None:
+            return redirect(url_for(&quot;login&quot;, next&#x3D;request.url))
+        return func(*args, **kwargs)
+    return wrapper_login_required
+
+@app.route(&quot;&#x2F;secret&quot;)
+@login_required
+def secret():
+    ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Decorating-Classes"><a href="#Decorating-Classes" class="headerlink" title="Decorating Classes"></a>Decorating Classes</h2><p>有两种方法可以在classes使用装饰器，一种对methods使用，另一种对class使用。</p>
+<h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Circle:
+    def __init__(self, radius):
+        self._radius &#x3D; radius
+
+    # 不可修改的属性
+    @property
+    def radius(self):
+        &quot;&quot;&quot;Get value of radius&quot;&quot;&quot;
+        return self._radius
+
+    #可设置的属性
+    @radius.setter
+    def radius(self, value):
+        &quot;&quot;&quot;Set radius, raise error if negative&quot;&quot;&quot;
+        if value &gt;&#x3D; 0:
+            self._radius &#x3D; value
+        else:
+            raise ValueError(&quot;Radius must be positive&quot;)
+
+            
+	# 无需实例调用，常用于工厂方法
+    @classmethod
+    def unit_circle(cls):
+        &quot;&quot;&quot;Factory method creating a circle with radius 1&quot;&quot;&quot;
+        return cls(1)
+
+    # 可在实例或者类中使用，可直接调用
+    @staticmethod
+    def pi():
+        &quot;&quot;&quot;Value of π, could use math.pi instead though&quot;&quot;&quot;
+        return 3.1415926535
+    
+    
+## exmaple 2
+# 也可以从之前的代码库中调用 方法来decorate
+from decorators import debug, timer
+class TimeWaster:
+    @debug
+    def __init__(self, max_num):
+        self.max_num &#x3D; max_num
+
+    @timer
+    def waste_time(self, num_times):
+        for _ in range(num_times):
+            sum([i**2 for i in range(self.max_num)])
+            
+            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><p>decorator用在class上面的语法和方法装饰器一样，可以注意到上面方法<code>@timer</code>装饰器在class上的作用等同于<code>timer = warpper_time(TimeWaster)</code>，也就是返回一个<code>Timewaster</code>对象地同时计算<code>init()</code>花费时间。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+@timer
+class TimeWaster:
+    def __init__(self, max_num):
+        self.max_num &#x3D; max_num
+
+    def waste_time(self, num_times):
+        for _ in range(num_times):
+            sum([i**2 for i in range(self.max_num)])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然可以把<code>callable function</code>当成<code>decorator</code>装饰给函数。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import functools
+
+class CountCalls:
+    def __init__(self, func):
+        functools.update_wrapper(self, func)
+        self.func &#x3D; func
+        self.num_calls &#x3D; 0
+
+    def __call__(self, *args, **kwargs):
+        self.num_calls +&#x3D; 1
+        print(f&quot;Call &#123;self.num_calls&#125; of &#123;self.func.__name__!r&#125;&quot;)
+        return self.func(*args, **kwargs)
+
+@CountCalls
+def say_whee():
+    print(&quot;Whee!&quot;)
+    
+    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>sya_whee()</code>等价于<code>func = CountCalls(say_whee)</code>，<code>func</code>就是调用<code>CountCalls.__call___()</code>。这就实现了<code>class decorator</code>的功能，同时由于class属性，自动完成了状态存储的功能。</p>
+<h2 id="Nest-Decorators"><a href="#Nest-Decorators" class="headerlink" title="Nest Decorators"></a>Nest Decorators</h2><p>神经的装饰器居然还可以Nesting的，这可比函数调用方便多了！</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+from decorators import debug, do_twice
+
+@debug
+@do_twice
+def greet(name):
+    print(f&quot;Hello &#123;name&#125;&quot;)
+    
+&gt;&gt;&gt; greet(&quot;Eva&quot;)
+Calling greet(&#39;Eva&#39;)
+Hello Eva
+Hello Eva
+&#39;greet&#39; returned None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>Think about this as the decorators being executed in the order they are listed. In other words, <code>@debug</code> calls <code>@do_twice</code>, which calls <code>greet()</code>, or <code>debug(do_twice(greet()))</code>:</p>
+<h2 id="Decorators-with-argument"><a href="#Decorators-with-argument" class="headerlink" title="Decorators with argument"></a>Decorators with argument</h2><p>带着参数的<code>decorateor</code>要求对装饰器理解要更上一层楼了：</p>
+<p><code>@method</code>指向是一个返回装饰器函数对象的函数，<code>@method(arsg=args)</code>指向是的一个带着参数的返回<em>返回装饰器函数对象</em>的函数对象。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import functools 
+
+def repeat(times):
+    def decorate_repeate(func):
+        @functools.wraps(func)
+        def inner_repeat(*args, **kwargs):
+            for _ in range(times):
+                value &#x3D; func(*args, **kwargs)
+            return value
+        return inner_repeat
+    return decorate_repeat
+
+@repeat(times&#x3D;4)
+def print_whee():
+    print(&quot;whee!&quot;)
+
+
+print_whee()
+print:
+whee!
+whee!
+whee!
+whee!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对比以下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def do_twice(func):
+    @functools.wraps(func)
+    def wrapper_do_twice(*args, **kwargs):
+		for x in args:
+			print(&quot;This args of func is:&quot;x)
+        func(*args, **kwargs)
+        return func(*args, **kwargs)
+    return wrapper_do_twice<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我认为之前的带参数的<code>decorator</code>的语法糖等价形式可以写成这样：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import functools 
+
+def repeat(times):
+    def decorate_repeat(func):
+        @functools.wraps(func)
+        def inner_repeat(*args, **kwargs):        
+            for x in args:
+                print(&quot;This args of func is:&quot;, x)
+            for _ in range(times):
+                value &#x3D; func(*args, **kwargs)
+            return value
+        return inner_repeat
+    return decorate_repeat
+
+
+def print_whee(*args, **kwargs):
+    print(&quot;whee!&quot;)
+
+# 对调用的函数返回的函数对象进行调用！
+# fisrt class NB!
+repeat_print_whee &#x3D; repeat(times&#x3D;4)(print_whee)
+print(repeat_print_whee)
+# print(inner_repeat)
+print(print_whee)
+print(repeat(times&#x3D;4))
+repeat_print_whee(*[&#39;hello&#39;, &#39;world&#39;])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>也就说，装饰器首先调用了<code>repeat(time)</code>，返回一个<code>decorate_repeat(print_whee)</code>的装饰器函数！接下来的步骤和之前相同。</p>
+<h3 id="optional-argument"><a href="#optional-argument" class="headerlink" title="optional argument"></a>optional argument</h3><p>本质上来说，<code>repeat(time)</code>只不过是套了层调用的<code>decoreate_repeat(func)</code>，也就是说</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def repeat(_func, *, times&#x3D;times):
+    def decorate_repeat(func):
+        @functools.wraps(func)
+        def inner_repeat(*args, **kwargs):        
+            for x in args:
+                print(&quot;This args of func is:&quot;, x)
+            for _ in range(times):
+                value &#x3D; func(*args, **kwargs)
+            return value
+        return inner_repeat
+   	#调用函数
+    return decorate_repeat(_func)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这就可以引入 可以带参数或者不带参数的<code>decorator</code>：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># * 表示后面的 following parameters are keyword-only.
+def repeat(_func&#x3D;None, *, num_times&#x3D;2):
+    def decorator_repeat(func):
+        @functools.wraps(func)
+        def wrapper_repeat(*args, **kwargs):
+            for _ in range(num_times):
+                value &#x3D; func(*args, **kwargs)
+            return value
+        return wrapper_repeat
+
+    # 如果decorator带非函数参数，语法糖就会写成
+    # repeat(num_time)(func)(*args……)
+    # &#x3D;  wrapper_repeat(*ars ……)
+    if _func is None:
+        return decorator_repeat
+   	# 如果decorator不带参数，decorator会直接调用warpped的函数
+    # 返回 wrapper_repeat函数
+    else:
+        return decorator_repeat(_func)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Stateful-decorators"><a href="#Stateful-decorators" class="headerlink" title="Stateful decorators"></a>Stateful decorators</h2><p>有状态的<code>decorator</code>与之前所述的<code>decorator</code>的输出依赖于输入的情况，恰恰相反，它依赖于当前的状态。这也于函数式编程的理念不同。不过这里简单运用了<code>function attributs</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import functools
+
+def count_calls(func):
+    @functools.wraps(func)
+    def wrapper_count_calls(*args, **kwargs):
+        wrapper_count_calls.num_calls +&#x3D; 1
+        print(f&quot;Call &#123;wrapper_count_calls.num_calls&#125; of &#123;func.__name__!r&#125;&quot;)
+        return func(*args, **kwargs)
+    wrapper_count_calls.num_calls &#x3D; 0
+    return wrapper_count_calls
+
+@count_calls
+def say_whee():
+    print(&quot;Whee!&quot;)
+
+say_whee()
+say_whee()
+say_whee()
+say_whee()
+print(say_whee.num_calls))
+
+print:
+Call 1 of &#39;say_whee&#39;
+Whee!
+Call 2 of &#39;say_whee&#39;
+Whee!
+Call 3 of &#39;say_whee&#39;
+Whee!
+Call 4 of &#39;say_whee&#39;
+Whee!
+4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更好的方式就是使用<code>class</code>作为装饰器来修饰方法，他保存状态更加方便！</p>
+<p>上文有相关内容。</p>
+<h2 id="更多真实例子"><a href="#更多真实例子" class="headerlink" title="更多真实例子"></a>更多真实例子</h2><h3 id="delay"><a href="#delay" class="headerlink" title="delay"></a>delay</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import functools
+import time
+
+def slow_down(_func&#x3D;None, *, rate&#x3D;1):
+    &quot;&quot;&quot;Sleep given amount of seconds before calling the function&quot;&quot;&quot;
+    def decorator_slow_down(func):
+        @functools.wraps(func)
+        def wrapper_slow_down(*args, **kwargs):
+            time.sleep(rate)
+            return func(*args, **kwargs)
+        return wrapper_slow_down
+
+    if _func is None:
+        return decorator_slow_down
+    else:
+        return decorator_slow_down(_func)
+    
+@slow_down(rate&#x3D;2)
+def countdown(from_number):
+    if from_number &lt; 1:
+        print(&quot;Liftoff!&quot;)
+    else:
+        print(from_number)
+        countdown(from_number - 1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h3><p>用装饰器实现单例模式！用了<code>stateful decorator</code>的知识点</p>
+<blockquote>
+<p>A singleton is a class with only one instance. There are several singletons in Python that you use frequently, including <code>None</code>, <code>True</code>, and <code>False</code>. It is the fact that <code>None</code> is a singleton that allows you to compare for <code>None</code> using the <a target="_blank" rel="noopener" href="https://realpython.com/python-is-identity-vs-equality/"><code>is</code> keyword</a>, like you saw in the <a target="_blank" rel="noopener" href="https://realpython.com/primer-on-python-decorators/#both-please-but-never-mind-the-bread">Both Please</a> section:</p>
+<p>Using <code>is</code> returns <code>True</code> only for objects that are the exact same instance.</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import functools
+
+
+def singlenton(cls):
+    @functools.wraps(cls)
+    def wrap_function(*args, **kwargs):
+        if not wrap_function.instance:
+            wrap_function.instance &#x3D; cls(*args, **kwargs)
+        return wrap_function.instance
+        
+    # 设置是必要的
+    wrap_function.instance &#x3D; None
+    return wrap_function
+
+@singlenton
+class iden(object):
+    ...
+    
+singlenton.instance &#x3D; &quot;a&quot;
+print(singlenton.instance)
+
+cls1 &#x3D; iden()
+cls2 &#x3D; iden()
+print(id(cls1))
+print(id(cls2))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Caching-Return-Value"><a href="#Caching-Return-Value" class="headerlink" title="Caching Return Value"></a>Caching Return Value</h3><p>当然也可以使用<code>stateful decorator</code>来计数、甚至cache！</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import functools
+
+
+def count_calls(func):
+    @functools.wraps(func)
+    def wrap_timers(*args, **kwargs):        
+        wrap_timers.times +&#x3D; 1
+        print(&quot;This is &#123;:^5&#125; times when the function excuted.&quot;.format(wrap_timers.times))    
+        return func(*args, **kwargs)
+    wrap_timers.times &#x3D; 0
+    return wrap_timers
+
+
+def cache(func):
+    @functools.wraps(func)
+    def wrap_fibonacci(*args, **kwargs):
+        dic &#x3D; wrap_fibonacci.cache        
+        for arg in args:     
+            if dic.get(arg) &#x3D;&#x3D; None:
+                dic[arg] &#x3D; func(*args, **kwargs)
+        return dic[arg]
+            
+    wrap_fibonacci.cache &#x3D; &#123;&#125;
+    return wrap_fibonacci
+
+# @cache
+@count_calls
+def fibonacci(nums):
+    if nums &#x3D;&#x3D; 1 or nums &#x3D;&#x3D; 0:
+        return nums
+    else :
+        return fibonacci(nums - 1) + fibonacci(nums - 2)
+
+
+print(fibonacci(5))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意，如果去掉<code>@cache</code>，调用次数不同的哦.</p>
+<h3 id="对象转化"><a href="#对象转化" class="headerlink" title="对象转化"></a>对象转化</h3><p>我们可以方便地添加function的attri，甚至直接把返回值替换成一个其他对象，减少操作的步骤。比如与和<code>pint</code>python库就是。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#!&#x2F;usr&#x2F;bin&#x2F;python3
+import math
+import functools
+
+import pint
+
+
+# 设置 unit function
+def set_unit(entity):
+    def get_add_unit(func):
+        func.unit &#x3D; entity
+        # @functools.wraps()
+        # def wrap_unit(*args, **kwargs):
+        #     func.unit &#x3D; entity
+            # return func(*args, **kwargs)
+        return func
+    return get_add_unit
+
+
+# 利用修饰符 设置unit
+@set_unit(&quot;m^2&quot;)
+def calM(radius):
+    return math.pi * radius ** 2
+
+print(calM(3))
+print(calM.unit)
+
+
+# 单位转化过程
+ureg &#x3D; pint.UnitRegistry()
+vol &#x3D; calM(4) * ureg(calM.unit)
+print(vol)
+print(vol.to(&quot;inches ^2 &quot;))  # Magnitude
+
+
+# 利用decarotor设置unit, 返回 Quantity 对象！减少转化步骤
+def use_unit(unit):
+    use_unit.unit &#x3D; pint.UnitRegistry()
+
+    def decorate_use_unit(func):
+        @functools.wraps(func)
+        def wrap_use_unit(*args, **kwargs):
+            
+            return func(*args, **kwargs) * use_unit.unit(unit)
+
+        return wrap_use_unit
+    return decorate_use_unit
+
+@use_unit(&quot;meters per hour&quot;)
+def average_speed(dis, time):
+    return dis &#x2F; time
+
+speed &#x3D; average_speed(10, 29)
+print(speed.to(&quot;km per hour&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Validating-JSON"><a href="#Validating-JSON" class="headerlink" title="Validating JSON"></a>Validating JSON</h3><p>检验JSON请求中是否有某些字段.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 原始
+@app.route(&quot;&#x2F;grade&quot;, methods&#x3D;[&quot;POST&quot;])
+def update_grade():
+    json_data &#x3D; request.get_json()
+    if &quot;student_id&quot; not in json_data:
+        abort(400)
+    # Update database
+    return &quot;success!&quot;
+
+from flask import Flask, request, abort
+import functools
+app &#x3D; Flask(__name__)
+
+
+# 验证decorator
+def validate_json(*expected_args):                  # 1
+    def decorator_validate_json(func):
+        @functools.wraps(func)
+        def wrapper_validate_json(*args, **kwargs):
+            json_object &#x3D; request.get_json()
+            for expected_arg in expected_args:      # 2
+                if expected_arg not in json_object:
+                    abort(400)
+            return func(*args, **kwargs)
+        return wrapper_validate_json
+    return decorator_validate_json
+
+@app.route(&quot;&#x2F;grade&quot;, methods&#x3D;[&quot;POST&quot;])
+@validate_json(&quot;student_id&quot;)
+def update_grade():
+    json_data &#x3D; request.get_json()
+    # Update database.
+    return &quot;success!&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>wrappper function</code> 把验证部分从原代码中抽离出来，交给了验证<code>decorator</code>，而剩下的功能更加纯粹。</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/10/22/shua-ti/qi-ta/524-longest-word-in-dictionary-through-deleting/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">524. Longest Word in Dictionary through Deleting</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/10/19/shua-ti/shuang-zhi-zhen/142-linked-list-cycle-ii/"><span class="level-item">142. Linked List Cycle II</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "2e802755ac3555fc52c988a3adac06a6",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">274</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/26/zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-26T00:40:43.000Z">2021-05-26</time></p><p class="title"><a href="/2021/05/26/zui-da-zi-ju-zhen/">最大子矩阵</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#Inner-Functions"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Inner Functions</span></span></a></li><li><a class="level is-mobile" href="#Returning-Functions-From-Functions"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">Returning Functions From Functions</span></span></a></li><li><a class="level is-mobile" href="#Introspection"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">Introspection</span></span></a></li></ul><li><a class="level is-mobile" href="#decorator"><span class="level-left"><span class="level-item">2</span><span class="level-item">decorator</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Introspection-1"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">Introspection</span></span></a></li><li><a class="level is-mobile" href="#examples"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">examples</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Decorating-Classes"><span class="level-left"><span class="level-item">3</span><span class="level-item">Decorating Classes</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#method"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">method</span></span></a></li><li><a class="level is-mobile" href="#class"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">class</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Nest-Decorators"><span class="level-left"><span class="level-item">4</span><span class="level-item">Nest Decorators</span></span></a></li><li><a class="level is-mobile" href="#Decorators-with-argument"><span class="level-left"><span class="level-item">5</span><span class="level-item">Decorators with argument</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#optional-argument"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">optional argument</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Stateful-decorators"><span class="level-left"><span class="level-item">6</span><span class="level-item">Stateful decorators</span></span></a></li><li><a class="level is-mobile" href="#更多真实例子"><span class="level-left"><span class="level-item">7</span><span class="level-item">更多真实例子</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#delay"><span class="level-left"><span class="level-item">7.1</span><span class="level-item">delay</span></span></a></li><li><a class="level is-mobile" href="#Singleton"><span class="level-left"><span class="level-item">7.2</span><span class="level-item">Singleton</span></span></a></li><li><a class="level is-mobile" href="#Caching-Return-Value"><span class="level-left"><span class="level-item">7.3</span><span class="level-item">Caching Return Value</span></span></a></li><li><a class="level is-mobile" href="#对象转化"><span class="level-left"><span class="level-item">7.4</span><span class="level-item">对象转化</span></span></a></li><li><a class="level is-mobile" href="#Validating-JSON"><span class="level-left"><span class="level-item">7.5</span><span class="level-item">Validating JSON</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">211</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

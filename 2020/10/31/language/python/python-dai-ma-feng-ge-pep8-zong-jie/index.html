@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python 代码风格 PEP8 总结 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Python 代码风格 PEP8 总结首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。 花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性readability，让整个代码风格的一致，非常重要。 总体来说："><meta property="og:type" content="blog"><meta property="og:title" content="Python 代码风格 PEP8 总结"><meta property="og:url" content="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="Python 代码风格 PEP8 总结首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。 花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性readability，让整个代码风格的一致，非常重要。 总体来说："><meta property="og:locale" content="en_US"><meta property="og:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><meta property="article:published_time" content="2020-10-31T14:44:09.000Z"><meta property="article:modified_time" content="2021-05-26T01:21:56.000Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://static.come2rss.xyz/尼尔机械.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"},"headline":"Hexo","image":["http://static.come2rss.xyz/尼尔机械.jpg"],"datePublished":"2020-10-31T14:44:09.000Z","dateModified":"2021-05-26T01:21:56.000Z","author":{"@type":"Person","name":"John Doe"},"description":"Python 代码风格 PEP8 总结首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。 花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性readability，让整个代码风格的一致，非常重要。 总体来说："}</script><link rel="canonical" href="https://blog.come2rss.xyz/2020/10/31/language/python/python-dai-ma-feng-ge-pep8-zong-jie/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-10-31T14:44:09.000Z" title="10/31/2020, 10:44:09 PM">2020-10-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-05-26T01:21:56.000Z" title="5/26/2021, 9:21:56 AM">2021-05-26</time></span><span class="level-item"><a class="link-muted" href="/categories/Language/">Language</a><span> / </span><a class="link-muted" href="/categories/Language/Python/">Python</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">Python 代码风格 PEP8 总结</h1><div class="content"><h1 id="Python-代码风格-PEP8-总结"><a href="#Python-代码风格-PEP8-总结" class="headerlink" title="Python 代码风格 PEP8 总结"></a><a target="_blank" rel="noopener" href="https://pep8.org/#descriptive-naming-styles">Python 代码风格 PEP8 总结</a></h1><p>首先，要保持整个项目的代码风格一致，这一点甚至比遵循PEP8代码风格更加重要。</p>
+<p>花在阅读代码的时间远远比比写代码的时间要长，提升代码的可读性<code>readability</code>，让整个代码风格的一致，非常重要。</p>
+<p>总体来说：</p>
+<span id="more"></span>
+
+<ul>
+<li>提升代码可读性</li>
+<li>避免对其他人写的、以前写的、支持过去的特性的的代码进行重构、或者修改</li>
+</ul>
+<h2 id="Code-Lay-out"><a href="#Code-Lay-out" class="headerlink" title="Code Lay-out"></a>Code Lay-out</h2><h3 id="Indentation"><a href="#Indentation" class="headerlink" title="Indentation"></a>Indentation</h3><p>Use 4 spaces per indentation level.</p>
+<p>Continuation lines should align wrapped elements either <strong>vertically using Python’s implicit line</strong> joining inside parentheses, brackets and braces, or using a <strong><em>hanging indent</em></strong> <a target="_blank" rel="noopener" href="https://pep8.org/#fn3">3</a>. When using a hanging indent the following should be considered; there should be <strong>no arguments on the first line</strong> and <strong>further indentation</strong> should be used to clearly distinguish itself as a continuation line.</p>
+<blockquote>
+<p>应当有两种书写跨行代码的方式：</p>
+<ul>
+<li>第一行带参数，并保持第二行与第一行垂直对齐</li>
+<li>第一行不带参数，剩下的行数保持对齐<ul>
+<li>需要有更多的缩进来保持与其他代码的不同</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+# Aligned with opening delimiter.
+foo &#x3D; long_function_name(var_one, var_two,
+                         var_three, var_four)
+
+# More indentation included to distinguish this from the rest.
+def long_function_name(
+        var_one, var_two, var_three,
+        var_four):
+    print(var_one)
+
+# Hanging indents should add a level.
+foo &#x3D; long_function_name(
+    var_one, var_two,
+    var_three, var_four)
+
+# Add some extra indentation on the conditional continuation line.
+if (this_is_one_thing
+        and that_is_another_thing):
+    do_something()
+    
+
+result &#x3D; some_function_that_takes_arguments(
+    &#39;a&#39;, &#39;b&#39;, &#39;c&#39;,
+    &#39;d&#39;, &#39;e&#39;, &#39;f&#39;,
+)
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Tap"><a href="#Tap" class="headerlink" title="Tap?"></a>Tap?</h3><p>Python 3 disallows mixing the use of tabs and spaces for indentation.</p>
+<h3 id="Maximum-Line-Length"><a href="#Maximum-Line-Length" class="headerlink" title="Maximum Line Length"></a>Maximum Line Length</h3><p>Limit all lines to a maximum of 79 characters.</p>
+<p>这么做有利于：</p>
+<ul>
+<li>在编辑器中可以快速浏览水平排列的多个程序文件</li>
+<li>保持一行代码的的简洁性</li>
+</ul>
+<h3 id="Break-a-line-from-binary-operator"><a href="#Break-a-line-from-binary-operator" class="headerlink" title="Break a line from binary operator"></a>Break a line from binary operator</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">
+# No: operators sit far away from their operands
+income &#x3D; (gross_wages +
+          taxable_interest +
+          (dividends - qualified_dividends) -
+          ira_deduction -
+          student_loan_interest)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通常的二元操作符的分割方法如上所示，但是这样破环了操作符和操作数的连续性，更好的方法是把<code>operator</code>放在前面。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># Binary operation
+
+## Yes: easy to match operators with operands
+income &#x3D; (gross_wages
+          + taxable_interest
+          + (dividends - qualified_dividends)
+          - ira_deduction
+          - student_loan_interest)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Blank-Lines"><a href="#Blank-Lines" class="headerlink" title="Blank Lines"></a>Blank Lines</h3><p>Surround top-level function and class <strong>definitions</strong> with two blank lines.</p>
+<p>Method <strong>definitions</strong> inside a class are surrounded by a single blank line.</p>
+<h3 id="Source-File-Encoding"><a href="#Source-File-Encoding" class="headerlink" title="Source File Encoding"></a>Source File Encoding</h3><p>Code in the core Python3 distribution should always use UTF-8.</p>
+<h3 id="Import"><a href="#Import" class="headerlink" title="Import*"></a>Import*</h3><p>Imports should usually be on separate lines, e.g.:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import os
+import sys
+#It’s okay to say this though:
+
+from subprocess import Popen, PIPE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Imports are always put <strong>at the top of the file</strong>, just after any module comments and docstrings, and before module globals and constants.</p>
+<p>Imports should be grouped in the following order:</p>
+<ol>
+<li>standard library imports</li>
+<li>related third party imports</li>
+<li>local application/library specific imports</li>
+</ol>
+<p>You should put a blank line between each group of imports.</p>
+<p><strong>Absolute imports</strong> are recommended, as they are usually more readable and tend to be better behaved.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import mypkg.sibling
+from mypkg import sibling
+from mypkg.sibling import example<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>However, explicit relative imports are an <strong>acceptable alternative</strong> to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from . import sibling
+from .sibling import example<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="Whitespace-in-Expressions-and-Statements"><a href="#Whitespace-in-Expressions-and-Statements" class="headerlink" title="Whitespace in Expressions and Statements"></a>Whitespace in Expressions and Statements</h3><p>Immediately <strong>inside</strong> parentheses, brackets or braces:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">spam(ham[1], &#123;eggs: 2&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">spam( ham[ 1 ], &#123; eggs: 2 &#125; )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Between a <strong>trailing comma</strong> and a following close parenthesis:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">foo &#x3D; (0,)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">bar &#x3D; (0, )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Immediately before a comma, semicolon, or colon:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if x &#x3D;&#x3D; 4: print x, y; x, y &#x3D; y, x<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if x &#x3D;&#x3D; 4 : print x , y ; x , y &#x3D; y , x<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
+<blockquote>
+<p>注意下面实例中最后一个例子</p>
+</blockquote>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+# 和最后一个对比一下，似乎带有某种运算优先级的暗示
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+# 
+ham[lower + offset : upper + offset]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ham[lower + offset:upper + offset]
+ham[1: 9], ham[1 :9], ham[1:9 :3]
+ham[lower : : upper]
+ham[ : upper]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Immediately before the open parenthesis that starts the argument list of a function call:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">spam(1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">spam (1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dct[&#39;key&#39;] &#x3D; lst[index]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dct [&#39;key&#39;] &#x3D; lst [index]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More than one space around an assignment (or other) operator to align it with another.</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x &#x3D; 1
+y &#x3D; 2
+long_variable &#x3D; 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x             &#x3D; 1
+y             &#x3D; 2
+long_variable &#x3D; 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Other-Recommendations"><a href="#Other-Recommendations" class="headerlink" title="Other Recommendations"></a>Other Recommendations</h3><p><strong>Avoid trailing whitespace</strong> anywhere. Because it’s usually invisible, it can be confusing: e. g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.</p>
+<p>Always <strong>surround these binary operators with a single space</strong> on either side: assignment (<code>=</code>), augmented assignment (<code>+=</code>, <code>-=</code> etc.), comparisons (<code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>in</code>, <code>not in</code>, <code>is</code>, <code>is not</code>), Booleans (<code>and</code>, <code>or</code>, <code>not</code>).</p>
+<p>If operators with different <strong>priorities</strong> are used, consider a<strong>dding whitespace around the operators with the lowest priority(ies)</strong>. Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
+<p><strong>Don’t</strong> use spaces around the <code>=</code> sign when used to indicate a <strong>keyword argument</strong> or a default parameter value.</p>
+<blockquote>
+<p>与下面第二条不同</p>
+</blockquote>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def complex(real, imag&#x3D;0.0):
+    return magic(r&#x3D;real, i&#x3D;imag)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def complex(real, imag &#x3D; 0.0):
+    return magic(r &#x3D; real, i &#x3D; imag)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>Function annotations</strong> should use the normal rules for colons and always have spaces around the <code>-&gt;</code> arrow if present. (See <a target="_blank" rel="noopener" href="https://pep8.org/#function-annotations">Function Annotations</a> below for more about function annotations.)</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def munge(input: AnyStr): ...
+def munge() -&gt; AnyStr: ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def munge(input:AnyStr): ...
+def munge()-&gt;PosInt: ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>When combining an <strong>argument annotation with a default value</strong>, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def munge(sep: AnyStr &#x3D; None): ...
+def munge(input: AnyStr, sep: AnyStr &#x3D; None, limit&#x3D;1000): ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def munge(input: AnyStr&#x3D;None): ...
+def munge(input: AnyStr, limit &#x3D; 1000): ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>Compound statements</strong> (multiple statements on the same line) are generally discouraged.</p>
+<blockquote>
+<p>简洁还是简洁</p>
+</blockquote>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if foo &#x3D;&#x3D; &#39;blah&#39;:
+    do_blah_thing()
+do_one()
+do_two()
+do_three()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Rather not:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if foo &#x3D;&#x3D; &#39;blah&#39;: do_blah_thing()
+do_one(); do_two(); do_three()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>Trailing Commas </p>
+<blockquote>
+<p>commas: <code>,</code></p>
+</blockquote>
+<p>Trailing commas常常用在tuple中的数据分割，我们常常推荐使用圆括号来包含数据和逗号。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+FILES &#x3D; (&#39;setup.cfg&#39;,)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在List中每一项划分为一行，并把括号分割在下一行中。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+FILES &#x3D; [
+    &#39;setup.cfg&#39;,
+    &#39;tox.ini&#39;,
+    ]
+
+initialize(FILES,
+           error&#x3D;True,
+           )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>Tips:</p>
+<ul>
+<li>update comments when code is changed</li>
+<li>never alter the <strong>case of identifiers</strong></li>
+<li>be complete sentence</li>
+<li>write in English</li>
+</ul>
+<h3 id="Block-Comments"><a href="#Block-Comments" class="headerlink" title="Block Comments"></a>Block Comments</h3><ul>
+<li>are intended to the same level as that code </li>
+<li>starts with a # and a single space.</li>
+</ul>
+<h3 id="Inline-Comments"><a href="#Inline-Comments" class="headerlink" title="Inline Comments"></a>Inline Comments</h3><ul>
+<li>Use inline comments <strong>sparingly</strong>(简洁的)</li>
+<li>Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.</li>
+</ul>
+<h3 id="Documentation-Strings"><a href="#Documentation-Strings" class="headerlink" title="Documentation Strings"></a>Documentation Strings</h3><p>Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the <code>def</code> line.</p>
+<p>the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself, e.g.:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">&quot;&quot;&quot;Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+&quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Naming-Conventions"><a href="#Naming-Conventions" class="headerlink" title="Naming Conventions"></a>Naming Conventions</h2><h3 id="Overriding-Principle"><a href="#Overriding-Principle" class="headerlink" title="Overriding Principle"></a>Overriding Principle</h3><p>Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.</p>
+<blockquote>
+<p>面向外部的命名其含义远大于实施意义。</p>
+</blockquote>
+<h3 id="Naming-Style3"><a href="#Naming-Style3" class="headerlink" title="Naming Style3"></a>Naming Style3</h3><p>命名的方式多种多样。</p>
+<p>有一种独特的命名方式，是在函数和变量前加一个<code>short unique prefix</code> 去聚合相关的名字函数，但是Python用对象名代替了这种功能。</p>
+<h3 id="Leading-or-trailing-undrescores-下划线添加规则"><a href="#Leading-or-trailing-undrescores-下划线添加规则" class="headerlink" title="Leading or trailing undrescores 下划线添加规则"></a>Leading or trailing undrescores 下划线添加规则</h3><ul>
+<li><p><code>_single_leading_underscore</code>: weak “internal use” indicator. E.g. <code>from M import *</code> does <strong>not import</strong> objects whose name starts with an underscore.</p>
+</li>
+<li></li>
+<li><p><code>single_trailing_underscore_</code>: used by convention to <strong>avoid conflicts</strong> with Python keyword, e.g.:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Tkinter.Toplevel(master, class_&#x3D;&#39;ClassName&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><code>__double_leading_underscore</code>: when naming a class attribute, i<strong>nvokes name mangling</strong> (inside class FooBar, <code>__boo</code> becomes <code>_FooBar__boo</code>; see below).</p>
+<blockquote>
+<p>To avoid name clashes with subclasses, use two leading underscores to invoke Python’s name mangling rules.</p>
+<p>Python mangles these names with the class name: if class Foo has an attribute named <code>__a</code>, it cannot be accessed by <code>Foo.__a</code>. (An insistent user could still gain access by calling <code>Foo._Foo__a</code>.) Generally, double leading underscores should be used only to avoid name conflicts with attributes in classes designed to be subclassed.</p>
+</blockquote>
+</li>
+<li><p><code>__double_leading_and_trailing_underscore__</code>: “<strong>magic” objects or attributes</strong> that live in user-controlled namespaces. E.g. <code>__init__</code>, <code>__import__</code> or <code>__file__</code>. Never invent such names; only use them as documented.</p>
+</li>
+</ul>
+<h3 id="Never-use-indistinguishable-name"><a href="#Never-use-indistinguishable-name" class="headerlink" title="Never use indistinguishable name"></a>Never use indistinguishable name</h3><p> Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names.</p>
+<h3 id="Package-and-Module-Names"><a href="#Package-and-Module-Names" class="headerlink" title="Package and Module Names"></a>Package and Module Names</h3><p>Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. </p>
+<blockquote>
+<p> the C/C++ module has a leading underscore </p>
+</blockquote>
+<h3 id="Class-Names"><a href="#Class-Names" class="headerlink" title="Class Names"></a>Class Names</h3><p>Class names should normally use the CapWords convention.</p>
+<h3 id="Type-variable-names"><a href="#Type-variable-names" class="headerlink" title="Type variable names"></a>Type variable names</h3><blockquote>
+<p>没懂？？？</p>
+</blockquote>
+<p>Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add suffixes <code>_co</code> or <code>_contra</code> to the variables used to declare covariant or contravariant behavior correspondingly. Examples</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from typing import TypeVar
+
+  VT_co &#x3D; TypeVar(&#39;VT_co&#39;, covariant&#x3D;True)
+  KT_contra &#x3D; TypeVar(&#39;KT_contra&#39;, contravariant&#x3D;True)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Exception-Names"><a href="#Exception-Names" class="headerlink" title="Exception Names"></a>Exception Names</h3><p>Because exceptions should be classes, the class naming convention applies here. However, you should use the <strong>suffix “Error”</strong> on your exception names (if the exception actually is an error).</p>
+<h3 id="Global-Variable-Names"><a href="#Global-Variable-Names" class="headerlink" title="Global Variable Names"></a>Global Variable Names</h3><blockquote>
+<p>对于不想被其他文件导入的变量和函数，使用`<strong>all</strong> mechdanism或者使用prefixing an undersocre.</p>
+</blockquote>
+<p>(Let’s hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.</p>
+<p>Modules that are designed for use via <code>from M import *</code> should use the <code>__all__</code> mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are <strong>“module non-public”</strong>).</p>
+<h3 id="Function-Names"><a href="#Function-Names" class="headerlink" title="Function Names"></a>Function Names</h3><p>Function names should be <strong>lowercase</strong>, with words separated by <strong>underscores</strong> as necessary to improve readability.</p>
+<h3 id="Function-and-method-arguments"><a href="#Function-and-method-arguments" class="headerlink" title="Function and method arguments"></a>Function and method arguments</h3><p>Always use <code>self</code> for the first argument to instance methods.</p>
+<p>Always use <code>cls</code> for the first argument to class methods.</p>
+<p>If a function argument’s name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus <code>class_</code> is better than <code>clss</code>. (Perhaps better is to avoid such clashes by using a synonym.)</p>
+<blockquote>
+<p>The difference between <code>cls</code> and <code>self</code></p>
+<p><code>cls</code> implies that method belongs to the class while self implies that the method is related to instance of the class,therefore member with <code>cls</code> is accessed by class name where as the one with self is accessed by instance of the class…it is the same concept as <code>static member</code> and <code>non-static members</code> in java if you are from java background.</p>
+</blockquote>
+<h3 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h3><p>Constants are <strong>usually defined on a module level</strong> and written in <strong>all capital letters</strong> <strong>with underscores separating</strong> words. Examples include <code>MAX_OVERFLOW</code> and <code>TOTAL</code>.</p>
+<h2 id="Designing-for-inheritance"><a href="#Designing-for-inheritance" class="headerlink" title="Designing for inheritance"></a>Designing for inheritance</h2><p>Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.</p>
+<p>如果需要暴露公共属性，必须保证向后兼容性（后来的代码），尽量设置属性为私有。</p>
+<p>特别对于父类，需要仔细考虑代码的</p>
+<h3 id="Public-and-internal-interfaces"><a href="#Public-and-internal-interfaces" class="headerlink" title="Public and internal interfaces"></a>Public and internal interfaces</h3><p>所有没有被文档记载的属性和方法都应该是私有的，也就是说文档记载的属性可以是私有的或者是公共的。</p>
+<p>To better support <strong>introspection</strong>, modules should explicitly declare the names in their public API using the <code>__all__</code> attribute. Setting <code>__all__</code> to an <strong>empty</strong> list indicates that the module has no public API.</p>
+<h3 id="Programming-Recommendation"><a href="#Programming-Recommendation" class="headerlink" title="Programming Recommendation"></a>Programming Recommendation</h3><p><strong>少用的lambda表达式:</strong></p>
+<p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def f(x): return 2*x<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>No:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">f &#x3D; lambda x: 2*x<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>The first form means that the name of the resulting function object is specifically ‘f’ instead of the generic ‘<lambda>’. This is more useful for <strong>tracebacks</strong> and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit def statement (i.e. that it can be embedded inside a larger expression).</p>
+<h3 id="在try语句中尽量少用的语句。"><a href="#在try语句中尽量少用的语句。" class="headerlink" title="在try语句中尽量少用的语句。"></a>在<code>try</code>语句中尽量少用的语句。</h3><h3 id="坚持在函数末尾返回None或者应该有的表达式"><a href="#坚持在函数末尾返回None或者应该有的表达式" class="headerlink" title="坚持在函数末尾返回None或者应该有的表达式"></a>坚持在函数末尾返回<code>None</code>或者应该有的表达式</h3><h3 id="Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes"><a href="#Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes" class="headerlink" title="Use &#39;&#39;.startswith() and &#39;&#39;.endswith() instead of string slicing to check for prefixes or suffixes"></a>Use <code>&#39;&#39;.startswith()</code> and <code>&#39;&#39;.endswith()</code> instead of string slicing to check for prefixes or suffixes</h3><blockquote>
+<p>更快</p>
+</blockquote>
+<h3 id="Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly"><a href="#Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly" class="headerlink" title="Object type comparisons should always use isinstance() instead of comparing types directly:"></a>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly:</h3><p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if isinstance(obj, int):<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false"><a href="#For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false" class="headerlink" title="For sequences, (strings, lists, tuples), use the fact that empty sequences are false:"></a>For sequences, (strings, lists, tuples), use the fact that empty sequences are false:</h3><p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if not seq:
+if seq:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="Don’t-compare-boolean-values-to-True-or-False-using"><a href="#Don’t-compare-boolean-values-to-True-or-False-using" class="headerlink" title="Don’t compare boolean values to True or False using ==:"></a>Don’t compare boolean values to True or False using <code>==</code>:</h3><p>Yes:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if greeting:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Worse:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">if greeting is True:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/11/01/shua-ti-sou-suo-er-fen-154-find-minimum-in-rotated-sorted-array-ii/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">154. Find Minimum in Rotated Sorted Array II</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/10/30/shua-ti-sou-suo-er-fen-2020-10-30-81-search-in-rotated-sorted-array-ii/"><span class="level-item">81. Search in Rotated Sorted Array II</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "86956771a0d3596a4a1b233ae8fc6e95",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">274</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2021/05/26/zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-26T00:40:43.000Z">2021-05-26</time></p><p class="title"><a href="/2021/05/26/zui-da-zi-ju-zhen/">最大子矩阵</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"><img src="http://static.come2rss.xyz/portal.png" alt="面试题 17.24. 最大子矩阵"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-10T01:36:53.000Z">2021-05-10</time></p><p class="title"><a href="/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/">面试题 17.24. 最大子矩阵</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/DP/">DP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"><img src="http://static.come2rss.xyz/mirage.png" alt="二分图匹配"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T05:03:11.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/">二分图匹配</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/"><img src="http://static.come2rss.xyz/mirage.png" alt="割点算法"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-09T03:34:08.000Z">2021-05-09</time></p><p class="title"><a href="/2021/05/09/shua-ti-shu-ju-jie-gou-tu-ge-dian-suan-fa/">割点算法</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"><img src="http://static.come2rss.xyz/low-poly-ice-cream.png" alt="847. 访问所有节点的最短路径"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-05-08T09:02:09.000Z">2021-05-08</time></p><p class="title"><a href="/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/">847. 访问所有节点的最短路径</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图
+</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Python-代码风格-PEP8-总结"><span class="level-left"><span class="level-item">1</span><span class="level-item">Python 代码风格 PEP8 总结</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Code-Lay-out"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Code Lay-out</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Indentation"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item">Indentation</span></span></a></li><li><a class="level is-mobile" href="#Tap"><span class="level-left"><span class="level-item">1.1.2</span><span class="level-item">Tap?</span></span></a></li><li><a class="level is-mobile" href="#Maximum-Line-Length"><span class="level-left"><span class="level-item">1.1.3</span><span class="level-item">Maximum Line Length</span></span></a></li><li><a class="level is-mobile" href="#Break-a-line-from-binary-operator"><span class="level-left"><span class="level-item">1.1.4</span><span class="level-item">Break a line from binary operator</span></span></a></li><li><a class="level is-mobile" href="#Blank-Lines"><span class="level-left"><span class="level-item">1.1.5</span><span class="level-item">Blank Lines</span></span></a></li><li><a class="level is-mobile" href="#Source-File-Encoding"><span class="level-left"><span class="level-item">1.1.6</span><span class="level-item">Source File Encoding</span></span></a></li><li><a class="level is-mobile" href="#Import"><span class="level-left"><span class="level-item">1.1.7</span><span class="level-item">Import*</span></span></a></li><li><a class="level is-mobile" href="#Whitespace-in-Expressions-and-Statements"><span class="level-left"><span class="level-item">1.1.8</span><span class="level-item">Whitespace in Expressions and Statements</span></span></a></li><li><a class="level is-mobile" href="#Other-Recommendations"><span class="level-left"><span class="level-item">1.1.9</span><span class="level-item">Other Recommendations</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Comments"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">Comments</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Block-Comments"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">Block Comments</span></span></a></li><li><a class="level is-mobile" href="#Inline-Comments"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">Inline Comments</span></span></a></li><li><a class="level is-mobile" href="#Documentation-Strings"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">Documentation Strings</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Naming-Conventions"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">Naming Conventions</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Overriding-Principle"><span class="level-left"><span class="level-item">1.3.1</span><span class="level-item">Overriding Principle</span></span></a></li><li><a class="level is-mobile" href="#Naming-Style3"><span class="level-left"><span class="level-item">1.3.2</span><span class="level-item">Naming Style3</span></span></a></li><li><a class="level is-mobile" href="#Leading-or-trailing-undrescores-下划线添加规则"><span class="level-left"><span class="level-item">1.3.3</span><span class="level-item">Leading or trailing undrescores 下划线添加规则</span></span></a></li><li><a class="level is-mobile" href="#Never-use-indistinguishable-name"><span class="level-left"><span class="level-item">1.3.4</span><span class="level-item">Never use indistinguishable name</span></span></a></li><li><a class="level is-mobile" href="#Package-and-Module-Names"><span class="level-left"><span class="level-item">1.3.5</span><span class="level-item">Package and Module Names</span></span></a></li><li><a class="level is-mobile" href="#Class-Names"><span class="level-left"><span class="level-item">1.3.6</span><span class="level-item">Class Names</span></span></a></li><li><a class="level is-mobile" href="#Type-variable-names"><span class="level-left"><span class="level-item">1.3.7</span><span class="level-item">Type variable names</span></span></a></li><li><a class="level is-mobile" href="#Exception-Names"><span class="level-left"><span class="level-item">1.3.8</span><span class="level-item">Exception Names</span></span></a></li><li><a class="level is-mobile" href="#Global-Variable-Names"><span class="level-left"><span class="level-item">1.3.9</span><span class="level-item">Global Variable Names</span></span></a></li><li><a class="level is-mobile" href="#Function-Names"><span class="level-left"><span class="level-item">1.3.10</span><span class="level-item">Function Names</span></span></a></li><li><a class="level is-mobile" href="#Function-and-method-arguments"><span class="level-left"><span class="level-item">1.3.11</span><span class="level-item">Function and method arguments</span></span></a></li><li><a class="level is-mobile" href="#Constants"><span class="level-left"><span class="level-item">1.3.12</span><span class="level-item">Constants</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Designing-for-inheritance"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">Designing for inheritance</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Public-and-internal-interfaces"><span class="level-left"><span class="level-item">1.4.1</span><span class="level-item">Public and internal interfaces</span></span></a></li><li><a class="level is-mobile" href="#Programming-Recommendation"><span class="level-left"><span class="level-item">1.4.2</span><span class="level-item">Programming Recommendation</span></span></a></li><li><a class="level is-mobile" href="#在try语句中尽量少用的语句。"><span class="level-left"><span class="level-item">1.4.3</span><span class="level-item">在try语句中尽量少用的语句。</span></span></a></li><li><a class="level is-mobile" href="#坚持在函数末尾返回None或者应该有的表达式"><span class="level-left"><span class="level-item">1.4.4</span><span class="level-item">坚持在函数末尾返回None或者应该有的表达式</span></span></a></li><li><a class="level is-mobile" href="#Use-39-39-startswith-and-39-39-endswith-instead-of-string-slicing-to-check-for-prefixes-or-suffixes"><span class="level-left"><span class="level-item">1.4.5</span><span class="level-item">Use &#039;&#039;.startswith() and &#039;&#039;.endswith() instead of string slicing to check for prefixes or suffixes</span></span></a></li><li><a class="level is-mobile" href="#Object-type-comparisons-should-always-use-isinstance-instead-of-comparing-types-directly"><span class="level-left"><span class="level-item">1.4.6</span><span class="level-item">Object type comparisons should always use isinstance() instead of comparing types directly:</span></span></a></li><li><a class="level is-mobile" href="#For-sequences-strings-lists-tuples-use-the-fact-that-empty-sequences-are-false"><span class="level-left"><span class="level-item">1.4.7</span><span class="level-item">For sequences, (strings, lists, tuples), use the fact that empty sequences are false:</span></span></a></li><li><a class="level is-mobile" href="#Don’t-compare-boolean-values-to-True-or-False-using"><span class="level-left"><span class="level-item">1.4.8</span><span class="level-item">Don’t compare boolean values to True or False using ==:</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">211</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
