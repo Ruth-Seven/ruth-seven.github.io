@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-06-19T03:49:29.460Z</updated>
+  <updated>2021-06-19T03:56:42.280Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人生的不幸</title>
+    <link href="https://blog.come2rss.xyz/2021/06/19/ren-sheng-de-bu-xing/"/>
+    <id>https://blog.come2rss.xyz/2021/06/19/ren-sheng-de-bu-xing/</id>
+    <published>2021-06-19T03:55:25.000Z</published>
+    <updated>2021-06-19T03:56:42.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;人生中最痛苦不是身体残疾，目不能视，耳不能听；也不是原生家庭带来性格扭曲，从小的身微言轻，家境清贫；更不是高考落榜，身陷囹圄，工作遇阻。而是无法接受现状，不能认清自我的能力的边界，贪求不能现在得到的欲望，终日惶惶思索财路，入睡夜夜欲求不止。这种终身收自己精神折磨的人，从不愿</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>1239. 串联字符串的最大长度</title>
@@ -514,29 +535,6 @@
     
     <category term="单调栈
 " scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 04.09. BST Sequences LCCI</title>
-    <link href="https://blog.come2rss.xyz/2021/04/01/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-04-09-bst-sequences-lcci/"/>
-    <id>https://blog.come2rss.xyz/2021/04/01/shua-ti/shu-ju-jie-gou/shu/mian-shi-ti-04-09-bst-sequences-lcci/</id>
-    <published>2021-04-01T08:08:51.000Z</published>
-    <updated>2021-04-01T08:28:54.820Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;面试题-04-09-BST-Sequences-LCCI&quot;&gt;&lt;a href=&quot;#面试题-04-09-BST-Sequences-LCCI&quot; class=&quot;headerlink&quot; title=&quot;面试题 04.09. BST Sequences LCCI&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/bst-sequences-lcci/&quot;&gt;面试题 04.09. BST Sequences LCCI&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;懵树下你和我，快乐刷刷题&lt;/p&gt;
-&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;二叉树的构建，是从根节点开始的，每构建的一个节点，就添加了一个可能两个新扩展节点，我们可以在其中任意选择一个节点新构建，如此递归下去，完成整棵树的构建。&lt;/p&gt;
-&lt;p&gt;那么，我们需要模拟整棵树的构建遍历过程，用&lt;code&gt;deque&lt;/code&gt;存储每次构建时可以选择的节点，递归构造。如果&lt;code&gt;deque&lt;/code&gt;为空，说明建构完成，把记录构建顺序的&lt;code&gt;path&lt;/code&gt;加入答案即可。建构完成后回溯进行下一个节点的构建。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
     
     
   </entry>
