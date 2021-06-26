@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-06-19T03:56:42.280Z</updated>
+  <updated>2021-06-26T01:49:09.170Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -17,9 +17,73 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>单链表中K节点逆序</title>
+    <link href="https://blog.come2rss.xyz/2021/06/26/shua-ti-shu-ju-jie-gou-lian-biao-dan-lian-biao-zhong-k-jie-dian-ni-xu/"/>
+    <id>https://blog.come2rss.xyz/2021/06/26/shua-ti-shu-ju-jie-gou-lian-biao-dan-lian-biao-zhong-k-jie-dian-ni-xu/</id>
+    <published>2021-06-26T01:45:38.000Z</published>
+    <updated>2021-06-26T01:49:09.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+
+
+&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;超级大杂烩，左程云出的题的风格。&lt;/p&gt;
+&lt;p&gt;K节点逆序+ K节点检测 +</summary>
+        
+      
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>约瑟夫问题</title>
+    <link href="https://blog.come2rss.xyz/2021/06/22/shua-ti-shu-ju-jie-gou-lian-biao-yue-se-fu-wen-ti/"/>
+    <id>https://blog.come2rss.xyz/2021/06/22/shua-ti-shu-ju-jie-gou-lian-biao-yue-se-fu-wen-ti/</id>
+    <published>2021-06-22T00:42:23.000Z</published>
+    <updated>2021-06-22T00:52:14.980Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;实际上是一个非常巧妙的数学问题。&lt;/p&gt;
+&lt;p&gt;从结果上来看， 如果只剩最后一个人（最后的幸存者），那么被杀掉一定是它。那么它的当前号码为1，问其原坐标？思考一下新旧人列的下标关系：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;Old(k+1) : 
+1 2 3 4 5 6 7 --- k + 1 
+New(k)
+4 5 6    m -1 (s) 1 2 3 &lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可能的一种形式，其中s是old被杀掉的人的下标。 且s  = (m - 1 )% (k + 1) + 1&lt;/p&gt;
+&lt;p&gt;但不难发现有： old = (new + s - 1) % (k + 1) + 1&lt;/p&gt;
+&lt;p&gt;综上有逆推式： old =(new + m - 1) % (k + 1) + 1&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>人生的不幸</title>
-    <link href="https://blog.come2rss.xyz/2021/06/19/ren-sheng-de-bu-xing/"/>
-    <id>https://blog.come2rss.xyz/2021/06/19/ren-sheng-de-bu-xing/</id>
+    <link href="https://blog.come2rss.xyz/2021/06/19/sui-tan/ren-sheng-de-bu-xing/"/>
+    <id>https://blog.come2rss.xyz/2021/06/19/sui-tan/ren-sheng-de-bu-xing/</id>
     <published>2021-06-19T03:55:25.000Z</published>
     <updated>2021-06-19T03:56:42.280Z</updated>
     
@@ -33,6 +97,8 @@
       
     
     
+    
+    <category term="随谈" scheme="https://blog.come2rss.xyz/categories/%E9%9A%8F%E8%B0%88/"/>
     
     
   </entry>
@@ -479,62 +545,6 @@
     <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>124. Binary Tree Maximum Path Sum</title>
-    <link href="https://blog.come2rss.xyz/2021/04/19/shua-ti/dp/124-binary-tree-maximum-path-sum/"/>
-    <id>https://blog.come2rss.xyz/2021/04/19/shua-ti/dp/124-binary-tree-maximum-path-sum/</id>
-    <published>2021-04-19T01:01:33.000Z</published>
-    <updated>2021-04-19T01:08:03.839Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;124-Binary-Tree-Maximum-Path-Sum&quot;&gt;&lt;a href=&quot;#124-Binary-Tree-Maximum-Path-Sum&quot; class=&quot;headerlink&quot; title=&quot;124. Binary Tree Maximum Path Sum&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/&quot;&gt;124. Binary Tree Maximum Path Sum&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题有意思在DP。但算不上hard。&lt;/p&gt;
-&lt;p&gt;树上的最大路径之和可以转化为一个节点上的左右子树连起来的路径，而左右路径的最大长度分别可以通过左右子树的路径的一部分求得。考虑到子树路径之和小于0的情况，有当前节点和左右子树路径的最大长度为：&lt;code&gt;DP[i] = max(max(DP[i * 2],0), max(DP[i * 2 + 1],0) + val&lt;/code&gt; 。同时可以求出，当前节点最长路径，&lt;code&gt;pathsum = max(DP[i * 2],0) + max(DP[i * 2 + 1],0) + val&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>42. Trapping Rain Water</title>
-    <link href="https://blog.come2rss.xyz/2021/04/16/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-42-trapping-rain-water/"/>
-    <id>https://blog.come2rss.xyz/2021/04/16/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-42-trapping-rain-water/</id>
-    <published>2021-04-16T09:58:37.000Z</published>
-    <updated>2021-04-16T10:17:05.563Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;42-Trapping-Rain-Water&quot;&gt;&lt;a href=&quot;#42-Trapping-Rain-Water&quot; class=&quot;headerlink&quot; title=&quot;42. Trapping Rain Water&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/trapping-rain-water/&quot;&gt;42. Trapping Rain Water&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这题蛮hard的，挺考验思路；&lt;/p&gt;
-&lt;p&gt;思考一下，下雨的过程，水往低处流，一点一点汇聚起来，逐渐逐渐升高水面。我们是否可以在先求出低水平面的水量，在此之上求出高水平面的水量。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;43234&lt;/code&gt;中就有两个水沟：&lt;code&gt;2&lt;/code&gt;上的&lt;code&gt;1*1&lt;/code&gt;的水沟，和&lt;code&gt;323&lt;/code&gt;上的&lt;code&gt;3*1&lt;/code&gt;水沟。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用这种想法，我们只需要遍历得到一个水平面的右边界，记录该水平面的左边界，获取低水平面的高度，填充下新水平面的水量即可。&lt;/p&gt;
-&lt;p&gt;最小值单调栈&lt;code&gt;S&lt;/code&gt;可以帮助我们维持左边界的&lt;code&gt;pos&lt;/code&gt;，记&lt;code&gt;S&lt;/code&gt;的栈顶元素指向的高度为&lt;code&gt;a&lt;/code&gt;，&lt;code&gt;a&lt;/code&gt;之下的元素指向的高度为&lt;code&gt;b&lt;/code&gt;。其性质必然有&lt;code&gt;a &amp;gt; b&lt;/code&gt;。遍历到高度&lt;code&gt;c&lt;/code&gt;，&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;若&lt;code&gt;c &amp;lt; a&lt;/code&gt;，则对蓄水没有影响。&lt;/li&gt;
-&lt;li&gt;如果&lt;code&gt;c &amp;gt; b&lt;/code&gt;，则三者形成了一个水沟，计算🦁式子见代码，并且该水沟可能可以继续往上“看看”，在适当条件上看看单调栈，循环填充高水位水沟。&lt;/li&gt;
-&lt;li&gt;如果&lt;code&gt;c==a&lt;/code&gt;，则显然应该替换掉&lt;code&gt;a&lt;/code&gt;，因为单调栈维持的是等高水沟的最新端，试想&lt;code&gt;33323&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;经过上述填充过程，单调栈的性质也要维护一下，详细见代码。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    <category term="单调栈
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
     
   </entry>
