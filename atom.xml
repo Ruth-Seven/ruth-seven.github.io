@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-06-26T01:49:09.170Z</updated>
+  <updated>2021-06-28T01:40:48.210Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>删除无序链表的重复数字</title>
+    <link href="https://blog.come2rss.xyz/2021/06/28/shua-ti-shu-ju-jie-gou-lian-biao-shan-chu-wu-xu-lian-biao-de-chong-fu-shu-zi/"/>
+    <id>https://blog.come2rss.xyz/2021/06/28/shua-ti-shu-ju-jie-gou-lian-biao-shan-chu-wu-xu-lian-biao-de-chong-fu-shu-zi/</id>
+    <published>2021-06-28T01:38:58.000Z</published>
+    <updated>2021-06-28T01:40:48.210Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;选择排序+删除连续重复值（结果被排序）&lt;/li&gt;
+&lt;li&gt;选择直接删除重复值&lt;/li&gt;
+&lt;li&gt;hash删除重复值&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>单链表中K节点逆序</title>
@@ -515,28 +541,6 @@ New(k)
 &lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot;</summary>
         
       
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>98. Validate Binary Search Tree</title>
-    <link href="https://blog.come2rss.xyz/2021/04/22/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/98-validate-binary-search-tree/"/>
-    <id>https://blog.come2rss.xyz/2021/04/22/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/98-validate-binary-search-tree/</id>
-    <published>2021-04-22T07:56:21.000Z</published>
-    <updated>2021-04-22T08:03:03.910Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;98-Validate-Binary-Search-Tree&quot;&gt;&lt;a href=&quot;#98-Validate-Binary-Search-Tree&quot; class=&quot;headerlink&quot; title=&quot;98. Validate Binary Search Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/validate-binary-search-tree/&quot;&gt;98. Validate Binary Search Tree&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;不要把二叉树的性质搞错了，是任一个节点的值大于其&lt;strong&gt;所有&lt;/strong&gt;左节点的值，小于等于&lt;strong&gt;所有&lt;/strong&gt;右节点的值，而非左节点。&lt;/p&gt;
-&lt;p&gt;如此直接验证所有节点的是否大于左子树的最大值，小于右子树的最小值即可。&lt;/p&gt;</summary>
     
     
     
