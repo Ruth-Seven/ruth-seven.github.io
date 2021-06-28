@@ -7,4 +7,4 @@ hexo g -d
 echo $*
 git add *
 git commit -m "$*"
-git push origin hexocode
+git push -f origin hexocode
