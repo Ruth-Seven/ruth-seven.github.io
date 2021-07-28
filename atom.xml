@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-07-09T01:37:36.810Z</updated>
+  <updated>2021-07-28T00:19:41.170Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉树中距离为K的节点</title>
+    <link href="https://blog.come2rss.xyz/2021/07/28/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-zhong-ju-chi-wei-k-de-jie-dian/"/>
+    <id>https://blog.come2rss.xyz/2021/07/28/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-zhong-ju-chi-wei-k-de-jie-dian/</id>
+    <published>2021-07-28T00:17:27.000Z</published>
+    <updated>2021-07-28T00:19:41.170Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;这题还是有点点复杂的，距离为K的节点，完全可以分为两类，&lt;code&gt;target&lt;/code&gt;节点构成树的K-dis节点，和其路径经过&lt;code&gt;target&lt;/code&gt;祖父节点的节点。分类搜索即可，考虑到后者需要定点采集，所以用回溯的方式获取。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>7.整数反转</title>
+    <link href="https://blog.come2rss.xyz/2021/07/26/shua-ti-shu-xue-7-zheng-shu-fan-zhuan/"/>
+    <id>https://blog.come2rss.xyz/2021/07/26/shua-ti-shu-xue-7-zheng-shu-fan-zhuan/</id>
+    <published>2021-07-26T14:45:51.000Z</published>
+    <updated>2021-07-26T14:46:39.820Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;7-整数反转&quot;&gt;&lt;a href=&quot;#7-整数反转&quot; class=&quot;headerlink&quot; title=&quot;7. 整数反转&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/reverse-integer/&quot;&gt;7. 整数反转&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;这题还挺有意思的哈哈，反向思维，既然不能用int64。那我就限制好边界。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数学
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>小林家的龙女仆</title>
+    <link href="https://blog.come2rss.xyz/2021/07/19/sui-tan/xiao-lin-jia-de-long-nu-pu/"/>
+    <id>https://blog.come2rss.xyz/2021/07/19/sui-tan/xiao-lin-jia-de-long-nu-pu/</id>
+    <published>2021-07-18T23:42:34.000Z</published>
+    <updated>2021-07-18T23:43:59.740Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;小林家的龙女仆の感动的台词&quot;&gt;&lt;a href=&quot;#小林家的龙女仆の感动的台词&quot; class=&quot;headerlink&quot; title=&quot;小林家的龙女仆の感动的台词&quot;&gt;&lt;/a&gt;小林家的龙女仆の感动的台词&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="随谈" scheme="https://blog.come2rss.xyz/categories/%E9%9A%8F%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树的两个错误节点</title>
+    <link href="https://blog.come2rss.xyz/2021/07/11/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-de-liang-ge-cuo-wu-jie-dian/"/>
+    <id>https://blog.come2rss.xyz/2021/07/11/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-de-liang-ge-cuo-wu-jie-dian/</id>
+    <published>2021-07-11T00:32:34.000Z</published>
+    <updated>2021-07-11T00:33:52.840Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;CD169-找到搜索二叉树中两个错误的节点&quot;&gt;&lt;a href=&quot;#CD169-找到搜索二叉树中两个错误的节点&quot; class=&quot;headerlink&quot; title=&quot;CD169 找到搜索二叉树中两个错误的节点&quot;&gt;&lt;/a&gt;&lt;strong&gt;CD169&lt;/strong&gt; &lt;strong&gt;找到搜索二叉树中两个错误的节点&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;如果两个节点交换，那么在中序遍历里就有至少一次降序，可能有两个相邻的节点交换，或者两个不相邻的节点交换，产生一个或两次降序。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>二叉树累加和的最长路径</title>
@@ -454,98 +533,6 @@ New(k)
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="双指针" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>337. House Robber III</title>
-    <link href="https://blog.come2rss.xyz/2021/04/30/shua-ti/dp/337-house-robber-iii/"/>
-    <id>https://blog.come2rss.xyz/2021/04/30/shua-ti/dp/337-house-robber-iii/</id>
-    <published>2021-04-30T04:28:23.000Z</published>
-    <updated>2021-04-30T04:29:55.597Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;337-House-Robber-III&quot;&gt;&lt;a href=&quot;#337-House-Robber-III&quot; class=&quot;headerlink&quot; title=&quot;337. House Robber III&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/house-robber-iii/&quot;&gt;337. House Robber III&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;这里的dp推错了，尴尬啊。&lt;/p&gt;
-&lt;p&gt;一个简单的树上DP&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>84. Largest Rectangle in Histogram</title>
-    <link href="https://blog.come2rss.xyz/2021/04/30/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-84-largest-rectangle-in-histogram/"/>
-    <id>https://blog.come2rss.xyz/2021/04/30/shua-ti-shu-ju-jie-gou-zhan-he-dui-lie-dan-diao-zhan-84-largest-rectangle-in-histogram/</id>
-    <published>2021-04-30T03:24:11.000Z</published>
-    <updated>2021-04-30T04:30:04.127Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;84-Largest-Rectangle-in-Histogram&quot;&gt;&lt;a href=&quot;#84-Largest-Rectangle-in-Histogram&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    <category term="单调栈
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>96. Unique Binary Search Trees</title>
-    <link href="https://blog.come2rss.xyz/2021/04/29/shua-ti/dp/96-unique-binary-search-trees/"/>
-    <id>https://blog.come2rss.xyz/2021/04/29/shua-ti/dp/96-unique-binary-search-trees/</id>
-    <published>2021-04-29T04:55:37.000Z</published>
-    <updated>2021-04-29T04:58:02.020Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;96-Unique-Binary-Search-Treess&quot;&gt;&lt;a href=&quot;#96-Unique-Binary-Search-Treess&quot; class=&quot;headerlink&quot; title=&quot;96. Unique Binary Search Treess&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees/&quot;&gt;96. Unique Binary Search Trees&lt;/a&gt;s&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;理解，只要数字不重复，子树的形状可能性就与数字具体大小无关。所以可以用DP算出长度为K的子树的可能形状。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>297. Serialize and Deserialize Binary Tree</title>
-    <link href="https://blog.come2rss.xyz/2021/04/26/shua-ti/shu-ju-jie-gou/shu/297-serialize-and-deserialize-binary-tree/"/>
-    <id>https://blog.come2rss.xyz/2021/04/26/shua-ti/shu-ju-jie-gou/shu/297-serialize-and-deserialize-binary-tree/</id>
-    <published>2021-04-26T00:27:55.000Z</published>
-    <updated>2021-04-26T00:34:59.990Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;297-Serialize-and-Deserialize-Binary-Tree&quot;&gt;&lt;a href=&quot;#297-Serialize-and-Deserialize-Binary-Tree&quot; class=&quot;headerlink&quot; title=&quot;297. Serialize and Deserialize Binary Tree&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/&quot;&gt;297. Serialize and Deserialize Binary Tree&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;对于二叉树序列化，leetcode已经给出了很好的示范。思考一下，完整前缀遍历（包括空节点信息）能否构建二叉树？可以，从根到子节点前缀遍历的同时构建二叉树。同理后缀也可以。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
     
     
   </entry>
