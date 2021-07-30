@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>go - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="go generics came here!在 go1.17 beta 已经实现了go 泛型，虽然它现实在一个不稳定的版本，我已经心心念了好久了，毕竟不是每个人都喜欢自己写一遍各种类型的Min   。"><meta property="og:type" content="blog"><meta property="og:title" content="go"><meta property="og:url" content="https://blog.come2rss.xyz/2021/07/30/language/go/generics-in-go/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="go generics came here!在 go1.17 beta 已经实现了go 泛型，虽然它现实在一个不稳定的版本，我已经心心念了好久了，毕竟不是每个人都喜欢自己写一遍各种类型的Min   。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.come2rss.xyz/img/og_image.png"><meta property="article:published_time" content="2021-07-30T01:08:21.000Z"><meta property="article:modified_time" content="2021-07-30T01:09:39.389Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.come2rss.xyz/2021/07/30/language/go/generics-in-go/"},"headline":"Hexo","image":["https://blog.come2rss.xyz/img/og_image.png"],"datePublished":"2021-07-30T01:08:21.000Z","dateModified":"2021-07-30T01:09:39.389Z","author":{"@type":"Person","name":"John Doe"},"description":"go generics came here!在 go1.17 beta 已经实现了go 泛型，虽然它现实在一个不稳定的版本，我已经心心念了好久了，毕竟不是每个人都喜欢自己写一遍各种类型的Min   。"}</script><link rel="canonical" href="https://blog.come2rss.xyz/2021/07/30/language/go/generics-in-go/"><link rel="icon" href="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-07-30T01:08:21.000Z" title="7/30/2021, 9:08:21 AM">2021-07-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-07-30T01:09:39.389Z" title="7/30/2021, 9:09:39 AM">2021-07-30</time></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">go</h1><div class="content"><h1 id="go-generics-came-here"><a href="#go-generics-came-here" class="headerlink" title="go generics came here!"></a>go generics came here!</h1><p>在 go1.17 beta 已经实现了go 泛型，虽然它现实在一个不稳定的版本，我已经心心念了好久了，毕竟不是每个人都喜欢自己写一遍各种类型的<code>Min</code>   。</p>
+<span id="more"></span>
+
+
+
+<p>从 C++起手的老司机应该都忘不了模板的恐怖和复杂之处，作为异常鄙视 C++的 go，一开始并没有急着推出泛型。然而广大人民群众的呼声还是得到了 go 开发者的响应，go 泛型的开发逐步提上日常，测试版本在 1.17 release开放（预计在 2021August），稳定的实现会在 go2 登场！</p>
+<p>但知其然必须知其所以然，为什么我们需要泛型？go 机制中的接口编程不够满足功能吗？go 又能带给我们怎样的编程体验？我们又能 怎么使用 go 呢？这是我们需要考虑的点。</p>
+<h2 id="Interfaces-and-genercs"><a href="#Interfaces-and-genercs" class="headerlink" title="Interfaces and genercs"></a>Interfaces and genercs</h2><p>接口编程作为go 鸭子类型的核心特色，不与类型强制绑定，实现了在静态类型中的动态类型，本质是一种泛型编程的体现。但很明显的，接口编程同时也存在着不少缺点：</p>
+<ul>
+<li><del>动态检查失去了静态类型的速度</del></li>
+<li>需要类型显式地把类型特点以方法的形式表征出来，尤其是把 bulit-in 类型重命名类型，再抽象出公共方法</li>
+<li>难以表现类型之间的组合关系</li>
+</ul>
+<p>举一个🌰：经典 <code>go sort</code>包使用</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">package main
+
+import (
+ &quot;fmt&quot;
+ &quot;sort&quot;
+)
+
+type Person struct &#123;
+ Name string
+ Age  int
+&#125;
+
+func (p Person) String() string &#123;
+ return fmt.Sprintf(&quot;%s: %d&quot;, p.Name, p.Age)
+&#125;
+type ByAge []Person
+
+func (a ByAge) Len() int           &#123; return len(a) &#125;
+func (a ByAge) Swap(i, j int)      &#123; a[i], a[j] &#x3D; a[j], a[i] &#125;
+func (a ByAge) Less(i, j int) bool &#123; return a[i].Age &lt; a[j].Age &#125;
+
+func main() &#123;
+ people :&#x3D; []Person&#123;
+  &#123;&quot;Bob&quot;, 31&#125;,
+  &#123;&quot;John&quot;, 42&#125;,
+  &#123;&quot;Michael&quot;, 17&#125;,
+  &#123;&quot;Jenny&quot;, 26&#125;,
+ &#125;
+
+ fmt.Println(people)
+ sort.Sort(ByAge(people))
+ fmt.Println(people)
+
+ sort.Slice(people, func(i, j int) bool &#123;
+  return people[i].Age &gt; people[j].Age
+ &#125;)
+ fmt.Println(people)
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>为了排序<code>slice of people</code>不得不定义一个<code>byage</code>slice同时声明匹配的方法。这里接口编程体现他的强大，接口类型再套一个接口可以现实<code>adaper</code>模式，增加扩展性。但同时，可以窥见，任何一个基础类型的排序都需要重新实现一遍上面的接口，当然标准库也是这么实现的。</p>
+<blockquote>
+<p>悄咪咪看了下1.17，sort 并没有改动，这就叫向后兼容啊！</p>
+</blockquote>
+<p>熟悉 C++的朋友，都知道用 C++使用模板实现了排序模板算法，对自定义数据集通过重载运算符来获取<code>&lt;</code> 关系。那 go 如果用模板会怎么处理？</p>
+<h2 id="What-go-can-bring-to-go？"><a href="#What-go-can-bring-to-go？" class="headerlink" title="What go can bring to go？"></a>What go can bring to go？</h2><p>go 的设计者对 go的 泛型要求很高：</p>
+<ul>
+<li>简单清晰易懂。</li>
+<li>把对泛型使用的复杂度交给设计代码者，使用代码的用户是感受不到泛型代码带来的差异。这一点，和 C++的模板方法类似，C++模板方法会进行类型推导，但是 C++的模板类是需要强制选取类型的。</li>
+<li>使用泛型可以设计出丰富的<code>generic datastruct</code>。 虽然我们内置的<code>sclice</code>和<code>map</code>也是泛型的，但内部实现原理不同。</li>
+<li>用静态类型<code>genenric data</code>取代一部分接口</li>
+</ul>
+<h2 id="Draft-design"><a href="#Draft-design" class="headerlink" title="Draft design"></a>Draft design</h2><p>泛型编程重要是对可选类型做出一个约束，比如说大家都有同一个方法，同一个属性，同一个可执行的“动作”，比如赋值。</p>
+<p>比如：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">&#x2F;&#x2F; Element 必须可赋值
+func Reverse (type Element) (s []Element) &#123;
+    first :&#x3D; 0
+    last :&#x3D; len(s) - 1
+    for first &lt; last &#123;
+        s[first], s[last] &#x3D; s[last], s[first]
+        first++
+        last--
+    &#125;
+&#125;
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>go 语法规定<code>contract</code>可以说明 类型的上述“特点”</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">contract Sequence(T) &#123; &#x2F;&#x2F; 规定可选类型
+    T string, []byte
+&#125;
+ 
+func Min (type T Ordered) (a, b T) T &#123;  &#x2F;&#x2F; Ordered（明示元素可用&#96;&lt;&#96;比较） 是预定的contract
+    if a &lt; b &#123;
+        return a
+    &#125;
+    return b
+&#125;
+ 
+
+contract Stringer(T) &#123; &#x2F;&#x2F; 规定方法
+    T String() string
+&#125;
+func ToStrings (type E Stringer) (s []E) []string &#123;
+    r :&#x3D; make([]string, len(s))
+    for i, v :&#x3D; range s &#123;
+        r[i] &#x3D; v.String()
+    &#125;
+    return r
+&#125;
+ 
+contract G(Node, Edge) &#123; &#x2F;&#x2F; 规定类型组合关系
+    Node Edges() []Edge
+    Edge Nodes() (from Node, to Node)
+&#125;
+func New (type Node, Edge G) (nodes []Node) *Graph(Node, Edge) &#123;
+    ...
+&#125;
+
+func (g *Graph(Node, Edge)) ShortestPath(from, to Node) []Edge &#123;
+    ...
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于类泛型编程</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">type Tree (type E) struct &#123;
+    root    *node(E)
+    compare func(E, E) int
+&#125;
+
+type node (type E) struct &#123;
+    val         E
+    left, right *node(E)
+&#125;
+
+func New (type E) (cmp func(E, E) int) *Tree(E) &#123;
+    return &amp;Tree(E)&#123;compare: cmp&#125;
+&#125;
+
+
+func (t *Tree(E)) find(v E) **node(E) &#123;
+    pn :&#x3D; &amp;t.root
+    for *pn !&#x3D; nil &#123;
+        switch cmp :&#x3D; t.compare(v, (*pn).val); &#123;
+        case cmp &lt; 0:
+            pn &#x3D; &amp;(*pn).left
+        case cmp &gt; 0:
+            pn &#x3D; &amp;(*pn).right
+        default:
+            return pn
+        &#125;
+    &#125;
+    return pn
+&#125;
+
+
+func (t *Tree(E)) Contains(v E) bool &#123;
+    return *t.find(e) !&#x3D; nil
+&#125;
+ 
+func (t *Tree(E)) Insert(v E) bool &#123;
+    pn :&#x3D; t.find(v)
+    if *pn !&#x3D; nil &#123;
+        return false
+    &#125;
+    *pn &#x3D; &amp;node(E)&#123;val: v&#125;
+    return true
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对应的用户编程，与非泛型编程无异：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">var intTree &#x3D; tree.New(func(a, b int) int &#123; return a - b &#125;)
+
+func InsertAndCheck(v int) &#123;
+    intTree.Insert(v)
+    if !intTree.Contains(v) &#123;
+        log.Fatalf(&quot;%d not found after insertion&quot;, v)
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>遗憾的是，已经将至 2021.8，go generic 还是没有released。我没有进行更多深入了解了。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a target="_blank" rel="noopener" href="https://blog.golang.org/why-generics">Why generic?</a></p>
+<p><a target="_blank" rel="noopener" href="https://bitfieldconsulting.com/golang/generics">Generics in Go</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/generics-in-golang/">Generics in Go Explained with Code Examples</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/golang/proposal/blob/master/design/go2draft-contracts.md">Contracts — Draft Design</a></p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/07/29/shua-ti/shu-ju-jie-gou/shu/zhi-zi-xing-biao-ji/"><span class="level-item">之字形标记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "0531941f90ae89571e1a4fa0ec7f004b",
+            repo: "ruth-seven.github.io",
+            owner: "Ruth-Seven",
+            clientID: "7619495a20b0da44c1f9",
+            clientSecret: "fd46915bc0eebf91e65f953e99fbff5946e2dd56",
+            admin: ["Ruth-Seven"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: "last",
+            
+            
+            enableHotKey: true,
+            
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://www.gravatar.com/avatar/bb21d7a24ceb583d6a4ff5f605db9b75?s=128" alt="Ove"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Ove</p><p class="is-size-6 is-block">早日实现车厘子自由</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">288</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">53</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Ruth-Seven" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ruth-Seven"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="知乎" href="https://www.zhihu.com/people/ddd-37-43"><i class="http://static.come2rss.xyz/zhihu.png"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-07-30T01:08:21.000Z">2021-07-30</time></p><p class="title"><a href="/2021/07/30/language/go/generics-in-go/">go</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/29/shua-ti/shu-ju-jie-gou/shu/zhi-zi-xing-biao-ji/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="之字形标记"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-28T23:39:40.000Z">2021-07-29</time></p><p class="title"><a href="/2021/07/29/shua-ti/shu-ju-jie-gou/shu/zhi-zi-xing-biao-ji/">之字形标记</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/">树</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/28/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-zhong-ju-chi-wei-k-de-jie-dian/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="二叉树中距离为K的节点"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-28T00:17:27.000Z">2021-07-28</time></p><p class="title"><a href="/2021/07/28/shua-ti/shu-ju-jie-gou/shu/er-cha-shu-zhong-ju-chi-wei-k-de-jie-dian/">二叉树中距离为K的节点</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/">树</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/26/shua-ti-shu-xue-7-zheng-shu-fan-zhuan/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="7.整数反转"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-26T14:45:51.000Z">2021-07-26</time></p><p class="title"><a href="/2021/07/26/shua-ti-shu-xue-7-zheng-shu-fan-zhuan/">7.整数反转</a></p><p class="categories"><a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a> / <a href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/">数学
+</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2021/07/19/sui-tan/xiao-lin-jia-de-long-nu-pu/"><img src="http://static.come2rss.xyz/尼尔机械.jpg" alt="小林家的龙女仆"></a></figure><div class="media-content"><p class="date"><time dateTime="2021-07-18T23:42:34.000Z">2021-07-19</time></p><p class="title"><a href="/2021/07/19/sui-tan/xiao-lin-jia-de-long-nu-pu/">小林家的龙女仆</a></p><p class="categories"><a href="/categories/%E9%9A%8F%E8%B0%88/">随谈</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">July 2021</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">June 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">May 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">53</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">December 2020</span></span><span class="level-end"><span class="level-item tag">34</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">October 2020</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">August 2020</span></span><span class="level-end"><span class="level-item tag">78</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/bugs/"><span class="tag">bugs</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8D%E6%80%9D/"><span class="tag">反思</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/"><span class="tag">总结</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%98%E8%85%BE/"><span class="tag">折腾</span><span class="tag">9</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/DL/"><span class="level-start"><span class="level-item">DL</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/CS/"><span class="level-start"><span class="level-item">CS</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/CS/Algorithms/"><span class="level-start"><span class="level-item">Algorithms</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CN/"><span class="level-start"><span class="level-item">CN</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/CSAPP/"><span class="level-start"><span class="level-item">CSAPP</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DB/"><span class="level-start"><span class="level-item">DB</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/CS/DS/"><span class="level-start"><span class="level-item">DS</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Code-tools/"><span class="level-start"><span class="level-item">Code tools</span></span><span class="level-end"><span class="level-item tag">21</span></span></a><ul><li><a class="level is-mobile" href="/categories/Code-tools/Anki/"><span class="level-start"><span class="level-item">Anki</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Blog/"><span class="level-start"><span class="level-item">Blog</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/VScode/"><span class="level-start"><span class="level-item">VScode</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Code-tools/build/"><span class="level-start"><span class="level-item">build</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Language/"><span class="level-start"><span class="level-item">Language</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Language/C/"><span class="level-start"><span class="level-item">C++</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Go/"><span class="level-start"><span class="level-item">Go</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Language/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/"><span class="level-start"><span class="level-item">刷题</span></span><span class="level-end"><span class="level-item tag">223</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/DP/"><span class="level-start"><span class="level-item">DP</span></span><span class="level-end"><span class="level-item tag">39</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">~其他code能力</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"><span class="level-start"><span class="level-item">代码规范
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96code%E8%83%BD%E5%8A%9B/%E6%B2%9F%E9%80%9A%E8%83%BD%E5%8A%9B/"><span class="level-start"><span class="level-item">沟通能力
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"><span class="level-start"><span class="level-item">位运算
+</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">33</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%85%B6%E4%BB%96/%E6%89%AB%E6%8F%8F%E7%BA%BF/"><span class="level-start"><span class="level-item">扫描线
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%88%86%E6%B2%BB/"><span class="level-start"><span class="level-item">分治
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="level-start"><span class="level-item">双指针</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="level-start"><span class="level-item">字符串</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%8E%92%E5%BA%8F/"><span class="level-start"><span class="level-item">排序
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">搜索</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/bfs/"><span class="level-start"><span class="level-item">bfs
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/dfs/"><span class="level-start"><span class="level-item">dfs
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E4%BA%8C%E5%88%86/"><span class="level-start"><span class="level-item">二分
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"><span class="level-start"><span class="level-item">回溯
+</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/"><span class="level-start"><span class="level-item">记忆化搜索
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E5%AD%A6/"><span class="level-start"><span class="level-item">数学
+</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">数据结构</span></span><span class="level-end"><span class="level-item tag">55</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/set/"><span class="level-start"><span class="level-item">set
+</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">优先队列
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C/"><span class="level-start"><span class="level-item">哈希</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"><span class="level-start"><span class="level-item">图
+</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/"><span class="level-start"><span class="level-item">堆
+</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="level-start"><span class="level-item">复杂数据结构</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"><span class="level-start"><span class="level-item">栈和队列</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88/"><span class="level-start"><span class="level-item">单调栈
+</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"><span class="level-start"><span class="level-item">树</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"><span class="level-start"><span class="level-item">链表
+</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E6%A8%A1%E6%8B%9F/"><span class="level-start"><span class="level-item">模拟
+</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%B7%E9%A2%98/%E8%B4%AA%E5%BF%83/"><span class="level-start"><span class="level-item">贪心
+</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%9A%8F%E8%B0%88/"><span class="level-start"><span class="level-item">随谈</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://static.come2rss.xyz/%E9%92%A2%E9%93%81%E4%BE%A0.png" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
