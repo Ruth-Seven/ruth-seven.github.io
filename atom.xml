@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-07-28T23:42:12.140Z</updated>
+  <updated>2021-07-30T01:09:39.389Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>go</title>
+    <link href="https://blog.come2rss.xyz/2021/07/30/language/go/generics-in-go/"/>
+    <id>https://blog.come2rss.xyz/2021/07/30/language/go/generics-in-go/</id>
+    <published>2021-07-30T01:08:21.000Z</published>
+    <updated>2021-07-30T01:09:39.389Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;go-generics-came-here&quot;&gt;&lt;a href=&quot;#go-generics-came-here&quot; class=&quot;headerlink&quot; title=&quot;go generics came here!&quot;&gt;&lt;/a&gt;go generics came here!&lt;/h1&gt;&lt;p&gt;在 go1.17 beta 已经实现了go 泛型，虽然它现实在一个不稳定的版本，我已经心心念了好久了，毕竟不是每个人都喜欢自己写一遍各种类型的&lt;code&gt;Min&lt;/code&gt;   。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>之字形标记</title>
@@ -496,34 +511,6 @@ New(k)
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>cmake学习索引</title>
-    <link href="https://blog.come2rss.xyz/2021/05/04/code-tools/build/cmake-xue-xi-suo-yin/"/>
-    <id>https://blog.come2rss.xyz/2021/05/04/code-tools/build/cmake-xue-xi-suo-yin/</id>
-    <published>2021-05-03T16:09:43.000Z</published>
-    <updated>2021-05-03T16:16:41.760Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Cmake笔记&quot;&gt;&lt;a href=&quot;#Cmake笔记&quot; class=&quot;headerlink&quot; title=&quot;Cmake笔记&quot;&gt;&lt;/a&gt;Cmake笔记&lt;/h1&gt;&lt;p&gt;Cmake是跨系统，C++现行标准构建标准的build system of build system`.&lt;/p&gt;
-&lt;p&gt;比较好的学习资源如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://internalpointers.com/post/modern-cmake-beginner-introduction&quot;&gt;understand Cmake&lt;/a&gt; ✅: 一个简单的接受&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;cmake official web&lt;/a&gt; ： 对各个命令有最详细的解释，当字典用&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b&quot;&gt;Cmake Tutorial&lt;/a&gt;: 💖从零基础解释CMake基础概念，看完这个再看官方教程就很简单了&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://cmake.org/cmake/help/latest/guide/tutorial/index.html&quot;&gt;cmake tutorial&lt;/a&gt; ✅ ：跟着做比较有意思，可以多多尝试，就是有点花时间。后面部分内容可以看看&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://cliutils.gitlab.io/modern-cmake/chapters/intro/newcmake.html&quot;&gt;Cmake Detailed tutorial&lt;/a&gt; ✅: 最详细，有很多项目经验&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;看完了，直接上手项目或者看其他开源项目如何管理也是有点启发滴。当然对照着一个真实项目学习Cmake也有点帮助。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Code tools" scheme="https://blog.come2rss.xyz/categories/Code-tools/"/>
-    
-    <category term="build" scheme="https://blog.come2rss.xyz/categories/Code-tools/build/"/>
     
     
   </entry>
