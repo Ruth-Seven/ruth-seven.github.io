@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-08-05T13:00:52.910Z</updated>
+  <updated>2021-08-23T01:10:32.640Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Write a diff command</title>
+    <link href="https://blog.come2rss.xyz/2021/08/23/sui-tan/write-a-diff-command/"/>
+    <id>https://blog.come2rss.xyz/2021/08/23/sui-tan/write-a-diff-command/</id>
+    <published>2021-08-23T01:09:54.000Z</published>
+    <updated>2021-08-23T01:10:32.640Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写一个简单的diff&quot;&gt;&lt;a href=&quot;#写一个简单的diff&quot; class=&quot;headerlink&quot; title=&quot;写一个简单的diff&quot;&gt;&lt;/a&gt;写一个简单的&lt;code&gt;diff&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;晚上在看酷壳的 rsync 核心算法，突然感受到算法光芒的笼罩之中，突然想起之前很好奇的一个问题，&lt;code&gt;diff&lt;/code&gt;是怎么实现的？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随谈" scheme="https://blog.come2rss.xyz/categories/%E9%9A%8F%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>安全状态</title>
@@ -472,30 +489,6 @@ New(k)
     <summary type="html">&lt;h2 id=&quot;割点算法Tarjan&quot;&gt;&lt;a href=&quot;#割点算法Tarjan&quot; class=&quot;headerlink&quot; title=&quot;割点算法Tarjan&quot;&gt;&lt;/a&gt;割点算法Tarjan&lt;/h2&gt;&lt;p&gt;割点算法 引入了建立在DFS生成树的遍历节点的时间戳概念，如果一个节点&lt;code&gt;u&lt;/code&gt;的子节点&lt;code&gt;v&lt;/code&gt;可以找到一条不经过&lt;code&gt;u&lt;/code&gt;以外的路径到达&lt;code&gt;u&lt;/code&gt;的祖先，那么显然有一条通路可以回到&lt;code&gt;u&lt;/code&gt;的祖先。反之，如果存在&lt;code&gt;v&lt;/code&gt;找不到这么一条路径回到&lt;code&gt;u&lt;/code&gt;的祖先，那么显然&lt;code&gt;u&lt;/code&gt;是一个割点，他分割了&lt;code&gt;v&lt;/code&gt;所在的子树和其他子树（如果&lt;code&gt;u&lt;/code&gt;不是根的话，包括祖先所在子树）。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://static.come2rss.xyz/image-20210509113600747.png&quot; alt=&quot;image-20210509113600747&quot;&gt;&lt;/p&gt;
 &lt;p&gt;那么一个割点有多少子树呢？&lt;br&gt;首先，一个割点的对应的&lt;code&gt;v&lt;/code&gt;是独立在各个子树的吗？是的，如果存在&lt;code&gt;v1&lt;/code&gt;和&lt;code&gt;v2&lt;/code&gt;都找到路径，且在一个子树中，那么必然有&lt;code&gt;v1&lt;/code&gt;可以通过&lt;code&gt;v2&lt;/code&gt;找到&lt;code&gt;u&lt;/code&gt;，那么在DFS搜索的时候，必定会一次遍历&lt;code&gt;v1&lt;/code&gt;和&lt;code&gt;v2&lt;/code&gt;。所以每个割点对应的子树只会搜索到一个&lt;code&gt;v&lt;/code&gt;。&lt;br&gt;扩展一下， 那么经过去掉割点的图最多有几个连通块？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="图
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>847. 访问所有节点的最短路径</title>
-    <link href="https://blog.come2rss.xyz/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/"/>
-    <id>https://blog.come2rss.xyz/2021/05/08/shua-ti-shu-ju-jie-gou-tu-847-fang-wen-suo-you-jie-dian-de-zui-duan-lu-jing/</id>
-    <published>2021-05-08T09:02:09.000Z</published>
-    <updated>2021-05-08T09:04:58.030Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;847-访问所有节点的最短路径&quot;&gt;&lt;a href=&quot;#847-访问所有节点的最短路径&quot; class=&quot;headerlink&quot; title=&quot;847. 访问所有节点的最短路径&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes/&quot;&gt;847. 访问所有节点的最短路径&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;旅行商问题~真难！&lt;/p&gt;
-&lt;h3 id=&quot;DFS搜索&quot;&gt;&lt;a href=&quot;#DFS搜索&quot; class=&quot;headerlink&quot; title=&quot;DFS搜索&quot;&gt;&lt;/a&gt;DFS搜索&lt;/h3&gt;&lt;p&gt;dfs搜索回溯貌似可行，但是没有明确的停止条件&lt;/p&gt;
-&lt;h3 id=&quot;BFS搜索&quot;&gt;&lt;a href=&quot;#BFS搜索&quot; class=&quot;headerlink&quot; title=&quot;BFS搜索&quot;&gt;&lt;/a&gt;BFS搜索&lt;/h3&gt;&lt;p&gt;bfs搜索状态&lt;code&gt;state(cover, head)&lt;/code&gt;可行。其中&lt;code&gt;cover&lt;/code&gt;用位状态表示搜索过的节点的集合，&lt;code&gt;head&lt;/code&gt;表示当前遍历的头结点。搜索的更新的&lt;code&gt;new cover = cover | 1 &amp;lt;&amp;lt; newhead&lt;/code&gt;。&lt;/p&gt;</summary>
     
     
     
