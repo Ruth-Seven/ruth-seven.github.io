@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-09-14T00:15:36.649Z</updated>
+  <updated>2021-09-17T01:00:14.114Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>单词搜索</title>
+    <link href="https://blog.come2rss.xyz/2021/09/17/shua-ti/shu-ju-jie-gou/shu/dan-ci-sou-suo/"/>
+    <id>https://blog.come2rss.xyz/2021/09/17/shua-ti/shu-ju-jie-gou/shu/dan-ci-sou-suo/</id>
+    <published>2021-09-17T00:59:14.000Z</published>
+    <updated>2021-09-17T01:00:14.114Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;212-单词搜索-II&quot;&gt;&lt;a href=&quot;#212-单词搜索-II&quot; class=&quot;headerlink&quot; title=&quot;212. 单词搜索 II&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/word-search-ii/&quot;&gt;212. 单词搜索 II&lt;/a&gt;&lt;/h4&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;虽然明明知道硬写一定会，超时，但还是写了一个。&lt;/p&gt;
+&lt;p&gt;超时后考虑什么优化：自然想到了字典树。不过没有想透彻：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;用字典树构造&lt;code&gt;dfs&lt;/code&gt;遍历的路径，❌ :&lt;code&gt;dfs&lt;/code&gt;搜索的路径不需要被查询，因为只出现一次&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;正确做法：用字典树存储所有&lt;code&gt;words&lt;/code&gt;，方便查询。或者进一步的，在&lt;code&gt;dfs&lt;/code&gt;过程中，可以直接用字典树进行搜索剪枝。&lt;/p&gt;
+&lt;p&gt;Orz&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="树" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>600. 不含连续1的非负整数</title>
@@ -463,37 +492,6 @@ New(k)
     <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
     
     <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>二分图匹配</title>
-    <link href="https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/"/>
-    <id>https://blog.come2rss.xyz/2021/05/09/shua-ti-shu-ju-jie-gou-tu-er-fen-tu-pi-pei/</id>
-    <published>2021-05-09T05:03:11.000Z</published>
-    <updated>2021-05-09T06:03:00.086Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;二分图匹配&quot;&gt;&lt;a href=&quot;#二分图匹配&quot; class=&quot;headerlink&quot; title=&quot;二分图匹配&quot;&gt;&lt;/a&gt;二分图匹配&lt;/h1&gt;&lt;p&gt;二分图匹配是个经典问题——两组节点在图上尽可能的匹配。&lt;/p&gt;
-&lt;p&gt;匈牙利算法以不断寻找增光路的方式，寻找更多的匹配;&lt;/p&gt;
-&lt;p&gt;思想如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;从未匹配的点&lt;code&gt;c&lt;/code&gt;开始寻找链接的点&lt;code&gt;v&lt;/code&gt;，如果&lt;code&gt;v&lt;/code&gt;也是未匹配，则匹配成功。如果该点已经匹配了&lt;code&gt;u&lt;/code&gt;，则递归尝试让&lt;code&gt;u&lt;/code&gt;匹配其他节点。&lt;/li&gt;
-&lt;li&gt;如果&lt;code&gt;v&lt;/code&gt;匹配失败，那就找找&lt;code&gt;c&lt;/code&gt;的其他点。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/circle/article/SCLpQf/&quot;&gt;题解参考&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="图
-" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
     
     
   </entry>
