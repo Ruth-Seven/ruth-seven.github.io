@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-09-17T01:00:14.114Z</updated>
+  <updated>2021-09-23T01:15:00.860Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k个一组翻转链表</title>
+    <link href="https://blog.come2rss.xyz/2021/09/23/shua-ti-shu-ju-jie-gou-lian-biao-k-ge-yi-zu-fan-zhuan-lian-biao/"/>
+    <id>https://blog.come2rss.xyz/2021/09/23/shua-ti-shu-ju-jie-gou-lian-biao-k-ge-yi-zu-fan-zhuan-lian-biao/</id>
+    <published>2021-09-23T01:11:51.000Z</published>
+    <updated>2021-09-23T01:15:00.860Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;25-K-个一组翻转链表&quot;&gt;&lt;a href=&quot;#25-K-个一组翻转链表&quot; class=&quot;headerlink&quot; title=&quot;25. K 个一组翻转链表&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/reverse-nodes-in-k-group/&quot;&gt;25. K 个一组翻转链表&lt;/a&gt;&lt;/h4&gt;&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;添加伪头节点，减少复杂度&lt;/p&gt;
+&lt;p&gt;提交之前模拟运行&lt;/p&gt;
+&lt;p&gt;多种控制条件选择最简单的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>单词搜索</title>
@@ -456,42 +480,6 @@ New(k)
     <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面试题 17.24. 最大子矩阵</title>
-    <link href="https://blog.come2rss.xyz/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/"/>
-    <id>https://blog.come2rss.xyz/2021/05/10/shua-ti/dp/mian-shi-ti-17-24-zui-da-zi-ju-zhen/</id>
-    <published>2021-05-10T01:36:53.000Z</published>
-    <updated>2021-05-26T01:21:56.010Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;面试题-17-24-最大子矩阵&quot;&gt;&lt;a href=&quot;#面试题-17-24-最大子矩阵&quot; class=&quot;headerlink&quot; title=&quot;面试题 17.24. 最大子矩阵&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/max-submatrix-lcci/&quot;&gt;面试题 17.24. 最大子矩阵&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;思路：&quot;&gt;&lt;a href=&quot;#思路：&quot; class=&quot;headerlink&quot; title=&quot;思路：&quot;&gt;&lt;/a&gt;思路：&lt;/h2&gt;&lt;p&gt;本题是最大连续子数组的二维follow up.&lt;/p&gt;
-&lt;p&gt;一维情况下，可以直接使用多种算法求解：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;累加数组+二维搜索左右边界， $O(N^2)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;二维搜索左右边界同时累加数字，$O(N^2)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;分治算法，把问题&lt;code&gt;maxarr(i, j)&lt;/code&gt;分解为&lt;code&gt;maxarr(i, mid)&lt;/code&gt;和&lt;code&gt;maxarr(mid + 1, j)&lt;/code&gt;。其中子数组可能在左右两端数组中或者横跨两个段，所以从中间向两边搜索最大连续数组和&lt;code&gt;Sum1&lt;/code&gt;，如此解决了一个基本问题，并且递归的将小问题解决，获取总的问题的解。$O(NLogN)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;线段树做法，同样也是分治的思想，但是考虑的更多。&lt;code&gt;maxarr(i, j)&lt;/code&gt;分解为&lt;code&gt;maxarr(i, mid)&lt;/code&gt;和&lt;code&gt;maxarr(mid + 1, j)&lt;/code&gt;。基本问题是&lt;code&gt;arr(i, j)&lt;/code&gt;中的&lt;code&gt;suml&lt;/code&gt;，&lt;code&gt;sumr&lt;/code&gt;, &lt;code&gt;sumi&lt;/code&gt;和&lt;code&gt;summ&lt;/code&gt;，分别代表从左边开始的子数组的和，从右边开始的子数组的和，在中间扩展的子数组的和，和整个数组的和。而我们要大问题的&lt;code&gt;sumi&lt;/code&gt;就是所要求的值，巧妙的地方在于问题的分解，&lt;code&gt;sumi&lt;/code&gt;可以就是子数组的&lt;code&gt;sumi&lt;/code&gt;和左子段的&lt;code&gt;sumr&lt;/code&gt;与右子段的&lt;code&gt;suml&lt;/code&gt;之和最大值。其他同理。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;DP做法，以&lt;code&gt;dp[i]&lt;/code&gt;为&lt;code&gt;arr[i]&lt;/code&gt;为结尾的和最大的连续子数组的和。状态更新方程为&lt;br&gt;$$&lt;br&gt;dp[i] = max(dp[i - 1] + arr[i], arr[i])&lt;br&gt;$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;这很有趣，实际上就是舍弃掉可能为负数的&lt;code&gt;dp[i - 1]&lt;/code&gt;， 另外在舍弃时也可以记录下数组起点。更进一步的观察，空间可以优化到&lt;code&gt;O(1)&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;二维情况下，虽然非常相似，但是解法一时想不到直接扩展到二维。但是问题可以化解为一维。&lt;/p&gt;
-&lt;p&gt;在确定了矩阵行数据，或者首先遍历矩阵的上下界后，顺道求出该矩阵的在各各列的和。之后便可以用一维的做法求出连续列的最大和。&lt;/p&gt;
-&lt;p&gt;复杂$O(N^3)$。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="DP" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/DP/"/>
     
     
   </entry>
