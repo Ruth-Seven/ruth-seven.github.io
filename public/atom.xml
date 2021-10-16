@@ -6,7 +6,7 @@
   <link href="https://blog.come2rss.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.come2rss.xyz/"/>
-  <updated>2021-09-23T01:19:58.570Z</updated>
+  <updated>2021-10-16T12:34:49.850Z</updated>
   <id>https://blog.come2rss.xyz/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【hard】给表达式添加运算符</title>
+    <link href="https://blog.come2rss.xyz/2021/10/16/shua-ti-sou-suo-hui-su-gei-biao-da-shi-tian-jia-yun-suan-fu/"/>
+    <id>https://blog.come2rss.xyz/2021/10/16/shua-ti-sou-suo-hui-su-gei-biao-da-shi-tian-jia-yun-suan-fu/</id>
+    <published>2021-10-16T12:34:02.000Z</published>
+    <updated>2021-10-16T12:34:49.850Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;282-给表达式添加运算符&quot;&gt;&lt;a href=&quot;#282-给表达式添加运算符&quot; class=&quot;headerlink&quot; title=&quot;282. 给表达式添加运算符&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/expression-add-operators/&quot;&gt;282. 给表达式添加运算符&lt;/a&gt;&lt;/h4&gt;</summary>
+    
+    
+    
+    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="搜索" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/"/>
+    
+    <category term="回溯
+" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%90%9C%E7%B4%A2/%E5%9B%9E%E6%BA%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>z字变换</title>
@@ -450,27 +472,6 @@ New(k)
     
     <category term="位运算
 " scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最大值减去最小值小于或等于num的子数组数量</title>
-    <link href="https://blog.come2rss.xyz/2021/06/17/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/zui-da-zhi-jian-qu-zui-xiao-zhi-xiao-yu-huo-deng-yu-num-de-zi-shu-zu-shu-liang/"/>
-    <id>https://blog.come2rss.xyz/2021/06/17/shua-ti/shu-ju-jie-gou/zhan-he-dui-lie/zui-da-zhi-jian-qu-zui-xiao-zhi-xiao-yu-huo-deng-yu-num-de-zi-shu-zu-shu-liang/</id>
-    <published>2021-06-17T00:45:14.000Z</published>
-    <updated>2021-06-17T00:45:49.260Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;最大值减去最小值小于或等于num的子数组数量&quot;&gt;&lt;a href=&quot;#最大值减去最小值小于或等于num的子数组数量&quot; class=&quot;headerlink&quot; title=&quot;最大值减去最小值小于或等于num的子数组数量&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/5fe02eb175974e18b9a546812a17428e?tpId=101&amp;&amp;tqId=33086&amp;rp=1&amp;ru=/ta/programmer-code-interview-guide&amp;qru=/ta/programmer-code-interview-guide/question-ranking&quot;&gt;最大值减去最小值小于或等于num的子数组数量&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;超级复合怪&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="数据结构" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="栈和队列" scheme="https://blog.come2rss.xyz/categories/%E5%88%B7%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
     
     
   </entry>
